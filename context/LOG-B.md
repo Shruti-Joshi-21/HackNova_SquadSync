@@ -4,6 +4,25 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### B4: API routes (2026-10-24, Aarya's laptop, branch `aarya-branch`)
+
+- `GET /api/teams` -> TeamListItem[] for nexus, atlas, orbit, zenith. Sorted
+  worst verdict first, then most risks. About 0.15 s.
+- `GET /api/analyze/[teamId]?asOf=` -> Analysis. asOf takes `YYYY-MM-DD` (end of
+  that day, never past the data) or a full ISO time. About 0.06 s.
+- Errors are JSON `{ "error": "..." }`: 404 unknown team, 400 for a bad date or
+  a date outside project start to the snapshot's asOf, 500 if analysis throws.
+- Tested against `next start`: all of the above return the right status.
+  Replay: `?asOf=2026-10-10` gives nexus "slipping" with 2 risks.
+- `npm run lint` and `npm run build` pass. Both routes are dynamic (no caching).
+
+B4 decisions:
+- Snapshots are imported as JSON through `data/snapshots/index.ts`
+  (`SNAPSHOTS`, `getSnapshot`) instead of read with fs. Imported JSON is always
+  bundled into the serverless function on Vercel; fs reads of data/ need extra
+  file-tracing config. Still stateless: nothing is cached or written.
+- Routes import the engine as `@/engine` and data by relative path.
+
 ### B3: conflict radar and scenes (2026-10-24, Aarya's laptop, branch `aarya-branch`)
 
 New: `src/engine/radar.ts`, `src/engine/scenes.ts`. analyze() now merges rule
@@ -127,7 +146,8 @@ Nothing.
 
 ## Next
 
-B4: API routes `/api/teams` and `/api/analyze/[teamId]?asOf=`.
+B5: GitHub ingest (`POST /api/analyze/github`). Needs `GITHUB_TOKEN` in
+`.env.local` on this laptop and in Vercel.
 
 ## Needs from others
 
