@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { XIcon } from "@primer/octicons-react";
 import type { Analysis, Risk } from "@/lib/types";
 import GitGraph from "@/components/GitGraph";
@@ -9,6 +9,7 @@ import { CONFIDENCE_WORD, SEVERITY, Tag } from "@/components/ui";
 // Risks list. Clicking a row opens the evidence drawer from the right.
 export default function Risks({ a }: { a: Analysis }) {
   const [openId, setOpenId] = useState<string | null>(null);
+  const close = useCallback(() => setOpenId(null), []); // stable, so the drawer's focus effect runs once
   const open = a.risks.find((r) => r.id === openId) ?? null;
   const names = new Map(a.team.people.map((p) => [p.id, p.displayName]));
   const colors = Object.fromEntries(a.team.people.map((p) => [p.id, p.colorIndex]));
@@ -41,7 +42,7 @@ export default function Risks({ a }: { a: Analysis }) {
         </ul>
       )}
 
-      {open && <EvidenceDrawer risk={open} names={names} colors={colors} onClose={() => setOpenId(null)} />}
+      {open && <EvidenceDrawer risk={open} names={names} colors={colors} onClose={close} />}
     </section>
   );
 }
@@ -59,11 +60,16 @@ function EvidenceDrawer({
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
+  // Focus the drawer on open; on close, give focus back to the row that opened it.
   useEffect(() => {
+    const opener = document.activeElement as HTMLElement | null;
     ref.current?.focus();
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      opener?.focus();
+    };
   }, [onClose, risk.id]);
 
   return (

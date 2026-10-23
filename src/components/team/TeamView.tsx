@@ -104,6 +104,9 @@ export default function TeamView({ id }: { id: string }) {
     );
 
   const latest = state.a;
+  // Replay needs ?asOf= on GET /api/analyze/[id], which only the sample teams have.
+  // Pasted repos get ids starting "gh-" from B5's ingest.
+  const canReplay = !id.startsWith("gh-");
   const replayReady = marker !== null && replay?.day === marker && replay.a;
   const replayPending = marker !== null && replay?.day !== marker;
   const a = replayReady ? replay.a! : latest;
@@ -141,6 +144,7 @@ export default function TeamView({ id }: { id: string }) {
       <TeamBody
         a={a}
         replay={
+          canReplay && (
           <div>
             <ReplayStrip latest={latest} value={marker} onChange={setMarker} />
             {replayPending && <p className="text-xs text-muted">Loading that day.</p>}
@@ -148,6 +152,7 @@ export default function TeamView({ id }: { id: string }) {
               <p className="text-xs text-danger">{replay.error}</p>
             )}
           </div>
+          )
         }
       />
     </div>
