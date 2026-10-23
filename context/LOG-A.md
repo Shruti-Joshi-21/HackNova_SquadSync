@@ -4,6 +4,19 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- A2 (Fri 23 Oct, about 23:40): `src/components/GitGraph.tsx` draws a
+  GraphScene as SVG. Props: `scene`, `colorByPerson` (Person.id to colorIndex;
+  without it, branch lanes take colours by order). Branch lanes are stacked
+  above main, each with a mono pill label. Curves bend over one slot (git-flow
+  style). All 7 node states are drawn with plain stroked paths. It plays once
+  when 40% of it is in view, one step per 500ms; edges draw in, and a conflict
+  node pulses, turns red and draws its cross. Replay button. Reduced motion
+  shows the final frame. It measures its own width (360 to 700px) so text stays
+  at 11 to 12px; below 52px per slot, only conflict and warning nodes keep
+  their labels. role="img" plus a hidden step-by-step description.
+  `src/styles/gitgraph.css` holds the keyframes. `src/mocks/scenes.ts` has 8
+  mock scenes (PROJECT.md scenes 1 to 8) plus `mockColors`. `/dev/scenes`
+  lists them. Checked by eye at desktop width and at 390px.
 - A1 (Fri 23 Oct, about 18:10): Next.js 16.4 scaffold (TypeScript, App Router,
   src dir, Tailwind v4, ESLint, npm, alias @/*). Installed geist and
   @primer/octicons-react. `src/styles/tokens.css` holds the DESIGN.md tokens
@@ -20,13 +33,25 @@ Nothing yet.
 
 ## Next
 
-A2: GitGraph scene component and /dev/scenes gallery (likely moves to 22:30).
+A3: team page on mock data (`src/mocks/nexus.ts`), using B2's real output shape.
+
+## Notes for B (scenes)
+
+- B3 scenes: keep slots small (max about 9) and put labels only on the nodes
+  that matter. Node `step` starts at 1; lanes appear at step 0.
+- Merges into main bend at the end, branch-offs bend at the start, so an edge
+  from a branch node to a main node reads as a merge.
 
 ## Needs from others
 
 None.
 
 ## Decisions
+
+- Deployed app URL (for the extension): https://hack-nova-squad-sync.vercel.app
+  (Vercel deploys `main`). A1 merged to main via PR #1.
+- Branch names in use: Shruti `shruti-branch`, Aarya `aarya-branch`
+  (not laptop-a / laptop-b / phase2-* as TASKS.md says).
 
 - Pages with the top bar live in the route group `src/app/(shell)/`. `/embed`
   sits outside it, so the side panel has no top bar. URLs are unchanged.

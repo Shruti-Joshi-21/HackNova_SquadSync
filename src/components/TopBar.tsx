@@ -19,7 +19,7 @@ export default function TopBar() {
         {/* Team switcher: placeholder until teams come from data */}
         <button
           type="button"
-          className="flex h-8 items-center gap-1 rounded-md border border-border px-3 text-muted hover:bg-surface-2"
+          className="flex h-8 items-center gap-1 whitespace-nowrap rounded-md border border-border px-3 text-muted hover:bg-surface-2"
         >
           Select team
           <TriangleDownIcon size={16} />

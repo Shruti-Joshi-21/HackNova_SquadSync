@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
+@import "../styles/gitgraph.css";
 
 /* Map the tokens into Tailwind: bg-surface, border-border, text-muted, text-success, ... */
 @theme inline {

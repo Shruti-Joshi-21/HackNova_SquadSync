@@ -1,0 +1,52 @@
+/* GitGraph scene animation. See DESIGN.md, "The GitGraph scene". */
+/* Base styles are the final frame; animations only run from a start state. */
+
+.gg-fade {
+  transition: opacity 200ms ease-out;
+}
+
+.gg-draw {
+  stroke-dasharray: 1;
+  transition: stroke-dashoffset 400ms ease-out;
+}
+
+.gg-pop {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: gg-pulse 400ms ease-out;
+}
+
+.gg-redden {
+  animation: gg-redden 400ms ease-out backwards;
+}
+
+.gg-cross {
+  stroke-dasharray: 1;
+  animation: gg-cross 200ms ease-out 400ms backwards;
+}
+
+@keyframes gg-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes gg-redden {
+  from { stroke: var(--border-strong); fill: var(--bg); }
+}
+
+@keyframes gg-cross {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gg-fade,
+  .gg-draw,
+  .gg-pop,
+  .gg-redden,
+  .gg-cross {
+    transition: none !important;
+    animation: none !important;
+  }
+}
