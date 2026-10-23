@@ -67,7 +67,7 @@ export interface ConnectInput {
 }
 
 export type ConnectResult =
-  | { ok: true; snapshot: RepoSnapshot; analysis: Analysis }
+  | { ok: true; snapshot: RepoSnapshot; analysis: Analysis; warnings: string[] }
   | { ok: false; error: string };
 
 /** Analyse a live GitHub repo via POST /api/analyze/github (B5) and remember it in this browser. */
@@ -92,7 +92,9 @@ export async function connectRepo(input: ConnectInput): Promise<ConnectResult> {
     return { ok: false, error: body?.error ?? "Could not analyse this repo." };
   }
   saveRepo(body.analysis.teamId, input, body.analysis);
-  return { ok: true, snapshot: body.snapshot, analysis: body.analysis };
+  // warnings: one plain sentence each about the task CSV (B8), only when there is something to say.
+  const warnings = Array.isArray(body.warnings) ? body.warnings.filter((w: unknown) => typeof w === "string") : [];
+  return { ok: true, snapshot: body.snapshot, analysis: body.analysis, warnings };
 }
 
 /* Pasted repos are kept in localStorage so a reload does not lose them. */
@@ -126,19 +128,23 @@ function saveRepo(teamId: string, input: ConnectInput, analysis: Analysis) {
 }
 
 /**
- * Split a PRD into a plan. Calls POST /api/plan (B7); while that route does not
- * exist yet, returns the sample plan and says so in `note`.
+ * Split a PRD into a plan. Calls POST /api/plan (B7). A 400 means the input is
+ * wrong, so it throws the route's sentence. If the route cannot be reached or
+ * fails, returns the sample plan and says so in `note`.
  */
 export async function makePlan(prd: string, teamSize: number): Promise<{ plan: ProjectPlan; note?: string }> {
+  let res: Response | null = null;
   try {
-    const res = await fetch("/api/plan", {
+    res = await fetch("/api/plan", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prd, teamSize }),
     });
-    if (res.ok) return { plan: (await res.json()) as ProjectPlan };
   } catch {
     // fall through to the sample plan
   }
-  return { plan: mockPlan(teamSize), note: "The splitter API is not live yet, so this is a sample plan." };
+  const body = res ? await res.json().catch(() => null) : null;
+  if (res?.ok && body?.modules) return { plan: body as ProjectPlan };
+  if (res?.status === 400) throw new Error(body?.error ?? "Check the PRD and the team size.");
+  return { plan: mockPlan(teamSize), note: "The splitter did not answer, so this is a sample plan." };
 }
