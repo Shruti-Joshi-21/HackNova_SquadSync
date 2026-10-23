@@ -259,3 +259,21 @@ export function unpushed(task: Task, personId: string, days: number, caption: st
   s.edge("q", "f", 3, "dashed");
   return s.done(caption);
 }
+
+/** Someone changes a file the plan gives to someone else. Plan versus reality. */
+export function outsidePlan(branch: string, editorId: string, file: string, ownerName: string, caption: string): GraphScene {
+  const s = new Scene();
+  const lb = s.lane(branch, "branch", editorId);
+  const main = s.lane("main", "main");
+  s.node("m0", main, 0, "commit", 1);
+  s.node("m1", main, 1, "commit", 1);
+  s.edge("m0", "m1", 1);
+  s.node("b1", lb, 2, "commit", 2);
+  s.edge("m1", "b1", 2);
+  s.node("b2", lb, 3, "warning", 3, file);
+  s.edge("b1", "b2", 3);
+  s.node("r", main, 5, "future", 4, `${ownerName} reviews`);
+  s.edge("m1", "r", 4);
+  s.edge("b2", "r", 4, "dashed");
+  return s.done(caption);
+}
