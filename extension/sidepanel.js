@@ -1,4 +1,4 @@
-const DEFAULT_APP_URL = "https://squadsync.vercel.app";
+const DEFAULT_APP_URL = "https://hack-nova-squad-sync.vercel.app";
 
 function extractRepo(url) {
   try {
