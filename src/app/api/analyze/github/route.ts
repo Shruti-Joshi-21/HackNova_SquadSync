@@ -5,6 +5,7 @@
 import { analyzeWithAi } from "@/engine/ai";
 import { complete } from "@/lib/llm";
 import { GitHubError } from "@/lib/github/client";
+import { MAX_CSV_CHARS, applyTasksCsv } from "@/lib/github/board";
 import { fetchSnapshot, parseRepo } from "@/lib/github/ingest";
 
 // A paste makes about 100 requests to GitHub; give it time.
@@ -36,6 +37,12 @@ export async function POST(request: Request) {
   if (body.projectStart !== undefined && (typeof body.projectStart !== "string" || Number.isNaN(Date.parse(body.projectStart)))) {
     return bad("projectStart must be a date, like 2026-09-07.");
   }
+  if (body.tasksCsv !== undefined && body.tasksCsv !== null && typeof body.tasksCsv !== "string") {
+    return bad("tasksCsv must be the text of a CSV file.");
+  }
+  if (typeof body.tasksCsv === "string" && body.tasksCsv.length > MAX_CSV_CHARS) {
+    return bad("The task CSV is too big, so keep it under 500 KB.");
+  }
   if (typeof body.projectStart === "string" && Date.parse(body.projectStart) >= Date.parse(body.deadline)) {
     return bad("The project start must be before the deadline.");
   }
@@ -46,10 +53,15 @@ export async function POST(request: Request) {
       deadline: body.deadline,
       projectStart: typeof body.projectStart === "string" ? body.projectStart : undefined,
     });
-    // tasksCsv is accepted but not used yet: the CSV import (csv.ts) is wired in B8.
+    // A task CSV replaces GitHub issues as the task board.
+    let snapshot = raw;
+    let warnings: string[] = [];
+    if (typeof body.tasksCsv === "string" && body.tasksCsv.trim()) {
+      ({ snapshot, warnings } = applyTasksCsv(raw, body.tasksCsv));
+    }
     // AI links tasks no rule could link, then words the summaries; both fall back to code.
-    const result = await analyzeWithAi({ ...raw, source: "github" }, complete, { match: true, words: true });
-    return Response.json(result);
+    const result = await analyzeWithAi({ ...snapshot, source: "github" }, complete, { match: true, words: true });
+    return Response.json(warnings.length > 0 ? { ...result, warnings } : result);
   } catch (err) {
     if (err instanceof GitHubError) {
       return Response.json({ error: err.message, ...(err.resetAt ? { resetAt: err.resetAt } : {}) }, { status: err.status });

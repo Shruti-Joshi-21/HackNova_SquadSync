@@ -52,7 +52,9 @@ async function main() {
   // A task whose id no branch, PR title or commit mentions, as on many real boards.
   const t = { ...snap.tasks.find((x) => x.status !== "todo")!, id: "NEX-777" };
   const original = snap.tasks.find((x) => x.status !== "todo")!.id;
-  const open = snap.pullRequests.filter((p) => p.state === "open");
+  // An open PR by the task's own assignee, plus one by someone else.
+  const open = snap.pullRequests.filter((p) => p.state === "open" && p.author === t.assignee);
+  const other = snap.pullRequests.find((p) => p.state === "open" && p.author !== t.assignee)!;
   // Make one task and one PR look unlinked, as on a live repo.
   const s2 = {
     ...snap,
@@ -69,6 +71,9 @@ async function main() {
   });
   const links = await aiTaskLinks(s2, matcher);
   expect(links.length === 1 && links[0].confidence === 0.82, "keeps the one valid link, drops unknown ids and low confidence");
+  const s3 = { ...s2, pullRequests: s2.pullRequests.map((p) => (p.number === other.number ? { ...p, taskIds: [] } : p)) };
+  const cross: Complete = async () => JSON.stringify({ links: [{ taskId: t.id, prNumber: other.number, confidence: 0.95 }] });
+  expect((await aiTaskLinks(s3, cross)).length === 0, "a link to a PR by someone other than the assignee is dropped");
   const low: Complete = async () => JSON.stringify({ links: [{ taskId: t.id, prNumber: open[0].number, confidence: 0.6 }] });
   expect((await aiTaskLinks(s2, low)).length === 0, "0.6 exactly is not used (must be above 0.6)");
   const out = await analyzeWithAi(s2, matcher, { match: true });
