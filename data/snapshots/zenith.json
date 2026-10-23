@@ -1,0 +1,2430 @@
+{
+  "team": {
+    "id": "zenith",
+    "name": "Team Zenith",
+    "projectStart": "2026-09-07T00:00:00Z",
+    "deadline": "2026-11-01T18:30:00Z",
+    "people": [
+      {
+        "id": "p1",
+        "displayName": "Member A",
+        "githubLogin": "puffin-maps",
+        "taskAssignee": "Puffin",
+        "role": "code",
+        "colorIndex": 0
+      },
+      {
+        "id": "p2",
+        "displayName": "Member B",
+        "githubLogin": "gecko-api",
+        "taskAssignee": "Gecko",
+        "role": "code",
+        "colorIndex": 1
+      },
+      {
+        "id": "p3",
+        "displayName": "Member C",
+        "githubLogin": "bison-app",
+        "taskAssignee": "Bison",
+        "role": "code",
+        "colorIndex": 2
+      }
+    ]
+  },
+  "asOf": "2026-10-23T12:00:00Z",
+  "source": "synthetic",
+  "commits": [
+    {
+      "sha": "4cb8797cd90f8b2386a1ad0b195e5b12ee483342",
+      "author": "p1",
+      "date": "2026-09-23T08:00:00Z",
+      "message": "Improve map view",
+      "branch": "feature/ZEN-101-map-view",
+      "additions": 86,
+      "deletions": 8,
+      "files": [
+        "src/map/geo.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "bccd9c937c348ee25a04d4551b82b9042c3eb476",
+      "author": "p1",
+      "date": "2026-09-25T09:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/ZEN-101-map-view",
+      "additions": 42,
+      "deletions": 13,
+      "files": [
+        "src/map/layers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "53e1f6402bd9b5f33fe633d30f3e6e28f8ff2fe5",
+      "author": "p1",
+      "date": "2026-09-25T10:00:00Z",
+      "message": "Improve map view (#1)",
+      "branch": "main",
+      "additions": 128,
+      "deletions": 21,
+      "files": [
+        "src/map/geo.js",
+        "src/map/layers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "95d6833d3970dc23170053e5a5a35f5b3105180b",
+      "author": "p1",
+      "date": "2026-10-01T09:00:00Z",
+      "message": "Start ZEN-116-trip-planner",
+      "branch": "feature/ZEN-116-trip-planner",
+      "additions": 42,
+      "deletions": 0,
+      "files": [
+        "src/map/planner.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0a8ada3592a2d887c237a984b8107c75c167f724",
+      "author": "p3",
+      "date": "2026-10-02T04:00:00Z",
+      "message": "Wire up app store",
+      "branch": "feature/ZEN-108-app-store",
+      "additions": 115,
+      "deletions": 25,
+      "files": [
+        "src/app/screens.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "973b1f9dd8a3102c5dc69cc9e40df6bdb7f0c0ec",
+      "author": "p2",
+      "date": "2026-10-02T04:00:00Z",
+      "message": "ZEN-106 Improve route search",
+      "branch": "feature/route-search",
+      "additions": 86,
+      "deletions": 19,
+      "files": [
+        "src/api/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b0dbd410f60d0697a8bec48a09a93e54f205d485",
+      "author": "p3",
+      "date": "2026-10-02T10:00:00Z",
+      "message": "ZEN-115 Offline mode",
+      "branch": "feature/offline-mode",
+      "additions": 34,
+      "deletions": 23,
+      "files": [
+        "src/app/offline.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "02cef81361d14ff457645081996559179092a348",
+      "author": "p3",
+      "date": "2026-10-05T08:17:00Z",
+      "message": "Small fixes",
+      "branch": "feature/offline-mode",
+      "additions": 49,
+      "deletions": 13,
+      "files": [
+        "src/app/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "664dba02ffe1e2e3a327d2a2a48e684a478b30ae",
+      "author": "p2",
+      "date": "2026-10-05T11:00:00Z",
+      "message": "ZEN-113 Improve response cache",
+      "branch": "feature/response-cache",
+      "additions": 177,
+      "deletions": 38,
+      "files": [
+        "src/api/routes.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "727eb5c3c26bd15f66fd66cab6459a0f586e6a86",
+      "author": "p1",
+      "date": "2026-10-05T16:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/ZEN-116-trip-planner",
+      "additions": 34,
+      "deletions": 0,
+      "files": [
+        "src/map/planner.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c97b79579c598efaad1b8c79643ffa7c57ac3148",
+      "author": "p3",
+      "date": "2026-10-05T17:00:00Z",
+      "message": "Improve favourites",
+      "branch": "feature/favourites",
+      "additions": 122,
+      "deletions": 25,
+      "files": [
+        "src/app/nav.js",
+        "src/app/screens.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "95c8f5c42685bb6ffa388cb6e06e1705aadf44d3",
+      "author": "p3",
+      "date": "2026-10-05T22:00:00Z",
+      "message": "Wire up settings screen",
+      "branch": "feature/ZEN-114-settings-screen",
+      "additions": 93,
+      "deletions": 13,
+      "files": [
+        "src/app/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "89cf78a9bf6a1b3d0ee5f2b680c56f3279e5cfc5",
+      "author": "p2",
+      "date": "2026-10-05T23:24:00Z",
+      "message": "Fix typo",
+      "branch": "feature/route-search",
+      "additions": 157,
+      "deletions": 12,
+      "files": [
+        "src/api/alerts.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "66f2eab5e30db036a27de2e14cc43d3fcbc8884e",
+      "author": "p3",
+      "date": "2026-10-06T23:30:00Z",
+      "message": "Address review comments",
+      "branch": "feature/ZEN-108-app-store",
+      "additions": 153,
+      "deletions": 21,
+      "files": [
+        "src/app/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "3a75d1fa4f9dcfe5730b09d597791038e215cd5c",
+      "author": "p1",
+      "date": "2026-10-07T15:00:00Z",
+      "message": "ZEN-109 Fix route layers",
+      "branch": "feature/route-layers",
+      "additions": 113,
+      "deletions": 20,
+      "files": [
+        "src/map/map.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e2107e36a5237bb95f935c6be3da877ff86769b0",
+      "author": "p3",
+      "date": "2026-10-08T06:34:00Z",
+      "message": "Fix typo",
+      "branch": "feature/offline-mode",
+      "additions": 74,
+      "deletions": 17,
+      "files": [
+        "src/app/offline.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "97388f034474914de125dd5f8a44a0c0c46903b5",
+      "author": "p1",
+      "date": "2026-10-08T14:00:00Z",
+      "message": "ZEN-112 Refactor location lookup",
+      "branch": "feature/location-lookup",
+      "additions": 99,
+      "deletions": 40,
+      "files": [
+        "src/map/tiles.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "6a2cf9d2770e326e310bd52bdf14788b2c62f7a4",
+      "author": "p2",
+      "date": "2026-10-08T16:00:00Z",
+      "message": "Add timetable API",
+      "branch": "feature/ZEN-102-timetable-api",
+      "additions": 69,
+      "deletions": 11,
+      "files": [
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "499b3dac5b4da45e6146441c71594c81b70aec27",
+      "author": "p3",
+      "date": "2026-10-09T06:00:00Z",
+      "message": "ZEN-103 Add home screen",
+      "branch": "feature/home-screen",
+      "additions": 104,
+      "deletions": 25,
+      "files": [
+        "src/app/app.js",
+        "src/app/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "452f00ad162b6d00ff5c507ccde00c1c0a85934e",
+      "author": "p3",
+      "date": "2026-10-09T09:24:00Z",
+      "message": "Small fixes",
+      "branch": "feature/ZEN-114-settings-screen",
+      "additions": 123,
+      "deletions": 24,
+      "files": [
+        "src/app/app.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "729ed13d169b76a2ae57b55b3efada7a740fe4d0",
+      "author": "p1",
+      "date": "2026-10-09T13:00:00Z",
+      "message": "Fix bus stop markers",
+      "branch": "feature/ZEN-104-bus-stop-markers",
+      "additions": 122,
+      "deletions": 30,
+      "files": [
+        "src/map/markers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7c60c1e7eaad75b42ea1feff314e6fb96c9785a2",
+      "author": "p2",
+      "date": "2026-10-09T13:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/ZEN-102-timetable-api",
+      "additions": 64,
+      "deletions": 5,
+      "files": [
+        "src/api/timetable.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "38833e353c85248516de867b1b9e9e705375f093",
+      "author": "p2",
+      "date": "2026-10-09T14:00:00Z",
+      "message": "Add timetable API (#2)",
+      "branch": "main",
+      "additions": 133,
+      "deletions": 16,
+      "files": [
+        "src/api/server.js",
+        "src/api/timetable.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "3ecc7e887d959b868de9731ebf311d8a4af9d43a",
+      "author": "p2",
+      "date": "2026-10-09T18:48:00Z",
+      "message": "Clean up",
+      "branch": "feature/route-search",
+      "additions": 64,
+      "deletions": 19,
+      "files": [
+        "src/api/routes.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4988acf55a6f276644b7a2cb7996f796a7229d68",
+      "author": "p2",
+      "date": "2026-10-09T20:00:00Z",
+      "message": "ZEN-110 Add delay alerts",
+      "branch": "feature/delay-alerts",
+      "additions": 142,
+      "deletions": 17,
+      "files": [
+        "src/api/alerts.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9b7732939e2b6172ea625d8783711b6b4d3492eb",
+      "author": "p2",
+      "date": "2026-10-09T20:45:00Z",
+      "message": "Add tests",
+      "branch": "feature/response-cache",
+      "additions": 68,
+      "deletions": 56,
+      "files": [
+        "src/api/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e8b675dfa701a11a6c8ba8a1c1df077b1a8968e2",
+      "author": "p1",
+      "date": "2026-10-09T23:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/ZEN-116-trip-planner",
+      "additions": 34,
+      "deletions": 0,
+      "files": [
+        "src/map/planner.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4cfc48128c91164270b479a541db959c4019231f",
+      "author": "p1",
+      "date": "2026-10-11T03:15:00Z",
+      "message": "Small fixes",
+      "branch": "feature/route-layers",
+      "additions": 104,
+      "deletions": 19,
+      "files": [
+        "src/map/layers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "6c5cd4a479f9d0b7701bf95d65a7468cc264b5c2",
+      "author": "p3",
+      "date": "2026-10-11T04:51:00Z",
+      "message": "Rename variables",
+      "branch": "feature/offline-mode",
+      "additions": 55,
+      "deletions": 12,
+      "files": [
+        "src/app/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "808a333f03ca200df6aa317c7180d8878163d443",
+      "author": "p3",
+      "date": "2026-10-11T06:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/favourites",
+      "additions": 74,
+      "deletions": 27,
+      "files": [
+        "src/app/settings.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2f2d2726abaa310c04cc8371c23da0838561c00e",
+      "author": "p1",
+      "date": "2026-10-11T19:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/ZEN-104-bus-stop-markers",
+      "additions": 117,
+      "deletions": 41,
+      "files": [
+        "src/map/layers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "418396223dfaa4e3c133f708b09157a5754c1176",
+      "author": "p3",
+      "date": "2026-10-11T19:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/ZEN-108-app-store",
+      "additions": 110,
+      "deletions": 23,
+      "files": [
+        "src/app/nav.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d0f2e02f5bccbfd44c577ef208643200c3a2a49f",
+      "author": "p1",
+      "date": "2026-10-12T02:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/location-lookup",
+      "additions": 85,
+      "deletions": 33,
+      "files": [
+        "src/map/geo.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "a8cdd5f47a3f70da88041922e5fb10f07fac8c1e",
+      "author": "p2",
+      "date": "2026-10-12T07:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/delay-alerts",
+      "additions": 70,
+      "deletions": 43,
+      "files": [
+        "src/api/timetable.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ce3210034067f4f9f77d5aaca7626de954f35592",
+      "author": "p3",
+      "date": "2026-10-12T20:48:00Z",
+      "message": "Clean up",
+      "branch": "feature/ZEN-114-settings-screen",
+      "additions": 200,
+      "deletions": 27,
+      "files": [
+        "src/app/nav.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b621d2de73a939fa4f1107dc687af550579681ca",
+      "author": "p3",
+      "date": "2026-10-13T00:20:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/home-screen",
+      "additions": 112,
+      "deletions": 17,
+      "files": [
+        "src/app/nav.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e41cabbeac555064da4b6abd8dd8e43cf9272830",
+      "author": "p2",
+      "date": "2026-10-13T14:12:00Z",
+      "message": "Rename variables",
+      "branch": "feature/route-search",
+      "additions": 124,
+      "deletions": 8,
+      "files": [
+        "src/api/timetable.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9a6202520cdf1eab5aa19fa82d8f36de073a9ea0",
+      "author": "p1",
+      "date": "2026-10-14T01:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/ZEN-104-bus-stop-markers",
+      "additions": 120,
+      "deletions": 25,
+      "files": [
+        "src/map/geo.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ddf0d877d4943db4d0e42be4c1edd29535ed12d6",
+      "author": "p3",
+      "date": "2026-10-14T03:09:00Z",
+      "message": "Rename variables",
+      "branch": "feature/offline-mode",
+      "additions": 92,
+      "deletions": 11,
+      "files": [
+        "src/app/offline.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2d740cb8ef07b89c2255063462659da62847781e",
+      "author": "p1",
+      "date": "2026-10-14T06:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/ZEN-116-trip-planner",
+      "additions": 55,
+      "deletions": 0,
+      "files": [
+        "src/map/planner.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7b9f3335559c93a5de5af5784481a1e08cff26a8",
+      "author": "p2",
+      "date": "2026-10-14T06:30:00Z",
+      "message": "Address review comments",
+      "branch": "feature/response-cache",
+      "additions": 75,
+      "deletions": 32,
+      "files": [
+        "src/api/timetable.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "a604cf20e8887dc0b7685afeb142d5fc7525ff60",
+      "author": "p1",
+      "date": "2026-10-14T15:30:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/route-layers",
+      "additions": 67,
+      "deletions": 46,
+      "files": [
+        "src/map/tiles.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "db83c6ab23c74b90fa91f3cbc261d7e35b905671",
+      "author": "p2",
+      "date": "2026-10-14T18:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/delay-alerts",
+      "additions": 124,
+      "deletions": 42,
+      "files": [
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0e27519502edf685105352b19eda960f3e0fe7c7",
+      "author": "p1",
+      "date": "2026-10-15T14:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/location-lookup",
+      "additions": 59,
+      "deletions": 23,
+      "files": [
+        "src/map/layers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "bd5c052c6dde57c0a4d1e280e457526200c6658b",
+      "author": "p1",
+      "date": "2026-10-16T07:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/ZEN-104-bus-stop-markers",
+      "additions": 106,
+      "deletions": 20,
+      "files": [
+        "src/map/tiles.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "a9a0c49496987670fb96c6f9b8ab19533017e23e",
+      "author": "p3",
+      "date": "2026-10-16T08:12:00Z",
+      "message": "Small fixes",
+      "branch": "feature/ZEN-114-settings-screen",
+      "additions": 70,
+      "deletions": 21,
+      "files": [
+        "src/app/settings.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d589f633e81a05bddea61207d36a599375803999",
+      "author": "p3",
+      "date": "2026-10-16T14:30:00Z",
+      "message": "Add tests",
+      "branch": "feature/ZEN-108-app-store",
+      "additions": 75,
+      "deletions": 26,
+      "files": [
+        "src/app/settings.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "561838dc65a3fe643b8a4bff4f221a3c9c7ceed9",
+      "author": "p3",
+      "date": "2026-10-16T18:40:00Z",
+      "message": "Rename variables",
+      "branch": "feature/home-screen",
+      "additions": 126,
+      "deletions": 16,
+      "files": [
+        "src/app/settings.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c24fe2b6cf14ddc78f75f2b1bbde02a7ac344617",
+      "author": "p3",
+      "date": "2026-10-16T19:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/favourites",
+      "additions": 72,
+      "deletions": 52,
+      "files": [
+        "src/app/app.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "f2da44bd764c50d9212d96e44a3f95366b1a3df7",
+      "author": "p3",
+      "date": "2026-10-17T01:26:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/offline-mode",
+      "additions": 54,
+      "deletions": 20,
+      "files": [
+        "src/app/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e212a56aaa91f6fd2fcc656bdf4ab4b08f6a2dbe",
+      "author": "p2",
+      "date": "2026-10-17T05:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/delay-alerts",
+      "additions": 81,
+      "deletions": 32,
+      "files": [
+        "src/api/routes.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ab8e103c019d6bf15c02b98fc97372510669b5f9",
+      "author": "p2",
+      "date": "2026-10-17T09:36:00Z",
+      "message": "Clean up",
+      "branch": "feature/route-search",
+      "additions": 143,
+      "deletions": 10,
+      "files": [
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "8248891278acb0800da88a5316fe308b68a4f5a2",
+      "author": "p1",
+      "date": "2026-10-18T03:45:00Z",
+      "message": "Clean up",
+      "branch": "feature/route-layers",
+      "additions": 83,
+      "deletions": 33,
+      "files": [
+        "src/map/geo.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "09c417f9914d1db3ad66a435b86bf4e645fd9b5d",
+      "author": "p1",
+      "date": "2026-10-18T13:00:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/ZEN-104-bus-stop-markers",
+      "additions": 118,
+      "deletions": 30,
+      "files": [
+        "src/map/map.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "427e697b122ec29dd865e35a2f45116f6e869f82",
+      "author": "p1",
+      "date": "2026-10-18T13:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/ZEN-116-trip-planner",
+      "additions": 55,
+      "deletions": 0,
+      "files": [
+        "src/map/planner.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "20be0153ae24adb2d8714e5e4fd31b95e0b48758",
+      "author": "p2",
+      "date": "2026-10-18T16:15:00Z",
+      "message": "Address review comments",
+      "branch": "feature/response-cache",
+      "additions": 145,
+      "deletions": 38,
+      "files": [
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "089777b05414fb114cb5a3c8ff7a3af3c8c6c070",
+      "author": "p1",
+      "date": "2026-10-19T02:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/location-lookup",
+      "additions": 106,
+      "deletions": 35,
+      "files": [
+        "src/map/map.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "3277603b142c846b5629812552dbff8bb4af36ba",
+      "author": "p2",
+      "date": "2026-10-19T16:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/delay-alerts",
+      "additions": 150,
+      "deletions": 24,
+      "files": [
+        "src/api/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "fd3520a496ba897f7ce795ed6ce125587ca12438",
+      "author": "p3",
+      "date": "2026-10-19T19:36:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/ZEN-114-settings-screen",
+      "additions": 110,
+      "deletions": 29,
+      "files": [
+        "src/app/screens.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "f52c106aba02284ea553c44927ad6e8065436d52",
+      "author": "p3",
+      "date": "2026-10-19T23:43:00Z",
+      "message": "Rename variables",
+      "branch": "feature/offline-mode",
+      "additions": 91,
+      "deletions": 20,
+      "files": [
+        "src/app/offline.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9fc80e6b578cbfb14de1a9e6811eec37b2ca3a5f",
+      "author": "p3",
+      "date": "2026-10-20T13:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/home-screen",
+      "additions": 119,
+      "deletions": 29,
+      "files": [
+        "src/app/screens.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9ebfbdd19d325ad834090d25d57e4216647e5e61",
+      "author": "p3",
+      "date": "2026-10-20T14:00:00Z",
+      "message": "Add home screen (#6)",
+      "branch": "main",
+      "additions": 461,
+      "deletions": 87,
+      "files": [
+        "src/app/app.js",
+        "src/app/nav.js",
+        "src/app/settings.js",
+        "src/app/screens.js",
+        "src/app/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "fbab218b51b42e10b55d650a1b907a3071b7131a",
+      "author": "p1",
+      "date": "2026-10-20T19:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/ZEN-104-bus-stop-markers",
+      "additions": 106,
+      "deletions": 29,
+      "files": [
+        "src/map/markers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0495c1864263bffbf2f290e6b6d2f3e0d6917a64",
+      "author": "p1",
+      "date": "2026-10-20T20:00:00Z",
+      "message": "Fix bus stop markers (#7)",
+      "branch": "main",
+      "additions": 689,
+      "deletions": 175,
+      "files": [
+        "src/map/markers.js",
+        "src/map/layers.js",
+        "src/map/geo.js",
+        "src/map/tiles.js",
+        "src/map/map.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "088375b0cf79fd79ed1126662aecc50e8bd745ea",
+      "author": "p2",
+      "date": "2026-10-21T05:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/route-search",
+      "additions": 153,
+      "deletions": 11,
+      "files": [
+        "src/api/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7d262bb42d3c33f3ded03d1606744eaac5db0496",
+      "author": "p2",
+      "date": "2026-10-21T06:00:00Z",
+      "message": "Improve route search (#5)",
+      "branch": "main",
+      "additions": 727,
+      "deletions": 79,
+      "files": [
+        "src/api/cache.js",
+        "src/api/alerts.js",
+        "src/api/routes.js",
+        "src/api/timetable.js",
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4627321d7ccb86416448502a7b402511645ffd53",
+      "author": "p3",
+      "date": "2026-10-21T10:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/ZEN-108-app-store",
+      "additions": 104,
+      "deletions": 12,
+      "files": [
+        "src/app/app.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4bd3d8d5af0146ca948572b7f30e587379334e93",
+      "author": "p3",
+      "date": "2026-10-21T11:00:00Z",
+      "message": "Wire up app store (#3)",
+      "branch": "main",
+      "additions": 557,
+      "deletions": 107,
+      "files": [
+        "src/app/screens.js",
+        "src/app/store.js",
+        "src/app/nav.js",
+        "src/app/settings.js",
+        "src/app/app.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "31a50f40deb860d0087cb604d5860a13e2feb8f9",
+      "author": "p1",
+      "date": "2026-10-21T16:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/route-layers",
+      "additions": 187,
+      "deletions": 40,
+      "files": [
+        "src/map/markers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b6368111ca95e74fab317e740822c41270c385f7",
+      "author": "p1",
+      "date": "2026-10-21T17:00:00Z",
+      "message": "ZEN-109 Fix route layers (#10)",
+      "branch": "main",
+      "additions": 554,
+      "deletions": 158,
+      "files": [
+        "src/map/map.js",
+        "src/map/layers.js",
+        "src/map/tiles.js",
+        "src/map/geo.js",
+        "src/map/markers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "82071f1d8cd57dad269d040e8a3b476499cf9965",
+      "author": "p2",
+      "date": "2026-10-22T03:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/delay-alerts",
+      "additions": 131,
+      "deletions": 32,
+      "files": [
+        "src/api/alerts.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "09522df46a494e8d6b411c02b37936afdaa3fc2b",
+      "author": "p2",
+      "date": "2026-10-22T04:00:00Z",
+      "message": "ZEN-110 Add delay alerts (#11)",
+      "branch": "main",
+      "additions": 698,
+      "deletions": 190,
+      "files": [
+        "src/api/alerts.js",
+        "src/api/timetable.js",
+        "src/api/server.js",
+        "src/api/routes.js",
+        "src/api/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "a28a3848ca2ab4b7c85aa529c93c80b587c369e6",
+      "author": "p3",
+      "date": "2026-10-22T08:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/favourites",
+      "additions": 122,
+      "deletions": 27,
+      "files": [
+        "src/app/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "1a6f9c2b2a30f526d55c661db3521d89140dda8b",
+      "author": "p3",
+      "date": "2026-10-22T09:00:00Z",
+      "message": "Improve favourites (#4)",
+      "branch": "main",
+      "additions": 390,
+      "deletions": 131,
+      "files": [
+        "src/app/nav.js",
+        "src/app/settings.js",
+        "src/app/app.js",
+        "src/app/store.js",
+        "src/app/screens.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9f0baa1cf7816fe708f0bd06b49c86e87fcddf43",
+      "author": "p1",
+      "date": "2026-10-22T14:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/location-lookup",
+      "additions": 131,
+      "deletions": 30,
+      "files": [
+        "src/map/markers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "1dcde636c981515bcc16d21ffd674d84638320f3",
+      "author": "p1",
+      "date": "2026-10-22T15:00:00Z",
+      "message": "ZEN-112 Refactor location lookup (#8)",
+      "branch": "main",
+      "additions": 480,
+      "deletions": 161,
+      "files": [
+        "src/map/tiles.js",
+        "src/map/geo.js",
+        "src/map/layers.js",
+        "src/map/map.js",
+        "src/map/markers.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "65b6ed2a1a4ab2a8c16b95d70db3c1a549a18336",
+      "author": "p1",
+      "date": "2026-10-22T20:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/ZEN-116-trip-planner",
+      "additions": 40,
+      "deletions": 0,
+      "files": [
+        "src/map/planner.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "6c2bf0d47f6dc015a3cfb1fd8944718ac12fc1c6",
+      "author": "p3",
+      "date": "2026-10-22T22:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/offline-mode",
+      "additions": 62,
+      "deletions": 13,
+      "files": [
+        "src/app/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9854b4bc115b9c2f0f3dff5e1d7373cf89035a70",
+      "author": "p2",
+      "date": "2026-10-23T02:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/response-cache",
+      "additions": 130,
+      "deletions": 36,
+      "files": [
+        "src/api/alerts.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "02ad803f54344bd0756baa5d173b7325fec0ddcc",
+      "author": "p2",
+      "date": "2026-10-23T03:00:00Z",
+      "message": "ZEN-113 Improve response cache (#12)",
+      "branch": "main",
+      "additions": 595,
+      "deletions": 200,
+      "files": [
+        "src/api/routes.js",
+        "src/api/cache.js",
+        "src/api/timetable.js",
+        "src/api/server.js",
+        "src/api/alerts.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "90d0847a253f0d318c945b53bd9b66ade5d022d0",
+      "author": "p3",
+      "date": "2026-10-23T07:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/ZEN-114-settings-screen",
+      "additions": 97,
+      "deletions": 17,
+      "files": [
+        "src/app/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7884a17bf49f0fc35b4173c2e161637788dcbbba",
+      "author": "p3",
+      "date": "2026-10-23T08:00:00Z",
+      "message": "Wire up settings screen (#9)",
+      "branch": "main",
+      "additions": 693,
+      "deletions": 131,
+      "files": [
+        "src/app/store.js",
+        "src/app/app.js",
+        "src/app/nav.js",
+        "src/app/settings.js",
+        "src/app/screens.js"
+      ],
+      "directToMain": false
+    }
+  ],
+  "pullRequests": [
+    {
+      "number": 1,
+      "title": "Improve map view",
+      "author": "p1",
+      "branch": "feature/ZEN-101-map-view",
+      "baseBranch": "main",
+      "createdAt": "2026-09-24T21:00:00Z",
+      "mergedAt": "2026-09-25T10:00:00Z",
+      "closedAt": "2026-09-25T10:00:00Z",
+      "state": "merged",
+      "additions": 128,
+      "deletions": 21,
+      "files": [
+        {
+          "path": "src/map/geo.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              64
+            ]
+          ],
+          "additions": 64,
+          "deletions": 0
+        },
+        {
+          "path": "src/map/layers.js",
+          "status": "modified",
+          "ranges": [
+            [
+              28,
+              91
+            ]
+          ],
+          "additions": 64,
+          "deletions": 21
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-25T00:07:00Z",
+          "state": "commented"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-101"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Add timetable API",
+      "author": "p2",
+      "branch": "feature/ZEN-102-timetable-api",
+      "baseBranch": "main",
+      "createdAt": "2026-10-09T08:00:00Z",
+      "mergedAt": "2026-10-09T14:00:00Z",
+      "closedAt": "2026-10-09T14:00:00Z",
+      "state": "merged",
+      "additions": 133,
+      "deletions": 16,
+      "files": [
+        {
+          "path": "src/api/server.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              87
+            ]
+          ],
+          "additions": 87,
+          "deletions": 0
+        },
+        {
+          "path": "src/api/timetable.js",
+          "status": "modified",
+          "ranges": [
+            [
+              25,
+              70
+            ]
+          ],
+          "additions": 46,
+          "deletions": 16
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-102"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Wire up app store",
+      "author": "p3",
+      "branch": "feature/ZEN-108-app-store",
+      "baseBranch": "main",
+      "createdAt": "2026-10-18T03:00:00Z",
+      "mergedAt": "2026-10-21T11:00:00Z",
+      "closedAt": "2026-10-21T11:00:00Z",
+      "state": "merged",
+      "additions": 557,
+      "deletions": 107,
+      "files": [
+        {
+          "path": "src/app/screens.js",
+          "status": "modified",
+          "ranges": [
+            [
+              49,
+              175
+            ]
+          ],
+          "additions": 127,
+          "deletions": 42
+        },
+        {
+          "path": "src/app/store.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              141
+            ]
+          ],
+          "additions": 141,
+          "deletions": 0
+        },
+        {
+          "path": "src/app/nav.js",
+          "status": "modified",
+          "ranges": [
+            [
+              140,
+              212
+            ]
+          ],
+          "additions": 73,
+          "deletions": 24
+        },
+        {
+          "path": "src/app/settings.js",
+          "status": "modified",
+          "ranges": [
+            [
+              37,
+              159
+            ]
+          ],
+          "additions": 123,
+          "deletions": 41
+        },
+        {
+          "path": "src/app/app.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              93
+            ]
+          ],
+          "additions": 93,
+          "deletions": 0
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-108"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Improve favourites",
+      "author": "p3",
+      "branch": "feature/favourites",
+      "baseBranch": "main",
+      "createdAt": "2026-10-18T16:00:00Z",
+      "mergedAt": "2026-10-22T09:00:00Z",
+      "closedAt": "2026-10-22T09:00:00Z",
+      "state": "merged",
+      "additions": 390,
+      "deletions": 131,
+      "files": [
+        {
+          "path": "src/app/nav.js",
+          "status": "modified",
+          "ranges": [
+            [
+              81,
+              133
+            ]
+          ],
+          "additions": 53,
+          "deletions": 18
+        },
+        {
+          "path": "src/app/settings.js",
+          "status": "modified",
+          "ranges": [
+            [
+              150,
+              223
+            ]
+          ],
+          "additions": 74,
+          "deletions": 25
+        },
+        {
+          "path": "src/app/app.js",
+          "status": "modified",
+          "ranges": [
+            [
+              128,
+              222
+            ]
+          ],
+          "additions": 95,
+          "deletions": 32
+        },
+        {
+          "path": "src/app/store.js",
+          "status": "modified",
+          "ranges": [
+            [
+              175,
+              272
+            ]
+          ],
+          "additions": 98,
+          "deletions": 33
+        },
+        {
+          "path": "src/app/screens.js",
+          "status": "modified",
+          "ranges": [
+            [
+              138,
+              207
+            ]
+          ],
+          "additions": 70,
+          "deletions": 23
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-111"
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Improve route search",
+      "author": "p2",
+      "branch": "feature/route-search",
+      "baseBranch": "main",
+      "createdAt": "2026-10-19T03:00:00Z",
+      "mergedAt": "2026-10-21T06:00:00Z",
+      "closedAt": "2026-10-21T06:00:00Z",
+      "state": "merged",
+      "additions": 727,
+      "deletions": 79,
+      "files": [
+        {
+          "path": "src/api/cache.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              157
+            ]
+          ],
+          "additions": 157,
+          "deletions": 0
+        },
+        {
+          "path": "src/api/alerts.js",
+          "status": "modified",
+          "ranges": [
+            [
+              164,
+              277
+            ]
+          ],
+          "additions": 114,
+          "deletions": 38
+        },
+        {
+          "path": "src/api/routes.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              186
+            ]
+          ],
+          "additions": 186,
+          "deletions": 0
+        },
+        {
+          "path": "src/api/timetable.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              146
+            ]
+          ],
+          "additions": 146,
+          "deletions": 0
+        },
+        {
+          "path": "src/api/server.js",
+          "status": "modified",
+          "ranges": [
+            [
+              50,
+              173
+            ]
+          ],
+          "additions": 124,
+          "deletions": 41
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-106",
+        "ZEN-107"
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Add home screen",
+      "author": "p3",
+      "branch": "feature/home-screen",
+      "baseBranch": "main",
+      "createdAt": "2026-10-19T05:00:00Z",
+      "mergedAt": "2026-10-20T14:00:00Z",
+      "closedAt": "2026-10-20T14:00:00Z",
+      "state": "merged",
+      "additions": 461,
+      "deletions": 87,
+      "files": [
+        {
+          "path": "src/app/app.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              84
+            ]
+          ],
+          "additions": 84,
+          "deletions": 0
+        },
+        {
+          "path": "src/app/nav.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              118
+            ]
+          ],
+          "additions": 118,
+          "deletions": 0
+        },
+        {
+          "path": "src/app/settings.js",
+          "status": "modified",
+          "ranges": [
+            [
+              37,
+              139
+            ]
+          ],
+          "additions": 103,
+          "deletions": 34
+        },
+        {
+          "path": "src/app/screens.js",
+          "status": "modified",
+          "ranges": [
+            [
+              136,
+              196
+            ]
+          ],
+          "additions": 61,
+          "deletions": 21
+        },
+        {
+          "path": "src/app/store.js",
+          "status": "modified",
+          "ranges": [
+            [
+              59,
+              153
+            ]
+          ],
+          "additions": 95,
+          "deletions": 32
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-103"
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Fix bus stop markers",
+      "author": "p1",
+      "branch": "feature/ZEN-104-bus-stop-markers",
+      "baseBranch": "main",
+      "createdAt": "2026-10-19T12:00:00Z",
+      "mergedAt": "2026-10-20T20:00:00Z",
+      "closedAt": "2026-10-20T20:00:00Z",
+      "state": "merged",
+      "additions": 689,
+      "deletions": 175,
+      "files": [
+        {
+          "path": "src/map/markers.js",
+          "status": "modified",
+          "ranges": [
+            [
+              4,
+              126
+            ]
+          ],
+          "additions": 123,
+          "deletions": 41
+        },
+        {
+          "path": "src/map/layers.js",
+          "status": "modified",
+          "ranges": [
+            [
+              115,
+              230
+            ]
+          ],
+          "additions": 116,
+          "deletions": 39
+        },
+        {
+          "path": "src/map/geo.js",
+          "status": "modified",
+          "ranges": [
+            [
+              175,
+              343
+            ]
+          ],
+          "additions": 169,
+          "deletions": 56
+        },
+        {
+          "path": "src/map/tiles.js",
+          "status": "modified",
+          "ranges": [
+            [
+              113,
+              230
+            ]
+          ],
+          "additions": 118,
+          "deletions": 39
+        },
+        {
+          "path": "src/map/map.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              163
+            ]
+          ],
+          "additions": 163,
+          "deletions": 0
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-104",
+        "ZEN-105"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "ZEN-112 Refactor location lookup",
+      "author": "p1",
+      "branch": "feature/location-lookup",
+      "baseBranch": "main",
+      "createdAt": "2026-10-19T13:00:00Z",
+      "mergedAt": "2026-10-22T15:00:00Z",
+      "closedAt": "2026-10-22T15:00:00Z",
+      "state": "merged",
+      "additions": 480,
+      "deletions": 161,
+      "files": [
+        {
+          "path": "src/map/tiles.js",
+          "status": "modified",
+          "ranges": [
+            [
+              60,
+              187
+            ]
+          ],
+          "additions": 128,
+          "deletions": 43
+        },
+        {
+          "path": "src/map/geo.js",
+          "status": "modified",
+          "ranges": [
+            [
+              64,
+              121
+            ]
+          ],
+          "additions": 58,
+          "deletions": 20
+        },
+        {
+          "path": "src/map/layers.js",
+          "status": "modified",
+          "ranges": [
+            [
+              63,
+              194
+            ]
+          ],
+          "additions": 132,
+          "deletions": 44
+        },
+        {
+          "path": "src/map/map.js",
+          "status": "modified",
+          "ranges": [
+            [
+              6,
+              66
+            ]
+          ],
+          "additions": 61,
+          "deletions": 20
+        },
+        {
+          "path": "src/map/markers.js",
+          "status": "modified",
+          "ranges": [
+            [
+              33,
+              133
+            ]
+          ],
+          "additions": 101,
+          "deletions": 34
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-112"
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Wire up settings screen",
+      "author": "p3",
+      "branch": "feature/ZEN-114-settings-screen",
+      "baseBranch": "main",
+      "createdAt": "2026-10-19T21:00:00Z",
+      "mergedAt": "2026-10-23T08:00:00Z",
+      "closedAt": "2026-10-23T08:00:00Z",
+      "state": "merged",
+      "additions": 693,
+      "deletions": 131,
+      "files": [
+        {
+          "path": "src/app/store.js",
+          "status": "modified",
+          "ranges": [
+            [
+              138,
+              236
+            ]
+          ],
+          "additions": 99,
+          "deletions": 33
+        },
+        {
+          "path": "src/app/app.js",
+          "status": "modified",
+          "ranges": [
+            [
+              35,
+              179
+            ]
+          ],
+          "additions": 145,
+          "deletions": 48
+        },
+        {
+          "path": "src/app/nav.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              88
+            ]
+          ],
+          "additions": 88,
+          "deletions": 0
+        },
+        {
+          "path": "src/app/settings.js",
+          "status": "modified",
+          "ranges": [
+            [
+              140,
+              288
+            ]
+          ],
+          "additions": 149,
+          "deletions": 50
+        },
+        {
+          "path": "src/app/screens.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              212
+            ]
+          ],
+          "additions": 212,
+          "deletions": 0
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-114"
+      ]
+    },
+    {
+      "number": 10,
+      "title": "ZEN-109 Fix route layers",
+      "author": "p1",
+      "branch": "feature/route-layers",
+      "baseBranch": "main",
+      "createdAt": "2026-10-20T14:00:00Z",
+      "mergedAt": "2026-10-21T17:00:00Z",
+      "closedAt": "2026-10-21T17:00:00Z",
+      "state": "merged",
+      "additions": 554,
+      "deletions": 158,
+      "files": [
+        {
+          "path": "src/map/map.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              82
+            ]
+          ],
+          "additions": 82,
+          "deletions": 0
+        },
+        {
+          "path": "src/map/layers.js",
+          "status": "modified",
+          "ranges": [
+            [
+              139,
+              270
+            ]
+          ],
+          "additions": 132,
+          "deletions": 44
+        },
+        {
+          "path": "src/map/tiles.js",
+          "status": "modified",
+          "ranges": [
+            [
+              176,
+              305
+            ]
+          ],
+          "additions": 130,
+          "deletions": 43
+        },
+        {
+          "path": "src/map/geo.js",
+          "status": "modified",
+          "ranges": [
+            [
+              1,
+              140
+            ]
+          ],
+          "additions": 140,
+          "deletions": 47
+        },
+        {
+          "path": "src/map/markers.js",
+          "status": "modified",
+          "ranges": [
+            [
+              46,
+              115
+            ]
+          ],
+          "additions": 70,
+          "deletions": 24
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-109"
+      ]
+    },
+    {
+      "number": 11,
+      "title": "ZEN-110 Add delay alerts",
+      "author": "p2",
+      "branch": "feature/delay-alerts",
+      "baseBranch": "main",
+      "createdAt": "2026-10-20T19:00:00Z",
+      "mergedAt": "2026-10-22T04:00:00Z",
+      "closedAt": "2026-10-22T04:00:00Z",
+      "state": "merged",
+      "additions": 698,
+      "deletions": 190,
+      "files": [
+        {
+          "path": "src/api/alerts.js",
+          "status": "modified",
+          "ranges": [
+            [
+              74,
+              241
+            ]
+          ],
+          "additions": 168,
+          "deletions": 56
+        },
+        {
+          "path": "src/api/timetable.js",
+          "status": "modified",
+          "ranges": [
+            [
+              71,
+              239
+            ]
+          ],
+          "additions": 169,
+          "deletions": 57
+        },
+        {
+          "path": "src/api/server.js",
+          "status": "modified",
+          "ranges": [
+            [
+              134,
+              245
+            ]
+          ],
+          "additions": 112,
+          "deletions": 38
+        },
+        {
+          "path": "src/api/routes.js",
+          "status": "modified",
+          "ranges": [
+            [
+              31,
+              147
+            ]
+          ],
+          "additions": 117,
+          "deletions": 39
+        },
+        {
+          "path": "src/api/cache.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              132
+            ]
+          ],
+          "additions": 132,
+          "deletions": 0
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-110"
+      ]
+    },
+    {
+      "number": 12,
+      "title": "ZEN-113 Improve response cache",
+      "author": "p2",
+      "branch": "feature/response-cache",
+      "baseBranch": "main",
+      "createdAt": "2026-10-21T10:00:00Z",
+      "mergedAt": "2026-10-23T03:00:00Z",
+      "closedAt": "2026-10-23T03:00:00Z",
+      "state": "merged",
+      "additions": 595,
+      "deletions": 200,
+      "files": [
+        {
+          "path": "src/api/routes.js",
+          "status": "modified",
+          "ranges": [
+            [
+              21,
+              165
+            ]
+          ],
+          "additions": 145,
+          "deletions": 49
+        },
+        {
+          "path": "src/api/cache.js",
+          "status": "modified",
+          "ranges": [
+            [
+              14,
+              166
+            ]
+          ],
+          "additions": 153,
+          "deletions": 51
+        },
+        {
+          "path": "src/api/timetable.js",
+          "status": "modified",
+          "ranges": [
+            [
+              128,
+              239
+            ]
+          ],
+          "additions": 112,
+          "deletions": 38
+        },
+        {
+          "path": "src/api/server.js",
+          "status": "modified",
+          "ranges": [
+            [
+              117,
+              237
+            ]
+          ],
+          "additions": 121,
+          "deletions": 41
+        },
+        {
+          "path": "src/api/alerts.js",
+          "status": "modified",
+          "ranges": [
+            [
+              160,
+              223
+            ]
+          ],
+          "additions": 64,
+          "deletions": 21
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ZEN-113"
+      ]
+    },
+    {
+      "number": 13,
+      "title": "ZEN-115 Offline mode",
+      "author": "p3",
+      "branch": "feature/offline-mode",
+      "baseBranch": "main",
+      "createdAt": "2026-10-21T13:00:00Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "state": "open",
+      "additions": 511,
+      "deletions": 129,
+      "files": [
+        {
+          "path": "src/app/offline.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              380
+            ]
+          ],
+          "additions": 380,
+          "deletions": 0
+        },
+        {
+          "path": "src/app/store.js",
+          "status": "modified",
+          "ranges": [
+            [
+              20,
+              150
+            ]
+          ],
+          "additions": 131,
+          "deletions": 129
+        }
+      ],
+      "reviews": [],
+      "mergeable": "conflicting",
+      "taskIds": [
+        "ZEN-115"
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "name": "feature/offline-mode",
+      "owner": "p3",
+      "createdAt": "2026-10-02T09:00:00Z",
+      "lastPushAt": "2026-10-22T22:00:00Z",
+      "aheadOfMain": 8,
+      "behindMain": 11,
+      "filesTouched": [
+        {
+          "path": "src/app/offline.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              380
+            ]
+          ],
+          "additions": 380,
+          "deletions": 0
+        },
+        {
+          "path": "src/app/store.js",
+          "status": "modified",
+          "ranges": [
+            [
+              20,
+              150
+            ]
+          ],
+          "additions": 131,
+          "deletions": 129
+        }
+      ],
+      "hasOpenPR": true
+    },
+    {
+      "name": "feature/ZEN-116-trip-planner",
+      "owner": "p1",
+      "createdAt": "2026-10-01T08:00:00Z",
+      "lastPushAt": "2026-10-22T20:00:00Z",
+      "aheadOfMain": 6,
+      "behindMain": 11,
+      "filesTouched": [
+        {
+          "path": "src/map/planner.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              260
+            ]
+          ],
+          "additions": 260,
+          "deletions": 0
+        }
+      ],
+      "hasOpenPR": false
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ZEN-101",
+      "title": "Map view",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-22T07:00:00Z",
+      "linkedPRs": [
+        1
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-23T07:00:00Z",
+      "doneAt": "2026-09-25T14:00:00Z"
+    },
+    {
+      "id": "ZEN-102",
+      "title": "Timetable API",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-10-05T15:00:00Z",
+      "linkedPRs": [
+        2
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-08T15:00:00Z",
+      "doneAt": "2026-10-09T14:00:00Z"
+    },
+    {
+      "id": "ZEN-103",
+      "title": "Home screen",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-06T05:00:00Z",
+      "linkedPRs": [
+        6
+      ],
+      "linkSource": "commit-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-09T05:00:00Z",
+      "doneAt": "2026-10-20T18:00:00Z"
+    },
+    {
+      "id": "ZEN-104",
+      "title": "Bus stop markers",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-05T12:00:00Z",
+      "linkedPRs": [
+        7
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-09T12:00:00Z",
+      "doneAt": "2026-10-20T21:00:00Z"
+    },
+    {
+      "id": "ZEN-105",
+      "title": "Bus stop markers: follow-up 1",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-04T12:00:00Z",
+      "linkedPRs": [
+        7
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-09T12:00:00Z",
+      "doneAt": "2026-10-20T21:00:00Z"
+    },
+    {
+      "id": "ZEN-106",
+      "title": "Route search",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-30T03:00:00Z",
+      "linkedPRs": [
+        5
+      ],
+      "linkSource": "commit-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-02T03:00:00Z",
+      "doneAt": "2026-10-21T09:00:00Z"
+    },
+    {
+      "id": "ZEN-107",
+      "title": "Route search: follow-up 1",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-28T03:00:00Z",
+      "linkedPRs": [
+        5
+      ],
+      "linkSource": "commit-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-02T03:00:00Z",
+      "doneAt": "2026-10-21T09:00:00Z"
+    },
+    {
+      "id": "ZEN-108",
+      "title": "App store",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-09-30T03:00:00Z",
+      "linkedPRs": [
+        3
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-02T03:00:00Z",
+      "doneAt": "2026-10-21T13:00:00Z"
+    },
+    {
+      "id": "ZEN-109",
+      "title": "Route layers",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-02T14:00:00Z",
+      "linkedPRs": [
+        10
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-07T14:00:00Z",
+      "doneAt": "2026-10-21T17:00:00Z"
+    },
+    {
+      "id": "ZEN-110",
+      "title": "Delay alerts",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-10-06T19:00:00Z",
+      "linkedPRs": [
+        11
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-09T19:00:00Z",
+      "doneAt": "2026-10-22T05:00:00Z"
+    },
+    {
+      "id": "ZEN-111",
+      "title": "Favourites",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-04T16:00:00Z",
+      "linkedPRs": [
+        4
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.74,
+      "startedAt": "2026-10-05T16:00:00Z",
+      "doneAt": "2026-10-22T12:00:00Z"
+    },
+    {
+      "id": "ZEN-112",
+      "title": "Location lookup",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-04T13:00:00Z",
+      "linkedPRs": [
+        8
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-08T13:00:00Z",
+      "doneAt": "2026-10-22T15:00:00Z"
+    },
+    {
+      "id": "ZEN-113",
+      "title": "Response cache",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-10-03T10:00:00Z",
+      "linkedPRs": [
+        12
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-05T10:00:00Z",
+      "doneAt": "2026-10-23T06:00:00Z"
+    },
+    {
+      "id": "ZEN-114",
+      "title": "Settings screen",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-04T21:00:00Z",
+      "linkedPRs": [
+        9
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-05T21:00:00Z",
+      "doneAt": "2026-10-23T09:00:00Z"
+    },
+    {
+      "id": "ZEN-115",
+      "title": "Offline mode",
+      "assignee": "p3",
+      "status": "in_review",
+      "createdAt": "2026-09-28T12:00:00Z",
+      "linkedPRs": [
+        13
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-02T09:00:00Z",
+      "dueAt": "2026-10-20T12:00:00Z"
+    },
+    {
+      "id": "ZEN-116",
+      "title": "Trip planner",
+      "assignee": "p1",
+      "status": "in_progress",
+      "createdAt": "2026-09-26T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-01T08:00:00Z",
+      "dueAt": "2026-10-24T12:00:00Z"
+    },
+    {
+      "id": "ZEN-117",
+      "title": "Push alerts",
+      "assignee": "p2",
+      "status": "in_progress",
+      "createdAt": "2026-10-05T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "startedAt": "2026-10-10T12:00:00Z",
+      "dueAt": "2026-10-25T12:00:00Z"
+    },
+    {
+      "id": "ZEN-118",
+      "title": "Accessibility labels",
+      "assignee": "p3",
+      "status": "todo",
+      "createdAt": "2026-10-08T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-29T12:00:00Z"
+    },
+    {
+      "id": "ZEN-119",
+      "title": "App icon",
+      "assignee": "p1",
+      "status": "todo",
+      "createdAt": "2026-10-10T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-30T12:00:00Z"
+    },
+    {
+      "id": "ZEN-120",
+      "title": "Error screens",
+      "assignee": "p2",
+      "status": "todo",
+      "createdAt": "2026-10-12T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-30T12:00:00Z"
+    },
+    {
+      "id": "ZEN-121",
+      "title": "Final report",
+      "assignee": null,
+      "status": "todo",
+      "createdAt": "2026-10-15T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-11-01T12:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,2593 @@
+{
+  "team": {
+    "id": "atlas",
+    "name": "Team Atlas",
+    "projectStart": "2026-09-07T00:00:00Z",
+    "deadline": "2026-11-01T18:30:00Z",
+    "people": [
+      {
+        "id": "p1",
+        "displayName": "Member A",
+        "githubLogin": "osprey-io",
+        "taskAssignee": "Osprey",
+        "role": "code",
+        "colorIndex": 0
+      },
+      {
+        "id": "p2",
+        "displayName": "Member B",
+        "githubLogin": "marten-k",
+        "taskAssignee": "Marten",
+        "role": "code",
+        "colorIndex": 1
+      },
+      {
+        "id": "p3",
+        "displayName": "Member C",
+        "githubLogin": "ibis-dev",
+        "taskAssignee": "Ibis",
+        "role": "code",
+        "colorIndex": 2
+      },
+      {
+        "id": "p4",
+        "displayName": "Member D",
+        "githubLogin": "finch-writes",
+        "taskAssignee": "Finch",
+        "role": "docs",
+        "colorIndex": 3
+      }
+    ]
+  },
+  "asOf": "2026-10-23T12:00:00Z",
+  "source": "synthetic",
+  "commits": [
+    {
+      "sha": "b09cd32559f8f29325a3795ee685a94568d0c482",
+      "author": "p1",
+      "date": "2026-09-07T03:00:00Z",
+      "message": "Refactor task board",
+      "branch": "feature/task-board",
+      "additions": 79,
+      "deletions": 6,
+      "files": [
+        "src/board/drag.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "638f18d52ad766c0026d2e106214d82ac9b98108",
+      "author": "p1",
+      "date": "2026-09-08T10:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/task-board",
+      "additions": 49,
+      "deletions": 6,
+      "files": [
+        "src/board/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e2dba7fd47d590b9ead94d1095103202ffbef684",
+      "author": "p1",
+      "date": "2026-09-08T11:00:00Z",
+      "message": "Refactor task board (#1)",
+      "branch": "main",
+      "additions": 128,
+      "deletions": 12,
+      "files": [
+        "src/board/drag.js",
+        "src/board/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "54b5d137537aaa52d7022ee51dd21b54381739b0",
+      "author": "p1",
+      "date": "2026-09-10T05:00:00Z",
+      "message": "Fix column layout",
+      "branch": "feature/ATL-102-column-layout",
+      "additions": 81,
+      "deletions": 27,
+      "files": [
+        "src/board/board.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "cfbf447d547b9c46844797fe2f47d61650d7ea5b",
+      "author": "p1",
+      "date": "2026-09-10T06:00:00Z",
+      "message": "Fix column layout (#2)",
+      "branch": "main",
+      "additions": 81,
+      "deletions": 27,
+      "files": [
+        "src/board/board.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "24ed2a9f9b7b0ae76174c9491340bd523b242eec",
+      "author": "p2",
+      "date": "2026-09-12T07:00:00Z",
+      "message": "Improve month view",
+      "branch": "feature/month-view",
+      "additions": 89,
+      "deletions": 0,
+      "files": [
+        "src/calendar/event.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "773036ca62cde013df30cee39a4a051aaef97e32",
+      "author": "p2",
+      "date": "2026-09-12T08:00:00Z",
+      "message": "Improve month view (#3)",
+      "branch": "main",
+      "additions": 89,
+      "deletions": 0,
+      "files": [
+        "src/calendar/event.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0d0c4a463f149020b99567f4ccb88d22e7688244",
+      "author": "p3",
+      "date": "2026-09-15T05:00:00Z",
+      "message": "Build groups API",
+      "branch": "feature/ATL-104-groups-api",
+      "additions": 86,
+      "deletions": 0,
+      "files": [
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "cb8aeeb106794dc852d610020d371bfba28da126",
+      "author": "p3",
+      "date": "2026-09-15T06:00:00Z",
+      "message": "Build groups API (#4)",
+      "branch": "main",
+      "additions": 86,
+      "deletions": 0,
+      "files": [
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "05d87c8578422bd09dc7193931d69bad112d5595",
+      "author": "p4",
+      "date": "2026-09-16T10:00:00Z",
+      "message": "ATL-105 Fix setup guide",
+      "branch": "feature/setup-guide",
+      "additions": 27,
+      "deletions": 9,
+      "files": [
+        "docs/user-guide.md"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "8becb11b65e8067ca299665849387f72e0465f22",
+      "author": "p4",
+      "date": "2026-09-16T11:00:00Z",
+      "message": "ATL-105 Fix setup guide (#5)",
+      "branch": "main",
+      "additions": 27,
+      "deletions": 9,
+      "files": [
+        "docs/user-guide.md"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b21de67d1890524cb306b938b45d2305edaf48b2",
+      "author": "p2",
+      "date": "2026-09-17T11:00:00Z",
+      "message": "Fix event form",
+      "branch": "feature/event-form",
+      "additions": 76,
+      "deletions": 26,
+      "files": [
+        "src/calendar/ics.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "75d06c55b7920530e218e944edb9b1b9ae4b51d6",
+      "author": "p2",
+      "date": "2026-09-17T12:00:00Z",
+      "message": "Fix event form (#6)",
+      "branch": "main",
+      "additions": 76,
+      "deletions": 26,
+      "files": [
+        "src/calendar/ics.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "855e171c5c0dca35759d4b9200c789858f0e697d",
+      "author": "p4",
+      "date": "2026-09-19T15:00:00Z",
+      "message": "Build API reference",
+      "branch": "feature/ATL-107-api-reference",
+      "additions": 67,
+      "deletions": 23,
+      "files": [
+        "docs/setup.md"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "93744b3918834d100de9faabac6ce6622b7a79a3",
+      "author": "p4",
+      "date": "2026-09-19T16:00:00Z",
+      "message": "Build API reference (#7)",
+      "branch": "main",
+      "additions": 67,
+      "deletions": 23,
+      "files": [
+        "docs/setup.md"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "837b68c8e19b52cf73249a2609de751f0aaf880a",
+      "author": "p3",
+      "date": "2026-09-22T14:00:00Z",
+      "message": "ATL-108 Refactor member invites",
+      "branch": "feature/member-invites",
+      "additions": 43,
+      "deletions": 15,
+      "files": [
+        "src/api/auth.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "3041144191be02192109b0532e350b10147b3f27",
+      "author": "p3",
+      "date": "2026-09-22T15:00:00Z",
+      "message": "ATL-108 Refactor member invites (#8)",
+      "branch": "main",
+      "additions": 43,
+      "deletions": 15,
+      "files": [
+        "src/api/auth.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "32d7f1820b1f93f75ad9e193c98f01d620ff371e",
+      "author": "p1",
+      "date": "2026-09-23T00:00:00Z",
+      "message": "ATL-110 Wire up card editor",
+      "branch": "feature/card-editor",
+      "additions": 79,
+      "deletions": 13,
+      "files": [
+        "src/board/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b3a83742d93ad6fc2310c3617300c6299a916510",
+      "author": "p2",
+      "date": "2026-09-23T10:00:00Z",
+      "message": "Fix reminders",
+      "branch": "feature/reminders",
+      "additions": 43,
+      "deletions": 14,
+      "files": [
+        "src/calendar/reminders.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9f735f28c5a7e5bb39ee4350427453c8250d71ce",
+      "author": "p2",
+      "date": "2026-09-23T11:00:00Z",
+      "message": "Fix reminders (#9)",
+      "branch": "main",
+      "additions": 43,
+      "deletions": 14,
+      "files": [
+        "src/calendar/reminders.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "86a80569746ef1de00189049f6fb0cfc277e94b3",
+      "author": "p1",
+      "date": "2026-09-24T13:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/card-editor",
+      "additions": 65,
+      "deletions": 7,
+      "files": [
+        "src/board/card.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ca86e4ecd01a2e79f6ba5110f73f19e807d14789",
+      "author": "p1",
+      "date": "2026-09-24T14:00:00Z",
+      "message": "ATL-110 Wire up card editor (#10)",
+      "branch": "main",
+      "additions": 144,
+      "deletions": 20,
+      "files": [
+        "src/board/store.js",
+        "src/board/card.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "f436a20a2e4078ada426c19bdada74983b90326a",
+      "author": "p3",
+      "date": "2026-09-26T11:00:00Z",
+      "message": "Wire up login API",
+      "branch": "feature/ATL-111-login-api",
+      "additions": 57,
+      "deletions": 19,
+      "files": [
+        "src/api/members.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "34dae31c569c203b02504b58961f1b5817e0e686",
+      "author": "p3",
+      "date": "2026-09-26T12:00:00Z",
+      "message": "Wire up login API (#11)",
+      "branch": "main",
+      "additions": 57,
+      "deletions": 19,
+      "files": [
+        "src/api/members.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "f0cf007ae7861eaef36809fffe62abcb83ce529f",
+      "author": "p2",
+      "date": "2026-09-27T14:00:00Z",
+      "message": "Add week view",
+      "branch": "feature/ATL-112-week-view",
+      "additions": 76,
+      "deletions": 0,
+      "files": [
+        "src/calendar/week.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "bb9cfbf9de0e8c01a7b7437e22cb04e5e4dd2052",
+      "author": "p2",
+      "date": "2026-09-29T09:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/ATL-112-week-view",
+      "additions": 131,
+      "deletions": 0,
+      "files": [
+        "src/calendar/ics.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "f84f8ad52739b0ef17b2b50eaad7c53adbe4070b",
+      "author": "p2",
+      "date": "2026-09-29T10:00:00Z",
+      "message": "Add week view (#12)",
+      "branch": "main",
+      "additions": 207,
+      "deletions": 0,
+      "files": [
+        "src/calendar/week.js",
+        "src/calendar/ics.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "843f78f0a89b6e4d9bd773003f5ff518962b9351",
+      "author": "p2",
+      "date": "2026-10-01T06:00:00Z",
+      "message": "ATL-113 Add calendar export",
+      "branch": "feature/calendar-export",
+      "additions": 96,
+      "deletions": 32,
+      "files": [
+        "src/calendar/event.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "080a3b45fbaa0445e9045f181aecee242abf3ce2",
+      "author": "p2",
+      "date": "2026-10-01T07:00:00Z",
+      "message": "ATL-113 Add calendar export (#13)",
+      "branch": "main",
+      "additions": 96,
+      "deletions": 32,
+      "files": [
+        "src/calendar/event.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ee422ca105c018678b383cd13aab978633b3b349",
+      "author": "p2",
+      "date": "2026-10-01T18:00:00Z",
+      "message": "Wire up recurring events",
+      "branch": "feature/ATL-114-recurring-events",
+      "additions": 61,
+      "deletions": 11,
+      "files": [
+        "src/calendar/reminders.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d087d0c2691c908dd5d42cd86245f8ed5c9ef996",
+      "author": "p2",
+      "date": "2026-10-03T09:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/ATL-114-recurring-events",
+      "additions": 60,
+      "deletions": 7,
+      "files": [
+        "src/calendar/week.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "62e16dd580fc12b35717513241357c04fcb11e4e",
+      "author": "p2",
+      "date": "2026-10-03T10:00:00Z",
+      "message": "Wire up recurring events (#14)",
+      "branch": "main",
+      "additions": 121,
+      "deletions": 18,
+      "files": [
+        "src/calendar/reminders.js",
+        "src/calendar/week.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "a862846d9dc2a490608ae2b6b645303ca7bae7f6",
+      "author": "p1",
+      "date": "2026-10-04T11:00:00Z",
+      "message": "Wire up drag and drop",
+      "branch": "feature/drag-and-drop",
+      "additions": 96,
+      "deletions": 0,
+      "files": [
+        "src/board/drag.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "26bdc63a34e16d764306a6384b8f08c7f6953df9",
+      "author": "p3",
+      "date": "2026-10-05T02:00:00Z",
+      "message": "Add database setup",
+      "branch": "feature/database-setup",
+      "additions": 115,
+      "deletions": 13,
+      "files": [
+        "src/api/auth.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "132c98b08edc14ede5bab0d2b2dac66b4eeb2065",
+      "author": "p1",
+      "date": "2026-10-06T11:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/drag-and-drop",
+      "additions": 44,
+      "deletions": 0,
+      "files": [
+        "src/board/card.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "269d4c18111cd033121788eb8a1efbf63ddff2c0",
+      "author": "p1",
+      "date": "2026-10-06T12:00:00Z",
+      "message": "Wire up drag and drop (#15)",
+      "branch": "main",
+      "additions": 140,
+      "deletions": 0,
+      "files": [
+        "src/board/drag.js",
+        "src/board/card.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "cdb594dcb85c77814baee8b4772b7dff7140e717",
+      "author": "p3",
+      "date": "2026-10-07T08:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/database-setup",
+      "additions": 57,
+      "deletions": 12,
+      "files": [
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "dfdb441c6de9f4dff7623c993de97f8824382b83",
+      "author": "p3",
+      "date": "2026-10-07T09:00:00Z",
+      "message": "Add database setup (#16)",
+      "branch": "main",
+      "additions": 172,
+      "deletions": 25,
+      "files": [
+        "src/api/auth.js",
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "05d127736e1edd741797c204e377a62468494202",
+      "author": "p1",
+      "date": "2026-10-08T07:00:00Z",
+      "message": "Refactor board store",
+      "branch": "feature/board-store",
+      "additions": 110,
+      "deletions": 37,
+      "files": [
+        "src/board/drag.js",
+        "src/board/board.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "dee9c0e6ba4f0e73dafddeeeab497d5615278af6",
+      "author": "p1",
+      "date": "2026-10-08T08:00:00Z",
+      "message": "Refactor board store (#17)",
+      "branch": "main",
+      "additions": 110,
+      "deletions": 37,
+      "files": [
+        "src/board/drag.js",
+        "src/board/board.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "51a03286087218505c2dfef5493aff3d14fc8728",
+      "author": "p3",
+      "date": "2026-10-10T12:00:00Z",
+      "message": "Wire up rate limits",
+      "branch": "feature/ATL-118-rate-limits",
+      "additions": 46,
+      "deletions": 0,
+      "files": [
+        "src/api/db.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4dca187f627528bc58466ad1359d7c74c5a056fe",
+      "author": "p3",
+      "date": "2026-10-10T13:00:00Z",
+      "message": "Wire up rate limits (#18)",
+      "branch": "main",
+      "additions": 46,
+      "deletions": 0,
+      "files": [
+        "src/api/db.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "469ac194aaa668ff7d21101d4eb895de57e20e87",
+      "author": "p3",
+      "date": "2026-10-13T13:00:00Z",
+      "message": "ATL-119 Fix input checks",
+      "branch": "feature/input-checks",
+      "additions": 71,
+      "deletions": 0,
+      "files": [
+        "src/api/groups.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d266fa2a79eb01e0ff0682578563481c40a7a210",
+      "author": "p3",
+      "date": "2026-10-13T14:00:00Z",
+      "message": "ATL-119 Fix input checks (#19)",
+      "branch": "main",
+      "additions": 71,
+      "deletions": 0,
+      "files": [
+        "src/api/groups.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "5d9d20a3718a7020be3f19712d7976abcbb2d77f",
+      "author": "p2",
+      "date": "2026-10-13T16:00:00Z",
+      "message": "ATL-121 Add time zones",
+      "branch": "feature/time-zones",
+      "additions": 58,
+      "deletions": 15,
+      "files": [
+        "src/calendar/week.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "cc6fa9f96cc26a0836920a7e172deef6acd9e191",
+      "author": "p3",
+      "date": "2026-10-14T14:00:00Z",
+      "message": "ATL-120 Improve groups API 2",
+      "branch": "feature/groups-api-2",
+      "additions": 79,
+      "deletions": 26,
+      "files": [
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7c7e9e01273e63fbf0a23ee3d2dda4e245ebb72c",
+      "author": "p3",
+      "date": "2026-10-14T15:00:00Z",
+      "message": "ATL-120 Improve groups API 2 (#20)",
+      "branch": "main",
+      "additions": 79,
+      "deletions": 26,
+      "files": [
+        "src/api/server.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ba9e8e89ee672acf66aa1c8193814eab9aec0bd5",
+      "author": "p2",
+      "date": "2026-10-15T06:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/time-zones",
+      "additions": 63,
+      "deletions": 11,
+      "files": [
+        "src/calendar/reminders.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "481a27f4e3a5de4a3ac435061067416e55ac918f",
+      "author": "p2",
+      "date": "2026-10-15T07:00:00Z",
+      "message": "Add time zones (#21)",
+      "branch": "main",
+      "additions": 121,
+      "deletions": 26,
+      "files": [
+        "src/calendar/week.js",
+        "src/calendar/reminders.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "49c115af491d8fda180d7739d94214ac2fbe4bc4",
+      "author": "p1",
+      "date": "2026-10-17T08:00:00Z",
+      "message": "ATL-122 Add card labels",
+      "branch": "feature/card-labels",
+      "additions": 65,
+      "deletions": 0,
+      "files": [
+        "src/board/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "164115e6043d65b2130909ced99c30eef62490e7",
+      "author": "p1",
+      "date": "2026-10-17T09:00:00Z",
+      "message": "ATL-122 Add card labels (#22)",
+      "branch": "main",
+      "additions": 65,
+      "deletions": 0,
+      "files": [
+        "src/board/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "1ac0923d11f4c800ca8ba84672b3d415d8160a63",
+      "author": "p1",
+      "date": "2026-10-19T13:00:00Z",
+      "message": "Improve archive view",
+      "branch": "feature/ATL-123-archive-view",
+      "additions": 102,
+      "deletions": 34,
+      "files": [
+        "src/board/card.js",
+        "src/board/board.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "663d21989289868c4865a9cfd96c73886e1fc7be",
+      "author": "p1",
+      "date": "2026-10-19T14:00:00Z",
+      "message": "Improve archive view (#23)",
+      "branch": "main",
+      "additions": 102,
+      "deletions": 34,
+      "files": [
+        "src/board/card.js",
+        "src/board/board.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c355945e89622853acc6114ebc0dd494e375f003",
+      "author": "p4",
+      "date": "2026-10-20T14:00:00Z",
+      "message": "ATL-124 Refactor user guide",
+      "branch": "feature/user-guide",
+      "additions": 71,
+      "deletions": 0,
+      "files": [
+        "docs/user-guide.md"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "bfa7c636a41b1f9f15883e66458756cf3a996512",
+      "author": "p4",
+      "date": "2026-10-20T15:00:00Z",
+      "message": "ATL-124 Refactor user guide (#24)",
+      "branch": "main",
+      "additions": 71,
+      "deletions": 0,
+      "files": [
+        "docs/user-guide.md"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "fb0e6c19df232ff41c5bb161b93a1cbb55e9d688",
+      "author": "p2",
+      "date": "2026-10-21T08:00:00Z",
+      "message": "Start ATL-130-filters",
+      "branch": "feature/ATL-130-filters",
+      "additions": 34,
+      "deletions": 0,
+      "files": [
+        "src/calendar/filters.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "821707f5f2e753f4121c04522c38b92dd1365ebc",
+      "author": "p1",
+      "date": "2026-10-21T11:00:00Z",
+      "message": "ATL-129 Board export",
+      "branch": "feature/board-export",
+      "additions": 34,
+      "deletions": 0,
+      "files": [
+        "src/board/export.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c7069cd28794f57da82ad090aedc3a76eba3adcc",
+      "author": "p1",
+      "date": "2026-10-22T01:30:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/board-export",
+      "additions": 27,
+      "deletions": 0,
+      "files": [
+        "src/board/export.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "cdd292459b29634b2fd50fd2e4211e73f2102b16",
+      "author": "p3",
+      "date": "2026-10-22T06:00:00Z",
+      "message": "Start fix/ATL-131-date-format",
+      "branch": "fix/ATL-131-date-format",
+      "additions": 6,
+      "deletions": 3,
+      "files": [
+        "src/api/dates.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2e6a0f281d94122b34ad48a913adbbe6eebb57e9",
+      "author": "p2",
+      "date": "2026-10-22T08:30:00Z",
+      "message": "Address review comments",
+      "branch": "feature/ATL-130-filters",
+      "additions": 15,
+      "deletions": 0,
+      "files": [
+        "src/calendar/filters.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "52605dbb83fe32858024c329085b323d58dec7c5",
+      "author": "p4",
+      "date": "2026-10-22T11:00:00Z",
+      "message": "ATL-125 Build architecture notes",
+      "branch": "feature/architecture-notes",
+      "additions": 49,
+      "deletions": 16,
+      "files": [
+        "docs/api.md"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9c35a9ad83bd9df9f86084aa0449a9d841ecf2c0",
+      "author": "p3",
+      "date": "2026-10-22T11:00:00Z",
+      "message": "Rename variables",
+      "branch": "fix/ATL-131-date-format",
+      "additions": 9,
+      "deletions": 1,
+      "files": [
+        "src/api/dates.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c1252d920b995565623682abab7640040c66c7d3",
+      "author": "p4",
+      "date": "2026-10-22T12:00:00Z",
+      "message": "ATL-125 Build architecture notes (#25)",
+      "branch": "main",
+      "additions": 49,
+      "deletions": 16,
+      "files": [
+        "docs/api.md"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "41234d14596be46778c28a2aaea9b05099d5cd79",
+      "author": "p1",
+      "date": "2026-10-22T16:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/board-export",
+      "additions": 29,
+      "deletions": 0,
+      "files": [
+        "src/board/export.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c1d9cb673f6c374fa810b00affc27cf62ad1aeec",
+      "author": "p2",
+      "date": "2026-10-23T09:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/ATL-130-filters",
+      "additions": 21,
+      "deletions": 0,
+      "files": [
+        "src/calendar/filters.js"
+      ],
+      "directToMain": false
+    }
+  ],
+  "pullRequests": [
+    {
+      "number": 1,
+      "title": "Refactor task board",
+      "author": "p1",
+      "branch": "feature/task-board",
+      "baseBranch": "main",
+      "createdAt": "2026-09-07T15:00:00Z",
+      "mergedAt": "2026-09-08T11:00:00Z",
+      "closedAt": "2026-09-08T11:00:00Z",
+      "state": "merged",
+      "additions": 128,
+      "deletions": 12,
+      "files": [
+        {
+          "path": "src/board/drag.js",
+          "status": "modified",
+          "ranges": [
+            [
+              115,
+              148
+            ]
+          ],
+          "additions": 34,
+          "deletions": 12
+        },
+        {
+          "path": "src/board/store.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              94
+            ]
+          ],
+          "additions": 94,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-09-07T21:52:00Z",
+          "state": "approved"
+        },
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-09-08T00:30:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-09-08T08:00:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-101"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Fix column layout",
+      "author": "p1",
+      "branch": "feature/ATL-102-column-layout",
+      "baseBranch": "main",
+      "createdAt": "2026-09-09T11:00:00Z",
+      "mergedAt": "2026-09-10T06:00:00Z",
+      "closedAt": "2026-09-10T06:00:00Z",
+      "state": "merged",
+      "additions": 81,
+      "deletions": 27,
+      "files": [
+        {
+          "path": "src/board/board.js",
+          "status": "modified",
+          "ranges": [
+            [
+              51,
+              131
+            ]
+          ],
+          "additions": 81,
+          "deletions": 27
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-09-09T16:14:00Z",
+          "state": "commented"
+        },
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-09T19:51:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-102"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Improve month view",
+      "author": "p2",
+      "branch": "feature/month-view",
+      "baseBranch": "main",
+      "createdAt": "2026-09-11T02:00:00Z",
+      "mergedAt": "2026-09-12T08:00:00Z",
+      "closedAt": "2026-09-12T08:00:00Z",
+      "state": "merged",
+      "additions": 89,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/calendar/event.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              89
+            ]
+          ],
+          "additions": 89,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-11T09:19:00Z",
+          "state": "approved"
+        },
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-09-11T17:40:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-103"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Build groups API",
+      "author": "p3",
+      "branch": "feature/ATL-104-groups-api",
+      "baseBranch": "main",
+      "createdAt": "2026-09-14T10:00:00Z",
+      "mergedAt": "2026-09-15T06:00:00Z",
+      "closedAt": "2026-09-15T06:00:00Z",
+      "state": "merged",
+      "additions": 86,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/api/server.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              86
+            ]
+          ],
+          "additions": 86,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-14T14:21:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-104"
+      ]
+    },
+    {
+      "number": 5,
+      "title": "ATL-105 Fix setup guide",
+      "author": "p4",
+      "branch": "feature/setup-guide",
+      "baseBranch": "main",
+      "createdAt": "2026-09-15T06:00:00Z",
+      "mergedAt": "2026-09-16T11:00:00Z",
+      "closedAt": "2026-09-16T11:00:00Z",
+      "state": "merged",
+      "additions": 27,
+      "deletions": 9,
+      "files": [
+        {
+          "path": "docs/user-guide.md",
+          "status": "modified",
+          "ranges": [
+            [
+              141,
+              167
+            ]
+          ],
+          "additions": 27,
+          "deletions": 9
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-09-15T13:04:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-105"
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Fix event form",
+      "author": "p2",
+      "branch": "feature/event-form",
+      "baseBranch": "main",
+      "createdAt": "2026-09-17T06:00:00Z",
+      "mergedAt": "2026-09-17T12:00:00Z",
+      "closedAt": "2026-09-17T12:00:00Z",
+      "state": "merged",
+      "additions": 76,
+      "deletions": 26,
+      "files": [
+        {
+          "path": "src/calendar/ics.js",
+          "status": "modified",
+          "ranges": [
+            [
+              178,
+              253
+            ]
+          ],
+          "additions": 76,
+          "deletions": 26
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-17T07:51:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-106"
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Build API reference",
+      "author": "p4",
+      "branch": "feature/ATL-107-api-reference",
+      "baseBranch": "main",
+      "createdAt": "2026-09-19T06:00:00Z",
+      "mergedAt": "2026-09-19T16:00:00Z",
+      "closedAt": "2026-09-19T16:00:00Z",
+      "state": "merged",
+      "additions": 67,
+      "deletions": 23,
+      "files": [
+        {
+          "path": "docs/setup.md",
+          "status": "modified",
+          "ranges": [
+            [
+              109,
+              175
+            ]
+          ],
+          "additions": 67,
+          "deletions": 23
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-19T08:46:00Z",
+          "state": "approved"
+        },
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-09-19T10:53:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-107"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "ATL-108 Refactor member invites",
+      "author": "p3",
+      "branch": "feature/member-invites",
+      "baseBranch": "main",
+      "createdAt": "2026-09-22T05:00:00Z",
+      "mergedAt": "2026-09-22T15:00:00Z",
+      "closedAt": "2026-09-22T15:00:00Z",
+      "state": "merged",
+      "additions": 43,
+      "deletions": 15,
+      "files": [
+        {
+          "path": "src/api/auth.js",
+          "status": "modified",
+          "ranges": [
+            [
+              77,
+              119
+            ]
+          ],
+          "additions": 43,
+          "deletions": 15
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-09-22T08:04:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-22T08:40:00Z",
+          "state": "commented"
+        },
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-09-22T13:30:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-108"
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Fix reminders",
+      "author": "p2",
+      "branch": "feature/reminders",
+      "baseBranch": "main",
+      "createdAt": "2026-09-22T08:00:00Z",
+      "mergedAt": "2026-09-23T11:00:00Z",
+      "closedAt": "2026-09-23T11:00:00Z",
+      "state": "merged",
+      "additions": 43,
+      "deletions": 14,
+      "files": [
+        {
+          "path": "src/calendar/reminders.js",
+          "status": "modified",
+          "ranges": [
+            [
+              143,
+              185
+            ]
+          ],
+          "additions": 43,
+          "deletions": 14
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-22T12:24:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-109"
+      ]
+    },
+    {
+      "number": 10,
+      "title": "ATL-110 Wire up card editor",
+      "author": "p1",
+      "branch": "feature/card-editor",
+      "baseBranch": "main",
+      "createdAt": "2026-09-24T08:00:00Z",
+      "mergedAt": "2026-09-24T14:00:00Z",
+      "closedAt": "2026-09-24T14:00:00Z",
+      "state": "merged",
+      "additions": 144,
+      "deletions": 20,
+      "files": [
+        {
+          "path": "src/board/store.js",
+          "status": "modified",
+          "ranges": [
+            [
+              86,
+              143
+            ]
+          ],
+          "additions": 58,
+          "deletions": 20
+        },
+        {
+          "path": "src/board/card.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              86
+            ]
+          ],
+          "additions": 86,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-09-24T09:05:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-110"
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Wire up login API",
+      "author": "p3",
+      "branch": "feature/ATL-111-login-api",
+      "baseBranch": "main",
+      "createdAt": "2026-09-25T08:00:00Z",
+      "mergedAt": "2026-09-26T12:00:00Z",
+      "closedAt": "2026-09-26T12:00:00Z",
+      "state": "merged",
+      "additions": 57,
+      "deletions": 19,
+      "files": [
+        {
+          "path": "src/api/members.js",
+          "status": "modified",
+          "ranges": [
+            [
+              39,
+              95
+            ]
+          ],
+          "additions": 57,
+          "deletions": 19
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-09-25T13:37:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-111"
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Add week view",
+      "author": "p2",
+      "branch": "feature/ATL-112-week-view",
+      "baseBranch": "main",
+      "createdAt": "2026-09-28T19:00:00Z",
+      "mergedAt": "2026-09-29T10:00:00Z",
+      "closedAt": "2026-09-29T10:00:00Z",
+      "state": "merged",
+      "additions": 207,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/calendar/week.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              96
+            ]
+          ],
+          "additions": 96,
+          "deletions": 0
+        },
+        {
+          "path": "src/calendar/ics.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              111
+            ]
+          ],
+          "additions": 111,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-28T21:48:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-09-29T02:13:00Z",
+          "state": "approved"
+        },
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-29T07:45:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-112"
+      ]
+    },
+    {
+      "number": 13,
+      "title": "ATL-113 Add calendar export",
+      "author": "p2",
+      "branch": "feature/calendar-export",
+      "baseBranch": "main",
+      "createdAt": "2026-09-30T10:00:00Z",
+      "mergedAt": "2026-10-01T07:00:00Z",
+      "closedAt": "2026-10-01T07:00:00Z",
+      "state": "merged",
+      "additions": 96,
+      "deletions": 32,
+      "files": [
+        {
+          "path": "src/calendar/event.js",
+          "status": "modified",
+          "ranges": [
+            [
+              150,
+              245
+            ]
+          ],
+          "additions": 96,
+          "deletions": 32
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-09-30T16:11:00Z",
+          "state": "approved"
+        },
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-09-30T19:38:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-113"
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Wire up recurring events",
+      "author": "p2",
+      "branch": "feature/ATL-114-recurring-events",
+      "baseBranch": "main",
+      "createdAt": "2026-10-02T05:00:00Z",
+      "mergedAt": "2026-10-03T10:00:00Z",
+      "closedAt": "2026-10-03T10:00:00Z",
+      "state": "merged",
+      "additions": 121,
+      "deletions": 18,
+      "files": [
+        {
+          "path": "src/calendar/reminders.js",
+          "status": "modified",
+          "ranges": [
+            [
+              42,
+              95
+            ]
+          ],
+          "additions": 54,
+          "deletions": 18
+        },
+        {
+          "path": "src/calendar/week.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              67
+            ]
+          ],
+          "additions": 67,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-10-02T13:42:00Z",
+          "state": "approved"
+        },
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-02T15:28:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-114"
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Wire up drag and drop",
+      "author": "p1",
+      "branch": "feature/drag-and-drop",
+      "baseBranch": "main",
+      "createdAt": "2026-10-05T09:00:00Z",
+      "mergedAt": "2026-10-06T12:00:00Z",
+      "closedAt": "2026-10-06T12:00:00Z",
+      "state": "merged",
+      "additions": 140,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/board/drag.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              62
+            ]
+          ],
+          "additions": 62,
+          "deletions": 0
+        },
+        {
+          "path": "src/board/card.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              78
+            ]
+          ],
+          "additions": 78,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-05T13:12:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-115"
+      ]
+    },
+    {
+      "number": 16,
+      "title": "Add database setup",
+      "author": "p3",
+      "branch": "feature/database-setup",
+      "baseBranch": "main",
+      "createdAt": "2026-10-06T15:00:00Z",
+      "mergedAt": "2026-10-07T09:00:00Z",
+      "closedAt": "2026-10-07T09:00:00Z",
+      "state": "merged",
+      "additions": 172,
+      "deletions": 25,
+      "files": [
+        {
+          "path": "src/api/auth.js",
+          "status": "modified",
+          "ranges": [
+            [
+              6,
+              80
+            ]
+          ],
+          "additions": 75,
+          "deletions": 25
+        },
+        {
+          "path": "src/api/server.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              97
+            ]
+          ],
+          "additions": 97,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-06T18:45:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-116"
+      ]
+    },
+    {
+      "number": 17,
+      "title": "Refactor board store",
+      "author": "p1",
+      "branch": "feature/board-store",
+      "baseBranch": "main",
+      "createdAt": "2026-10-07T11:00:00Z",
+      "mergedAt": "2026-10-08T08:00:00Z",
+      "closedAt": "2026-10-08T08:00:00Z",
+      "state": "merged",
+      "additions": 110,
+      "deletions": 37,
+      "files": [
+        {
+          "path": "src/board/drag.js",
+          "status": "modified",
+          "ranges": [
+            [
+              111,
+              164
+            ]
+          ],
+          "additions": 54,
+          "deletions": 18
+        },
+        {
+          "path": "src/board/board.js",
+          "status": "modified",
+          "ranges": [
+            [
+              164,
+              219
+            ]
+          ],
+          "additions": 56,
+          "deletions": 19
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-10-07T16:50:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-10-08T04:51:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-117"
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Wire up rate limits",
+      "author": "p3",
+      "branch": "feature/ATL-118-rate-limits",
+      "baseBranch": "main",
+      "createdAt": "2026-10-09T13:00:00Z",
+      "mergedAt": "2026-10-10T13:00:00Z",
+      "closedAt": "2026-10-10T13:00:00Z",
+      "state": "merged",
+      "additions": 46,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/api/db.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              46
+            ]
+          ],
+          "additions": 46,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-09T16:36:00Z",
+          "state": "approved"
+        },
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-09T23:48:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-118"
+      ]
+    },
+    {
+      "number": 19,
+      "title": "ATL-119 Fix input checks",
+      "author": "p3",
+      "branch": "feature/input-checks",
+      "baseBranch": "main",
+      "createdAt": "2026-10-13T05:00:00Z",
+      "mergedAt": "2026-10-13T14:00:00Z",
+      "closedAt": "2026-10-13T14:00:00Z",
+      "state": "merged",
+      "additions": 71,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/api/groups.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              71
+            ]
+          ],
+          "additions": 71,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-13T07:10:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-119"
+      ]
+    },
+    {
+      "number": 20,
+      "title": "ATL-120 Improve groups API 2",
+      "author": "p3",
+      "branch": "feature/groups-api-2",
+      "baseBranch": "main",
+      "createdAt": "2026-10-13T17:00:00Z",
+      "mergedAt": "2026-10-14T15:00:00Z",
+      "closedAt": "2026-10-14T15:00:00Z",
+      "state": "merged",
+      "additions": 79,
+      "deletions": 26,
+      "files": [
+        {
+          "path": "src/api/server.js",
+          "status": "modified",
+          "ranges": [
+            [
+              51,
+              129
+            ]
+          ],
+          "additions": 79,
+          "deletions": 26
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-10-13T23:29:00Z",
+          "state": "approved"
+        },
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-14T03:23:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-14T11:42:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-120"
+      ]
+    },
+    {
+      "number": 21,
+      "title": "Add time zones",
+      "author": "p2",
+      "branch": "feature/time-zones",
+      "baseBranch": "main",
+      "createdAt": "2026-10-14T22:00:00Z",
+      "mergedAt": "2026-10-15T07:00:00Z",
+      "closedAt": "2026-10-15T07:00:00Z",
+      "state": "merged",
+      "additions": 121,
+      "deletions": 26,
+      "files": [
+        {
+          "path": "src/calendar/week.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              44
+            ]
+          ],
+          "additions": 44,
+          "deletions": 0
+        },
+        {
+          "path": "src/calendar/reminders.js",
+          "status": "modified",
+          "ranges": [
+            [
+              69,
+              145
+            ]
+          ],
+          "additions": 77,
+          "deletions": 26
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-15T00:12:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-121"
+      ]
+    },
+    {
+      "number": 22,
+      "title": "ATL-122 Add card labels",
+      "author": "p1",
+      "branch": "feature/card-labels",
+      "baseBranch": "main",
+      "createdAt": "2026-10-17T02:00:00Z",
+      "mergedAt": "2026-10-17T09:00:00Z",
+      "closedAt": "2026-10-17T09:00:00Z",
+      "state": "merged",
+      "additions": 65,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/board/store.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              65
+            ]
+          ],
+          "additions": 65,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-10-17T04:11:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-122"
+      ]
+    },
+    {
+      "number": 23,
+      "title": "Improve archive view",
+      "author": "p1",
+      "branch": "feature/ATL-123-archive-view",
+      "baseBranch": "main",
+      "createdAt": "2026-10-18T13:00:00Z",
+      "mergedAt": "2026-10-19T14:00:00Z",
+      "closedAt": "2026-10-19T14:00:00Z",
+      "state": "merged",
+      "additions": 102,
+      "deletions": 34,
+      "files": [
+        {
+          "path": "src/board/card.js",
+          "status": "modified",
+          "ranges": [
+            [
+              155,
+              204
+            ]
+          ],
+          "additions": 50,
+          "deletions": 17
+        },
+        {
+          "path": "src/board/board.js",
+          "status": "modified",
+          "ranges": [
+            [
+              119,
+              170
+            ]
+          ],
+          "additions": 52,
+          "deletions": 17
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-10-18T19:50:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-123"
+      ]
+    },
+    {
+      "number": 24,
+      "title": "ATL-124 Refactor user guide",
+      "author": "p4",
+      "branch": "feature/user-guide",
+      "baseBranch": "main",
+      "createdAt": "2026-10-19T23:00:00Z",
+      "mergedAt": "2026-10-20T15:00:00Z",
+      "closedAt": "2026-10-20T15:00:00Z",
+      "state": "merged",
+      "additions": 71,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/user-guide.md",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              71
+            ]
+          ],
+          "additions": 71,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-20T04:35:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-20T12:36:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-124"
+      ]
+    },
+    {
+      "number": 25,
+      "title": "ATL-125 Build architecture notes",
+      "author": "p4",
+      "branch": "feature/architecture-notes",
+      "baseBranch": "main",
+      "createdAt": "2026-10-21T13:00:00Z",
+      "mergedAt": "2026-10-22T12:00:00Z",
+      "closedAt": "2026-10-22T12:00:00Z",
+      "state": "merged",
+      "additions": 49,
+      "deletions": 16,
+      "files": [
+        {
+          "path": "docs/api.md",
+          "status": "modified",
+          "ranges": [
+            [
+              58,
+              106
+            ]
+          ],
+          "additions": 49,
+          "deletions": 16
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-21T16:49:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-22T08:33:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ATL-125"
+      ]
+    },
+    {
+      "number": 26,
+      "title": "ATL-129 Board export",
+      "author": "p1",
+      "branch": "feature/board-export",
+      "baseBranch": "main",
+      "createdAt": "2026-10-22T09:00:00Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "state": "open",
+      "additions": 90,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/board/export.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              90
+            ]
+          ],
+          "additions": 90,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-10-22T13:00:00Z",
+          "state": "commented"
+        }
+      ],
+      "mergeable": "clean",
+      "taskIds": [
+        "ATL-129"
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "name": "feature/ATL-130-filters",
+      "owner": "p2",
+      "createdAt": "2026-10-21T07:00:00Z",
+      "lastPushAt": "2026-10-23T09:00:00Z",
+      "aheadOfMain": 3,
+      "behindMain": 1,
+      "filesTouched": [
+        {
+          "path": "src/calendar/filters.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              70
+            ]
+          ],
+          "additions": 70,
+          "deletions": 0
+        }
+      ],
+      "hasOpenPR": false
+    },
+    {
+      "name": "feature/board-export",
+      "owner": "p1",
+      "createdAt": "2026-10-21T10:00:00Z",
+      "lastPushAt": "2026-10-22T16:00:00Z",
+      "aheadOfMain": 3,
+      "behindMain": 1,
+      "filesTouched": [
+        {
+          "path": "src/board/export.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              90
+            ]
+          ],
+          "additions": 90,
+          "deletions": 0
+        }
+      ],
+      "hasOpenPR": true
+    },
+    {
+      "name": "fix/ATL-131-date-format",
+      "owner": "p3",
+      "createdAt": "2026-10-22T05:00:00Z",
+      "lastPushAt": "2026-10-22T11:00:00Z",
+      "aheadOfMain": 2,
+      "behindMain": 1,
+      "filesTouched": [
+        {
+          "path": "src/api/dates.js",
+          "status": "modified",
+          "ranges": [
+            [
+              10,
+              24
+            ]
+          ],
+          "additions": 15,
+          "deletions": 4
+        }
+      ],
+      "hasOpenPR": false
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ATL-101",
+      "title": "Task board",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-07T00:00:00Z",
+      "linkedPRs": [
+        1
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.75,
+      "startedAt": "2026-09-07T02:00:00Z",
+      "doneAt": "2026-09-08T12:00:00Z"
+    },
+    {
+      "id": "ATL-102",
+      "title": "Column layout",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-07T00:00:00Z",
+      "linkedPRs": [
+        2
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-07T19:00:00Z",
+      "doneAt": "2026-09-10T07:00:00Z"
+    },
+    {
+      "id": "ATL-103",
+      "title": "Month view",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-07T13:00:00Z",
+      "linkedPRs": [
+        3
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.68,
+      "startedAt": "2026-09-09T13:00:00Z",
+      "doneAt": "2026-09-12T12:00:00Z"
+    },
+    {
+      "id": "ATL-104",
+      "title": "Groups API",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-09-10T02:00:00Z",
+      "linkedPRs": [
+        4
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-14T02:00:00Z",
+      "doneAt": "2026-09-15T07:00:00Z"
+    },
+    {
+      "id": "ATL-105",
+      "title": "Setup guide",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-09-09T21:00:00Z",
+      "linkedPRs": [
+        5
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-13T21:00:00Z",
+      "doneAt": "2026-09-16T11:00:00Z"
+    },
+    {
+      "id": "ATL-106",
+      "title": "Event form",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-11T02:00:00Z",
+      "linkedPRs": [
+        6
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.73,
+      "startedAt": "2026-09-16T02:00:00Z",
+      "doneAt": "2026-09-17T14:00:00Z"
+    },
+    {
+      "id": "ATL-107",
+      "title": "API reference",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-09-13T22:00:00Z",
+      "linkedPRs": [
+        7
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-17T22:00:00Z",
+      "doneAt": "2026-09-19T20:00:00Z"
+    },
+    {
+      "id": "ATL-108",
+      "title": "Member invites",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-09-18T20:00:00Z",
+      "linkedPRs": [
+        8
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-20T20:00:00Z",
+      "doneAt": "2026-09-22T16:00:00Z"
+    },
+    {
+      "id": "ATL-109",
+      "title": "Reminders",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-16T20:00:00Z",
+      "linkedPRs": [
+        9
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.63,
+      "startedAt": "2026-09-20T20:00:00Z",
+      "doneAt": "2026-09-23T11:00:00Z"
+    },
+    {
+      "id": "ATL-110",
+      "title": "Card editor",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-21T23:00:00Z",
+      "linkedPRs": [
+        10
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-22T23:00:00Z",
+      "doneAt": "2026-09-24T18:00:00Z"
+    },
+    {
+      "id": "ATL-111",
+      "title": "Login API",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-09-20T18:00:00Z",
+      "linkedPRs": [
+        11
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-24T18:00:00Z",
+      "doneAt": "2026-09-26T16:00:00Z"
+    },
+    {
+      "id": "ATL-112",
+      "title": "Week view",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-25T13:00:00Z",
+      "linkedPRs": [
+        12
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-27T13:00:00Z",
+      "doneAt": "2026-09-29T10:00:00Z"
+    },
+    {
+      "id": "ATL-113",
+      "title": "Calendar export",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-23T21:00:00Z",
+      "linkedPRs": [
+        13
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-28T21:00:00Z",
+      "doneAt": "2026-10-01T11:00:00Z"
+    },
+    {
+      "id": "ATL-114",
+      "title": "Recurring events",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-29T17:00:00Z",
+      "linkedPRs": [
+        14
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-01T17:00:00Z",
+      "doneAt": "2026-10-03T12:00:00Z"
+    },
+    {
+      "id": "ATL-115",
+      "title": "Drag and drop",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-03T10:00:00Z",
+      "linkedPRs": [
+        15
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.77,
+      "startedAt": "2026-10-04T10:00:00Z",
+      "doneAt": "2026-10-06T12:00:00Z"
+    },
+    {
+      "id": "ATL-116",
+      "title": "Database setup",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-04T01:00:00Z",
+      "linkedPRs": [
+        16
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.64,
+      "startedAt": "2026-10-05T01:00:00Z",
+      "doneAt": "2026-10-07T11:00:00Z"
+    },
+    {
+      "id": "ATL-117",
+      "title": "Board store",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-03T21:00:00Z",
+      "linkedPRs": [
+        17
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.69,
+      "startedAt": "2026-10-06T21:00:00Z",
+      "doneAt": "2026-10-08T09:00:00Z"
+    },
+    {
+      "id": "ATL-118",
+      "title": "Rate limits",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-05T22:00:00Z",
+      "linkedPRs": [
+        18
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-07T22:00:00Z",
+      "doneAt": "2026-10-10T16:00:00Z"
+    },
+    {
+      "id": "ATL-119",
+      "title": "Input checks",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-06T19:00:00Z",
+      "linkedPRs": [
+        19
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-11T19:00:00Z",
+      "doneAt": "2026-10-13T17:00:00Z"
+    },
+    {
+      "id": "ATL-120",
+      "title": "Groups API 2",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-09T03:00:00Z",
+      "linkedPRs": [
+        20
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-13T03:00:00Z",
+      "doneAt": "2026-10-14T19:00:00Z"
+    },
+    {
+      "id": "ATL-121",
+      "title": "Time zones",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-10-08T15:00:00Z",
+      "linkedPRs": [
+        21
+      ],
+      "linkSource": "commit-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-13T15:00:00Z",
+      "doneAt": "2026-10-15T10:00:00Z"
+    },
+    {
+      "id": "ATL-122",
+      "title": "Card labels",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-14T20:00:00Z",
+      "linkedPRs": [
+        22
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-16T20:00:00Z",
+      "doneAt": "2026-10-17T10:00:00Z"
+    },
+    {
+      "id": "ATL-123",
+      "title": "Archive view",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-15T14:00:00Z",
+      "linkedPRs": [
+        23
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-17T14:00:00Z",
+      "doneAt": "2026-10-19T18:00:00Z"
+    },
+    {
+      "id": "ATL-124",
+      "title": "User guide",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-10-17T00:00:00Z",
+      "linkedPRs": [
+        24
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-19T00:00:00Z",
+      "doneAt": "2026-10-20T15:00:00Z"
+    },
+    {
+      "id": "ATL-125",
+      "title": "Architecture notes",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-10-17T14:00:00Z",
+      "linkedPRs": [
+        25
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-20T14:00:00Z",
+      "doneAt": "2026-10-22T12:00:00Z"
+    },
+    {
+      "id": "ATL-126",
+      "title": "Interview notes",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-09-08T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "startedAt": "2026-09-09T12:00:00Z",
+      "doneAt": "2026-09-12T12:00:00Z"
+    },
+    {
+      "id": "ATL-127",
+      "title": "Test plan",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-10-01T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "startedAt": "2026-10-05T12:00:00Z",
+      "doneAt": "2026-10-09T12:00:00Z"
+    },
+    {
+      "id": "ATL-128",
+      "title": "Release notes draft",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-10-16T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "startedAt": "2026-10-19T12:00:00Z",
+      "doneAt": "2026-10-21T12:00:00Z"
+    },
+    {
+      "id": "ATL-129",
+      "title": "Board export",
+      "assignee": "p1",
+      "status": "in_review",
+      "createdAt": "2026-10-19T12:00:00Z",
+      "linkedPRs": [
+        26
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-21T10:00:00Z",
+      "dueAt": "2026-10-26T12:00:00Z"
+    },
+    {
+      "id": "ATL-130",
+      "title": "Calendar filters",
+      "assignee": "p2",
+      "status": "in_progress",
+      "createdAt": "2026-10-19T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-21T07:00:00Z",
+      "dueAt": "2026-10-27T12:00:00Z"
+    },
+    {
+      "id": "ATL-131",
+      "title": "Date format bug",
+      "assignee": "p3",
+      "status": "in_progress",
+      "createdAt": "2026-10-21T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-22T05:00:00Z",
+      "dueAt": "2026-10-24T12:00:00Z"
+    },
+    {
+      "id": "ATL-132",
+      "title": "Final demo video",
+      "assignee": "p4",
+      "status": "todo",
+      "createdAt": "2026-10-12T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-31T12:00:00Z"
+    }
+  ]
+}
