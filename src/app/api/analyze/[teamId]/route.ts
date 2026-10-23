@@ -1,9 +1,13 @@
 // GET /api/analyze/[teamId]?asOf= -> Analysis for one synthetic team.
 // asOf (a date or ISO time) replays the team as it was then.
+// Today's view gets AI-worded summaries (template if AI fails or is off);
+// replay and ?ai=0 skip AI so dragging the slider stays fast.
 
 import type { NextRequest } from "next/server";
 import { getSnapshot } from "../../../../../data/snapshots";
 import { analyze } from "@/engine";
+import { analyzeWithAi } from "@/engine/ai";
+import { complete } from "@/lib/llm";
 
 export async function GET(request: NextRequest, ctx: RouteContext<"/api/analyze/[teamId]">) {
   const { teamId } = await ctx.params;
@@ -34,7 +38,11 @@ export async function GET(request: NextRequest, ctx: RouteContext<"/api/analyze/
   }
 
   try {
-    return Response.json(analyze(snapshot, { asOf }));
+    if (asOf || request.nextUrl.searchParams.get("ai") === "0") {
+      return Response.json(analyze(snapshot, { asOf }));
+    }
+    const { analysis } = await analyzeWithAi(snapshot, complete, { words: true });
+    return Response.json(analysis);
   } catch (err) {
     console.error(`GET /api/analyze/${teamId} failed`, err);
     return Response.json({ error: "Could not analyse this team." }, { status: 500 });
