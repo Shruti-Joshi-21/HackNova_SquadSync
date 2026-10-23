@@ -1,0 +1,455 @@
+{
+  "teamId": "nexus",
+  "team": {
+    "id": "nexus",
+    "name": "Team Nexus",
+    "projectStart": "2026-09-07T00:00:00Z",
+    "deadline": "2026-11-01T18:30:00Z",
+    "people": [
+      {
+        "id": "p1",
+        "displayName": "Member A",
+        "githubLogin": "kestrel-dev",
+        "taskAssignee": "Kestrel",
+        "role": "code",
+        "colorIndex": 0
+      },
+      {
+        "id": "p2",
+        "displayName": "Member B",
+        "githubLogin": "heron-codes",
+        "taskAssignee": "Heron",
+        "role": "code",
+        "colorIndex": 1
+      },
+      {
+        "id": "p3",
+        "displayName": "Member C",
+        "githubLogin": "lynx-404",
+        "taskAssignee": "Lynx",
+        "role": "code",
+        "colorIndex": 2
+      },
+      {
+        "id": "p4",
+        "displayName": "Member D",
+        "githubLogin": "wren-draws",
+        "taskAssignee": "Wren",
+        "role": "design",
+        "colorIndex": 3
+      }
+    ]
+  },
+  "asOf": "2026-10-23T12:00:00Z",
+  "verdict": "at_risk",
+  "verdictReason": "58% of all merged lines landed in the last 3 days, across 7 PRs.",
+  "schedule": {
+    "daysTotal": 56,
+    "daysUsed": 46,
+    "daysLeft": 9,
+    "tasksTotal": 40,
+    "tasksDone": 26,
+    "projectedFinish": "2026-11-06T12:00:00Z",
+    "daysLate": 5
+  },
+  "shares": [
+    {
+      "personId": "p1",
+      "tasks": 0.46153846153846156,
+      "code": 0.5372294372294373,
+      "reviews": 0.42105263157894735,
+      "docsDesign": 0,
+      "composite": 0.3903127574180206,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "code",
+      "flagged": true
+    },
+    {
+      "personId": "p2",
+      "tasks": 0.23076923076923078,
+      "code": 0.23665223665223664,
+      "reviews": 0.3684210526315789,
+      "docsDesign": 0,
+      "composite": 0.2420780389201442,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "code",
+      "flagged": false
+    },
+    {
+      "personId": "p3",
+      "tasks": 0.19230769230769232,
+      "code": 0.2261183261183261,
+      "reviews": 0,
+      "docsDesign": 0,
+      "composite": 0.11422188922188922,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "code",
+      "flagged": false
+    },
+    {
+      "personId": "p4",
+      "tasks": 0.11538461538461539,
+      "code": 0,
+      "reviews": 0.21052631578947367,
+      "docsDesign": 1,
+      "composite": 0.253387314439946,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "design",
+      "flagged": false
+    }
+  ],
+  "reviews": {
+    "matrix": {
+      "p1": {
+        "p1": 0,
+        "p2": 3,
+        "p3": 4,
+        "p4": 1
+      },
+      "p2": {
+        "p1": 7,
+        "p2": 0,
+        "p3": 0,
+        "p4": 0
+      },
+      "p3": {
+        "p1": 0,
+        "p2": 0,
+        "p3": 0,
+        "p4": 0
+      },
+      "p4": {
+        "p1": 1,
+        "p2": 3,
+        "p3": 0,
+        "p4": 0
+      }
+    },
+    "mergedWithoutReview": [
+      35,
+      37,
+      39
+    ],
+    "medianHoursToFirstReview": 7.5
+  },
+  "timeline": [
+    {
+      "weekIndex": 0,
+      "label": "W1",
+      "mergedLines": 263,
+      "mergedPRs": 1,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 1,
+      "label": "W2",
+      "mergedLines": 465,
+      "mergedPRs": 2,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 2,
+      "label": "W3",
+      "mergedLines": 582,
+      "mergedPRs": 3,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 3,
+      "label": "W4",
+      "mergedLines": 563,
+      "mergedPRs": 3,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 4,
+      "label": "W5",
+      "mergedLines": 614,
+      "mergedPRs": 3,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 5,
+      "label": "W6",
+      "mergedLines": 531,
+      "mergedPRs": 2,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 6,
+      "label": "W7",
+      "mergedLines": 4169,
+      "mergedPRs": 7,
+      "status": "danger"
+    },
+    {
+      "weekIndex": 7,
+      "label": "W8",
+      "mergedLines": 0,
+      "mergedPRs": 0,
+      "status": "future"
+    }
+  ],
+  "lateMergeShare": 0.5800751356616113,
+  "risks": [
+    {
+      "id": "late_integration-share",
+      "kind": "late_integration",
+      "severity": "high",
+      "title": "58% of code merged in last 3 days",
+      "summary": "58% of all merged lines landed in the last 3 days, across 7 PRs.",
+      "rule": "Medium when more than 40% of merged lines land in the last 3 days, high above 55%. Late merges leave no time to find integration problems.",
+      "evidence": [
+        {
+          "label": "Lines merged in the last 3 days",
+          "value": "4,169 of 7,187"
+        },
+        {
+          "label": "PR #36",
+          "value": "853 lines, merged 21 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "36"
+          }
+        },
+        {
+          "label": "PR #33",
+          "value": "703 lines, merged 21 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "33"
+          }
+        },
+        {
+          "label": "PR #29",
+          "value": "675 lines, merged 22 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "29"
+          }
+        }
+      ],
+      "people": [
+        "p1",
+        "p3",
+        "p2"
+      ],
+      "action": "Merge small pieces every day instead of saving them for the end.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-10-22T12:00:00Z"
+    },
+    {
+      "id": "review_gap-p3",
+      "kind": "review_gap",
+      "severity": "medium",
+      "title": "Member C has not reviewed any PR",
+      "summary": "Member C gave no reviews while 16 PRs by teammates were merged.",
+      "rule": "Flagged when a code-role member gives zero reviews after teammates merged at least 3 PRs. Reviews spread knowledge of the code and catch problems early.",
+      "evidence": [
+        {
+          "label": "Reviews given",
+          "value": "0",
+          "ref": {
+            "type": "person",
+            "id": "p3"
+          }
+        },
+        {
+          "label": "PRs by teammates merged",
+          "value": "16"
+        },
+        {
+          "label": "Reviews given by the team",
+          "value": "19"
+        }
+      ],
+      "people": [
+        "p3"
+      ],
+      "action": "Ask Member C to review PR #31 next.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-09-18T12:00:00Z"
+    },
+    {
+      "id": "workload_imbalance-p1",
+      "kind": "workload_imbalance",
+      "severity": "medium",
+      "title": "Member A finished 46% of all tasks",
+      "summary": "Member A finished 46% of tasks and wrote 54% of merged code, against an even share of 25%.",
+      "rule": "Flagged when one person's combined share, or their share of finished tasks, is above 1.6 times the even share (40% in a team of 4); high above 2 times. Combined share is 30% finished tasks, 25% merged code by size, 20% reviews given, 15% docs and design, 10% quick replies. Commit count is not used.",
+      "evidence": [
+        {
+          "label": "Finished tasks",
+          "value": "12 of 26 (46%)",
+          "ref": {
+            "type": "person",
+            "id": "p1"
+          }
+        },
+        {
+          "label": "Merged code by size",
+          "value": "54%"
+        },
+        {
+          "label": "Reviews given",
+          "value": "8 (42%)"
+        },
+        {
+          "label": "Combined share",
+          "value": "39%, usual band 10% to 40%"
+        },
+        {
+          "label": "Open tasks assigned",
+          "value": "3"
+        }
+      ],
+      "people": [
+        "p1"
+      ],
+      "action": "Move \"Admin dashboard\" from Member A to Member C.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-10-06T12:00:00Z"
+    },
+    {
+      "id": "deadline_slip",
+      "kind": "deadline_slip",
+      "severity": "medium",
+      "title": "Projected to finish 5 days late",
+      "summary": "At the pace of the last 7 days, the 14 open tasks finish on 6 Nov, 5 days after the deadline.",
+      "rule": "The finish date is projected from tasks finished in the last 7 days. Medium at 3 or more days late, high at 7 or more.",
+      "evidence": [
+        {
+          "label": "Tasks finished in the last 7 days",
+          "value": "7"
+        },
+        {
+          "label": "Tasks left",
+          "value": "14"
+        },
+        {
+          "label": "Projected finish",
+          "value": "6 Nov"
+        },
+        {
+          "label": "Deadline",
+          "value": "1 Nov"
+        }
+      ],
+      "people": [],
+      "action": "Cut or move 5 tasks out of scope this week.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-10-12T12:00:00Z"
+    },
+    {
+      "id": "late_integration-pr-31",
+      "kind": "late_integration",
+      "severity": "medium",
+      "title": "PR #31 open for 9 days",
+      "summary": "PR #31 by Member B is open for 9 days and 1,240 lines, so it gets harder to merge every day.",
+      "rule": "Medium when a PR is open more than 7 days or changes more than 800 lines.",
+      "evidence": [
+        {
+          "label": "PR #31 opened",
+          "value": "14 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "31"
+          }
+        },
+        {
+          "label": "Changed lines",
+          "value": "1,240"
+        },
+        {
+          "label": "Files changed",
+          "value": "7"
+        },
+        {
+          "label": "Reviews so far",
+          "value": "1"
+        },
+        {
+          "label": "Last push",
+          "value": "21 Oct",
+          "ref": {
+            "type": "branch",
+            "id": "feature/payments"
+          }
+        }
+      ],
+      "people": [
+        "p2"
+      ],
+      "action": "Split PR #31 into smaller PRs and merge the first part this week.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-10-14T10:00:00Z"
+    },
+    {
+      "id": "review_gap-unreviewed",
+      "kind": "review_gap",
+      "severity": "medium",
+      "title": "3 PRs merged without review",
+      "summary": "3 of the 10 PRs merged in the last 14 days had no review.",
+      "rule": "Medium when more than 20% of recently merged PRs have no review, high above 40%. Recent means the last 14 days, or all PRs when fewer than 5 merged in that time.",
+      "evidence": [
+        {
+          "label": "Merged without review",
+          "value": "3 of 10 (30%)"
+        },
+        {
+          "label": "PR #35",
+          "value": "by Member C, 380 lines, merged 23 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "35"
+          }
+        },
+        {
+          "label": "PR #37",
+          "value": "by Member A, 425 lines, merged 22 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "37"
+          }
+        },
+        {
+          "label": "PR #39",
+          "value": "by Member A, 484 lines, merged 23 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "39"
+          }
+        }
+      ],
+      "people": [
+        "p3",
+        "p1"
+      ],
+      "action": "Protect main so every PR needs one approval before merging.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-10-23T12:00:00Z"
+    }
+  ],
+  "notFlagged": [
+    {
+      "personId": "p2",
+      "reason": "Less code, but gives 37% of the team's reviews."
+    },
+    {
+      "personId": "p4",
+      "reason": "Fewer code changes, but owns 3 finished design tasks."
+    }
+  ]
+}

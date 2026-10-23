@@ -1,0 +1,217 @@
+{
+  "teamId": "atlas",
+  "team": {
+    "id": "atlas",
+    "name": "Team Atlas",
+    "projectStart": "2026-09-07T00:00:00Z",
+    "deadline": "2026-11-01T18:30:00Z",
+    "people": [
+      {
+        "id": "p1",
+        "displayName": "Member A",
+        "githubLogin": "osprey-io",
+        "taskAssignee": "Osprey",
+        "role": "code",
+        "colorIndex": 0
+      },
+      {
+        "id": "p2",
+        "displayName": "Member B",
+        "githubLogin": "marten-k",
+        "taskAssignee": "Marten",
+        "role": "code",
+        "colorIndex": 1
+      },
+      {
+        "id": "p3",
+        "displayName": "Member C",
+        "githubLogin": "ibis-dev",
+        "taskAssignee": "Ibis",
+        "role": "code",
+        "colorIndex": 2
+      },
+      {
+        "id": "p4",
+        "displayName": "Member D",
+        "githubLogin": "finch-writes",
+        "taskAssignee": "Finch",
+        "role": "docs",
+        "colorIndex": 3
+      }
+    ]
+  },
+  "asOf": "2026-10-23T12:00:00Z",
+  "verdict": "on_track",
+  "verdictReason": "No serious risks, and the current pace meets the deadline.",
+  "schedule": {
+    "daysTotal": 56,
+    "daysUsed": 46,
+    "daysLeft": 9,
+    "tasksTotal": 32,
+    "tasksDone": 28,
+    "projectedFinish": "2026-10-29T02:24:00Z",
+    "daysLate": 0
+  },
+  "shares": [
+    {
+      "personId": "p1",
+      "tasks": 0.25,
+      "code": 0.37375415282392027,
+      "reviews": 0.2777777777777778,
+      "docsDesign": 0,
+      "composite": 0.2517718715393134,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "code",
+      "flagged": false
+    },
+    {
+      "personId": "p2",
+      "tasks": 0.25,
+      "code": 0.36088039867109634,
+      "reviews": 0.2222222222222222,
+      "docsDesign": 0,
+      "composite": 0.23188676633444075,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "code",
+      "flagged": false
+    },
+    {
+      "personId": "p3",
+      "tasks": 0.25,
+      "code": 0.2653654485049834,
+      "reviews": 0.25,
+      "docsDesign": 0,
+      "composite": 0.21634136212624586,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "code",
+      "flagged": false
+    },
+    {
+      "personId": "p4",
+      "tasks": 0.25,
+      "code": 0,
+      "reviews": 0.25,
+      "docsDesign": 1,
+      "composite": 0.30000000000000004,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "docs",
+      "flagged": false
+    }
+  ],
+  "reviews": {
+    "matrix": {
+      "p1": {
+        "p1": 0,
+        "p2": 6,
+        "p3": 3,
+        "p4": 1
+      },
+      "p2": {
+        "p1": 2,
+        "p2": 0,
+        "p3": 4,
+        "p4": 2
+      },
+      "p3": {
+        "p1": 4,
+        "p2": 3,
+        "p3": 0,
+        "p4": 2
+      },
+      "p4": {
+        "p1": 4,
+        "p2": 2,
+        "p3": 3,
+        "p4": 0
+      }
+    },
+    "mergedWithoutReview": [],
+    "medianHoursToFirstReview": 4.3
+  },
+  "timeline": [
+    {
+      "weekIndex": 0,
+      "label": "W1",
+      "mergedLines": 337,
+      "mergedPRs": 3,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 1,
+      "label": "W2",
+      "mergedLines": 314,
+      "mergedPRs": 4,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 2,
+      "label": "W3",
+      "mergedLines": 355,
+      "mergedPRs": 4,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 3,
+      "label": "W4",
+      "mergedLines": 474,
+      "mergedPRs": 3,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 4,
+      "label": "W5",
+      "mergedLines": 530,
+      "mergedPRs": 4,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 5,
+      "label": "W6",
+      "mergedLines": 388,
+      "mergedPRs": 4,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 6,
+      "label": "W7",
+      "mergedLines": 272,
+      "mergedPRs": 3,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 7,
+      "label": "W8",
+      "mergedLines": 0,
+      "mergedPRs": 0,
+      "status": "future"
+    }
+  ],
+  "lateMergeShare": 0.05093632958801498,
+  "risks": [],
+  "notFlagged": [
+    {
+      "personId": "p2",
+      "reason": "Below the even share, but inside the team's usual range (10% to 40%)."
+    },
+    {
+      "personId": "p3",
+      "reason": "Less code, but gives 25% of the team's reviews."
+    },
+    {
+      "personId": "p4",
+      "reason": "Fewer code changes, but owns 7 finished docs tasks."
+    }
+  ]
+}

@@ -4,6 +4,19 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- A3 (Fri 23 Oct, about 23:55): team page `/team/[id]`. Data comes from
+  `getAnalysis(id)` / `getTeams()` in `src/lib/data.ts` (`USE_MOCKS = true`).
+  Mocks: `src/mocks/analyses/*.json` are REAL output of B2's engine
+  (`npx tsx src/engine/cli.ts <team>` run on aarya-branch, not merged), for
+  nexus, atlas, orbit and zenith. `src/mocks/analyses.ts` adds scenes to
+  late_integration-share and review_gap-unreviewed, plus 3 hand-written Nexus
+  conflict risks (same-line routes.js, branch drift, direct push) until B3.
+  Page: header (week x of y, days left), verdict word and sentence, two-bar
+  schedule with the gap, three panels (Who did the work, Who checked whose
+  work, When code landed), risks list, evidence drawer from the right (rule,
+  scene, evidence, people, action, AI tag), and "Not flagged". Components are
+  in `src/components/team/`, with shared tags and panels in `src/components/ui.tsx`.
+  Empty state for an unknown team, and loading.tsx.
 - A2 (Fri 23 Oct, about 23:40): `src/components/GitGraph.tsx` draws a
   GraphScene as SVG. Props: `scene`, `colorByPerson` (Person.id to colorIndex;
   without it, branch lanes take colours by order). Branch lanes are stacked
@@ -33,7 +46,7 @@ Nothing yet.
 
 ## Next
 
-A3: team page on mock data (`src/mocks/nexus.ts`), using B2's real output shape.
+A4: mentor list `/` (uses `getTeams()`) and `/connect`.
 
 ## Notes for B (scenes)
 
@@ -44,7 +57,11 @@ A3: team page on mock data (`src/mocks/nexus.ts`), using B2's real output shape.
 
 ## Needs from others
 
-None.
+- From B: the "When code landed" panel should list open PRs by age, but
+  `Analysis` has no open PR list. For now it shows open-PR risks
+  (`late_integration-pr-*`). If B can add the list, it needs a CONTRACT CHANGE.
+- From B (B3): real scenes on the risks. Once they arrive, the hand-written
+  Nexus conflict risks in `src/mocks/analyses.ts` can go.
 
 ## Decisions
 
