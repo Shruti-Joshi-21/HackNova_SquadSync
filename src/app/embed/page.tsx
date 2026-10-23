@@ -88,8 +88,7 @@ function RiskRow({ risk, colorByPerson }: { risk: Risk; colorByPerson: Record<st
   );
 }
 
-type EmbedState =
-  | { status: "idle" }
+type FetchState =
   | { status: "loading" }
   | { status: "error"; message: string }
   | { status: "ok"; analysis: Analysis };
@@ -97,54 +96,50 @@ type EmbedState =
 function EmbedContent() {
   const params = useSearchParams();
   const repo = params.get("repo");
+  const parsedRepo = repo ? parseRepo(repo) : null;
 
-  const [state, setState] = useState<EmbedState>({ status: "idle" });
+  const [fetchState, setFetchState] = useState<FetchState>({ status: "loading" });
 
   useEffect(() => {
-    if (!repo) {
-      setState({ status: "idle" });
-      return;
-    }
-    const parsed = parseRepo(repo);
-    if (!parsed) {
-      setState({ status: "error", message: "That does not look like a GitHub repository." });
-      return;
-    }
+    if (!parsedRepo) return;
 
     let cancelled = false;
-    setState({ status: "loading" });
 
     // The embed view has no deadline input yet. Using 30 days from now as a
     // placeholder until connectRepo (B5) is live and a settings surface
     // exists. See LOG-C "Needs from others".
     const placeholderDeadline = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString();
 
-    connectRepo({ repo: parsed, deadline: placeholderDeadline }).then((result) => {
+    connectRepo({ repo: parsedRepo, deadline: placeholderDeadline }).then((result) => {
       if (cancelled) return;
       if (result.ok) {
-        setState({ status: "ok", analysis: result.analysis });
+        setFetchState({ status: "ok", analysis: result.analysis });
       } else {
-        setState({ status: "error", message: result.error });
+        setFetchState({ status: "error", message: result.error });
       }
     });
 
     return () => {
       cancelled = true;
     };
-  }, [repo]);
+  }, [parsedRepo]);
 
-  if (state.status === "idle") {
+  if (!repo) {
     return <p className="text-sm text-muted">Open a GitHub repository page to see its analysis.</p>;
   }
 
-  if (state.status === "loading") {
+  if (!parsedRepo) {
+    return <p className="text-sm text-muted">That does not look like a GitHub repository.</p>;
+  }
+
+  if (fetchState.status === "loading") {
     return <p className="text-sm text-muted">Reading the repository.</p>;
   }
 
-  if (state.status === "error") {
+  if (fetchState.status === "error") {
     return (
       <div className="space-y-2">
-        <p className="text-sm text-muted">{state.message}</p>
+        <p className="text-sm text-muted">{fetchState.message}</p>
         <Link href="/connect" className="text-sm text-link">
           Try a sample team
         </Link>
@@ -152,7 +147,7 @@ function EmbedContent() {
     );
   }
 
-  const { analysis } = state;
+  const { analysis } = fetchState;
   const colorByPerson = Object.fromEntries(analysis.team.people.map((p) => [p.id, p.colorIndex]));
   const topRisks = analysis.risks.slice(0, 3);
 

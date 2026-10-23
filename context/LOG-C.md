@@ -4,6 +4,46 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Fix: src/app/embed/page.tsx had a lint error after C6 merged to main
+  (react-hooks/set-state-in-effect, "Avoid calling setState() directly
+  within an effect", flagged on line 107). EmbedContent's data-fetching
+  effect called setFetchState({ status: "loading" }) at the start of the
+  effect body, but fetchState already initializes to { status: "loading" }
+  via useState, so the call was redundant and tripped the lint rule.
+  Removed the redundant setFetchState call; the effect now only sets
+  cancelled = false and proceeds to call connectRepo. No behavior change.
+  Verified with npm run lint (no errors or warnings) and npm run build
+  (compiles, /embed listed as a static route).
+
+## In progress
+
+Nothing new.
+
+## Next
+
+C3: docs/README.md.
+C5: docs/DEMO.md.
+(C4, deck text, completed separately, outside this log's Done list since it
+was not tracked step by step here.)
+
+## Needs from others
+
+Unchanged, see entries below.
+
+## Decisions
+
+Unchanged, see entries below.
+
+## Contract changes
+
+None.
+
+# LOG-C: Teammate C (extension, docs, deck)
+
+Only this owner edits this file. Newest entry on top.
+
+## Done
+
 - C2: Chromium MV3 extension in extension/. manifest.json (sidePanel,
   activeTab, storage permissions; host permission github.com), background.js
   (opens side panel on toolbar click), sidepanel.html/js (reads active tab
@@ -138,6 +178,7 @@ Nothing yet.
 ## Next
 
 C1: docs/METRICS.md.
+C4: deck text.
 
 ## Needs from others
 
