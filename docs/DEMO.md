@@ -8,7 +8,7 @@ Live app: https://hack-nova-squad-sync.vercel.app
 
 ## Before the demo (check 15 minutes before)
 
-- [ ] The live app opens, and `/` shows four teams.
+- [ ] The live app opens on the landing page, and `/mentor` shows four teams.
 - [ ] Team Nexus opens and shows 12 risks. Some sentences carry the small
       "written by AI" tag (this proves the Gemini key is set in Vercel).
 - [ ] `/connect` analyses `Shruti-Joshi-21/HackNova_SquadSync` once (this
@@ -35,7 +35,7 @@ sells. An admin dashboard shows reports and removes bad listings.
 
 ### 1. Mentor list (20 s)
 
-**Click:** open `/`.
+**Click:** open `/`, the landing page, then click "Mentor view" (it opens `/mentor`).
 
 **Say:** "A mentor supervises many student teams. SquadSync ranks them, worst
 first, with one sentence each. Three teams are at risk. Team Atlas is on track."

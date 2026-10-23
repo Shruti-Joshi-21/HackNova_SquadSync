@@ -54,7 +54,8 @@ Open http://localhost:3000. The four sample teams work with no keys at all.
 
 | Page | What it shows |
 |------|---------------|
-| `/` | Mentor view: every team ranked, worst first, with the verdict and one reason |
+| `/` | Landing page: what SquadSync does, with links into the app |
+| `/mentor` | Mentor view: every team ranked, worst first, with the verdict and one reason |
 | `/team/[id]` | Team view: verdict, schedule, who did the work, who reviewed whom, when code landed, risks with an evidence drawer and conflict picture, "Not flagged", replay |
 | `/connect` | Paste a GitHub repo link and a deadline, optionally a task CSV, and analyse it live |
 | `/plan` | Paste a PRD, pick a team size, and get a split of the work that reduces conflicts |
