@@ -4,6 +4,17 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- A7 (Sat 24 Oct, about 00:50): `/plan` PRD splitter page
+  (`src/components/plan/PlanSplitter.tsx`). Left: PRD textarea, team size 2 to
+  6, "Split the work". Right: ownership table (module, owner, folders, tasks,
+  depends on), shared files, "Agree these first", merge order as a GitGraph
+  scene (one lane per owner, each module merges into main in turn), and
+  "Checked by code" with 5 checks run in the browser (`checks.ts`): one owner
+  per module, no folder owned twice, shared files single owner, merge order
+  respects dependsOn, everyone owns a module. `makePlan()` in data.ts calls
+  POST /api/plan and falls back to `src/mocks/plan.ts` (a fixed template)
+  with a note while B7 is not live. The latest plan is saved in localStorage
+  (`squadsync.plan`) and restored on load.
 - A4 (Sat 24 Oct, about 00:15): mentor list `/` is one table (team, verdict,
   reason, risk count, largest risk), sorted at risk, then slipping, then on
   track, then by risk count; each row links to `/team/[id]`. The top bar now
@@ -70,6 +81,8 @@ A5: swap mocks for the API once B4 (`/api/teams`, `/api/analyze/[teamId]`) is me
 - From B: the "When code landed" panel should list open PRs by age, but
   `Analysis` has no open PR list. For now it shows open-PR risks
   (`late_integration-pr-*`). If B can add the list, it needs a CONTRACT CHANGE.
+- From B (B7): POST /api/plan returning a ProjectPlan as JSON (status 200).
+  The page picks it up with no change on A's side.
 - From B (B3): real scenes on the risks. Once they arrive, the hand-written
   Nexus conflict risks in `src/mocks/analyses.ts` can go.
 
