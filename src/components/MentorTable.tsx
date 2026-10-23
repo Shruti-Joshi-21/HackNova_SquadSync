@@ -72,48 +72,72 @@ export default function MentorTable() {
     );
 
   return (
-    <div className="mt-6 overflow-x-auto">
-      <table className="w-full min-w-[640px] border-collapse">
-        <thead>
-          <tr className="border-b border-border text-left text-[11px] uppercase text-subtle">
-            <th className="py-2 pr-4 font-normal">Team</th>
-            <th className="py-2 pr-4 font-normal">Verdict</th>
-            <th className="py-2 pr-4 font-normal">Reason</th>
-            <th className="py-2 pr-4 text-right font-normal">Risks</th>
-            <th className="py-2 font-normal">Largest risk</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map(({ team, top }) => {
-            const v = VERDICT[team.verdict];
-            return (
-              <tr key={team.id} className="relative border-b border-border align-top hover:bg-surface-2">
-                <td className="py-3 pr-4 whitespace-nowrap">
-                  {/* The link covers the whole row. */}
-                  <Link href={`/team/${team.id}`} className="font-semibold after:absolute after:inset-0">
-                    {team.name}
-                  </Link>
-                </td>
-                <td className={`py-3 pr-4 font-semibold whitespace-nowrap ${v.text}`}>{v.word}</td>
-                <td className="py-3 pr-4 text-muted">{team.verdictReason}</td>
-                <td className="py-3 pr-4 text-right font-mono">{team.riskCount}</td>
-                <td className="py-3">
-                  {top === undefined ? (
-                    <span className="text-subtle">Loading</span>
-                  ) : top ? (
-                    <span className="flex items-start gap-2">
-                      <Tag tone={SEVERITY[top.severity].tone}>{SEVERITY[top.severity].word}</Tag>
-                      <span>{top.title}</span>
-                    </span>
-                  ) : (
-                    <span className="text-muted">None</span>
-                  )}
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+    <>
+      {/* Narrow screens: one stacked row per team instead of a wide table. */}
+      <ul className="mt-6 divide-y divide-border border-y border-border md:hidden">
+        {rows.map(({ team, top }) => (
+          <li key={team.id}>
+            <Link href={`/team/${team.id}`} className="block py-3 hover:bg-surface-2">
+              <span className="flex items-baseline gap-3">
+                <span className="font-semibold">{team.name}</span>
+                <span className={`font-semibold ${VERDICT[team.verdict].text}`}>{VERDICT[team.verdict].word}</span>
+                <span className="ml-auto font-mono text-xs text-muted">{team.riskCount} risks</span>
+              </span>
+              <span className="mt-1 block text-muted">{team.verdictReason}</span>
+              {top && (
+                <span className="mt-2 flex items-start gap-2">
+                  <Tag tone={SEVERITY[top.severity].tone}>{SEVERITY[top.severity].word}</Tag>
+                  <span>{top.title}</span>
+                </span>
+              )}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-6 hidden md:block">
+        <table className="w-full border-collapse">
+          <thead>
+            <tr className="border-b border-border text-left text-[11px] uppercase text-subtle">
+              <th className="py-2 pr-4 font-normal">Team</th>
+              <th className="py-2 pr-4 font-normal">Verdict</th>
+              <th className="py-2 pr-4 font-normal">Reason</th>
+              <th className="py-2 pr-4 text-right font-normal">Risks</th>
+              <th className="py-2 font-normal">Largest risk</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(({ team, top }) => {
+              const v = VERDICT[team.verdict];
+              return (
+                <tr key={team.id} className="relative border-b border-border align-top hover:bg-surface-2">
+                  <td className="py-3 pr-4 whitespace-nowrap">
+                    {/* The link covers the whole row. */}
+                    <Link href={`/team/${team.id}`} className="font-semibold after:absolute after:inset-0">
+                      {team.name}
+                    </Link>
+                  </td>
+                  <td className={`py-3 pr-4 font-semibold whitespace-nowrap ${v.text}`}>{v.word}</td>
+                  <td className="py-3 pr-4 text-muted">{team.verdictReason}</td>
+                  <td className="py-3 pr-4 text-right font-mono">{team.riskCount}</td>
+                  <td className="py-3">
+                    {top === undefined ? (
+                      <span className="text-subtle">Loading</span>
+                    ) : top ? (
+                      <span className="flex items-start gap-2">
+                        <Tag tone={SEVERITY[top.severity].tone}>{SEVERITY[top.severity].word}</Tag>
+                        <span>{top.title}</span>
+                      </span>
+                    ) : (
+                      <span className="text-muted">None</span>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }

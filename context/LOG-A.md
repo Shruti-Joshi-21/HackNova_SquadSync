@@ -4,6 +4,13 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- A9 part 1 (Sat 24 Oct, about 01:30): checked /, /team/nexus, /plan and
+  /connect at 390px. No page scrolls sideways. Mentor list: below md it is
+  now stacked rows (name, verdict, risk count, reason, largest risk); the
+  table stays at md and up. Evidence drawer: focus goes back to the risk row
+  that opened it, and the close handler is stable so the focus effect runs
+  once. The /plan ownership table still scrolls inside its own box on phones,
+  on purpose (5 columns).
 - A6 (Sat 24 Oct, about 01:20): replay strip under the verdict
   (`src/components/team/ReplayStrip.tsx`). One segment per week from today's
   timeline, coloured by status (future weeks dashed). There is a tick and the
