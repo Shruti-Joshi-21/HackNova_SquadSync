@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "SquadSync",
+  "version": "1.0.0",
+  "description": "Shows SquadSync analysis beside a GitHub repository.",
+  "permissions": ["sidePanel", "activeTab", "storage"],
+  "host_permissions": ["https://github.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open SquadSync"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "options_page": "options.html"
+}

@@ -1,0 +1,2515 @@
+{
+  "team": {
+    "id": "orbit",
+    "name": "Team Orbit",
+    "projectStart": "2026-09-07T00:00:00Z",
+    "deadline": "2026-11-01T18:30:00Z",
+    "people": [
+      {
+        "id": "p1",
+        "displayName": "Member A",
+        "githubLogin": "falcon-x",
+        "taskAssignee": "Falcon",
+        "role": "code",
+        "colorIndex": 0
+      },
+      {
+        "id": "p2",
+        "displayName": "Member B",
+        "githubLogin": "otter-ui",
+        "taskAssignee": "Otter",
+        "role": "code",
+        "colorIndex": 1
+      },
+      {
+        "id": "p3",
+        "displayName": "Member C",
+        "githubLogin": "crane-py",
+        "taskAssignee": "Crane",
+        "role": "code",
+        "colorIndex": 2
+      },
+      {
+        "id": "p4",
+        "displayName": "Member D",
+        "githubLogin": "badger-b",
+        "taskAssignee": "Badger",
+        "role": "code",
+        "colorIndex": 3
+      }
+    ]
+  },
+  "asOf": "2026-10-23T12:00:00Z",
+  "source": "synthetic",
+  "commits": [
+    {
+      "sha": "b665fb8ded24c5c7e56bfb8d78ea03b69ed74f74",
+      "author": "p1",
+      "date": "2026-09-07T03:00:00Z",
+      "message": "Build game loop",
+      "branch": "feature/ORB-101-game-loop",
+      "additions": 78,
+      "deletions": 29,
+      "files": [
+        "src/game/rules.js",
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "961afd5b9edce75f6dc67e528761cab6031bcfdc",
+      "author": "p1",
+      "date": "2026-09-08T09:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/ORB-101-game-loop",
+      "additions": 132,
+      "deletions": 28,
+      "files": [
+        "src/game/score.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "5e7b224ced3cf89ee6debd0d38d658a20a5e1a01",
+      "author": "p1",
+      "date": "2026-09-08T10:00:00Z",
+      "message": "Build game loop (#1)",
+      "branch": "main",
+      "additions": 210,
+      "deletions": 57,
+      "files": [
+        "src/game/rules.js",
+        "src/game/score.js",
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "fe6073cd2a17df8eb00c4d017c0aa39cf05846dd",
+      "author": "p1",
+      "date": "2026-09-08T22:00:00Z",
+      "message": "Wire up move rules",
+      "branch": "feature/ORB-103-move-rules",
+      "additions": 104,
+      "deletions": 25,
+      "files": [
+        "src/game/rooms.js",
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "33db8f005f7d0396a1c9e247d05057b0a095cab2",
+      "author": "p1",
+      "date": "2026-09-10T08:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/ORB-103-move-rules",
+      "additions": 134,
+      "deletions": 22,
+      "files": [
+        "src/game/timer.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e1f51b8785501835937e770e05b03fd1a735356b",
+      "author": "p1",
+      "date": "2026-09-10T09:00:00Z",
+      "message": "Wire up move rules (#2)",
+      "branch": "main",
+      "additions": 238,
+      "deletions": 47,
+      "files": [
+        "src/game/rooms.js",
+        "src/game/timer.js",
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "a0070c177a531486ecb38db11eacb5d0d2efe20c",
+      "author": "p1",
+      "date": "2026-09-13T07:00:00Z",
+      "message": "ORB-105 Improve game state",
+      "branch": "feature/game-state",
+      "additions": 158,
+      "deletions": 53,
+      "files": [
+        "src/game/rooms.js",
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "47fd8725d5877f7a10d9246471eca688ddfb866e",
+      "author": "p1",
+      "date": "2026-09-15T07:00:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/game-state",
+      "additions": 75,
+      "deletions": 24,
+      "files": [
+        "src/game/engine.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "3ec766c5e6299173bf1040e3823551ea65704609",
+      "author": "p1",
+      "date": "2026-09-15T08:00:00Z",
+      "message": "ORB-105 Improve game state (#3)",
+      "branch": "main",
+      "additions": 233,
+      "deletions": 77,
+      "files": [
+        "src/game/rooms.js",
+        "src/game/engine.js",
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "138e295d44739b0e96cb364c5aa588298f1ca1a6",
+      "author": "p2",
+      "date": "2026-09-17T07:00:00Z",
+      "message": "Add board view",
+      "branch": "feature/ORB-106-board-view",
+      "additions": 104,
+      "deletions": 0,
+      "files": [
+        "src/ui/modal.jsx"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7f80c238543d8eb6bb7ac9013d984e9058deedea",
+      "author": "p2",
+      "date": "2026-09-17T08:00:00Z",
+      "message": "Add board view (#4)",
+      "branch": "main",
+      "additions": 104,
+      "deletions": 0,
+      "files": [
+        "src/ui/modal.jsx"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "1e56a536aac5f4d5e11480109a203ec946ae71b0",
+      "author": "p3",
+      "date": "2026-09-19T14:00:00Z",
+      "message": "ORB-107 Wire up socket server",
+      "branch": "feature/socket-server",
+      "additions": 56,
+      "deletions": 19,
+      "files": [
+        "src/server/index.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4c4ab25c6f817017a4411702aa23e8bbd3358c1c",
+      "author": "p3",
+      "date": "2026-09-19T15:00:00Z",
+      "message": "Wire up socket server (#5)",
+      "branch": "main",
+      "additions": 56,
+      "deletions": 19,
+      "files": [
+        "src/server/index.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "159329768568486ac5e9fc0d83a44a49838f5a06",
+      "author": "p1",
+      "date": "2026-09-20T13:00:00Z",
+      "message": "Refactor scoring",
+      "branch": "feature/scoring",
+      "additions": 93,
+      "deletions": 23,
+      "files": [
+        "src/game/state.js",
+        "src/game/rules.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "75d6e15448254c59d252b71c8c84b8807d6abd2d",
+      "author": "p1",
+      "date": "2026-09-21T10:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/scoring",
+      "additions": 92,
+      "deletions": 19,
+      "files": [
+        "src/game/score.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e97a088174c18fbfddbf981909e0957d94471ca8",
+      "author": "p1",
+      "date": "2026-09-22T05:00:00Z",
+      "message": "Refactor room lobby",
+      "branch": "feature/room-lobby",
+      "additions": 108,
+      "deletions": 0,
+      "files": [
+        "src/game/engine.js",
+        "src/game/rooms.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "3b061224897683b60c1129063d92b093113538e2",
+      "author": "p1",
+      "date": "2026-09-22T07:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/scoring",
+      "additions": 91,
+      "deletions": 11,
+      "files": [
+        "src/game/engine.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e44a12fa3c4b08f9139113b27378f4ad6bd2453f",
+      "author": "p1",
+      "date": "2026-09-22T08:00:00Z",
+      "message": "Refactor scoring (#6)",
+      "branch": "main",
+      "additions": 276,
+      "deletions": 53,
+      "files": [
+        "src/game/state.js",
+        "src/game/score.js",
+        "src/game/engine.js",
+        "src/game/rules.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "40e0f3bc78a7abc1245e54687bdec25d221d3b20",
+      "author": "p1",
+      "date": "2026-09-23T20:00:00Z",
+      "message": "Add turn timer",
+      "branch": "feature/ORB-110-turn-timer",
+      "additions": 98,
+      "deletions": 16,
+      "files": [
+        "src/game/engine.js",
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "862329d9e9eaac3eaee875718301f7607d0b2f10",
+      "author": "p1",
+      "date": "2026-09-24T06:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/room-lobby",
+      "additions": 117,
+      "deletions": 0,
+      "files": [
+        "src/game/rules.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ee0ab8b030320b52a16fb92b47255d8da9037d2d",
+      "author": "p1",
+      "date": "2026-09-24T07:00:00Z",
+      "message": "Refactor room lobby (#7)",
+      "branch": "main",
+      "additions": 225,
+      "deletions": 0,
+      "files": [
+        "src/game/engine.js",
+        "src/game/rules.js",
+        "src/game/rooms.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "a68af8918864296319dd25a132114b482ba988b0",
+      "author": "p1",
+      "date": "2026-09-26T12:00:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/ORB-110-turn-timer",
+      "additions": 119,
+      "deletions": 10,
+      "files": [
+        "src/game/rules.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d9aa392612b244d9b2976f37e171e0ced711358d",
+      "author": "p1",
+      "date": "2026-09-26T13:00:00Z",
+      "message": "Add turn timer (#8)",
+      "branch": "main",
+      "additions": 217,
+      "deletions": 26,
+      "files": [
+        "src/game/engine.js",
+        "src/game/rules.js",
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "68e5e2318252e19129b0ee23d490117f368f0ff4",
+      "author": "p3",
+      "date": "2026-09-29T09:00:00Z",
+      "message": "ORB-111 Refactor user accounts",
+      "branch": "feature/user-accounts",
+      "additions": 100,
+      "deletions": 33,
+      "files": [
+        "src/server/db.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c9a0c69e800ae31d8f71a92ad1a9e353637bf685",
+      "author": "p3",
+      "date": "2026-09-29T10:00:00Z",
+      "message": "Refactor user accounts (#9)",
+      "branch": "main",
+      "additions": 100,
+      "deletions": 33,
+      "files": [
+        "src/server/db.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0af168e1003c3d72643fe511c6aa42c033473c8b",
+      "author": "p1",
+      "date": "2026-09-30T01:00:00Z",
+      "message": "ORB-112 Fix replay log",
+      "branch": "feature/replay-log",
+      "additions": 60,
+      "deletions": 20,
+      "files": [
+        "src/game/timer.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c8d7ff56f57e3a1e06f27b515a39c7239eb9eec7",
+      "author": "p1",
+      "date": "2026-10-01T07:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/replay-log",
+      "additions": 81,
+      "deletions": 27,
+      "files": [
+        "src/game/rooms.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "79760d074a25e9e58d60a5bf07d1b3de4bb12c4d",
+      "author": "p1",
+      "date": "2026-10-01T08:00:00Z",
+      "message": "ORB-113 Improve spectator mode",
+      "branch": "feature/spectator-mode",
+      "additions": 99,
+      "deletions": 19,
+      "files": [
+        "src/game/engine.js",
+        "src/game/rooms.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d1d00b6ee36ff64940525a7e1405511d7b2bc74a",
+      "author": "p1",
+      "date": "2026-10-01T08:00:00Z",
+      "message": "ORB-112 Fix replay log (#10)",
+      "branch": "main",
+      "additions": 141,
+      "deletions": 47,
+      "files": [
+        "src/game/timer.js",
+        "src/game/rooms.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "95326e43d7a02cb2a262cf25aa41f57edd02c7a4",
+      "author": "p1",
+      "date": "2026-10-02T08:30:00Z",
+      "message": "Fix typo",
+      "branch": "feature/spectator-mode",
+      "additions": 69,
+      "deletions": 15,
+      "files": [
+        "src/game/timer.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "6248b712fc32f59f65acaa937302bbfa7e42740c",
+      "author": "p1",
+      "date": "2026-10-03T09:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/spectator-mode",
+      "additions": 138,
+      "deletions": 12,
+      "files": [
+        "src/game/rules.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "3f43991f1c12dac95c213ab11c567c4b6ccbb89d",
+      "author": "p1",
+      "date": "2026-10-03T10:00:00Z",
+      "message": "Improve spectator mode (#11)",
+      "branch": "main",
+      "additions": 306,
+      "deletions": 46,
+      "files": [
+        "src/game/engine.js",
+        "src/game/timer.js",
+        "src/game/rules.js",
+        "src/game/rooms.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d510bdcbf49e33729f33ccdb67767ac028de4bc7",
+      "author": "p1",
+      "date": "2026-10-05T00:00:00Z",
+      "message": "ORB-114 Improve chat",
+      "branch": "feature/chat",
+      "additions": 107,
+      "deletions": 33,
+      "files": [
+        "src/game/score.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "1744919c3fce3a11942eff2c6e96577ae8dc748c",
+      "author": "p1",
+      "date": "2026-10-06T10:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/chat",
+      "additions": 56,
+      "deletions": 21,
+      "files": [
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "114ace8d263ac087c9a50551eb6dd32ffd76247f",
+      "author": "p1",
+      "date": "2026-10-06T11:00:00Z",
+      "message": "ORB-114 Improve chat (#12)",
+      "branch": "main",
+      "additions": 163,
+      "deletions": 54,
+      "files": [
+        "src/game/score.js",
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "8aa41586f1527dcc48ce109f7128423b49fe4d4a",
+      "author": "p1",
+      "date": "2026-10-07T20:00:00Z",
+      "message": "ORB-116 Refactor reconnect",
+      "branch": "feature/reconnect",
+      "additions": 129,
+      "deletions": 16,
+      "files": [
+        "src/game/rooms.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c080d27f6b1141f90d8e31415c0d6c06ff88ae76",
+      "author": "p2",
+      "date": "2026-10-08T10:00:00Z",
+      "message": "Improve main menu",
+      "branch": "feature/main-menu",
+      "additions": 37,
+      "deletions": 12,
+      "files": [
+        "src/ui/menu.jsx"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "f809c131afbef52bab33aac33e73f01096693794",
+      "author": "p2",
+      "date": "2026-10-08T11:00:00Z",
+      "message": "Improve main menu (#13)",
+      "branch": "main",
+      "additions": 37,
+      "deletions": 12,
+      "files": [
+        "src/ui/menu.jsx"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "91d31d74fd98d87bda0fcaee0c4ff9cbf6f10218",
+      "author": "p1",
+      "date": "2026-10-10T08:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/reconnect",
+      "additions": 57,
+      "deletions": 13,
+      "files": [
+        "src/game/score.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b2f916184fb7c84c4fb5fe7c851713bc59dc56f1",
+      "author": "p1",
+      "date": "2026-10-10T09:00:00Z",
+      "message": "ORB-116 Refactor reconnect (#14)",
+      "branch": "main",
+      "additions": 186,
+      "deletions": 29,
+      "files": [
+        "src/game/rooms.js",
+        "src/game/score.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c0db54d61ef5bc5905173bf4a09ff4d05ea3689e",
+      "author": "p2",
+      "date": "2026-10-11T10:00:00Z",
+      "message": "ORB-117 Build settings modal",
+      "branch": "feature/settings-modal",
+      "additions": 65,
+      "deletions": 0,
+      "files": [
+        "src/ui/board.jsx"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "780b9cb16ae43787ddcb14198a993f826a32e7d2",
+      "author": "p2",
+      "date": "2026-10-13T13:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/settings-modal",
+      "additions": 66,
+      "deletions": 0,
+      "files": [
+        "src/ui/board.jsx"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d64442f231d91e2fd73511f343f8f9979d0022b4",
+      "author": "p2",
+      "date": "2026-10-13T14:00:00Z",
+      "message": "Build settings modal (#15)",
+      "branch": "main",
+      "additions": 131,
+      "deletions": 0,
+      "files": [
+        "src/ui/board.jsx"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "acaa37d40027f555daf63ea8fcca8476d002fb49",
+      "author": "p1",
+      "date": "2026-10-13T17:00:00Z",
+      "message": "ORB-119 Add bot player",
+      "branch": "feature/bot-player",
+      "additions": 90,
+      "deletions": 3,
+      "files": [
+        "src/game/timer.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "f63407899f9b238faea7fc441c688c3dd6eba7b3",
+      "author": "p3",
+      "date": "2026-10-14T15:00:00Z",
+      "message": "Wire up database models",
+      "branch": "feature/database-models",
+      "additions": 73,
+      "deletions": 24,
+      "files": [
+        "src/server/db.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "486bc0a759218f7b4edb73df2937627cc2cb7b09",
+      "author": "p1",
+      "date": "2026-10-14T16:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/bot-player",
+      "additions": 75,
+      "deletions": 4,
+      "files": [
+        "src/game/score.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "950b321afe98fe187a0a8a7095c19d23a6b53498",
+      "author": "p3",
+      "date": "2026-10-14T16:00:00Z",
+      "message": "Wire up database models (#16)",
+      "branch": "main",
+      "additions": 73,
+      "deletions": 24,
+      "files": [
+        "src/server/db.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "93cb8bb8382d1b21fe2aa85da6d3bd0f37ee9ef2",
+      "author": "p1",
+      "date": "2026-10-15T15:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/bot-player",
+      "additions": 88,
+      "deletions": 6,
+      "files": [
+        "src/game/rules.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "8dc90a816fcb4e0284c9dfe51c4a27f4dbdb46c2",
+      "author": "p1",
+      "date": "2026-10-15T16:00:00Z",
+      "message": "ORB-119 Add bot player (#17)",
+      "branch": "main",
+      "additions": 253,
+      "deletions": 13,
+      "files": [
+        "src/game/timer.js",
+        "src/game/score.js",
+        "src/game/rules.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9e35e391f7e9435317a32e390c325006b6ca29d3",
+      "author": "p1",
+      "date": "2026-10-16T05:00:00Z",
+      "message": "Add hint system",
+      "branch": "feature/ORB-120-hint-system",
+      "additions": 128,
+      "deletions": 34,
+      "files": [
+        "src/game/engine.js",
+        "src/game/rules.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d55e5f3b945892658a142414169c59efae8ebf1a",
+      "author": "p1",
+      "date": "2026-10-17T13:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/ORB-120-hint-system",
+      "additions": 89,
+      "deletions": 14,
+      "files": [
+        "src/game/rooms.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2bfd588b9e2489d6766f7f02b6e1fd6aa3e1b6e2",
+      "author": "p1",
+      "date": "2026-10-17T14:00:00Z",
+      "message": "Add hint system (#18)",
+      "branch": "main",
+      "additions": 217,
+      "deletions": 48,
+      "files": [
+        "src/game/engine.js",
+        "src/game/rooms.js",
+        "src/game/rules.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7c853b42aa09646b8e34b73ffa2d726dcc539eec",
+      "author": "p1",
+      "date": "2026-10-18T07:00:00Z",
+      "message": "Start ORB-125-matchmaking",
+      "branch": "feature/ORB-125-matchmaking",
+      "additions": 40,
+      "deletions": 0,
+      "files": [
+        "src/server/match.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0b870b36dd6e1d1e09984940dc1aa83dcc52f479",
+      "author": "p1",
+      "date": "2026-10-19T13:15:00Z",
+      "message": "Small fixes",
+      "branch": "feature/ORB-125-matchmaking",
+      "additions": 44,
+      "deletions": 0,
+      "files": [
+        "src/server/match.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "bb58972d7f2711bf42c2915a7128aff22589d06e",
+      "author": "p1",
+      "date": "2026-10-20T07:00:00Z",
+      "message": "ORB-124 Leaderboard",
+      "branch": "feature/leaderboard",
+      "additions": 52,
+      "deletions": 0,
+      "files": [
+        "src/game/leaderboard.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "76ff782af64d6475755a581a6a86db132bfa3331",
+      "author": "p2",
+      "date": "2026-10-20T11:00:00Z",
+      "message": "Start ORB-126-theme",
+      "branch": "feature/ORB-126-theme",
+      "additions": 29,
+      "deletions": 0,
+      "files": [
+        "src/ui/theme.css"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "399d6aedc8bb67bbb1814a7387dae2b5145cf1d0",
+      "author": "p4",
+      "date": "2026-10-20T12:00:00Z",
+      "message": "Refactor rule tests",
+      "branch": "feature/rule-tests",
+      "additions": 42,
+      "deletions": 14,
+      "files": [
+        "tests/score.test.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "af1c89c38fa92cd4d9e2a88e21d5ce0815b5610e",
+      "author": "p4",
+      "date": "2026-10-20T13:00:00Z",
+      "message": "Refactor rule tests (#19)",
+      "branch": "main",
+      "additions": 42,
+      "deletions": 14,
+      "files": [
+        "tests/score.test.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7fbbc919c9c428d35b2eebd34fec3f9bd9c2389b",
+      "author": "p1",
+      "date": "2026-10-20T19:30:00Z",
+      "message": "Address review comments",
+      "branch": "feature/ORB-125-matchmaking",
+      "additions": 26,
+      "deletions": 0,
+      "files": [
+        "src/server/match.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4c101fb1a42547787962b239126483f33ff6b202",
+      "author": "p1",
+      "date": "2026-10-20T21:00:00Z",
+      "message": "Improve save games",
+      "branch": "feature/ORB-123-save-games",
+      "additions": 101,
+      "deletions": 15,
+      "files": [
+        "src/game/state.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "24c1f592e27948292fb118047904204a18a087b7",
+      "author": "p1",
+      "date": "2026-10-21T03:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/leaderboard",
+      "additions": 68,
+      "deletions": 0,
+      "files": [
+        "src/game/leaderboard.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4d5d8bae905f13f0fc623ac04e21978c27024bfd",
+      "author": "p2",
+      "date": "2026-10-21T15:00:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/ORB-126-theme",
+      "additions": 31,
+      "deletions": 0,
+      "files": [
+        "src/ui/theme.css"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "63d8644310f13cb38ac98806677f787c9ad8646e",
+      "author": "p1",
+      "date": "2026-10-21T23:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/leaderboard",
+      "additions": 48,
+      "deletions": 0,
+      "files": [
+        "src/game/leaderboard.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "1e617187bbeaed9bf8d883128d62218b7404483c",
+      "author": "p1",
+      "date": "2026-10-22T01:45:00Z",
+      "message": "Add tests",
+      "branch": "feature/ORB-125-matchmaking",
+      "additions": 22,
+      "deletions": 0,
+      "files": [
+        "src/server/match.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "8c0e83d096b28f9eaf37b895bed32c2e14205f36",
+      "author": "p1",
+      "date": "2026-10-22T14:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/ORB-123-save-games",
+      "additions": 82,
+      "deletions": 10,
+      "files": [
+        "src/game/rooms.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7bb29984eb1cab4117249124b9f2fed017147d0b",
+      "author": "p1",
+      "date": "2026-10-22T15:00:00Z",
+      "message": "Improve save games (#21)",
+      "branch": "main",
+      "additions": 183,
+      "deletions": 25,
+      "files": [
+        "src/game/state.js",
+        "src/game/rooms.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9a99ef55ade0ca60ed68bf2405f95b70fc56d8e5",
+      "author": "p1",
+      "date": "2026-10-22T19:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/leaderboard",
+      "additions": 42,
+      "deletions": 0,
+      "files": [
+        "src/game/leaderboard.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ce9ee3271d6c6cdea4093461ecc6a41fd0c35ac2",
+      "author": "p1",
+      "date": "2026-10-23T08:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/ORB-125-matchmaking",
+      "additions": 48,
+      "deletions": 0,
+      "files": [
+        "src/server/match.js"
+      ],
+      "directToMain": false
+    }
+  ],
+  "pullRequests": [
+    {
+      "number": 1,
+      "title": "Build game loop",
+      "author": "p1",
+      "branch": "feature/ORB-101-game-loop",
+      "baseBranch": "main",
+      "createdAt": "2026-09-07T01:00:00Z",
+      "mergedAt": "2026-09-08T10:00:00Z",
+      "closedAt": "2026-09-08T10:00:00Z",
+      "state": "merged",
+      "additions": 210,
+      "deletions": 57,
+      "files": [
+        {
+          "path": "src/game/rules.js",
+          "status": "modified",
+          "ranges": [
+            [
+              75,
+              153
+            ]
+          ],
+          "additions": 79,
+          "deletions": 27
+        },
+        {
+          "path": "src/game/score.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              42
+            ]
+          ],
+          "additions": 42,
+          "deletions": 0
+        },
+        {
+          "path": "src/game/state.js",
+          "status": "modified",
+          "ranges": [
+            [
+              123,
+              211
+            ]
+          ],
+          "additions": 89,
+          "deletions": 30
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-09-07T08:08:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-101",
+        "ORB-102"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Wire up move rules",
+      "author": "p1",
+      "branch": "feature/ORB-103-move-rules",
+      "baseBranch": "main",
+      "createdAt": "2026-09-09T22:00:00Z",
+      "mergedAt": "2026-09-10T09:00:00Z",
+      "closedAt": "2026-09-10T09:00:00Z",
+      "state": "merged",
+      "additions": 238,
+      "deletions": 47,
+      "files": [
+        {
+          "path": "src/game/rooms.js",
+          "status": "modified",
+          "ranges": [
+            [
+              135,
+              215
+            ]
+          ],
+          "additions": 81,
+          "deletions": 27
+        },
+        {
+          "path": "src/game/timer.js",
+          "status": "modified",
+          "ranges": [
+            [
+              169,
+              226
+            ]
+          ],
+          "additions": 58,
+          "deletions": 20
+        },
+        {
+          "path": "src/game/state.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              99
+            ]
+          ],
+          "additions": 99,
+          "deletions": 0
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-103",
+        "ORB-104"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "ORB-105 Improve game state",
+      "author": "p1",
+      "branch": "feature/game-state",
+      "baseBranch": "main",
+      "createdAt": "2026-09-14T18:00:00Z",
+      "mergedAt": "2026-09-15T08:00:00Z",
+      "closedAt": "2026-09-15T08:00:00Z",
+      "state": "merged",
+      "additions": 233,
+      "deletions": 77,
+      "files": [
+        {
+          "path": "src/game/rooms.js",
+          "status": "modified",
+          "ranges": [
+            [
+              153,
+              261
+            ]
+          ],
+          "additions": 109,
+          "deletions": 36
+        },
+        {
+          "path": "src/game/engine.js",
+          "status": "modified",
+          "ranges": [
+            [
+              121,
+              172
+            ]
+          ],
+          "additions": 52,
+          "deletions": 17
+        },
+        {
+          "path": "src/game/state.js",
+          "status": "modified",
+          "ranges": [
+            [
+              109,
+              180
+            ]
+          ],
+          "additions": 72,
+          "deletions": 24
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-14T22:40:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-105"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Add board view",
+      "author": "p2",
+      "branch": "feature/ORB-106-board-view",
+      "baseBranch": "main",
+      "createdAt": "2026-09-16T14:00:00Z",
+      "mergedAt": "2026-09-17T08:00:00Z",
+      "closedAt": "2026-09-17T08:00:00Z",
+      "state": "merged",
+      "additions": 104,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/ui/modal.jsx",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              104
+            ]
+          ],
+          "additions": 104,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-16T18:33:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-106"
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Wire up socket server",
+      "author": "p3",
+      "branch": "feature/socket-server",
+      "baseBranch": "main",
+      "createdAt": "2026-09-19T00:00:00Z",
+      "mergedAt": "2026-09-19T15:00:00Z",
+      "closedAt": "2026-09-19T15:00:00Z",
+      "state": "merged",
+      "additions": 56,
+      "deletions": 19,
+      "files": [
+        {
+          "path": "src/server/index.js",
+          "status": "modified",
+          "ranges": [
+            [
+              134,
+              189
+            ]
+          ],
+          "additions": 56,
+          "deletions": 19
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-19T04:33:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-107"
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Refactor scoring",
+      "author": "p1",
+      "branch": "feature/scoring",
+      "baseBranch": "main",
+      "createdAt": "2026-09-21T19:00:00Z",
+      "mergedAt": "2026-09-22T08:00:00Z",
+      "closedAt": "2026-09-22T08:00:00Z",
+      "state": "merged",
+      "additions": 276,
+      "deletions": 53,
+      "files": [
+        {
+          "path": "src/game/state.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              45
+            ]
+          ],
+          "additions": 45,
+          "deletions": 0
+        },
+        {
+          "path": "src/game/score.js",
+          "status": "modified",
+          "ranges": [
+            [
+              178,
+              254
+            ]
+          ],
+          "additions": 77,
+          "deletions": 26
+        },
+        {
+          "path": "src/game/engine.js",
+          "status": "modified",
+          "ranges": [
+            [
+              161,
+              242
+            ]
+          ],
+          "additions": 82,
+          "deletions": 27
+        },
+        {
+          "path": "src/game/rules.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              72
+            ]
+          ],
+          "additions": 72,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-21T22:39:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-108"
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Refactor room lobby",
+      "author": "p1",
+      "branch": "feature/room-lobby",
+      "baseBranch": "main",
+      "createdAt": "2026-09-23T04:00:00Z",
+      "mergedAt": "2026-09-24T07:00:00Z",
+      "closedAt": "2026-09-24T07:00:00Z",
+      "state": "merged",
+      "additions": 225,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/game/engine.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              85
+            ]
+          ],
+          "additions": 85,
+          "deletions": 0
+        },
+        {
+          "path": "src/game/rules.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              64
+            ]
+          ],
+          "additions": 64,
+          "deletions": 0
+        },
+        {
+          "path": "src/game/rooms.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              76
+            ]
+          ],
+          "additions": 76,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-23T11:19:00Z",
+          "state": "commented"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-109"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Add turn timer",
+      "author": "p1",
+      "branch": "feature/ORB-110-turn-timer",
+      "baseBranch": "main",
+      "createdAt": "2026-09-24T23:00:00Z",
+      "mergedAt": "2026-09-26T13:00:00Z",
+      "closedAt": "2026-09-26T13:00:00Z",
+      "state": "merged",
+      "additions": 217,
+      "deletions": 26,
+      "files": [
+        {
+          "path": "src/game/engine.js",
+          "status": "modified",
+          "ranges": [
+            [
+              173,
+              248
+            ]
+          ],
+          "additions": 76,
+          "deletions": 26
+        },
+        {
+          "path": "src/game/rules.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              50
+            ]
+          ],
+          "additions": 50,
+          "deletions": 0
+        },
+        {
+          "path": "src/game/state.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              91
+            ]
+          ],
+          "additions": 91,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-25T06:40:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-110"
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Refactor user accounts",
+      "author": "p3",
+      "branch": "feature/user-accounts",
+      "baseBranch": "main",
+      "createdAt": "2026-09-28T04:00:00Z",
+      "mergedAt": "2026-09-29T10:00:00Z",
+      "closedAt": "2026-09-29T10:00:00Z",
+      "state": "merged",
+      "additions": 100,
+      "deletions": 33,
+      "files": [
+        {
+          "path": "src/server/db.js",
+          "status": "modified",
+          "ranges": [
+            [
+              138,
+              237
+            ]
+          ],
+          "additions": 100,
+          "deletions": 33
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-28T13:57:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-111"
+      ]
+    },
+    {
+      "number": 10,
+      "title": "ORB-112 Fix replay log",
+      "author": "p1",
+      "branch": "feature/replay-log",
+      "baseBranch": "main",
+      "createdAt": "2026-09-30T20:00:00Z",
+      "mergedAt": "2026-10-01T08:00:00Z",
+      "closedAt": "2026-10-01T08:00:00Z",
+      "state": "merged",
+      "additions": 141,
+      "deletions": 47,
+      "files": [
+        {
+          "path": "src/game/timer.js",
+          "status": "modified",
+          "ranges": [
+            [
+              3,
+              76
+            ]
+          ],
+          "additions": 74,
+          "deletions": 25
+        },
+        {
+          "path": "src/game/rooms.js",
+          "status": "modified",
+          "ranges": [
+            [
+              146,
+              212
+            ]
+          ],
+          "additions": 67,
+          "deletions": 22
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-09-30T22:13:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p3",
+          "submittedAt": "2026-10-01T06:12:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-112"
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Improve spectator mode",
+      "author": "p1",
+      "branch": "feature/spectator-mode",
+      "baseBranch": "main",
+      "createdAt": "2026-10-02T07:00:00Z",
+      "mergedAt": "2026-10-03T10:00:00Z",
+      "closedAt": "2026-10-03T10:00:00Z",
+      "state": "merged",
+      "additions": 306,
+      "deletions": 46,
+      "files": [
+        {
+          "path": "src/game/engine.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              81
+            ]
+          ],
+          "additions": 81,
+          "deletions": 0
+        },
+        {
+          "path": "src/game/timer.js",
+          "status": "modified",
+          "ranges": [
+            [
+              121,
+              208
+            ]
+          ],
+          "additions": 88,
+          "deletions": 30
+        },
+        {
+          "path": "src/game/rules.js",
+          "status": "modified",
+          "ranges": [
+            [
+              104,
+              152
+            ]
+          ],
+          "additions": 49,
+          "deletions": 16
+        },
+        {
+          "path": "src/game/rooms.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              88
+            ]
+          ],
+          "additions": 88,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-02T11:42:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-113"
+      ]
+    },
+    {
+      "number": 12,
+      "title": "ORB-114 Improve chat",
+      "author": "p1",
+      "branch": "feature/chat",
+      "baseBranch": "main",
+      "createdAt": "2026-10-05T18:00:00Z",
+      "mergedAt": "2026-10-06T11:00:00Z",
+      "closedAt": "2026-10-06T11:00:00Z",
+      "state": "merged",
+      "additions": 163,
+      "deletions": 54,
+      "files": [
+        {
+          "path": "src/game/score.js",
+          "status": "modified",
+          "ranges": [
+            [
+              125,
+              211
+            ]
+          ],
+          "additions": 87,
+          "deletions": 29
+        },
+        {
+          "path": "src/game/state.js",
+          "status": "modified",
+          "ranges": [
+            [
+              156,
+              231
+            ]
+          ],
+          "additions": 76,
+          "deletions": 25
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-114"
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Improve main menu",
+      "author": "p2",
+      "branch": "feature/main-menu",
+      "baseBranch": "main",
+      "createdAt": "2026-10-06T19:00:00Z",
+      "mergedAt": "2026-10-08T11:00:00Z",
+      "closedAt": "2026-10-08T11:00:00Z",
+      "state": "merged",
+      "additions": 37,
+      "deletions": 12,
+      "files": [
+        {
+          "path": "src/ui/menu.jsx",
+          "status": "modified",
+          "ranges": [
+            [
+              101,
+              137
+            ]
+          ],
+          "additions": 37,
+          "deletions": 12
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-07T07:44:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-115"
+      ]
+    },
+    {
+      "number": 14,
+      "title": "ORB-116 Refactor reconnect",
+      "author": "p1",
+      "branch": "feature/reconnect",
+      "baseBranch": "main",
+      "createdAt": "2026-10-09T06:00:00Z",
+      "mergedAt": "2026-10-10T09:00:00Z",
+      "closedAt": "2026-10-10T09:00:00Z",
+      "state": "merged",
+      "additions": 186,
+      "deletions": 29,
+      "files": [
+        {
+          "path": "src/game/rooms.js",
+          "status": "modified",
+          "ranges": [
+            [
+              151,
+              235
+            ]
+          ],
+          "additions": 85,
+          "deletions": 29
+        },
+        {
+          "path": "src/game/score.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              101
+            ]
+          ],
+          "additions": 101,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-09T14:20:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-116"
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Build settings modal",
+      "author": "p2",
+      "branch": "feature/settings-modal",
+      "baseBranch": "main",
+      "createdAt": "2026-10-12T22:00:00Z",
+      "mergedAt": "2026-10-13T14:00:00Z",
+      "closedAt": "2026-10-13T14:00:00Z",
+      "state": "merged",
+      "additions": 131,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/ui/board.jsx",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              131
+            ]
+          ],
+          "additions": 131,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-13T02:36:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-13T11:36:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-117"
+      ]
+    },
+    {
+      "number": 16,
+      "title": "Wire up database models",
+      "author": "p3",
+      "branch": "feature/database-models",
+      "baseBranch": "main",
+      "createdAt": "2026-10-14T05:00:00Z",
+      "mergedAt": "2026-10-14T16:00:00Z",
+      "closedAt": "2026-10-14T16:00:00Z",
+      "state": "merged",
+      "additions": 73,
+      "deletions": 24,
+      "files": [
+        {
+          "path": "src/server/db.js",
+          "status": "modified",
+          "ranges": [
+            [
+              108,
+              180
+            ]
+          ],
+          "additions": 73,
+          "deletions": 24
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-14T08:19:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-14T14:21:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-118"
+      ]
+    },
+    {
+      "number": 17,
+      "title": "ORB-119 Add bot player",
+      "author": "p1",
+      "branch": "feature/bot-player",
+      "baseBranch": "main",
+      "createdAt": "2026-10-15T00:00:00Z",
+      "mergedAt": "2026-10-15T16:00:00Z",
+      "closedAt": "2026-10-15T16:00:00Z",
+      "state": "merged",
+      "additions": 253,
+      "deletions": 13,
+      "files": [
+        {
+          "path": "src/game/timer.js",
+          "status": "modified",
+          "ranges": [
+            [
+              64,
+              101
+            ]
+          ],
+          "additions": 38,
+          "deletions": 13
+        },
+        {
+          "path": "src/game/score.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              119
+            ]
+          ],
+          "additions": 119,
+          "deletions": 0
+        },
+        {
+          "path": "src/game/rules.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              96
+            ]
+          ],
+          "additions": 96,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-15T03:30:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-119"
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Add hint system",
+      "author": "p1",
+      "branch": "feature/ORB-120-hint-system",
+      "baseBranch": "main",
+      "createdAt": "2026-10-17T08:00:00Z",
+      "mergedAt": "2026-10-17T14:00:00Z",
+      "closedAt": "2026-10-17T14:00:00Z",
+      "state": "merged",
+      "additions": 217,
+      "deletions": 48,
+      "files": [
+        {
+          "path": "src/game/engine.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              73
+            ]
+          ],
+          "additions": 73,
+          "deletions": 0
+        },
+        {
+          "path": "src/game/rooms.js",
+          "status": "modified",
+          "ranges": [
+            [
+              32,
+              102
+            ]
+          ],
+          "additions": 71,
+          "deletions": 24
+        },
+        {
+          "path": "src/game/rules.js",
+          "status": "modified",
+          "ranges": [
+            [
+              161,
+              233
+            ]
+          ],
+          "additions": 73,
+          "deletions": 24
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-120"
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Refactor rule tests",
+      "author": "p4",
+      "branch": "feature/rule-tests",
+      "baseBranch": "main",
+      "createdAt": "2026-10-19T05:00:00Z",
+      "mergedAt": "2026-10-20T13:00:00Z",
+      "closedAt": "2026-10-20T13:00:00Z",
+      "state": "merged",
+      "additions": 42,
+      "deletions": 14,
+      "files": [
+        {
+          "path": "tests/score.test.js",
+          "status": "modified",
+          "ranges": [
+            [
+              140,
+              181
+            ]
+          ],
+          "additions": 42,
+          "deletions": 14
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-19T12:20:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-20T08:12:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-121",
+        "ORB-122"
+      ]
+    },
+    {
+      "number": 20,
+      "title": "ORB-124 Leaderboard",
+      "author": "p1",
+      "branch": "feature/leaderboard",
+      "baseBranch": "main",
+      "createdAt": "2026-10-21T08:00:00Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "state": "open",
+      "additions": 210,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/game/leaderboard.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              210
+            ]
+          ],
+          "additions": 210,
+          "deletions": 0
+        }
+      ],
+      "reviews": [],
+      "mergeable": "clean",
+      "taskIds": [
+        "ORB-124"
+      ]
+    },
+    {
+      "number": 21,
+      "title": "Improve save games",
+      "author": "p1",
+      "branch": "feature/ORB-123-save-games",
+      "baseBranch": "main",
+      "createdAt": "2026-10-21T11:00:00Z",
+      "mergedAt": "2026-10-22T15:00:00Z",
+      "closedAt": "2026-10-22T15:00:00Z",
+      "state": "merged",
+      "additions": 183,
+      "deletions": 25,
+      "files": [
+        {
+          "path": "src/game/state.js",
+          "status": "modified",
+          "ranges": [
+            [
+              129,
+              204
+            ]
+          ],
+          "additions": 76,
+          "deletions": 25
+        },
+        {
+          "path": "src/game/rooms.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              107
+            ]
+          ],
+          "additions": 107,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-21T16:09:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "ORB-123"
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "name": "feature/leaderboard",
+      "owner": "p1",
+      "createdAt": "2026-10-20T06:00:00Z",
+      "lastPushAt": "2026-10-22T19:00:00Z",
+      "aheadOfMain": 4,
+      "behindMain": 2,
+      "filesTouched": [
+        {
+          "path": "src/game/leaderboard.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              210
+            ]
+          ],
+          "additions": 210,
+          "deletions": 0
+        }
+      ],
+      "hasOpenPR": true
+    },
+    {
+      "name": "feature/ORB-125-matchmaking",
+      "owner": "p1",
+      "createdAt": "2026-10-18T06:00:00Z",
+      "lastPushAt": "2026-10-23T08:00:00Z",
+      "aheadOfMain": 5,
+      "behindMain": 2,
+      "filesTouched": [
+        {
+          "path": "src/server/match.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              180
+            ]
+          ],
+          "additions": 180,
+          "deletions": 0
+        }
+      ],
+      "hasOpenPR": false
+    },
+    {
+      "name": "feature/ORB-126-theme",
+      "owner": "p2",
+      "createdAt": "2026-10-20T10:00:00Z",
+      "lastPushAt": "2026-10-21T15:00:00Z",
+      "aheadOfMain": 2,
+      "behindMain": 2,
+      "filesTouched": [
+        {
+          "path": "src/ui/theme.css",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              60
+            ]
+          ],
+          "additions": 60,
+          "deletions": 0
+        }
+      ],
+      "hasOpenPR": false
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ORB-101",
+      "title": "Game loop",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-07T00:00:00Z",
+      "linkedPRs": [
+        1
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-07T02:00:00Z",
+      "doneAt": "2026-09-08T14:00:00Z"
+    },
+    {
+      "id": "ORB-102",
+      "title": "Game loop: follow-up 1",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-07T00:00:00Z",
+      "linkedPRs": [
+        1
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-07T02:00:00Z",
+      "doneAt": "2026-09-08T14:00:00Z"
+    },
+    {
+      "id": "ORB-103",
+      "title": "Move rules",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-07T21:00:00Z",
+      "linkedPRs": [
+        2
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-08T21:00:00Z",
+      "doneAt": "2026-09-10T11:00:00Z"
+    },
+    {
+      "id": "ORB-104",
+      "title": "Move rules: follow-up 1",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-07T00:00:00Z",
+      "linkedPRs": [
+        2
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-08T21:00:00Z",
+      "doneAt": "2026-09-10T11:00:00Z"
+    },
+    {
+      "id": "ORB-105",
+      "title": "Game state",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-08T06:00:00Z",
+      "linkedPRs": [
+        3
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-13T06:00:00Z",
+      "doneAt": "2026-09-15T09:00:00Z"
+    },
+    {
+      "id": "ORB-106",
+      "title": "Board view",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-10T06:00:00Z",
+      "linkedPRs": [
+        4
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-15T06:00:00Z",
+      "doneAt": "2026-09-17T09:00:00Z"
+    },
+    {
+      "id": "ORB-107",
+      "title": "Socket server",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-09-14T13:00:00Z",
+      "linkedPRs": [
+        5
+      ],
+      "linkSource": "commit-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-18T13:00:00Z",
+      "doneAt": "2026-09-19T16:00:00Z"
+    },
+    {
+      "id": "ORB-108",
+      "title": "Scoring",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-17T12:00:00Z",
+      "linkedPRs": [
+        6
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.76,
+      "startedAt": "2026-09-20T12:00:00Z",
+      "doneAt": "2026-09-22T10:00:00Z"
+    },
+    {
+      "id": "ORB-109",
+      "title": "Room lobby",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-20T04:00:00Z",
+      "linkedPRs": [
+        7
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.8,
+      "startedAt": "2026-09-22T04:00:00Z",
+      "doneAt": "2026-09-24T09:00:00Z"
+    },
+    {
+      "id": "ORB-110",
+      "title": "Turn timer",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-21T19:00:00Z",
+      "linkedPRs": [
+        8
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-23T19:00:00Z",
+      "doneAt": "2026-09-26T13:00:00Z"
+    },
+    {
+      "id": "ORB-111",
+      "title": "User accounts",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-09-26T21:00:00Z",
+      "linkedPRs": [
+        9
+      ],
+      "linkSource": "commit-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-27T21:00:00Z",
+      "doneAt": "2026-09-29T14:00:00Z"
+    },
+    {
+      "id": "ORB-112",
+      "title": "Replay log",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-27T00:00:00Z",
+      "linkedPRs": [
+        10
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-30T00:00:00Z",
+      "doneAt": "2026-10-01T11:00:00Z"
+    },
+    {
+      "id": "ORB-113",
+      "title": "Spectator mode",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-29T07:00:00Z",
+      "linkedPRs": [
+        11
+      ],
+      "linkSource": "commit-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-01T07:00:00Z",
+      "doneAt": "2026-10-03T14:00:00Z"
+    },
+    {
+      "id": "ORB-114",
+      "title": "Chat",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-02T23:00:00Z",
+      "linkedPRs": [
+        12
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-04T23:00:00Z",
+      "doneAt": "2026-10-06T14:00:00Z"
+    },
+    {
+      "id": "ORB-115",
+      "title": "Main menu",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-10-02T06:00:00Z",
+      "linkedPRs": [
+        13
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.77,
+      "startedAt": "2026-10-06T06:00:00Z",
+      "doneAt": "2026-10-08T12:00:00Z"
+    },
+    {
+      "id": "ORB-116",
+      "title": "Reconnect",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-03T19:00:00Z",
+      "linkedPRs": [
+        14
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-07T19:00:00Z",
+      "doneAt": "2026-10-10T13:00:00Z"
+    },
+    {
+      "id": "ORB-117",
+      "title": "Settings modal",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-10-10T09:00:00Z",
+      "linkedPRs": [
+        15
+      ],
+      "linkSource": "commit-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-11T09:00:00Z",
+      "doneAt": "2026-10-13T14:00:00Z"
+    },
+    {
+      "id": "ORB-118",
+      "title": "Database models",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-08T07:00:00Z",
+      "linkedPRs": [
+        16
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.81,
+      "startedAt": "2026-10-13T07:00:00Z",
+      "doneAt": "2026-10-14T20:00:00Z"
+    },
+    {
+      "id": "ORB-119",
+      "title": "Bot player",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-12T16:00:00Z",
+      "linkedPRs": [
+        17
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-13T16:00:00Z",
+      "doneAt": "2026-10-15T17:00:00Z"
+    },
+    {
+      "id": "ORB-120",
+      "title": "Hint system",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-11T04:00:00Z",
+      "linkedPRs": [
+        18
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-16T04:00:00Z",
+      "doneAt": "2026-10-17T16:00:00Z"
+    },
+    {
+      "id": "ORB-121",
+      "title": "Rule tests",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-10-13T11:00:00Z",
+      "linkedPRs": [
+        19
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.65,
+      "startedAt": "2026-10-18T11:00:00Z",
+      "doneAt": "2026-10-20T13:00:00Z"
+    },
+    {
+      "id": "ORB-122",
+      "title": "Rule tests: follow-up 1",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-10-13T11:00:00Z",
+      "linkedPRs": [
+        19
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.65,
+      "startedAt": "2026-10-18T11:00:00Z",
+      "doneAt": "2026-10-20T13:00:00Z"
+    },
+    {
+      "id": "ORB-123",
+      "title": "Save games",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-19T20:00:00Z",
+      "linkedPRs": [
+        21
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-20T20:00:00Z",
+      "doneAt": "2026-10-22T18:00:00Z"
+    },
+    {
+      "id": "ORB-124",
+      "title": "Leaderboard",
+      "assignee": "p1",
+      "status": "in_review",
+      "createdAt": "2026-10-17T12:00:00Z",
+      "linkedPRs": [
+        20
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-20T06:00:00Z",
+      "dueAt": "2026-10-25T12:00:00Z"
+    },
+    {
+      "id": "ORB-125",
+      "title": "Matchmaking",
+      "assignee": "p1",
+      "status": "in_progress",
+      "createdAt": "2026-10-14T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-18T06:00:00Z",
+      "dueAt": "2026-10-27T12:00:00Z"
+    },
+    {
+      "id": "ORB-126",
+      "title": "Colour theme",
+      "assignee": "p2",
+      "status": "in_progress",
+      "createdAt": "2026-10-15T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-20T10:00:00Z",
+      "dueAt": "2026-10-26T12:00:00Z"
+    },
+    {
+      "id": "ORB-127",
+      "title": "Tournament mode",
+      "assignee": "p1",
+      "status": "todo",
+      "createdAt": "2026-10-10T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-29T12:00:00Z"
+    },
+    {
+      "id": "ORB-128",
+      "title": "Server logging",
+      "assignee": "p3",
+      "status": "todo",
+      "createdAt": "2026-10-13T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-30T12:00:00Z"
+    },
+    {
+      "id": "ORB-129",
+      "title": "Write final report",
+      "assignee": null,
+      "status": "todo",
+      "createdAt": "2026-10-15T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-11-01T12:00:00Z"
+    }
+  ]
+}

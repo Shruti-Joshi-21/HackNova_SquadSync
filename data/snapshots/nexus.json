@@ -1,0 +1,4036 @@
+{
+  "team": {
+    "id": "nexus",
+    "name": "Team Nexus",
+    "projectStart": "2026-09-07T00:00:00Z",
+    "deadline": "2026-11-01T18:30:00Z",
+    "people": [
+      {
+        "id": "p1",
+        "displayName": "Member A",
+        "githubLogin": "kestrel-dev",
+        "taskAssignee": "Kestrel",
+        "role": "code",
+        "colorIndex": 0
+      },
+      {
+        "id": "p2",
+        "displayName": "Member B",
+        "githubLogin": "heron-codes",
+        "taskAssignee": "Heron",
+        "role": "code",
+        "colorIndex": 1
+      },
+      {
+        "id": "p3",
+        "displayName": "Member C",
+        "githubLogin": "lynx-404",
+        "taskAssignee": "Lynx",
+        "role": "code",
+        "colorIndex": 2
+      },
+      {
+        "id": "p4",
+        "displayName": "Member D",
+        "githubLogin": "wren-draws",
+        "taskAssignee": "Wren",
+        "role": "design",
+        "colorIndex": 3
+      }
+    ]
+  },
+  "asOf": "2026-10-23T12:00:00Z",
+  "source": "synthetic",
+  "commits": [
+    {
+      "sha": "6d8b934b2472e16f8974b29f730e9c09d9afcbda",
+      "author": "p1",
+      "date": "2026-09-09T06:00:00Z",
+      "message": "Fix product list",
+      "branch": "feature/NEX-101-product-list",
+      "additions": 88,
+      "deletions": 10,
+      "files": [
+        "src/catalog/item.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "92ab469f82bb6ee3c9c1de9625640e989d6558aa",
+      "author": "p1",
+      "date": "2026-09-10T06:30:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/NEX-101-product-list",
+      "additions": 101,
+      "deletions": 5,
+      "files": [
+        "src/catalog/sort.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "38dc80bf7f62452e2073da68505110d3accbde64",
+      "author": "p1",
+      "date": "2026-09-11T07:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/NEX-101-product-list",
+      "additions": 51,
+      "deletions": 8,
+      "files": [
+        "src/catalog/api.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "869376cd96fe30848b68fb21083c54ec1ae08844",
+      "author": "p1",
+      "date": "2026-09-11T08:00:00Z",
+      "message": "Fix product list (#1)",
+      "branch": "main",
+      "additions": 240,
+      "deletions": 23,
+      "files": [
+        "src/catalog/item.js",
+        "src/catalog/sort.js",
+        "src/catalog/api.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "23b0dbed6eddfbcfa3b629f1c7b7e1cc70097f5b",
+      "author": "p2",
+      "date": "2026-09-13T20:00:00Z",
+      "message": "NEX-102 Refactor cart drawer",
+      "branch": "feature/cart-drawer",
+      "additions": 83,
+      "deletions": 43,
+      "files": [
+        "src/cart/totals.js",
+        "src/cart/coupon.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "12724bd1cf51555975a459b2d82cadeabf1d7a98",
+      "author": "p2",
+      "date": "2026-09-15T14:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/cart-drawer",
+      "additions": 105,
+      "deletions": 19,
+      "files": [
+        "src/cart/summary.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0273c4c89ed7382212cf735f1b384ff4a25d4a83",
+      "author": "p2",
+      "date": "2026-09-15T15:00:00Z",
+      "message": "NEX-102 Refactor cart drawer (#3)",
+      "branch": "main",
+      "additions": 188,
+      "deletions": 62,
+      "files": [
+        "src/cart/totals.js",
+        "src/cart/summary.js",
+        "src/cart/coupon.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d7c69106c47c79d06f17cf16dc021ebb0af617e6",
+      "author": "p1",
+      "date": "2026-09-16T11:00:00Z",
+      "message": "NEX-103 Wire up item page",
+      "branch": "feature/item-page",
+      "additions": 112,
+      "deletions": 31,
+      "files": [
+        "src/catalog/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "66e22203f8bf97626ab86b09eeae19a9c8a26708",
+      "author": "p1",
+      "date": "2026-09-18T08:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/item-page",
+      "additions": 49,
+      "deletions": 23,
+      "files": [
+        "src/catalog/sort.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "557ed36a2764a0ece0e27449a8e6525edd9b2f98",
+      "author": "p1",
+      "date": "2026-09-18T09:00:00Z",
+      "message": "NEX-103 Wire up item page (#5)",
+      "branch": "main",
+      "additions": 161,
+      "deletions": 54,
+      "files": [
+        "src/catalog/cache.js",
+        "src/catalog/sort.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c1c902d768ca4f8c8dd88d9f4f0661a4e20cb1fe",
+      "author": "p3",
+      "date": "2026-09-21T03:00:00Z",
+      "message": "Build login form",
+      "branch": "feature/NEX-104-login-form",
+      "additions": 99,
+      "deletions": 22,
+      "files": [
+        "src/auth/signup.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d102a532e4a8e2036b194a7f5f8c7ff61f97770c",
+      "author": "p3",
+      "date": "2026-09-22T14:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/NEX-104-login-form",
+      "additions": 53,
+      "deletions": 28,
+      "files": [
+        "src/auth/token.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "185d893bbf41591d4972a2a2a81982f4cef495d2",
+      "author": "p3",
+      "date": "2026-09-22T15:00:00Z",
+      "message": "Build login form (#7)",
+      "branch": "main",
+      "additions": 152,
+      "deletions": 50,
+      "files": [
+        "src/auth/signup.js",
+        "src/auth/token.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "96f99bec6ab54229104c173b95192fd0281fd1d6",
+      "author": "p1",
+      "date": "2026-09-22T16:00:00Z",
+      "message": "NEX-105 Wire up category filters",
+      "branch": "feature/category-filters",
+      "additions": 46,
+      "deletions": 19,
+      "files": [
+        "src/catalog/filters.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "aa43f136be296f0367963fd249c10f2e98174b8d",
+      "author": "p2",
+      "date": "2026-09-24T04:00:00Z",
+      "message": "Build checkout form",
+      "branch": "feature/NEX-107-checkout-form",
+      "additions": 100,
+      "deletions": 10,
+      "files": [
+        "src/cart/summary.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "56c0c38ffa181e5b5db058440b53705f290a814b",
+      "author": "p1",
+      "date": "2026-09-24T13:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/category-filters",
+      "additions": 80,
+      "deletions": 23,
+      "files": [
+        "src/catalog/list.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "37167286ddc60b93c248cbaf31ff102615e40b6f",
+      "author": "p1",
+      "date": "2026-09-24T14:00:00Z",
+      "message": "NEX-105 Wire up category filters (#9)",
+      "branch": "main",
+      "additions": 126,
+      "deletions": 42,
+      "files": [
+        "src/catalog/filters.js",
+        "src/catalog/list.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d6f3d3cebefd4b5351b3f122fd133f9e8c21aa53",
+      "author": "p1",
+      "date": "2026-09-26T09:00:00Z",
+      "message": "NEX-109 Add catalog API",
+      "branch": "feature/catalog-api",
+      "additions": 82,
+      "deletions": 23,
+      "files": [
+        "src/catalog/cache.js",
+        "src/catalog/list.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "de7c1254ee45b11e310af2f5b247e8a3b1beaea1",
+      "author": "p2",
+      "date": "2026-09-26T11:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/NEX-107-checkout-form",
+      "additions": 89,
+      "deletions": 13,
+      "files": [
+        "src/cart/checkout.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "8d1156b2d58b97e7899563578dad4dff20a141d0",
+      "author": "p2",
+      "date": "2026-09-26T12:00:00Z",
+      "message": "Build checkout form (#11)",
+      "branch": "main",
+      "additions": 189,
+      "deletions": 23,
+      "files": [
+        "src/cart/summary.js",
+        "src/cart/checkout.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "42ff080403fa50ccb34e641c9ad5f0f5b15fed11",
+      "author": "p3",
+      "date": "2026-09-29T01:18:00Z",
+      "message": "Try websocket notifications",
+      "branch": "spike/websockets",
+      "additions": 74,
+      "deletions": 0,
+      "files": [
+        "src/notify/socket.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d2fc5047c66173887841b7eb55ca1e56746e39de",
+      "author": "p1",
+      "date": "2026-09-29T11:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/catalog-api",
+      "additions": 88,
+      "deletions": 35,
+      "files": [
+        "src/catalog/sort.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "1301fd8d77cffa28e1415569a4d9e982469bb695",
+      "author": "p1",
+      "date": "2026-09-29T12:00:00Z",
+      "message": "NEX-109 Add catalog API (#13)",
+      "branch": "main",
+      "additions": 170,
+      "deletions": 58,
+      "files": [
+        "src/catalog/cache.js",
+        "src/catalog/sort.js",
+        "src/catalog/list.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4fb7bfdc8184482fa3898d8b140221528168795e",
+      "author": "p3",
+      "date": "2026-09-30T07:00:00Z",
+      "message": "Wire up session refresh",
+      "branch": "feature/NEX-110-session-refresh",
+      "additions": 72,
+      "deletions": 0,
+      "files": [
+        "src/auth/login.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2aec80f7569c7ff834bf1559e2aeee29c15f02aa",
+      "author": "p3",
+      "date": "2026-10-01T07:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/NEX-110-session-refresh",
+      "additions": 58,
+      "deletions": 0,
+      "files": [
+        "src/auth/login.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2cb2f991ade01bfca66ccd8378cf8cdf2a3122a8",
+      "author": "p3",
+      "date": "2026-10-01T08:00:00Z",
+      "message": "Wire up session refresh (#17)",
+      "branch": "main",
+      "additions": 130,
+      "deletions": 0,
+      "files": [
+        "src/auth/login.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "994771bb70d9adc6736d8e1ded67e319acc0c2b0",
+      "author": "p2",
+      "date": "2026-10-01T17:00:00Z",
+      "message": "Wire up order totals",
+      "branch": "feature/NEX-111-order-totals",
+      "additions": 76,
+      "deletions": 21,
+      "files": [
+        "src/cart/coupon.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4884f26f1bedd43f24356878ef40da4d2238dbf8",
+      "author": "p2",
+      "date": "2026-10-02T08:00:00Z",
+      "message": "Start NEX-132-settings",
+      "branch": "feature/NEX-132-settings",
+      "additions": 20,
+      "deletions": 0,
+      "files": [
+        "src/settings/profile.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e76eb55d03ff2d3e91dcaf6c9c7525dfc77e0a65",
+      "author": "p3",
+      "date": "2026-10-02T09:00:00Z",
+      "message": "Clean up",
+      "branch": "spike/websockets",
+      "additions": 66,
+      "deletions": 0,
+      "files": [
+        "src/notify/socket.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4986a92771adc4d93f659d1078510984639ce3c5",
+      "author": "p2",
+      "date": "2026-10-03T05:00:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/NEX-111-order-totals",
+      "additions": 97,
+      "deletions": 11,
+      "files": [
+        "src/cart/summary.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ad05db020c3b725023bb97c5239b3e8c789c95b4",
+      "author": "p2",
+      "date": "2026-10-03T06:00:00Z",
+      "message": "Wire up order totals (#19)",
+      "branch": "main",
+      "additions": 173,
+      "deletions": 32,
+      "files": [
+        "src/cart/coupon.js",
+        "src/cart/summary.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b2b1ace54e622edbabb297db7b983bee7a197e08",
+      "author": "p1",
+      "date": "2026-10-03T20:00:00Z",
+      "message": "Improve price sorting",
+      "branch": "feature/price-sorting",
+      "additions": 68,
+      "deletions": 11,
+      "files": [
+        "src/catalog/sort.js",
+        "src/catalog/item.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d9e3db3c4cbd5462c94b7e893c309194f97c3c39",
+      "author": "p2",
+      "date": "2026-10-05T13:50:00Z",
+      "message": "Address review comments",
+      "branch": "feature/NEX-132-settings",
+      "additions": 46,
+      "deletions": 0,
+      "files": [
+        "src/settings/prefs.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c3187297190aae20c82249d5bc4c63c88fb2df09",
+      "author": "p1",
+      "date": "2026-10-06T05:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/price-sorting",
+      "additions": 159,
+      "deletions": 20,
+      "files": [
+        "src/catalog/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "05543bc3171a2c93c019ed3d2c99c10bafe6d9df",
+      "author": "p1",
+      "date": "2026-10-06T06:00:00Z",
+      "message": "Improve price sorting (#21)",
+      "branch": "main",
+      "additions": 227,
+      "deletions": 31,
+      "files": [
+        "src/catalog/sort.js",
+        "src/catalog/cache.js",
+        "src/catalog/item.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b453f2ccfcb313f0ce43485adce4ecc7fd74f0a0",
+      "author": "p4",
+      "date": "2026-10-06T09:00:00Z",
+      "message": "NEX-114 Design tokens and style guide",
+      "branch": "design/tokens",
+      "additions": 103,
+      "deletions": 0,
+      "files": [
+        "design/tokens.json",
+        "src/styles/theme.css"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "48783e653e50c78263af90e9f067620c97469ca6",
+      "author": "p4",
+      "date": "2026-10-08T05:00:00Z",
+      "message": "Address review comments",
+      "branch": "design/tokens",
+      "additions": 101,
+      "deletions": 0,
+      "files": [
+        "docs/style-guide.md"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0bcb1720d86e178a197e825867f641f5bd1245c3",
+      "author": "p4",
+      "date": "2026-10-08T06:00:00Z",
+      "message": "NEX-114 Design tokens and style guide (#23)",
+      "branch": "main",
+      "additions": 204,
+      "deletions": 0,
+      "files": [
+        "design/tokens.json",
+        "docs/style-guide.md",
+        "src/styles/theme.css"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e900fff3b30f1eb6454629b551ee19760dbd2f87",
+      "author": "p3",
+      "date": "2026-10-08T10:00:00Z",
+      "message": "NEX-115 Refactor signup flow",
+      "branch": "feature/signup-flow",
+      "additions": 68,
+      "deletions": 10,
+      "files": [
+        "src/auth/reset.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "13e8238aa4d441326d91c539cef6c029724ddfba",
+      "author": "p2",
+      "date": "2026-10-08T19:40:00Z",
+      "message": "Fix typo",
+      "branch": "feature/NEX-132-settings",
+      "additions": 20,
+      "deletions": 0,
+      "files": [
+        "src/settings/profile.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "eb3e8a26bb67adda034780d8251cd882a3585654",
+      "author": "p3",
+      "date": "2026-10-10T14:00:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/signup-flow",
+      "additions": 65,
+      "deletions": 9,
+      "files": [
+        "src/auth/login.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "3efa474ca7f44de8221ffa8b3d9bc93cea744367",
+      "author": "p3",
+      "date": "2026-10-10T15:00:00Z",
+      "message": "NEX-115 Refactor signup flow (#25)",
+      "branch": "main",
+      "additions": 133,
+      "deletions": 19,
+      "files": [
+        "src/auth/reset.js",
+        "src/auth/login.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "532a0bb0b4a285fdc8e62e3e7c950577c871b2a6",
+      "author": "p1",
+      "date": "2026-10-11T00:00:00Z",
+      "message": "NEX-116 Add image upload",
+      "branch": "feature/image-upload",
+      "additions": 89,
+      "deletions": 24,
+      "files": [
+        "src/catalog/list.js",
+        "src/catalog/filters.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "37914b4104812baf2faa392e6c4f4604bbb80a38",
+      "author": "p2",
+      "date": "2026-10-12T01:30:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/NEX-132-settings",
+      "additions": 32,
+      "deletions": 0,
+      "files": [
+        "src/settings/prefs.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4304e034f86e0e8b4aba6c385743045aa7df35dc",
+      "author": "p1",
+      "date": "2026-10-12T09:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/image-upload",
+      "additions": 97,
+      "deletions": 23,
+      "files": [
+        "src/catalog/api.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7a97ce71618b583287f349617a4a5cd3cd87ca02",
+      "author": "p1",
+      "date": "2026-10-12T10:00:00Z",
+      "message": "NEX-116 Add image upload (#27)",
+      "branch": "main",
+      "additions": 186,
+      "deletions": 47,
+      "files": [
+        "src/catalog/list.js",
+        "src/catalog/api.js",
+        "src/catalog/filters.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "3714ff122af3ae74ce36b3f572203a3b365db77e",
+      "author": "p3",
+      "date": "2026-10-13T08:00:00Z",
+      "message": "Start NEX-133-email-receipts",
+      "branch": "feature/NEX-133-email-receipts",
+      "additions": 54,
+      "deletions": 0,
+      "files": [
+        "src/email/receipt.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2f9e135df1dafdc26fcd6a7c77195b0b60633a2e",
+      "author": "p2",
+      "date": "2026-10-13T10:00:00Z",
+      "message": "Fix coupon codes",
+      "branch": "feature/NEX-117-coupon-codes",
+      "additions": 83,
+      "deletions": 34,
+      "files": [
+        "src/cart/summary.js",
+        "src/cart/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "5ae1bd9e130cdd7a70d0294d02a6ba314989319a",
+      "author": "p2",
+      "date": "2026-10-13T17:00:00Z",
+      "message": "Build saved carts",
+      "branch": "feature/NEX-121-saved-carts",
+      "additions": 66,
+      "deletions": 20,
+      "files": [
+        "src/cart/totals.js",
+        "src/cart/summary.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "960a6cd40503a4c68001d995ae54b5ae0cc229bb",
+      "author": "p2",
+      "date": "2026-10-13T21:00:00Z",
+      "message": "NEX-128 Card payments flow",
+      "branch": "feature/payments",
+      "additions": 126,
+      "deletions": 17,
+      "files": [
+        "src/payments/checkout.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ba4fb995e63e9fe36ad9caec4350814fc63dbe23",
+      "author": "p3",
+      "date": "2026-10-14T04:00:00Z",
+      "message": "Add password reset",
+      "branch": "feature/NEX-119-password-reset",
+      "additions": 74,
+      "deletions": 41,
+      "files": [
+        "src/auth/signup.js",
+        "src/auth/token.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "f379b54856583ce57c3606bb59b2b09f282c144a",
+      "author": "p1",
+      "date": "2026-10-14T19:00:00Z",
+      "message": "Wire up seller profile",
+      "branch": "feature/NEX-118-seller-profile",
+      "additions": 63,
+      "deletions": 21,
+      "files": [
+        "src/catalog/list.js",
+        "src/catalog/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "3be9fdca52a534d9bae1e1cb35c2adb38e7b3adf",
+      "author": "p2",
+      "date": "2026-10-14T20:23:00Z",
+      "message": "Rename variables",
+      "branch": "feature/payments",
+      "additions": 173,
+      "deletions": 12,
+      "files": [
+        "src/payments/webhook.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9211a12a187489bd037f26353971714af7ad38b0",
+      "author": "p2",
+      "date": "2026-10-15T07:20:00Z",
+      "message": "Rename variables",
+      "branch": "feature/NEX-132-settings",
+      "additions": 29,
+      "deletions": 0,
+      "files": [
+        "src/settings/profile.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7cd795500c946d237a02fc117dc0a04fe419ae75",
+      "author": "p3",
+      "date": "2026-10-15T09:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/NEX-133-email-receipts",
+      "additions": 43,
+      "deletions": 0,
+      "files": [
+        "src/email/template.html"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d9f4ba9fc9a3aef7a37d4f6b041365e1644cc538",
+      "author": "p2",
+      "date": "2026-10-15T12:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/NEX-117-coupon-codes",
+      "additions": 141,
+      "deletions": 40,
+      "files": [
+        "src/cart/checkout.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2f195062ec01297420dd292a29356df86284a1b6",
+      "author": "p2",
+      "date": "2026-10-15T13:00:00Z",
+      "message": "Fix coupon codes (#32)",
+      "branch": "main",
+      "additions": 224,
+      "deletions": 74,
+      "files": [
+        "src/cart/summary.js",
+        "src/cart/checkout.js",
+        "src/cart/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e67280af0e6d24d7182a8a81b42d6af9aeb162ea",
+      "author": "p2",
+      "date": "2026-10-15T19:45:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/payments",
+      "additions": 80,
+      "deletions": 26,
+      "files": [
+        "src/payments/refunds.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "84b0fa61849b8c6f153d473af6eaa96491a673ac",
+      "author": "p2",
+      "date": "2026-10-15T20:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/NEX-121-saved-carts",
+      "additions": 128,
+      "deletions": 27,
+      "files": [
+        "src/cart/checkout.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "6477b0adf4bcbd533c747bbea718c1d6be50a2ac",
+      "author": "p3",
+      "date": "2026-10-15T23:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/NEX-119-password-reset",
+      "additions": 156,
+      "deletions": 34,
+      "files": [
+        "src/auth/login.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "aceffa6e93ccfd81fe3aa71971c2f9cd89ce719f",
+      "author": "p1",
+      "date": "2026-10-16T05:45:00Z",
+      "message": "Add tests",
+      "branch": "feature/NEX-118-seller-profile",
+      "additions": 75,
+      "deletions": 14,
+      "files": [
+        "src/catalog/sort.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "770987cae383078c0e1bb9419589617ea4247353",
+      "author": "p2",
+      "date": "2026-10-16T19:08:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/payments",
+      "additions": 99,
+      "deletions": 13,
+      "files": [
+        "src/lib/http.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b5c1b1fe0093b741cd7c82bf98dbb56344067aa8",
+      "author": "p3",
+      "date": "2026-10-17T10:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/NEX-133-email-receipts",
+      "additions": 53,
+      "deletions": 0,
+      "files": [
+        "src/email/receipt.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0a3235d3c62fe57adabd6b00c121b4c6d30c0994",
+      "author": "p1",
+      "date": "2026-10-17T16:30:00Z",
+      "message": "Rename variables",
+      "branch": "feature/NEX-118-seller-profile",
+      "additions": 156,
+      "deletions": 19,
+      "files": [
+        "src/catalog/item.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "1977285908963b39b325831880edb9e31d570e89",
+      "author": "p3",
+      "date": "2026-10-17T18:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/NEX-119-password-reset",
+      "additions": 59,
+      "deletions": 18,
+      "files": [
+        "src/auth/guard.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "190c57b6c939af1a71f5cb0401e9d0f9c57b1559",
+      "author": "p2",
+      "date": "2026-10-17T18:30:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/payments",
+      "additions": 126,
+      "deletions": 19,
+      "files": [
+        "src/cart/checkout.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "cab0f881a0925fd4b3b9b509f38e18b8ba742d49",
+      "author": "p2",
+      "date": "2026-10-17T23:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/NEX-121-saved-carts",
+      "additions": 121,
+      "deletions": 25,
+      "files": [
+        "src/cart/store.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "386bcfc9e639e727a250456133073337fda23427",
+      "author": "p3",
+      "date": "2026-10-18T08:00:00Z",
+      "message": "Refactor route guard",
+      "branch": "feature/route-guard",
+      "additions": 110,
+      "deletions": 27,
+      "files": [
+        "src/auth/reset.js",
+        "src/auth/token.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d2a77618369a438d9ba1dc0347bfb6f9fd60c98f",
+      "author": "p1",
+      "date": "2026-10-18T10:00:00Z",
+      "message": "Fix listing form",
+      "branch": "feature/listing-form",
+      "additions": 144,
+      "deletions": 11,
+      "files": [
+        "src/catalog/item.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ef8df59a0c3725094947028f574228297a23b7d4",
+      "author": "p2",
+      "date": "2026-10-18T13:10:00Z",
+      "message": "Address review comments",
+      "branch": "feature/NEX-132-settings",
+      "additions": 17,
+      "deletions": 0,
+      "files": [
+        "src/settings/prefs.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b73342b972e51a5ec47eeb44a66862601823c25d",
+      "author": "p2",
+      "date": "2026-10-18T17:53:00Z",
+      "message": "Fix typo",
+      "branch": "feature/payments",
+      "additions": 86,
+      "deletions": 20,
+      "files": [
+        "src/cart/totals.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0edc3a3b40f675a84df7cb533428bb35a39323e7",
+      "author": "p1",
+      "date": "2026-10-19T01:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/listing-form",
+      "additions": 90,
+      "deletions": 26,
+      "files": [
+        "src/catalog/sort.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "e53d9937410a1d7155f2907e000f1f8da4556cd1",
+      "author": "p1",
+      "date": "2026-10-19T03:15:00Z",
+      "message": "Address review comments",
+      "branch": "feature/NEX-118-seller-profile",
+      "additions": 136,
+      "deletions": 17,
+      "files": [
+        "src/catalog/api.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "57a05f495ac85028be608e8ccffcc065db453215",
+      "author": "p1",
+      "date": "2026-10-19T05:30:00Z",
+      "message": "Hotfix login redirect",
+      "branch": "main",
+      "additions": 5,
+      "deletions": 3,
+      "files": [
+        "src/server/routes.js"
+      ],
+      "directToMain": true
+    },
+    {
+      "sha": "62fcf0c1614228e318d92a937ef812b61ca1f594",
+      "author": "p3",
+      "date": "2026-10-19T10:00:00Z",
+      "message": "Start NEX-131-notifications",
+      "branch": "feature/NEX-131-notifications",
+      "additions": 56,
+      "deletions": 3,
+      "files": [
+        "src/notify/push.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "29cd011aad22916198369acd046e111fb98d984a",
+      "author": "p3",
+      "date": "2026-10-19T13:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/NEX-119-password-reset",
+      "additions": 120,
+      "deletions": 22,
+      "files": [
+        "src/auth/session.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "52fe2089e0b9a119bdfd9d68c57dc2c1d0921762",
+      "author": "p1",
+      "date": "2026-10-19T16:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/listing-form",
+      "additions": 200,
+      "deletions": 20,
+      "files": [
+        "src/catalog/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7d14bef54ad4cec6c25e59b7d28bc2e25c26fa05",
+      "author": "p2",
+      "date": "2026-10-19T17:15:00Z",
+      "message": "Address review comments",
+      "branch": "feature/payments",
+      "additions": 80,
+      "deletions": 14,
+      "files": [
+        "src/lib/apiClient.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "21f297b3ee40047c4f94819622c777e45102e1cc",
+      "author": "p3",
+      "date": "2026-10-20T02:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/NEX-131-notifications",
+      "additions": 42,
+      "deletions": 5,
+      "files": [
+        "src/notify/inbox.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "bfb0980831048beaf52bb655179d4e7d353276f0",
+      "author": "p2",
+      "date": "2026-10-20T02:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/NEX-121-saved-carts",
+      "additions": 110,
+      "deletions": 19,
+      "files": [
+        "src/cart/coupon.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c96b5381e0f8059e592a9055e7be1a49c0f49c15",
+      "author": "p1",
+      "date": "2026-10-20T02:00:00Z",
+      "message": "Refactor stock badge",
+      "branch": "feature/stock-badge",
+      "additions": 90,
+      "deletions": 14,
+      "files": [
+        "src/catalog/filters.js",
+        "src/catalog/api.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2e883e391363564782853acb603a8729df20e346",
+      "author": "p1",
+      "date": "2026-10-20T07:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/listing-form",
+      "additions": 73,
+      "deletions": 14,
+      "files": [
+        "src/catalog/api.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "4fffefafba0a55bb1f562ec28dfd941fddca7905",
+      "author": "p1",
+      "date": "2026-10-20T09:00:00Z",
+      "message": "NEX-130 Search endpoint",
+      "branch": "feature/search",
+      "additions": 71,
+      "deletions": 6,
+      "files": [
+        "src/search/index.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2304ba2fd81bd787983ab589ad1637ccfe6f309b",
+      "author": "p1",
+      "date": "2026-10-20T14:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/NEX-118-seller-profile",
+      "additions": 134,
+      "deletions": 14,
+      "files": [
+        "src/catalog/filters.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "eb4aa8456be9074246c4c21d26a3f57495b4d5cc",
+      "author": "p1",
+      "date": "2026-10-20T15:00:00Z",
+      "message": "Wire up seller profile (#34)",
+      "branch": "main",
+      "additions": 564,
+      "deletions": 85,
+      "files": [
+        "src/catalog/list.js",
+        "src/catalog/sort.js",
+        "src/catalog/item.js",
+        "src/catalog/api.js",
+        "src/catalog/filters.js",
+        "src/catalog/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "62dec2654a7dd5138fc9a26cf8cf330a39dc1ee2",
+      "author": "p2",
+      "date": "2026-10-20T16:38:00Z",
+      "message": "Fix typo",
+      "branch": "feature/payments",
+      "additions": 155,
+      "deletions": 13,
+      "files": [
+        "src/payments/checkout.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "c544e512104c34f00fa628d49db90d0930ab8e5d",
+      "author": "p3",
+      "date": "2026-10-20T18:00:00Z",
+      "message": "Rename variables",
+      "branch": "feature/NEX-131-notifications",
+      "additions": 72,
+      "deletions": 3,
+      "files": [
+        "src/server/routes.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "dd432bcccbe6b8c93a85350bf7ced1527ff3c64b",
+      "author": "p3",
+      "date": "2026-10-20T18:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/route-guard",
+      "additions": 131,
+      "deletions": 29,
+      "files": [
+        "src/auth/guard.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "868b68fc85c17bc2414d4321012b4934f3d75d11",
+      "author": "p1",
+      "date": "2026-10-20T21:20:00Z",
+      "message": "Address review comments",
+      "branch": "feature/stock-badge",
+      "additions": 67,
+      "deletions": 18,
+      "files": [
+        "src/catalog/cache.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7599cffa4a358861fe5de7ad10b0af915a89082e",
+      "author": "p1",
+      "date": "2026-10-20T22:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/listing-form",
+      "additions": 86,
+      "deletions": 21,
+      "files": [
+        "src/catalog/filters.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "eb86ed205c60d481cc0fbc8f1f11340e03ebce6e",
+      "author": "p1",
+      "date": "2026-10-20T22:30:00Z",
+      "message": "Address review comments",
+      "branch": "feature/search",
+      "additions": 56,
+      "deletions": 4,
+      "files": [
+        "src/search/query.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "d01031fe7c286e51679949a2acfd4baca1cce00c",
+      "author": "p3",
+      "date": "2026-10-21T08:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/NEX-119-password-reset",
+      "additions": 150,
+      "deletions": 29,
+      "files": [
+        "src/auth/reset.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "49ca3c373b35b6629b6e2f40207c43321de076e9",
+      "author": "p3",
+      "date": "2026-10-21T09:00:00Z",
+      "message": "Add password reset (#33)",
+      "branch": "main",
+      "additions": 559,
+      "deletions": 144,
+      "files": [
+        "src/auth/signup.js",
+        "src/auth/login.js",
+        "src/auth/guard.js",
+        "src/auth/session.js",
+        "src/auth/reset.js",
+        "src/auth/token.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "13d70b30bf57356d22e725f7089a9d114c2abb4e",
+      "author": "p3",
+      "date": "2026-10-21T10:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/NEX-131-notifications",
+      "additions": 68,
+      "deletions": 4,
+      "files": [
+        "src/lib/apiClient.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "f8a653f9ab6818237dfb24c8bb0cafa9b78e24c5",
+      "author": "p1",
+      "date": "2026-10-21T12:00:00Z",
+      "message": "Clean up",
+      "branch": "feature/search",
+      "additions": 81,
+      "deletions": 3,
+      "files": [
+        "src/server/routes.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "f98f2621d175fe320f1bb2df35ad7762fb8997de",
+      "author": "p1",
+      "date": "2026-10-21T13:00:00Z",
+      "message": "Add tests",
+      "branch": "feature/listing-form",
+      "additions": 159,
+      "deletions": 9,
+      "files": [
+        "src/catalog/list.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "34a730ccf91a9a0ebb8046152bf6d161cddd858d",
+      "author": "p1",
+      "date": "2026-10-21T14:00:00Z",
+      "message": "Fix listing form (#36)",
+      "branch": "main",
+      "additions": 752,
+      "deletions": 101,
+      "files": [
+        "src/catalog/item.js",
+        "src/catalog/sort.js",
+        "src/catalog/cache.js",
+        "src/catalog/api.js",
+        "src/catalog/filters.js",
+        "src/catalog/list.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "077127ad3b5b7f65094bf9b5a03440db267e39bf",
+      "author": "p2",
+      "date": "2026-10-21T16:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/payments",
+      "additions": 156,
+      "deletions": 25,
+      "files": [
+        "src/payments/webhook.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "cef384dca6e6854d118c1a7a845728fd27553e13",
+      "author": "p1",
+      "date": "2026-10-21T16:40:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/stock-badge",
+      "additions": 117,
+      "deletions": 15,
+      "files": [
+        "src/catalog/list.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "06ece719a540905b5dece742fefb9f4115a49468",
+      "author": "p2",
+      "date": "2026-10-21T19:00:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/NEX-132-settings",
+      "additions": 36,
+      "deletions": 0,
+      "files": [
+        "src/settings/profile.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9174c9971a98900faea92b8ecdacf68ec85c3b84",
+      "author": "p1",
+      "date": "2026-10-22T01:30:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/search",
+      "additions": 46,
+      "deletions": 2,
+      "files": [
+        "package-lock.json"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "2864a596d96c0845ea7afef3c8a03d357d201998",
+      "author": "p3",
+      "date": "2026-10-22T02:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/NEX-131-notifications",
+      "additions": 51,
+      "deletions": 4,
+      "files": [
+        "package-lock.json"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "0e9eafe45e0e8353e073eb4a9d58930e9f185a47",
+      "author": "p2",
+      "date": "2026-10-22T05:00:00Z",
+      "message": "Address review comments",
+      "branch": "feature/NEX-121-saved-carts",
+      "additions": 120,
+      "deletions": 39,
+      "files": [
+        "src/cart/cart.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "60f7b6b20e486edd715567a53190e87d8dbd2278",
+      "author": "p2",
+      "date": "2026-10-22T06:00:00Z",
+      "message": "Build saved carts (#29)",
+      "branch": "main",
+      "additions": 545,
+      "deletions": 130,
+      "files": [
+        "src/cart/totals.js",
+        "src/cart/checkout.js",
+        "src/cart/store.js",
+        "src/cart/coupon.js",
+        "src/cart/cart.js",
+        "src/cart/summary.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9ed609eee23b60396784045e1628ead3a0a97589",
+      "author": "p1",
+      "date": "2026-10-22T08:00:00Z",
+      "message": "Fix related items",
+      "branch": "feature/related-items",
+      "additions": 92,
+      "deletions": 16,
+      "files": [
+        "src/catalog/sort.js",
+        "src/catalog/api.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "9fb3385df925dce172ff5526f505020a20dca7ff",
+      "author": "p1",
+      "date": "2026-10-22T12:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/stock-badge",
+      "additions": 87,
+      "deletions": 17,
+      "files": [
+        "src/catalog/item.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "df0ae852cef53e936121cd4deadc70785804b299",
+      "author": "p1",
+      "date": "2026-10-22T13:00:00Z",
+      "message": "Refactor stock badge (#37)",
+      "branch": "main",
+      "additions": 361,
+      "deletions": 64,
+      "files": [
+        "src/catalog/filters.js",
+        "src/catalog/cache.js",
+        "src/catalog/list.js",
+        "src/catalog/item.js",
+        "src/catalog/api.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "520b6e75f85418758f2c7a17917afb320f5fa5f3",
+      "author": "p1",
+      "date": "2026-10-22T15:00:00Z",
+      "message": "Fix typo",
+      "branch": "feature/search",
+      "additions": 52,
+      "deletions": 3,
+      "files": [
+        "src/search/index.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "77abd700b9db8d0a9a950f1c367b32cc49324ff7",
+      "author": "p1",
+      "date": "2026-10-22T16:00:00Z",
+      "message": "Fix lint errors",
+      "branch": "feature/related-items",
+      "additions": 159,
+      "deletions": 17,
+      "files": [
+        "src/catalog/list.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "b60272841a2e6ba266e5e3f16e6446fd23e6fb7f",
+      "author": "p3",
+      "date": "2026-10-22T18:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/NEX-131-notifications",
+      "additions": 68,
+      "deletions": 3,
+      "files": [
+        "src/notify/push.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "5d8d761069e72ede7aab9636d7211195d8153765",
+      "author": "p1",
+      "date": "2026-10-23T00:00:00Z",
+      "message": "Handle empty state",
+      "branch": "feature/related-items",
+      "additions": 101,
+      "deletions": 8,
+      "files": [
+        "src/catalog/filters.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "43ee09d08a40ad12c1f601cd6de8b8e7d00e90d9",
+      "author": "p3",
+      "date": "2026-10-23T04:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/route-guard",
+      "additions": 59,
+      "deletions": 24,
+      "files": [
+        "src/auth/login.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "7ff28da874ff9c3cbbd1a655773c8664cc245f1f",
+      "author": "p3",
+      "date": "2026-10-23T05:00:00Z",
+      "message": "Refactor route guard (#35)",
+      "branch": "main",
+      "additions": 300,
+      "deletions": 80,
+      "files": [
+        "src/auth/reset.js",
+        "src/auth/guard.js",
+        "src/auth/login.js",
+        "src/auth/token.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "ac77dcd0e4b5bf7a0c153961b2c317bb298ca05e",
+      "author": "p1",
+      "date": "2026-10-23T08:00:00Z",
+      "message": "Small fixes",
+      "branch": "feature/related-items",
+      "additions": 71,
+      "deletions": 20,
+      "files": [
+        "src/catalog/item.js"
+      ],
+      "directToMain": false
+    },
+    {
+      "sha": "39160fd9cee906071e84d12ddaa91badacf59165",
+      "author": "p1",
+      "date": "2026-10-23T09:00:00Z",
+      "message": "Fix related items (#39)",
+      "branch": "main",
+      "additions": 423,
+      "deletions": 61,
+      "files": [
+        "src/catalog/sort.js",
+        "src/catalog/list.js",
+        "src/catalog/filters.js",
+        "src/catalog/item.js",
+        "src/catalog/api.js"
+      ],
+      "directToMain": false
+    }
+  ],
+  "pullRequests": [
+    {
+      "number": 1,
+      "title": "Fix product list",
+      "author": "p1",
+      "branch": "feature/NEX-101-product-list",
+      "baseBranch": "main",
+      "createdAt": "2026-09-09T22:00:00Z",
+      "mergedAt": "2026-09-11T08:00:00Z",
+      "closedAt": "2026-09-11T08:00:00Z",
+      "state": "merged",
+      "additions": 240,
+      "deletions": 23,
+      "files": [
+        {
+          "path": "src/catalog/item.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              57
+            ]
+          ],
+          "additions": 57,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/sort.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              113
+            ]
+          ],
+          "additions": 113,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/api.js",
+          "status": "modified",
+          "ranges": [
+            [
+              68,
+              137
+            ]
+          ],
+          "additions": 70,
+          "deletions": 23
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-09-10T09:39:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-09-11T02:54:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-101"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "NEX-102 Refactor cart drawer",
+      "author": "p2",
+      "branch": "feature/cart-drawer",
+      "baseBranch": "main",
+      "createdAt": "2026-09-14T12:00:00Z",
+      "mergedAt": "2026-09-15T15:00:00Z",
+      "closedAt": "2026-09-15T15:00:00Z",
+      "state": "merged",
+      "additions": 188,
+      "deletions": 62,
+      "files": [
+        {
+          "path": "src/cart/totals.js",
+          "status": "modified",
+          "ranges": [
+            [
+              125,
+              191
+            ]
+          ],
+          "additions": 67,
+          "deletions": 22
+        },
+        {
+          "path": "src/cart/summary.js",
+          "status": "modified",
+          "ranges": [
+            [
+              120,
+              156
+            ]
+          ],
+          "additions": 37,
+          "deletions": 12
+        },
+        {
+          "path": "src/cart/coupon.js",
+          "status": "modified",
+          "ranges": [
+            [
+              96,
+              179
+            ]
+          ],
+          "additions": 84,
+          "deletions": 28
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-09-14T17:31:00Z",
+          "state": "commented"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-102"
+      ]
+    },
+    {
+      "number": 5,
+      "title": "NEX-103 Wire up item page",
+      "author": "p1",
+      "branch": "feature/item-page",
+      "baseBranch": "main",
+      "createdAt": "2026-09-17T08:00:00Z",
+      "mergedAt": "2026-09-18T09:00:00Z",
+      "closedAt": "2026-09-18T09:00:00Z",
+      "state": "merged",
+      "additions": 161,
+      "deletions": 54,
+      "files": [
+        {
+          "path": "src/catalog/cache.js",
+          "status": "modified",
+          "ranges": [
+            [
+              107,
+              203
+            ]
+          ],
+          "additions": 97,
+          "deletions": 33
+        },
+        {
+          "path": "src/catalog/sort.js",
+          "status": "modified",
+          "ranges": [
+            [
+              139,
+              202
+            ]
+          ],
+          "additions": 64,
+          "deletions": 21
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-17T15:02:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-103"
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Build login form",
+      "author": "p3",
+      "branch": "feature/NEX-104-login-form",
+      "baseBranch": "main",
+      "createdAt": "2026-09-21T20:00:00Z",
+      "mergedAt": "2026-09-22T15:00:00Z",
+      "closedAt": "2026-09-22T15:00:00Z",
+      "state": "merged",
+      "additions": 152,
+      "deletions": 50,
+      "files": [
+        {
+          "path": "src/auth/signup.js",
+          "status": "modified",
+          "ranges": [
+            [
+              41,
+              146
+            ]
+          ],
+          "additions": 106,
+          "deletions": 35
+        },
+        {
+          "path": "src/auth/token.js",
+          "status": "modified",
+          "ranges": [
+            [
+              79,
+              124
+            ]
+          ],
+          "additions": 46,
+          "deletions": 15
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-21T23:17:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-104"
+      ]
+    },
+    {
+      "number": 9,
+      "title": "NEX-105 Wire up category filters",
+      "author": "p1",
+      "branch": "feature/category-filters",
+      "baseBranch": "main",
+      "createdAt": "2026-09-23T09:00:00Z",
+      "mergedAt": "2026-09-24T14:00:00Z",
+      "closedAt": "2026-09-24T14:00:00Z",
+      "state": "merged",
+      "additions": 126,
+      "deletions": 42,
+      "files": [
+        {
+          "path": "src/catalog/filters.js",
+          "status": "modified",
+          "ranges": [
+            [
+              23,
+              61
+            ]
+          ],
+          "additions": 39,
+          "deletions": 13
+        },
+        {
+          "path": "src/catalog/list.js",
+          "status": "modified",
+          "ranges": [
+            [
+              1,
+              87
+            ]
+          ],
+          "additions": 87,
+          "deletions": 29
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-23T17:23:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-105",
+        "NEX-106"
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Build checkout form",
+      "author": "p2",
+      "branch": "feature/NEX-107-checkout-form",
+      "baseBranch": "main",
+      "createdAt": "2026-09-25T08:00:00Z",
+      "mergedAt": "2026-09-26T12:00:00Z",
+      "closedAt": "2026-09-26T12:00:00Z",
+      "state": "merged",
+      "additions": 189,
+      "deletions": 23,
+      "files": [
+        {
+          "path": "src/cart/summary.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              122
+            ]
+          ],
+          "additions": 122,
+          "deletions": 0
+        },
+        {
+          "path": "src/cart/checkout.js",
+          "status": "modified",
+          "ranges": [
+            [
+              50,
+              116
+            ]
+          ],
+          "additions": 67,
+          "deletions": 23
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-09-25T13:41:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-107",
+        "NEX-108"
+      ]
+    },
+    {
+      "number": 13,
+      "title": "NEX-109 Add catalog API",
+      "author": "p1",
+      "branch": "feature/catalog-api",
+      "baseBranch": "main",
+      "createdAt": "2026-09-27T22:00:00Z",
+      "mergedAt": "2026-09-29T12:00:00Z",
+      "closedAt": "2026-09-29T12:00:00Z",
+      "state": "merged",
+      "additions": 170,
+      "deletions": 58,
+      "files": [
+        {
+          "path": "src/catalog/cache.js",
+          "status": "modified",
+          "ranges": [
+            [
+              38,
+              107
+            ]
+          ],
+          "additions": 70,
+          "deletions": 24
+        },
+        {
+          "path": "src/catalog/sort.js",
+          "status": "modified",
+          "ranges": [
+            [
+              174,
+              200
+            ]
+          ],
+          "additions": 27,
+          "deletions": 9
+        },
+        {
+          "path": "src/catalog/list.js",
+          "status": "modified",
+          "ranges": [
+            [
+              113,
+              185
+            ]
+          ],
+          "additions": 73,
+          "deletions": 25
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-09-28T11:12:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-109"
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Try websocket notifications",
+      "author": "p3",
+      "branch": "spike/websockets",
+      "baseBranch": "main",
+      "createdAt": "2026-09-30T08:00:00Z",
+      "mergedAt": null,
+      "closedAt": "2026-10-02T10:00:00Z",
+      "state": "closed",
+      "additions": 140,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/notify/socket.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              140
+            ]
+          ],
+          "additions": 140,
+          "deletions": 0
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": []
+    },
+    {
+      "number": 17,
+      "title": "Wire up session refresh",
+      "author": "p3",
+      "branch": "feature/NEX-110-session-refresh",
+      "baseBranch": "main",
+      "createdAt": "2026-10-01T02:00:00Z",
+      "mergedAt": "2026-10-01T08:00:00Z",
+      "closedAt": "2026-10-01T08:00:00Z",
+      "state": "merged",
+      "additions": 130,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "src/auth/login.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              130
+            ]
+          ],
+          "additions": 130,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-01T04:03:00Z",
+          "state": "commented"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-110"
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Wire up order totals",
+      "author": "p2",
+      "branch": "feature/NEX-111-order-totals",
+      "baseBranch": "main",
+      "createdAt": "2026-10-02T01:00:00Z",
+      "mergedAt": "2026-10-03T06:00:00Z",
+      "closedAt": "2026-10-03T06:00:00Z",
+      "state": "merged",
+      "additions": 173,
+      "deletions": 32,
+      "files": [
+        {
+          "path": "src/cart/coupon.js",
+          "status": "modified",
+          "ranges": [
+            [
+              61,
+              155
+            ]
+          ],
+          "additions": 95,
+          "deletions": 32
+        },
+        {
+          "path": "src/cart/summary.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              78
+            ]
+          ],
+          "additions": 78,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-10-02T08:55:00Z",
+          "state": "commented"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-111"
+      ]
+    },
+    {
+      "number": 21,
+      "title": "Improve price sorting",
+      "author": "p1",
+      "branch": "feature/price-sorting",
+      "baseBranch": "main",
+      "createdAt": "2026-10-04T16:00:00Z",
+      "mergedAt": "2026-10-06T06:00:00Z",
+      "closedAt": "2026-10-06T06:00:00Z",
+      "state": "merged",
+      "additions": 227,
+      "deletions": 31,
+      "files": [
+        {
+          "path": "src/catalog/sort.js",
+          "status": "modified",
+          "ranges": [
+            [
+              4,
+              58
+            ]
+          ],
+          "additions": 55,
+          "deletions": 18
+        },
+        {
+          "path": "src/catalog/cache.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              134
+            ]
+          ],
+          "additions": 134,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/item.js",
+          "status": "modified",
+          "ranges": [
+            [
+              75,
+              112
+            ]
+          ],
+          "additions": 38,
+          "deletions": 13
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-04T23:31:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-112",
+        "NEX-113"
+      ]
+    },
+    {
+      "number": 23,
+      "title": "NEX-114 Design tokens and style guide",
+      "author": "p4",
+      "branch": "design/tokens",
+      "baseBranch": "main",
+      "createdAt": "2026-10-07T10:00:00Z",
+      "mergedAt": "2026-10-08T06:00:00Z",
+      "closedAt": "2026-10-08T06:00:00Z",
+      "state": "merged",
+      "additions": 204,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "design/tokens.json",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              64
+            ]
+          ],
+          "additions": 64,
+          "deletions": 0
+        },
+        {
+          "path": "docs/style-guide.md",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              88
+            ]
+          ],
+          "additions": 88,
+          "deletions": 0
+        },
+        {
+          "path": "src/styles/theme.css",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              52
+            ]
+          ],
+          "additions": 52,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-07T16:00:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-114"
+      ]
+    },
+    {
+      "number": 25,
+      "title": "NEX-115 Refactor signup flow",
+      "author": "p3",
+      "branch": "feature/signup-flow",
+      "baseBranch": "main",
+      "createdAt": "2026-10-09T18:00:00Z",
+      "mergedAt": "2026-10-10T15:00:00Z",
+      "closedAt": "2026-10-10T15:00:00Z",
+      "state": "merged",
+      "additions": 133,
+      "deletions": 19,
+      "files": [
+        {
+          "path": "src/auth/reset.js",
+          "status": "modified",
+          "ranges": [
+            [
+              162,
+              216
+            ]
+          ],
+          "additions": 55,
+          "deletions": 19
+        },
+        {
+          "path": "src/auth/login.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              78
+            ]
+          ],
+          "additions": 78,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-09T23:59:00Z",
+          "state": "changes_requested"
+        },
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-10T11:51:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-115"
+      ]
+    },
+    {
+      "number": 27,
+      "title": "NEX-116 Add image upload",
+      "author": "p1",
+      "branch": "feature/image-upload",
+      "baseBranch": "main",
+      "createdAt": "2026-10-11T12:00:00Z",
+      "mergedAt": "2026-10-12T10:00:00Z",
+      "closedAt": "2026-10-12T10:00:00Z",
+      "state": "merged",
+      "additions": 186,
+      "deletions": 47,
+      "files": [
+        {
+          "path": "src/catalog/list.js",
+          "status": "modified",
+          "ranges": [
+            [
+              174,
+              218
+            ]
+          ],
+          "additions": 45,
+          "deletions": 15
+        },
+        {
+          "path": "src/catalog/api.js",
+          "status": "modified",
+          "ranges": [
+            [
+              167,
+              261
+            ]
+          ],
+          "additions": 95,
+          "deletions": 32
+        },
+        {
+          "path": "src/catalog/filters.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              46
+            ]
+          ],
+          "additions": 46,
+          "deletions": 0
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-11T15:21:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-116"
+      ]
+    },
+    {
+      "number": 29,
+      "title": "Build saved carts",
+      "author": "p2",
+      "branch": "feature/NEX-121-saved-carts",
+      "baseBranch": "main",
+      "createdAt": "2026-10-13T22:00:00Z",
+      "mergedAt": "2026-10-22T06:00:00Z",
+      "closedAt": "2026-10-22T06:00:00Z",
+      "state": "merged",
+      "additions": 545,
+      "deletions": 130,
+      "files": [
+        {
+          "path": "src/cart/totals.js",
+          "status": "modified",
+          "ranges": [
+            [
+              111,
+              180
+            ]
+          ],
+          "additions": 70,
+          "deletions": 23
+        },
+        {
+          "path": "src/cart/checkout.js",
+          "status": "modified",
+          "ranges": [
+            [
+              118,
+              190
+            ]
+          ],
+          "additions": 73,
+          "deletions": 24
+        },
+        {
+          "path": "src/cart/store.js",
+          "status": "modified",
+          "ranges": [
+            [
+              145,
+              243
+            ]
+          ],
+          "additions": 99,
+          "deletions": 33
+        },
+        {
+          "path": "src/cart/coupon.js",
+          "status": "modified",
+          "ranges": [
+            [
+              131,
+              174
+            ]
+          ],
+          "additions": 44,
+          "deletions": 15
+        },
+        {
+          "path": "src/cart/cart.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              153
+            ]
+          ],
+          "additions": 153,
+          "deletions": 0
+        },
+        {
+          "path": "src/cart/summary.js",
+          "status": "modified",
+          "ranges": [
+            [
+              57,
+              162
+            ]
+          ],
+          "additions": 106,
+          "deletions": 35
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-16T13:29:00Z",
+          "state": "commented"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-121"
+      ]
+    },
+    {
+      "number": 31,
+      "title": "NEX-128 Card payments flow",
+      "author": "p2",
+      "branch": "feature/payments",
+      "baseBranch": "main",
+      "createdAt": "2026-10-14T10:00:00Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "state": "open",
+      "additions": 1081,
+      "deletions": 159,
+      "files": [
+        {
+          "path": "src/payments/checkout.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              420
+            ]
+          ],
+          "additions": 420,
+          "deletions": 0
+        },
+        {
+          "path": "src/payments/webhook.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              260
+            ]
+          ],
+          "additions": 260,
+          "deletions": 0
+        },
+        {
+          "path": "src/payments/refunds.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              180
+            ]
+          ],
+          "additions": 180,
+          "deletions": 0
+        },
+        {
+          "path": "src/lib/http.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              90
+            ]
+          ],
+          "additions": 90,
+          "deletions": 0
+        },
+        {
+          "path": "src/cart/checkout.js",
+          "status": "modified",
+          "ranges": [
+            [
+              40,
+              110
+            ]
+          ],
+          "additions": 71,
+          "deletions": 39
+        },
+        {
+          "path": "src/cart/totals.js",
+          "status": "modified",
+          "ranges": [
+            [
+              12,
+              71
+            ]
+          ],
+          "additions": 60,
+          "deletions": 40
+        },
+        {
+          "path": "src/lib/apiClient.js",
+          "status": "removed",
+          "ranges": [],
+          "additions": 0,
+          "deletions": 80
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-16T11:00:00Z",
+          "state": "changes_requested"
+        }
+      ],
+      "mergeable": "clean",
+      "taskIds": [
+        "NEX-128",
+        "NEX-129"
+      ]
+    },
+    {
+      "number": 32,
+      "title": "Fix coupon codes",
+      "author": "p2",
+      "branch": "feature/NEX-117-coupon-codes",
+      "baseBranch": "main",
+      "createdAt": "2026-10-14T13:00:00Z",
+      "mergedAt": "2026-10-15T13:00:00Z",
+      "closedAt": "2026-10-15T13:00:00Z",
+      "state": "merged",
+      "additions": 224,
+      "deletions": 74,
+      "files": [
+        {
+          "path": "src/cart/summary.js",
+          "status": "modified",
+          "ranges": [
+            [
+              12,
+              87
+            ]
+          ],
+          "additions": 76,
+          "deletions": 25
+        },
+        {
+          "path": "src/cart/checkout.js",
+          "status": "modified",
+          "ranges": [
+            [
+              172,
+              231
+            ]
+          ],
+          "additions": 60,
+          "deletions": 20
+        },
+        {
+          "path": "src/cart/store.js",
+          "status": "modified",
+          "ranges": [
+            [
+              48,
+              135
+            ]
+          ],
+          "additions": 88,
+          "deletions": 29
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p4",
+          "submittedAt": "2026-10-14T19:36:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-117"
+      ]
+    },
+    {
+      "number": 33,
+      "title": "Add password reset",
+      "author": "p3",
+      "branch": "feature/NEX-119-password-reset",
+      "baseBranch": "main",
+      "createdAt": "2026-10-15T03:00:00Z",
+      "mergedAt": "2026-10-21T09:00:00Z",
+      "closedAt": "2026-10-21T09:00:00Z",
+      "state": "merged",
+      "additions": 559,
+      "deletions": 144,
+      "files": [
+        {
+          "path": "src/auth/signup.js",
+          "status": "modified",
+          "ranges": [
+            [
+              18,
+              102
+            ]
+          ],
+          "additions": 85,
+          "deletions": 28
+        },
+        {
+          "path": "src/auth/login.js",
+          "status": "modified",
+          "ranges": [
+            [
+              122,
+              182
+            ]
+          ],
+          "additions": 61,
+          "deletions": 20
+        },
+        {
+          "path": "src/auth/guard.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              129
+            ]
+          ],
+          "additions": 129,
+          "deletions": 0
+        },
+        {
+          "path": "src/auth/session.js",
+          "status": "modified",
+          "ranges": [
+            [
+              22,
+              113
+            ]
+          ],
+          "additions": 92,
+          "deletions": 31
+        },
+        {
+          "path": "src/auth/reset.js",
+          "status": "modified",
+          "ranges": [
+            [
+              78,
+              187
+            ]
+          ],
+          "additions": 110,
+          "deletions": 37
+        },
+        {
+          "path": "src/auth/token.js",
+          "status": "modified",
+          "ranges": [
+            [
+              173,
+              254
+            ]
+          ],
+          "additions": 82,
+          "deletions": 28
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p1",
+          "submittedAt": "2026-10-16T05:26:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-119"
+      ]
+    },
+    {
+      "number": 34,
+      "title": "Wire up seller profile",
+      "author": "p1",
+      "branch": "feature/NEX-118-seller-profile",
+      "baseBranch": "main",
+      "createdAt": "2026-10-15T15:00:00Z",
+      "mergedAt": "2026-10-20T15:00:00Z",
+      "closedAt": "2026-10-20T15:00:00Z",
+      "state": "merged",
+      "additions": 564,
+      "deletions": 85,
+      "files": [
+        {
+          "path": "src/catalog/list.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              60
+            ]
+          ],
+          "additions": 60,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/sort.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              127
+            ]
+          ],
+          "additions": 127,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/item.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              124
+            ]
+          ],
+          "additions": 124,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/api.js",
+          "status": "modified",
+          "ranges": [
+            [
+              95,
+              146
+            ]
+          ],
+          "additions": 52,
+          "deletions": 18
+        },
+        {
+          "path": "src/catalog/filters.js",
+          "status": "modified",
+          "ranges": [
+            [
+              60,
+              162
+            ]
+          ],
+          "additions": 103,
+          "deletions": 34
+        },
+        {
+          "path": "src/catalog/cache.js",
+          "status": "modified",
+          "ranges": [
+            [
+              26,
+              123
+            ]
+          ],
+          "additions": 98,
+          "deletions": 33
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-16T23:25:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-118"
+      ]
+    },
+    {
+      "number": 35,
+      "title": "Refactor route guard",
+      "author": "p3",
+      "branch": "feature/route-guard",
+      "baseBranch": "main",
+      "createdAt": "2026-10-19T05:00:00Z",
+      "mergedAt": "2026-10-23T05:00:00Z",
+      "closedAt": "2026-10-23T05:00:00Z",
+      "state": "merged",
+      "additions": 300,
+      "deletions": 80,
+      "files": [
+        {
+          "path": "src/auth/reset.js",
+          "status": "modified",
+          "ranges": [
+            [
+              75,
+              156
+            ]
+          ],
+          "additions": 82,
+          "deletions": 28
+        },
+        {
+          "path": "src/auth/guard.js",
+          "status": "modified",
+          "ranges": [
+            [
+              125,
+              200
+            ]
+          ],
+          "additions": 76,
+          "deletions": 25
+        },
+        {
+          "path": "src/auth/login.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              61
+            ]
+          ],
+          "additions": 61,
+          "deletions": 0
+        },
+        {
+          "path": "src/auth/token.js",
+          "status": "modified",
+          "ranges": [
+            [
+              168,
+              248
+            ]
+          ],
+          "additions": 81,
+          "deletions": 27
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-123"
+      ]
+    },
+    {
+      "number": 36,
+      "title": "Fix listing form",
+      "author": "p1",
+      "branch": "feature/listing-form",
+      "baseBranch": "main",
+      "createdAt": "2026-10-19T14:00:00Z",
+      "mergedAt": "2026-10-21T14:00:00Z",
+      "closedAt": "2026-10-21T14:00:00Z",
+      "state": "merged",
+      "additions": 752,
+      "deletions": 101,
+      "files": [
+        {
+          "path": "src/catalog/item.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              166
+            ]
+          ],
+          "additions": 166,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/sort.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              132
+            ]
+          ],
+          "additions": 132,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/cache.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              151
+            ]
+          ],
+          "additions": 151,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/api.js",
+          "status": "modified",
+          "ranges": [
+            [
+              60,
+              192
+            ]
+          ],
+          "additions": 133,
+          "deletions": 44
+        },
+        {
+          "path": "src/catalog/filters.js",
+          "status": "modified",
+          "ranges": [
+            [
+              77,
+              182
+            ]
+          ],
+          "additions": 106,
+          "deletions": 35
+        },
+        {
+          "path": "src/catalog/list.js",
+          "status": "modified",
+          "ranges": [
+            [
+              166,
+              229
+            ]
+          ],
+          "additions": 64,
+          "deletions": 22
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "p2",
+          "submittedAt": "2026-10-20T06:37:00Z",
+          "state": "approved"
+        }
+      ],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-120"
+      ]
+    },
+    {
+      "number": 37,
+      "title": "Refactor stock badge",
+      "author": "p1",
+      "branch": "feature/stock-badge",
+      "baseBranch": "main",
+      "createdAt": "2026-10-21T07:00:00Z",
+      "mergedAt": "2026-10-22T13:00:00Z",
+      "closedAt": "2026-10-22T13:00:00Z",
+      "state": "merged",
+      "additions": 361,
+      "deletions": 64,
+      "files": [
+        {
+          "path": "src/catalog/filters.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              65
+            ]
+          ],
+          "additions": 65,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/cache.js",
+          "status": "modified",
+          "ranges": [
+            [
+              25,
+              106
+            ]
+          ],
+          "additions": 82,
+          "deletions": 27
+        },
+        {
+          "path": "src/catalog/list.js",
+          "status": "modified",
+          "ranges": [
+            [
+              23,
+              61
+            ]
+          ],
+          "additions": 39,
+          "deletions": 13
+        },
+        {
+          "path": "src/catalog/item.js",
+          "status": "modified",
+          "ranges": [
+            [
+              148,
+              220
+            ]
+          ],
+          "additions": 73,
+          "deletions": 24
+        },
+        {
+          "path": "src/catalog/api.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              102
+            ]
+          ],
+          "additions": 102,
+          "deletions": 0
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-122"
+      ]
+    },
+    {
+      "number": 38,
+      "title": "NEX-130 Search endpoint",
+      "author": "p1",
+      "branch": "feature/search",
+      "baseBranch": "main",
+      "createdAt": "2026-10-21T10:00:00Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "state": "open",
+      "additions": 306,
+      "deletions": 18,
+      "files": [
+        {
+          "path": "src/search/index.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              140
+            ]
+          ],
+          "additions": 140,
+          "deletions": 0
+        },
+        {
+          "path": "src/search/query.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              85
+            ]
+          ],
+          "additions": 85,
+          "deletions": 0
+        },
+        {
+          "path": "src/server/routes.js",
+          "status": "modified",
+          "ranges": [
+            [
+              56,
+              75
+            ]
+          ],
+          "additions": 20,
+          "deletions": 6
+        },
+        {
+          "path": "package-lock.json",
+          "status": "modified",
+          "ranges": [
+            [
+              1200,
+              1260
+            ]
+          ],
+          "additions": 61,
+          "deletions": 12
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-130"
+      ]
+    },
+    {
+      "number": 39,
+      "title": "Fix related items",
+      "author": "p1",
+      "branch": "feature/related-items",
+      "baseBranch": "main",
+      "createdAt": "2026-10-22T13:00:00Z",
+      "mergedAt": "2026-10-23T09:00:00Z",
+      "closedAt": "2026-10-23T09:00:00Z",
+      "state": "merged",
+      "additions": 423,
+      "deletions": 61,
+      "files": [
+        {
+          "path": "src/catalog/sort.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              140
+            ]
+          ],
+          "additions": 140,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/list.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              99
+            ]
+          ],
+          "additions": 99,
+          "deletions": 0
+        },
+        {
+          "path": "src/catalog/filters.js",
+          "status": "modified",
+          "ranges": [
+            [
+              98,
+              187
+            ]
+          ],
+          "additions": 90,
+          "deletions": 30
+        },
+        {
+          "path": "src/catalog/item.js",
+          "status": "modified",
+          "ranges": [
+            [
+              115,
+              169
+            ]
+          ],
+          "additions": 55,
+          "deletions": 18
+        },
+        {
+          "path": "src/catalog/api.js",
+          "status": "modified",
+          "ranges": [
+            [
+              47,
+              85
+            ]
+          ],
+          "additions": 39,
+          "deletions": 13
+        }
+      ],
+      "reviews": [],
+      "mergeable": "unknown",
+      "taskIds": [
+        "NEX-124"
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "name": "feature/NEX-131-notifications",
+      "owner": "p3",
+      "createdAt": "2026-10-19T09:00:00Z",
+      "lastPushAt": "2026-10-22T18:00:00Z",
+      "aheadOfMain": 6,
+      "behindMain": 7,
+      "filesTouched": [
+        {
+          "path": "src/notify/push.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              150
+            ]
+          ],
+          "additions": 150,
+          "deletions": 0
+        },
+        {
+          "path": "src/notify/inbox.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              110
+            ]
+          ],
+          "additions": 110,
+          "deletions": 0
+        },
+        {
+          "path": "src/server/routes.js",
+          "status": "modified",
+          "ranges": [
+            [
+              60,
+              82
+            ]
+          ],
+          "additions": 23,
+          "deletions": 5
+        },
+        {
+          "path": "src/lib/apiClient.js",
+          "status": "modified",
+          "ranges": [
+            [
+              30,
+              52
+            ]
+          ],
+          "additions": 23,
+          "deletions": 8
+        },
+        {
+          "path": "package-lock.json",
+          "status": "modified",
+          "ranges": [
+            [
+              1190,
+              1240
+            ]
+          ],
+          "additions": 51,
+          "deletions": 9
+        }
+      ],
+      "hasOpenPR": false
+    },
+    {
+      "name": "feature/NEX-132-settings",
+      "owner": "p2",
+      "createdAt": "2026-10-02T07:00:00Z",
+      "lastPushAt": "2026-10-21T19:00:00Z",
+      "aheadOfMain": 7,
+      "behindMain": 14,
+      "filesTouched": [
+        {
+          "path": "src/settings/profile.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              130
+            ]
+          ],
+          "additions": 130,
+          "deletions": 0
+        },
+        {
+          "path": "src/settings/prefs.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              70
+            ]
+          ],
+          "additions": 70,
+          "deletions": 0
+        }
+      ],
+      "hasOpenPR": false
+    },
+    {
+      "name": "feature/NEX-133-email-receipts",
+      "owner": "p3",
+      "createdAt": "2026-10-13T07:00:00Z",
+      "lastPushAt": "2026-10-17T10:00:00Z",
+      "aheadOfMain": 3,
+      "behindMain": 9,
+      "filesTouched": [
+        {
+          "path": "src/email/receipt.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              90
+            ]
+          ],
+          "additions": 90,
+          "deletions": 0
+        },
+        {
+          "path": "src/email/template.html",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              60
+            ]
+          ],
+          "additions": 60,
+          "deletions": 0
+        }
+      ],
+      "hasOpenPR": false
+    },
+    {
+      "name": "feature/payments",
+      "owner": "p2",
+      "createdAt": "2026-10-13T20:00:00Z",
+      "lastPushAt": "2026-10-21T16:00:00Z",
+      "aheadOfMain": 9,
+      "behindMain": 9,
+      "filesTouched": [
+        {
+          "path": "src/payments/checkout.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              420
+            ]
+          ],
+          "additions": 420,
+          "deletions": 0
+        },
+        {
+          "path": "src/payments/webhook.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              260
+            ]
+          ],
+          "additions": 260,
+          "deletions": 0
+        },
+        {
+          "path": "src/payments/refunds.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              180
+            ]
+          ],
+          "additions": 180,
+          "deletions": 0
+        },
+        {
+          "path": "src/lib/http.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              90
+            ]
+          ],
+          "additions": 90,
+          "deletions": 0
+        },
+        {
+          "path": "src/cart/checkout.js",
+          "status": "modified",
+          "ranges": [
+            [
+              40,
+              110
+            ]
+          ],
+          "additions": 71,
+          "deletions": 39
+        },
+        {
+          "path": "src/cart/totals.js",
+          "status": "modified",
+          "ranges": [
+            [
+              12,
+              71
+            ]
+          ],
+          "additions": 60,
+          "deletions": 40
+        },
+        {
+          "path": "src/lib/apiClient.js",
+          "status": "removed",
+          "ranges": [],
+          "additions": 0,
+          "deletions": 80
+        }
+      ],
+      "hasOpenPR": true
+    },
+    {
+      "name": "feature/search",
+      "owner": "p1",
+      "createdAt": "2026-10-20T08:00:00Z",
+      "lastPushAt": "2026-10-22T15:00:00Z",
+      "aheadOfMain": 5,
+      "behindMain": 7,
+      "filesTouched": [
+        {
+          "path": "src/search/index.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              140
+            ]
+          ],
+          "additions": 140,
+          "deletions": 0
+        },
+        {
+          "path": "src/search/query.js",
+          "status": "added",
+          "ranges": [
+            [
+              1,
+              85
+            ]
+          ],
+          "additions": 85,
+          "deletions": 0
+        },
+        {
+          "path": "src/server/routes.js",
+          "status": "modified",
+          "ranges": [
+            [
+              56,
+              75
+            ]
+          ],
+          "additions": 20,
+          "deletions": 6
+        },
+        {
+          "path": "package-lock.json",
+          "status": "modified",
+          "ranges": [
+            [
+              1200,
+              1260
+            ]
+          ],
+          "additions": 61,
+          "deletions": 12
+        }
+      ],
+      "hasOpenPR": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "NEX-101",
+      "title": "Product list",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-07T05:00:00Z",
+      "linkedPRs": [
+        1
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-09T05:00:00Z",
+      "doneAt": "2026-09-11T08:00:00Z"
+    },
+    {
+      "id": "NEX-102",
+      "title": "Cart drawer",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-12T19:00:00Z",
+      "linkedPRs": [
+        3
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-13T19:00:00Z",
+      "doneAt": "2026-09-15T17:00:00Z"
+    },
+    {
+      "id": "NEX-103",
+      "title": "Item page",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-15T10:00:00Z",
+      "linkedPRs": [
+        5
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-16T10:00:00Z",
+      "doneAt": "2026-09-18T12:00:00Z"
+    },
+    {
+      "id": "NEX-104",
+      "title": "Login form",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-09-19T02:00:00Z",
+      "linkedPRs": [
+        7
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-21T02:00:00Z",
+      "doneAt": "2026-09-22T17:00:00Z"
+    },
+    {
+      "id": "NEX-105",
+      "title": "Category filters",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-21T15:00:00Z",
+      "linkedPRs": [
+        9
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-22T15:00:00Z",
+      "doneAt": "2026-09-24T16:00:00Z"
+    },
+    {
+      "id": "NEX-106",
+      "title": "Category filters: follow-up 1",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-20T15:00:00Z",
+      "linkedPRs": [
+        9
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-22T15:00:00Z",
+      "doneAt": "2026-09-24T16:00:00Z"
+    },
+    {
+      "id": "NEX-107",
+      "title": "Checkout form",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-20T03:00:00Z",
+      "linkedPRs": [
+        11
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-24T03:00:00Z",
+      "doneAt": "2026-09-26T15:00:00Z"
+    },
+    {
+      "id": "NEX-108",
+      "title": "Checkout form: follow-up 1",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-19T03:00:00Z",
+      "linkedPRs": [
+        11
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-24T03:00:00Z",
+      "doneAt": "2026-09-26T15:00:00Z"
+    },
+    {
+      "id": "NEX-109",
+      "title": "Catalog API",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-22T08:00:00Z",
+      "linkedPRs": [
+        13
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-26T08:00:00Z",
+      "doneAt": "2026-09-29T16:00:00Z"
+    },
+    {
+      "id": "NEX-110",
+      "title": "Session refresh",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-09-28T06:00:00Z",
+      "linkedPRs": [
+        17
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-09-30T06:00:00Z",
+      "doneAt": "2026-10-01T11:00:00Z"
+    },
+    {
+      "id": "NEX-111",
+      "title": "Order totals",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-09-27T16:00:00Z",
+      "linkedPRs": [
+        19
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-01T16:00:00Z",
+      "doneAt": "2026-10-03T09:00:00Z"
+    },
+    {
+      "id": "NEX-112",
+      "title": "Price sorting",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-29T19:00:00Z",
+      "linkedPRs": [
+        21
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.86,
+      "startedAt": "2026-10-03T19:00:00Z",
+      "doneAt": "2026-10-06T09:00:00Z"
+    },
+    {
+      "id": "NEX-113",
+      "title": "Price sorting: follow-up 1",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-09-29T19:00:00Z",
+      "linkedPRs": [
+        21
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.86,
+      "startedAt": "2026-10-03T19:00:00Z",
+      "doneAt": "2026-10-06T09:00:00Z"
+    },
+    {
+      "id": "NEX-114",
+      "title": "Design tokens and style guide",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-10-03T10:00:00Z",
+      "linkedPRs": [
+        23
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-06T08:00:00Z",
+      "doneAt": "2026-10-08T07:00:00Z"
+    },
+    {
+      "id": "NEX-115",
+      "title": "Signup flow",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-05T09:00:00Z",
+      "linkedPRs": [
+        25
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-08T09:00:00Z",
+      "doneAt": "2026-10-10T16:00:00Z"
+    },
+    {
+      "id": "NEX-116",
+      "title": "Image upload",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-06T23:00:00Z",
+      "linkedPRs": [
+        27
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-10T23:00:00Z",
+      "doneAt": "2026-10-12T13:00:00Z"
+    },
+    {
+      "id": "NEX-117",
+      "title": "Coupon codes",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-10-11T09:00:00Z",
+      "linkedPRs": [
+        32
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-13T09:00:00Z",
+      "doneAt": "2026-10-15T15:00:00Z"
+    },
+    {
+      "id": "NEX-118",
+      "title": "Seller profile",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-09T18:00:00Z",
+      "linkedPRs": [
+        34
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-14T18:00:00Z",
+      "doneAt": "2026-10-20T18:00:00Z"
+    },
+    {
+      "id": "NEX-119",
+      "title": "Password reset",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-11T03:00:00Z",
+      "linkedPRs": [
+        33
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-14T03:00:00Z",
+      "doneAt": "2026-10-21T13:00:00Z"
+    },
+    {
+      "id": "NEX-120",
+      "title": "Listing form",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-14T09:00:00Z",
+      "linkedPRs": [
+        36
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.83,
+      "startedAt": "2026-10-18T09:00:00Z",
+      "doneAt": "2026-10-21T14:00:00Z"
+    },
+    {
+      "id": "NEX-121",
+      "title": "Saved carts",
+      "assignee": "p2",
+      "status": "done",
+      "createdAt": "2026-10-09T16:00:00Z",
+      "linkedPRs": [
+        29
+      ],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-13T16:00:00Z",
+      "doneAt": "2026-10-22T07:00:00Z"
+    },
+    {
+      "id": "NEX-122",
+      "title": "Stock badge",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-16T01:00:00Z",
+      "linkedPRs": [
+        37
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.75,
+      "startedAt": "2026-10-20T01:00:00Z",
+      "doneAt": "2026-10-22T14:00:00Z"
+    },
+    {
+      "id": "NEX-123",
+      "title": "Route guard",
+      "assignee": "p3",
+      "status": "done",
+      "createdAt": "2026-10-17T07:00:00Z",
+      "linkedPRs": [
+        35
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.78,
+      "startedAt": "2026-10-18T07:00:00Z",
+      "doneAt": "2026-10-23T08:00:00Z"
+    },
+    {
+      "id": "NEX-124",
+      "title": "Related items",
+      "assignee": "p1",
+      "status": "done",
+      "createdAt": "2026-10-19T07:00:00Z",
+      "linkedPRs": [
+        39
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.75,
+      "startedAt": "2026-10-22T07:00:00Z",
+      "doneAt": "2026-10-23T12:00:00Z"
+    },
+    {
+      "id": "NEX-125",
+      "title": "Wireframes for checkout",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-09-10T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "startedAt": "2026-09-14T12:00:00Z",
+      "doneAt": "2026-09-20T12:00:00Z"
+    },
+    {
+      "id": "NEX-126",
+      "title": "Colour and type choices",
+      "assignee": "p4",
+      "status": "done",
+      "createdAt": "2026-09-21T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "startedAt": "2026-09-28T12:00:00Z",
+      "doneAt": "2026-10-02T12:00:00Z"
+    },
+    {
+      "id": "NEX-127",
+      "title": "Empty state designs",
+      "assignee": "p4",
+      "status": "in_progress",
+      "createdAt": "2026-10-14T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "startedAt": "2026-10-19T12:00:00Z",
+      "dueAt": "2026-10-27T12:00:00Z"
+    },
+    {
+      "id": "NEX-128",
+      "title": "Card payments",
+      "assignee": "p2",
+      "status": "in_review",
+      "createdAt": "2026-10-09T12:00:00Z",
+      "linkedPRs": [
+        31
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-13T20:00:00Z",
+      "dueAt": "2026-10-20T12:00:00Z"
+    },
+    {
+      "id": "NEX-129",
+      "title": "Refunds",
+      "assignee": "p2",
+      "status": "in_review",
+      "createdAt": "2026-10-09T12:00:00Z",
+      "linkedPRs": [
+        31
+      ],
+      "linkSource": "ai",
+      "linkConfidence": 0.74,
+      "startedAt": "2026-10-15T12:00:00Z",
+      "dueAt": "2026-10-22T12:00:00Z"
+    },
+    {
+      "id": "NEX-130",
+      "title": "Search",
+      "assignee": "p1",
+      "status": "in_review",
+      "createdAt": "2026-10-16T12:00:00Z",
+      "linkedPRs": [
+        38
+      ],
+      "linkSource": "pr-text",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-20T08:00:00Z",
+      "dueAt": "2026-10-25T12:00:00Z"
+    },
+    {
+      "id": "NEX-131",
+      "title": "Notifications",
+      "assignee": "p3",
+      "status": "in_progress",
+      "createdAt": "2026-10-15T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-19T09:00:00Z",
+      "dueAt": "2026-10-26T12:00:00Z"
+    },
+    {
+      "id": "NEX-132",
+      "title": "Account settings",
+      "assignee": "p2",
+      "status": "in_progress",
+      "createdAt": "2026-09-28T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-01T12:00:00Z",
+      "dueAt": "2026-10-24T12:00:00Z"
+    },
+    {
+      "id": "NEX-133",
+      "title": "Email receipts",
+      "assignee": "p3",
+      "status": "in_progress",
+      "createdAt": "2026-10-08T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "branch-name",
+      "linkConfidence": 1,
+      "startedAt": "2026-10-12T12:00:00Z",
+      "dueAt": "2026-10-21T12:00:00Z"
+    },
+    {
+      "id": "NEX-134",
+      "title": "Order history page",
+      "assignee": "p2",
+      "status": "todo",
+      "createdAt": "2026-10-05T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-28T12:00:00Z"
+    },
+    {
+      "id": "NEX-135",
+      "title": "Admin dashboard",
+      "assignee": "p1",
+      "status": "todo",
+      "createdAt": "2026-10-07T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-29T12:00:00Z"
+    },
+    {
+      "id": "NEX-136",
+      "title": "Rate limiting",
+      "assignee": null,
+      "status": "todo",
+      "createdAt": "2026-10-09T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-30T12:00:00Z"
+    },
+    {
+      "id": "NEX-137",
+      "title": "Accessibility pass",
+      "assignee": "p4",
+      "status": "todo",
+      "createdAt": "2026-10-11T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-30T12:00:00Z"
+    },
+    {
+      "id": "NEX-138",
+      "title": "Seller analytics",
+      "assignee": "p1",
+      "status": "todo",
+      "createdAt": "2026-10-13T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-10-31T12:00:00Z"
+    },
+    {
+      "id": "NEX-139",
+      "title": "Deploy to production",
+      "assignee": null,
+      "status": "todo",
+      "createdAt": "2026-10-15T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-11-01T12:00:00Z"
+    },
+    {
+      "id": "NEX-140",
+      "title": "Final report",
+      "assignee": null,
+      "status": "todo",
+      "createdAt": "2026-10-17T12:00:00Z",
+      "linkedPRs": [],
+      "linkSource": "none",
+      "linkConfidence": 0,
+      "dueAt": "2026-11-01T12:00:00Z"
+    }
+  ]
+}
