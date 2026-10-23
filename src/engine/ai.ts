@@ -81,6 +81,8 @@ export async function wordRisks(analysis: Analysis, complete: Complete): Promise
 
 const MATCH_RULES = `You link task-board tasks to the GitHub pull requests that did the work.
 Only link a task and a PR when the titles, branch name or files clearly describe the same work.
+A task is normally done by its own assignee, so a PR by someone else is almost never a match.
+PR titles can be vague ("Aarya branch"); then judge by the files.
 Each task links to at most one PR, and each PR to at most one task. Leave out anything unsure.
 confidence is 0 to 1: 0.9 means the titles say the same thing, 0.6 means probably.
 Answer with JSON only: {"links": [{"taskId": "<id>", "prNumber": <number>, "confidence": <0..1>}]}.`;
@@ -101,7 +103,8 @@ export async function aiTaskLinks(s: RepoSnapshot, complete: Complete): Promise<
       tasks: tasks.map((t) => ({ id: t.id, title: t.title, assignee: name(t.assignee), status: t.status })),
       pullRequests: prs.map((p) => ({
         number: p.number, title: p.title, branch: p.branch, author: name(p.author),
-        files: p.files.slice(0, 5).map((f) => f.path),
+        // Code files say more than logs and docs.
+        files: p.files.map((f) => f.path).filter((f) => !/^(context|docs)\//.test(f) && !/\.md$/i.test(f)).slice(0, 8),
       })),
     }, null, 1),
     { system: MATCH_RULES, json: true, temperature: 0 },
@@ -121,6 +124,10 @@ export async function aiTaskLinks(s: RepoSnapshot, complete: Complete): Promise<
     if (!taskIds.has(taskId) || !prNumbers.has(prNumber)) continue;
     if (!(confidence > CONFIG.ai.minLinkConfidence && confidence <= 1)) continue;
     if (usedTasks.has(taskId) || usedPRs.has(prNumber)) continue;
+    // People open PRs for their own tasks: a link across two people is not trusted.
+    const task = tasks.find((t) => t.id === taskId)!;
+    const pr = prs.find((p) => p.number === prNumber)!;
+    if (task.assignee && task.assignee !== pr.author) continue;
     usedTasks.add(taskId);
     usedPRs.add(prNumber);
     out.push({ taskId, prNumber, confidence: Math.round(confidence * 100) / 100 });

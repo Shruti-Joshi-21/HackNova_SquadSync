@@ -4,6 +4,35 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### B8: task CSV wired into the GitHub route (2026-10-24, Aarya's laptop, branch `aarya-branch`)
+
+- `POST /api/analyze/github` now uses `tasksCsv` (text of the CSV file). The
+  board replaces GitHub issues as the tasks. Response adds `warnings: string[]`
+  (one plain sentence each) only when there is something to say. 400 if
+  tasksCsv is not a string or is over 500 KB.
+- `src/lib/github/board.ts` wraps Samiksha's `parseTasksCsv` (csv.ts unchanged):
+  - created date missing (csv.ts puts 1970) -> earliest real date, clamped to project dates.
+  - in progress / in review -> `startedAt` = created (boards rarely export a start).
+  - done dates up to 36 h ahead of now are a time zone gap (IST board, UTC
+    server) and become now; later ones are dropped with a warning.
+  - assignee not found by csv.ts -> `matchName()`: "Aarya Patil" -> `PatilAarya`
+    when exactly one login fits (same name, login starts with a name part, or
+    contains a part of 4+ letters). Otherwise unassigned and named in a warning.
+  - max 500 tasks; PR task links from issues are cleared.
+- AI task matching, two fixes found with real data:
+  - a link to a PR by someone other than the task's assignee is dropped by code
+    (the model had matched "Conflict radar and graph scenes" to Shruti's
+    "Add GitGraph scenes" at 0.9).
+  - the model now sees up to 8 code files per PR (no context/, docs/, .md), so
+    vague titles like "Aarya branch" still match by files.
+- Live, our repo + a 5-row CSV with real names: 5.5 s; names matched to all
+  three logins; radar task -> PR #5, extension -> #4, metrics -> #12; PRD page
+  task left unlinked (Shruti's PRs have vague titles); unknown name warned.
+- `npx tsx src/lib/github/board.check.ts`: 19 checks pass. All other checks
+  (engine, AI 15, plan 22, csv.ts, data gen), build and lint on our paths pass.
+- Scenes 9 to 12 (add/add, lockfile, stale branch, unpushed work) were already
+  built in B3, so B8 is complete.
+
 ### B7: PRD splitter and plan versus reality (2026-10-24, Aarya's laptop, branch `aarya-branch`)
 
 - `POST /api/plan` body `{ prd, teamSize }` -> `ProjectPlan` (what Laptop A's
@@ -256,9 +285,14 @@ Nothing.
 
 ## Next
 
-B8: wire Samiksha's `csv.ts` into `POST /api/analyze/github` (tasksCsv), then scenes 9 to 12 if time.
+All B tasks (B1 to B8) are done. Next: the 05:30 integration and polish pass
+with the team (merge, check the deployed URL, run the demo story twice), and
+help Laptop A wire /plan/check and the AI tags if they want it.
 
 ## Needs from others
+
+- Laptop A, /connect: the CSV the user picks should be sent as text in
+  `tasksCsv`; show `warnings` from the answer under the result if present.
 
 - Samiksha (C): `npm run lint` fails on main because of `src/app/embed/page.tsx`
   line 105, "Avoid calling setState() directly within an effect"
