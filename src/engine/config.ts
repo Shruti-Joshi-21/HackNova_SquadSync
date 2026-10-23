@@ -64,6 +64,19 @@ export const CONFIG = {
     lateMedium: 3,
     lateHigh: 7,
   },
+  radar: {
+    /** Changed line ranges closer than this many lines count as overlapping (Git conflicts on neighbouring lines too). */
+    lineGap: 3,
+    driftMedium: 10,
+    driftHigh: 25,
+    /** No push for this many days while the branch's task is open. */
+    staleLow: 5,
+    staleMedium: 8,
+    /** A task in progress this many days with no branch and no PR. */
+    unpushedDays: 5,
+    /** Direct pushes to main older than this are history, not a warning. */
+    directPushDays: 14,
+  },
   timeline: {
     /** A week is "warning" above this many times the usual week, "danger" above the second. */
     warningRatio: 2,
