@@ -20,6 +20,15 @@ export function mentions(text: string, taskId: string): boolean {
 }
 
 /**
+ * True when a branch name points at the task: "feature/NEX-104-search",
+ * or for GitHub issue numbers "12-fix-login", "feature/12-login", "issue-12".
+ */
+export function branchMentions(branch: string, taskId: string): boolean {
+  if (!/^\d+$/.test(taskId)) return mentions(branch, taskId);
+  return new RegExp(`(^|/)(issue-?)?${taskId}([-_]|$)`, "i").test(branch) || mentions(branch, taskId);
+}
+
+/**
  * Links tasks that have no links yet. Tasks that already carry links
  * (synthetic data, a CSV with PR numbers) are left as they are.
  */
@@ -37,7 +46,7 @@ export function linkTasks(s: RepoSnapshot, ai?: AiMatcher): RepoSnapshot {
   const unlinked = () => tasks.filter((t) => t.linkedPRs.length === 0 && (t.linkSource === "none" || t.linkSource === "ai"));
 
   for (const task of unlinked()) {
-    const byBranch = prs.filter((p) => mentions(p.branch, task.id));
+    const byBranch = prs.filter((p) => branchMentions(p.branch, task.id));
     const byTitle = prs.filter((p) => mentions(p.title, task.id));
     const byCommit = prs.filter((p) =>
       s.commits.some((c) => c.branch === p.branch && mentions(c.message, task.id)));

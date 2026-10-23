@@ -40,6 +40,8 @@ export const CONFIG = {
     recentDays: 14,
     /** Use all merged PRs when fewer than this many merged recently. */
     minRecentMerged: 5,
+    /** The unreviewed share needs at least this many merged PRs to mean anything. */
+    minMergedForShare: 3,
     unreviewedMedium: 0.2,
     unreviewedHigh: 0.4,
     /** A code-role member with zero reviews is flagged once others have merged this many PRs. */
