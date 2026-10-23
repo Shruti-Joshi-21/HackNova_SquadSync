@@ -13,6 +13,10 @@ export default function ReviewPanel({ a }: { a: Analysis }) {
 
   return (
     <Panel title="Who checked whose work">
+      <p className="mb-3 text-xs text-muted">
+        Each row is a reviewer, each column is the person whose code they read. A darker cell means more reviews. A row
+        of zeros means that person never read a teammate&apos;s code before it was joined.
+      </p>
       <table className="w-full text-xs">
         <thead>
           <tr>

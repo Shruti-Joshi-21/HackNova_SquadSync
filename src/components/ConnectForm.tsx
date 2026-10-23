@@ -102,7 +102,14 @@ export default function ConnectForm() {
         <label htmlFor="csv" className="font-semibold">
           Task board export <span className="font-normal text-muted">(optional)</span>
         </label>
-        <p className="text-xs text-muted">A CSV from Jira, Trello or GitHub Projects. Without it, GitHub issues are used as tasks.</p>
+        <p className="text-xs text-muted">
+          A CSV from Jira, Trello or GitHub Projects with the columns title, assignee, status, created, done, due,
+          points. Without it, GitHub issues are used as tasks.{" "}
+          <a href="/sample-tasks.csv" download className="text-link hover:underline">
+            Download a sample CSV
+          </a>{" "}
+          (our own board, for Shruti-Joshi-21/HackNova_SquadSync).
+        </p>
         <input
           id="csv"
           type="file"

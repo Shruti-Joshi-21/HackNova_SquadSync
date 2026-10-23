@@ -4,6 +4,22 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Task board sample and plain-English evidence (Sat 24 Oct, about 06:10):
+  - `public/sample-tasks.csv`: 19 tasks from our real board for
+    Shruti-Joshi-21/HackNova_SquadSync, with real names. /connect links to it
+    ("Download a sample CSV") and lists the expected columns. Tested on the
+    live API: 19 tasks read, all three names matched to logins, no warnings.
+  - Evidence drawer now explains each risk for someone who has never used
+    Git (`src/components/team/explain.ts`, one entry per RiskKind): "In plain
+    words", "Why it matters", "The rule we used" (the engine's rule), "The
+    evidence" with "Where this comes from", "How serious and how sure" (what
+    High / Medium / Low and Certain / Likely / Possible mean), "What this does
+    not mean" (normal differences, so a flag is not read as blame), and "What
+    to do". Evidence values link to GitHub when the risk carries a URL.
+  - "Who checked whose work" has a one-line guide to reading the heatmap.
+- For C (DEMO.md): new optional step on /connect: download the sample CSV, upload it
+  with our repo, open the team page.
+
 - Fixes after B7, B8 and C merged (Sat 24 Oct, about 05:40):
   - package-lock.json synced with `npm install` (Aarya found `npm ci` failing on
     missing @emnapi packages). `npm ci --dry-run` now passes.
