@@ -6,8 +6,10 @@ import type { Analysis } from "@/lib/types";
 import { getAnalysis } from "@/lib/data";
 import { ErrorState, TeamSkeleton } from "@/components/states";
 import TeamBody from "./TeamBody";
+import ReplayStrip from "./ReplayStrip";
 
 const AUTO_MS = 60_000;
+const REPLAY_DEBOUNCE_MS = 250;
 
 type State =
   | { status: "loading" }
@@ -27,6 +29,27 @@ export default function TeamView({ id }: { id: string }) {
   const [nonce, setNonce] = useState(0); // bumped to re-call the API
   const [refreshing, setRefreshing] = useState(false);
   const [auto, setAuto] = useState(false);
+
+  // Replay: the marker moves at once; the API is called 250ms after it stops.
+  const [marker, setMarker] = useState<string | null>(null);
+  const [asOf, setAsOf] = useState<string | null>(null);
+  const [replay, setReplay] = useState<{ day: string; a?: Analysis; error?: string } | null>(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => setAsOf(marker), REPLAY_DEBOUNCE_MS);
+    return () => clearTimeout(t);
+  }, [marker]);
+
+  useEffect(() => {
+    if (!asOf) return;
+    let alive = true;
+    getAnalysis(id, asOf)
+      .then((a) => alive && setReplay({ day: asOf, a: a ?? undefined, error: a ? undefined : "No data for that day." }))
+      .catch((err: Error) => alive && setReplay({ day: asOf, error: err.message }));
+    return () => {
+      alive = false;
+    };
+  }, [id, asOf]);
 
   useEffect(() => {
     let alive = true;
@@ -80,7 +103,10 @@ export default function TeamView({ id }: { id: string }) {
       </div>
     );
 
-  const a = state.a;
+  const latest = state.a;
+  const replayReady = marker !== null && replay?.day === marker && replay.a;
+  const replayPending = marker !== null && replay?.day !== marker;
+  const a = replayReady ? replay.a! : latest;
   const weeks = a.timeline.length;
   const week = Math.min(weeks, Math.floor(a.schedule.daysUsed / 7) + 1);
 
@@ -112,7 +138,18 @@ export default function TeamView({ id }: { id: string }) {
         </div>
       </header>
 
-      <TeamBody a={a} />
+      <TeamBody
+        a={a}
+        replay={
+          <div>
+            <ReplayStrip latest={latest} value={marker} onChange={setMarker} />
+            {replayPending && <p className="text-xs text-muted">Loading that day.</p>}
+            {marker !== null && replay?.day === marker && replay.error && (
+              <p className="text-xs text-danger">{replay.error}</p>
+            )}
+          </div>
+        }
+      />
     </div>
   );
 }

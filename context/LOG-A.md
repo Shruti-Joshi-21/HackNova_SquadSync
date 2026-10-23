@@ -4,6 +4,16 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- A6 (Sat 24 Oct, about 01:20): replay strip under the verdict
+  (`src/components/team/ReplayStrip.tsx`). One segment per week from today's
+  timeline, coloured by status (future weeks dashed). There is a tick and the
+  label "first warning, <date>" at the earliest firstDetectableAt of today's
+  risks. The marker can be dragged (pointer capture) or moved by keyboard
+  (role slider: arrows move one week, Home/End). Moves snap to whole days.
+  TeamView calls `getAnalysis(id, "YYYY-MM-DD")` 250ms after the marker
+  stops, and the whole page shows that day. "Viewing 16 Oct" and "Back to
+  today" appear while replaying. Checked: Nexus on 16 Oct shows 7 risks and a
+  27-day projected slip.
 - A5 (Sat 24 Oct, about 01:10): pages now use the live API (B4). `data.ts`
   runs in the browser: `getTeams()` calls GET /api/teams and `getAnalysis(id, asOf?)`
   calls GET /api/analyze/[id]. It returns null on 404 and throws a plain message
@@ -81,7 +91,8 @@ Nothing yet.
 
 ## Next
 
-A6: replay strip (uses `getAnalysis(id, asOf)`, which B4 already supports).
+All A tasks are done (A1 to A7). Next: the A9 polish pass at 05:30, then demo
+rehearsal.
 
 ## Notes for B (scenes)
 

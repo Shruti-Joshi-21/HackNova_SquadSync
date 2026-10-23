@@ -6,12 +6,15 @@ import TimelinePanel from "./TimelinePanel";
 import Risks from "./Risks";
 
 // Everything on the team page below the header, drawn from one Analysis.
-export default function TeamBody({ a }: { a: Analysis }) {
+// `replay` is the replay strip, placed under the verdict as in DESIGN.md.
+export default function TeamBody({ a, replay }: { a: Analysis; replay?: React.ReactNode }) {
   const names = new Map(a.team.people.map((p) => [p.id, p.displayName]));
 
   return (
     <>
       <Summary a={a} />
+
+      {replay}
 
       <div className="grid gap-4 lg:grid-cols-3">
         <WorkPanel a={a} />
