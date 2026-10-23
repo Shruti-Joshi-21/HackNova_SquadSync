@@ -4,6 +4,21 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### Fix: pasted forks showed "no activity" (2026-10-24)
+
+- Found with the extension on samikshajadhav16/SheSolves3.0_Sahayog: a fork's
+  created_at is the fork date (10 Oct), after all its copied commits (9 Oct),
+  so the window "not before repo creation" held no commits.
+- Now, with no projectStart, the window is the 56 days up to the latest commit
+  on the default branch (one extra request; an empty repo is handled). Works
+  for forks, imported repos and quiet repos.
+- Tested: the fork (51 commits, 3 people), its original, a quiet solo repo, our
+  repo (at_risk, 17 PRs), sindresorhus/ky.
+- "Not flagged" is empty for a one-person repo (nothing to compare with).
+- Message when a repo really has nothing: "This repo has no commits, pull
+  requests or branches to analyse yet."
+- All checks, lint and build pass.
+
 ### B8: task CSV wired into the GitHub route (2026-10-24, Aarya's laptop, branch `aarya-branch`)
 
 - `POST /api/analyze/github` now uses `tasksCsv` (text of the CSV file). The
@@ -118,8 +133,8 @@ B5 decisions:
   pages), the 30 most recently updated PRs with files, reviews and (if open)
   mergeable, up to 20 branches compared with main (ahead, behind, commits,
   files with patches), issues (2 pages). About 20 to 130 requests per paste.
-- Project start: `projectStart` if given, else the later of repo creation and
-  56 days ago. asOf is now.
+- Project start: `projectStart` if given, else 56 days before the repo's latest
+  commit (changed 24 Oct, see the fix below). asOf is now.
 - People: every non-bot login with activity. More than 12 gives 422.
   Display names "Member A.." by first activity. Role "mixed" for everyone.
   Commits whose email is not linked to a GitHub user use the git author name.

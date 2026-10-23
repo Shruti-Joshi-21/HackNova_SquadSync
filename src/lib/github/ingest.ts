@@ -112,9 +112,19 @@ export async function fetchSnapshot(input: IngestInput, gh: Client = createClien
 
   const repo = await gh.get<GhRepo>(base);
   const main = repo.default_branch;
-  const start = input.projectStart
-    ? new Date(input.projectStart)
-    : new Date(Math.max(Date.parse(repo.created_at), now.getTime() - LIMITS.windowDays * 86_400_000));
+  // No start date given: take the 8 weeks up to the repo's latest commit.
+  // Not the repo's creation date: a fork or an imported repo is "created" after
+  // its own commits, which would leave nothing to analyse.
+  let start: Date;
+  if (input.projectStart) {
+    start = new Date(input.projectStart);
+  } else {
+    const latest = await gh
+      .get<GhCommit[]>(`${base}/commits?sha=${enc(main)}&per_page=1`)
+      .catch(() => [] as GhCommit[]); // an empty repo answers 409
+    const last = latest[0] ? Date.parse(latest[0].commit.committer.date) : now.getTime();
+    start = new Date(Math.min(last, now.getTime()) - LIMITS.windowDays * 86_400_000);
+  }
   const since = iso(start);
 
   const [mainCommits, pulls, branchList, issues] = await Promise.all([
@@ -199,7 +209,7 @@ export async function fetchSnapshot(input: IngestInput, gh: Client = createClien
     note(p.user?.login, p.created_at);
     for (const r of reviews) if (!isBot(r.user) && r.submitted_at) note(r.user!.login, r.submitted_at);
   }
-  if (seen.size === 0) throw new GitHubError("No activity found in this repo for the project dates.", 422);
+  if (seen.size === 0) throw new GitHubError("This repo has no commits, pull requests or branches to analyse yet.", 422);
   if (seen.size > LIMITS.maxPeople) {
     throw new GitHubError(`This repo has ${seen.size} contributors in the project dates, and SquadSync is built for teams of up to ${LIMITS.maxPeople}.`, 422);
   }
