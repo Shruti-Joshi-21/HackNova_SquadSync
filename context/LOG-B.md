@@ -4,6 +4,49 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### B2: engine core (2026-10-23, Aarya's laptop, branch `aarya-branch`)
+
+`npx tsx src/engine/cli.ts nexus [asOf]` prints the Analysis as JSON.
+`npx tsx src/engine/check.ts` runs all assertions (all pass, about 2 s).
+Files in `src/engine/`: config, util, normalize, link, baseline, indicators,
+slice (sliceAsOf), risks (rules, verdict, notFlagged), index (analyze), cli, check.
+`analyze(snapshot, { weights?, asOf? })` normalises, slices if asOf is given, and
+returns the full Analysis. Exports also `buildSnapshot`, `normalize`, `sliceAsOf`.
+
+Results today (asOf 2026-10-23):
+- nexus: at_risk. High: 58% of code merged in last 3 days. Medium: Member C no
+  reviews, Member A finished 46% of tasks, 5 days late projected, PR #31 open
+  9 days, 3 PRs merged without review. Not flagged: Member D (3 finished design
+  tasks), Member B (gives 37% of reviews). Replay on 10 Oct already shows slipping.
+- atlas: on_track, no risks.
+- orbit: at_risk. High: Member A carries 62% of the work. Medium: Member D 3% of
+  the work, Member D no reviews.
+- zenith: at_risk. High: 11 of 11 recent PRs unreviewed, 96% merged in last 3 days.
+
+B2 decisions (thresholds all in `config.ts`, for docs/METRICS.md):
+- Workload flag: combined share OR finished-task share above 1.6x even share.
+  Reason: on Nexus the 15% docs-and-design part goes to the designer, which pulls
+  Member A's combined share to 39%, just under 40%, though A finished 46% of tasks.
+  High at 2x even.
+- A part with fewer than 3 events across the team (one review in the whole
+  project, say) is left out of the combined share and its weight goes to the
+  others. Without this, Zenith's one review made its reviewer "carry 58%".
+- Workload rules wait until the team has 6 finished tasks.
+- Code share: merged lines without lockfiles and docs/design paths, capped at
+  800 per PR. Docs/design share: finished tasks owned by a design/docs member, or
+  whose PR only touches docs/design paths.
+- Quick replies: first review within 24 h of the PR opening.
+- Unreviewed share uses PRs merged in the last 14 days (all PRs if fewer than 5).
+  Nexus: 3 of 10 recent = 30%, medium. Over all PRs it would be 14%, not flagged.
+- Open PR older than 7 days or over 800 lines: one medium risk per PR.
+- teamUsualRange = the flag band (0.4x to 1.6x even share), so chart and rule agree.
+- Timeline week status: warning above 2x the median past week, danger above 3x.
+- firstDetectableAt: walk back day by day on sliced snapshots while the same
+  rule still holds.
+- Risk ids are URL-safe: `workload_imbalance-p1`, `late_integration-pr-31`.
+- All summaries are templates (summarySource "template"). AI wording is B6.
+- AI link fallback hook: `AiMatcher` in link.ts, passed to normalize(); unused until B6.
+
 ### B1: synthetic data generator (2026-10-23, Aarya's laptop, branch `aarya-branch`)
 
 `npx tsx data/gen/run.ts` writes `data/snapshots/{nexus,atlas,orbit,zenith}.json`,
@@ -46,7 +89,9 @@ Nothing.
 
 ## Next
 
-B2: engine core (see PROMPTS.md).
+B3: conflict radar and scenes (see PROMPTS.md). Hook radar risks into
+`drafts()` in risks.ts or into analyze() in index.ts; sortRisks and verdict
+already handle any kind.
 
 ## Needs from others
 
