@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { connectRepo, parseRepo } from "@/lib/data";
 
 type Errors = { repo?: string; deadline?: string };
@@ -25,6 +26,7 @@ export default function ConnectForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [busy, setBusy] = useState(false);
   const [failure, setFailure] = useState<string | null>(null);
+  const router = useRouter();
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -40,8 +42,9 @@ export default function ConnectForm() {
       tasksCsv: csv?.text,
     });
     setBusy(false);
-    if (!result.ok) setFailure(result.error);
-    // A5: on success, keep the result and open the team page.
+    if (!result.ok) return setFailure(result.error);
+    // connectRepo saved the result in this browser; the team page reads it from there.
+    router.push(`/team/${encodeURIComponent(result.analysis.teamId)}`);
   }
 
   return (

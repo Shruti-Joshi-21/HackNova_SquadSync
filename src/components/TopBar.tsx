@@ -1,14 +1,27 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import type { TeamListItem } from "@/lib/types";
+import { getTeams } from "@/lib/data";
 
 // Wordmark, team switcher and the Mentor / Team toggle. The toggle follows the
 // URL: "/" is the mentor view, "/team/[id]" is the team view.
-export default function TopBar({ teams }: { teams: TeamListItem[] }) {
+export default function TopBar() {
   const pathname = usePathname();
   const router = useRouter();
+  const [teams, setTeams] = useState<TeamListItem[]>([]);
+
+  useEffect(() => {
+    let alive = true;
+    getTeams()
+      .then((t) => alive && setTeams(t))
+      .catch(() => {}); // the switcher just stays empty; pages show their own errors
+    return () => {
+      alive = false;
+    };
+  }, []);
   const currentTeam = pathname.match(/^\/team\/([^/]+)/)?.[1] ?? "";
   const view = currentTeam ? "team" : "mentor";
   const teamHref = `/team/${currentTeam || teams[0]?.id || ""}`;

@@ -4,6 +4,20 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- A5 (Sat 24 Oct, about 01:10): pages now use the live API (B4). `data.ts`
+  runs in the browser: `getTeams()` calls GET /api/teams and `getAnalysis(id, asOf?)`
+  calls GET /api/analyze/[id]. It returns null on 404 and throws a plain message
+  otherwise. `NEXT_PUBLIC_USE_MOCKS=true` switches back to the mocks.
+  `connectRepo()` POSTs /api/analyze/github (B5). A 404 means "not connected
+  yet". On success it saves {input, analysis} in localStorage
+  (`squadsync.repos`) and /connect opens `/team/<teamId>`; getAnalysis
+  re-analyses saved repos from the stored input and falls back to the last
+  good result. The team page is now a client component
+  (`src/components/team/TeamView.tsx`) with a skeleton, an error with Retry,
+  Refresh, an "Every minute" auto-refresh, "Updated hh:mm", and an in-memory
+  cache between pages. The mentor list (`MentorTable.tsx`) and the top-bar
+  switcher fetch teams on the client. Checked against the real Nexus output:
+  12 risks, and B3's scenes draw in the drawer.
 - A7 (Sat 24 Oct, about 00:50): `/plan` PRD splitter page
   (`src/components/plan/PlanSplitter.tsx`). Left: PRD textarea, team size 2 to
   6, "Split the work". Right: ownership table (module, owner, folders, tasks,
@@ -67,7 +81,7 @@ Nothing yet.
 
 ## Next
 
-A5: swap mocks for the API once B4 (`/api/teams`, `/api/analyze/[teamId]`) is merged.
+A6: replay strip (uses `getAnalysis(id, asOf)`, which B4 already supports).
 
 ## Notes for B (scenes)
 
@@ -83,8 +97,11 @@ A5: swap mocks for the API once B4 (`/api/teams`, `/api/analyze/[teamId]`) is me
   (`late_integration-pr-*`). If B can add the list, it needs a CONTRACT CHANGE.
 - From B (B7): POST /api/plan returning a ProjectPlan as JSON (status 200).
   The page picks it up with no change on A's side.
-- From B (B3): real scenes on the risks. Once they arrive, the hand-written
-  Nexus conflict risks in `src/mocks/analyses.ts` can go.
+- For B5: POST /api/analyze/github should return `{ snapshot, analysis }` with
+  a URL-safe `analysis.teamId` (it becomes `/team/<teamId>`), and `{ error }`
+  with a plain sentence on failure (for example a rate limit with its reset time).
+- For C6 (embed): `getAnalysis()` now runs in the browser only, so call it from
+  a client component.
 
 ## Decisions
 
