@@ -28,6 +28,11 @@ None.
 
 ## Decisions
 
+- Deployed app URL (for the extension): https://hack-nova-squad-sync.vercel.app
+  (Vercel deploys `main`). A1 merged to main via PR #1.
+- Branch names in use: Shruti `shruti-branch`, Aarya `aarya-branch`
+  (not laptop-a / laptop-b / phase2-* as TASKS.md says).
+
 - Pages with the top bar live in the route group `src/app/(shell)/`. `/embed`
   sits outside it, so the side panel has no top bar. URLs are unchanged.
 - Turned off `cacheComponents` and `partialPrefetching` from the Next 16
