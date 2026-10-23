@@ -2,18 +2,53 @@ import type { Analysis, ISODate, ProjectPlan, RepoSnapshot, TeamListItem } from 
 import { mockAnalyses, mockTeams } from "@/mocks/analyses";
 import { mockPlan } from "@/mocks/plan";
 
-// The single place pages get data from. Mock data until the API (B4) is live;
-// A5 flips this flag and fills in the fetch calls.
-const USE_MOCKS = true;
+// The single place pages get data from. Runs in the browser and calls the API
+// (relative URLs). NEXT_PUBLIC_USE_MOCKS=true switches back to the mock data.
+const USE_MOCKS = process.env.NEXT_PUBLIC_USE_MOCKS === "true";
 
-export async function getAnalysis(teamId: string): Promise<Analysis | null> {
-  if (USE_MOCKS) return mockAnalyses[teamId] ?? null;
-  return null;
+class NotFound extends Error {}
+
+async function getJson<T>(url: string, init?: RequestInit): Promise<T> {
+  let res: Response;
+  try {
+    res = await fetch(url, init);
+  } catch {
+    throw new Error("Could not reach the server. Check the connection and try again.");
+  }
+  const body = await res.json().catch(() => null);
+  if (res.status === 404) throw new NotFound(body?.error ?? "Not found.");
+  if (!res.ok) throw new Error(body?.error ?? `The server answered with an error (${res.status}).`);
+  return body as T;
 }
 
 export async function getTeams(): Promise<TeamListItem[]> {
   if (USE_MOCKS) return mockTeams;
-  return [];
+  return getJson<TeamListItem[]>("/api/teams");
+}
+
+/**
+ * One team's analysis. Synthetic teams come from GET /api/analyze/[id]; a repo
+ * pasted on /connect is re-analysed from the input saved in this browser.
+ * Returns null when the team does not exist. Throws with a plain message on errors.
+ */
+export async function getAnalysis(teamId: string, asOf?: ISODate): Promise<Analysis | null> {
+  if (USE_MOCKS) return mockAnalyses[teamId] ?? null;
+
+  const saved = readSavedRepo(teamId);
+  if (saved) {
+    const r = await connectRepo(saved.input);
+    if (r.ok) return r.analysis;
+    if (saved.analysis) return saved.analysis; // last good result beats an error screen
+    throw new Error(r.error);
+  }
+
+  const q = asOf ? `?asOf=${encodeURIComponent(asOf)}` : "";
+  try {
+    return await getJson<Analysis>(`/api/analyze/${encodeURIComponent(teamId)}${q}`);
+  } catch (err) {
+    if (err instanceof NotFound) return null;
+    throw err;
+  }
 }
 
 /** "owner/name", "github.com/owner/name" or a full GitHub URL to "owner/name". Null if it is not one. */
@@ -35,6 +70,59 @@ export type ConnectResult =
   | { ok: true; snapshot: RepoSnapshot; analysis: Analysis }
   | { ok: false; error: string };
 
+/** Analyse a live GitHub repo via POST /api/analyze/github (B5) and remember it in this browser. */
+export async function connectRepo(input: ConnectInput): Promise<ConnectResult> {
+  let res: Response;
+  try {
+    res = await fetch("/api/analyze/github", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(input),
+    });
+  } catch {
+    return { ok: false, error: "Could not reach the server. Check the connection and try again." };
+  }
+  if (res.status === 404 || res.status === 405) {
+    return { ok: false, error: "Live repos are not connected yet. The sample teams work now." };
+  }
+  const body = await res.json().catch(() => null);
+  if (!res.ok || !body?.analysis) {
+    return { ok: false, error: body?.error ?? "Could not analyse this repo." };
+  }
+  saveRepo(body.analysis.teamId, input, body.analysis);
+  return { ok: true, snapshot: body.snapshot, analysis: body.analysis };
+}
+
+/* Pasted repos are kept in localStorage so a reload does not lose them. */
+
+const REPO_KEY = "squadsync.repos";
+
+interface SavedRepo {
+  input: ConnectInput;
+  analysis?: Analysis;
+}
+
+function readRepos(): Record<string, SavedRepo> {
+  try {
+    return JSON.parse(localStorage.getItem(REPO_KEY) ?? "{}");
+  } catch {
+    return {};
+  }
+}
+
+function readSavedRepo(teamId: string): SavedRepo | null {
+  if (typeof window === "undefined") return null;
+  return readRepos()[teamId] ?? null;
+}
+
+function saveRepo(teamId: string, input: ConnectInput, analysis: Analysis) {
+  try {
+    localStorage.setItem(REPO_KEY, JSON.stringify({ ...readRepos(), [teamId]: { input, analysis } }));
+  } catch {
+    // storage full or blocked: the result still shows this time
+  }
+}
+
 /**
  * Split a PRD into a plan. Calls POST /api/plan (B7); while that route does not
  * exist yet, returns the sample plan and says so in `note`.
@@ -51,10 +139,4 @@ export async function makePlan(prd: string, teamSize: number): Promise<{ plan: P
     // fall through to the sample plan
   }
   return { plan: mockPlan(teamSize), note: "The splitter API is not live yet, so this is a sample plan." };
-}
-
-/** Analyse a live GitHub repo. Calls POST /api/analyze/github once B5 exists (A5). */
-export async function connectRepo(input: ConnectInput): Promise<ConnectResult> {
-  void input;
-  return { ok: false, error: "Live repos are not connected yet. The sample teams work now." };
 }
