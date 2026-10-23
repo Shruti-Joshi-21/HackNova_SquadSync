@@ -138,6 +138,7 @@ Nothing yet.
 ## Next
 
 C1: docs/METRICS.md.
+C4: deck text.
 
 ## Needs from others
 
