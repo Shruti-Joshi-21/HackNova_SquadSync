@@ -4,6 +4,40 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- A7 (Sat 24 Oct, about 00:50): `/plan` PRD splitter page
+  (`src/components/plan/PlanSplitter.tsx`). Left: PRD textarea, team size 2 to
+  6, "Split the work". Right: ownership table (module, owner, folders, tasks,
+  depends on), shared files, "Agree these first", merge order as a GitGraph
+  scene (one lane per owner, each module merges into main in turn), and
+  "Checked by code" with 5 checks run in the browser (`checks.ts`): one owner
+  per module, no folder owned twice, shared files single owner, merge order
+  respects dependsOn, everyone owns a module. `makePlan()` in data.ts calls
+  POST /api/plan and falls back to `src/mocks/plan.ts` (a fixed template)
+  with a note while B7 is not live. The latest plan is saved in localStorage
+  (`squadsync.plan`) and restored on load.
+- A4 (Sat 24 Oct, about 00:15): mentor list `/` is one table (team, verdict,
+  reason, risk count, largest risk), sorted at risk, then slipping, then on
+  track, then by risk count; each row links to `/team/[id]`. The top bar now
+  takes `teams` from the (shell) layout: the team switcher is a native select
+  that navigates, and Mentor / Team are links that follow the URL. `/connect`
+  (`src/components/ConnectForm.tsx`): repo (owner/name or any github.com URL),
+  deadline (date), optional CSV (file name shown), inline validation, primary
+  "Analyse". It calls `connectRepo()` in `src/lib/data.ts`, which returns an
+  error for now. data.ts also exports `parseRepo()` and the `ConnectInput` /
+  `ConnectResult` types. C6 (embed) can use both.
+- A3 (Fri 23 Oct, about 23:55): team page `/team/[id]`. Data comes from
+  `getAnalysis(id)` / `getTeams()` in `src/lib/data.ts` (`USE_MOCKS = true`).
+  Mocks: `src/mocks/analyses/*.json` are REAL output of B2's engine
+  (`npx tsx src/engine/cli.ts <team>` run on aarya-branch, not merged), for
+  nexus, atlas, orbit and zenith. `src/mocks/analyses.ts` adds scenes to
+  late_integration-share and review_gap-unreviewed, plus 3 hand-written Nexus
+  conflict risks (same-line routes.js, branch drift, direct push) until B3.
+  Page: header (week x of y, days left), verdict word and sentence, two-bar
+  schedule with the gap, three panels (Who did the work, Who checked whose
+  work, When code landed), risks list, evidence drawer from the right (rule,
+  scene, evidence, people, action, AI tag), and "Not flagged". Components are
+  in `src/components/team/`, with shared tags and panels in `src/components/ui.tsx`.
+  Empty state for an unknown team, and loading.tsx.
 - A2 (Fri 23 Oct, about 23:40): `src/components/GitGraph.tsx` draws a
   GraphScene as SVG. Props: `scene`, `colorByPerson` (Person.id to colorIndex;
   without it, branch lanes take colours by order). Branch lanes are stacked
@@ -33,7 +67,7 @@ Nothing yet.
 
 ## Next
 
-A3: team page on mock data (`src/mocks/nexus.ts`), using B2's real output shape.
+A5: swap mocks for the API once B4 (`/api/teams`, `/api/analyze/[teamId]`) is merged.
 
 ## Notes for B (scenes)
 
@@ -44,7 +78,13 @@ A3: team page on mock data (`src/mocks/nexus.ts`), using B2's real output shape.
 
 ## Needs from others
 
-None.
+- From B: the "When code landed" panel should list open PRs by age, but
+  `Analysis` has no open PR list. For now it shows open-PR risks
+  (`late_integration-pr-*`). If B can add the list, it needs a CONTRACT CHANGE.
+- From B (B7): POST /api/plan returning a ProjectPlan as JSON (status 200).
+  The page picks it up with no change on A's side.
+- From B (B3): real scenes on the risks. Once they arrive, the hand-written
+  Nexus conflict risks in `src/mocks/analyses.ts` can go.
 
 ## Decisions
 
