@@ -79,6 +79,14 @@ export const CONFIG = {
     /** Direct pushes to main older than this are history, not a warning. */
     directPushDays: 14,
   },
+  ai: {
+    /** An AI task-to-PR link is used only above this confidence. */
+    minLinkConfidence: 0.6,
+    maxTasksToMatch: 40,
+    maxPRsToMatch: 40,
+    /** AI sentences longer than this are thrown away. */
+    maxSentenceChars: 220,
+  },
   timeline: {
     /** A week is "warning" above this many times the usual week, "danger" above the second. */
     warningRatio: 2,

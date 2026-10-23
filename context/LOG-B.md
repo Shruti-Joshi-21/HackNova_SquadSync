@@ -4,6 +4,39 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### B6: LLM wording and AI task matching (2026-10-24, Aarya's laptop, branch `aarya-branch`)
+
+- `src/lib/llm.ts`: `complete(prompt, opts)` for Gemini (REST, `x-goog-api-key`).
+  Env: `LLM_PROVIDER=gemini`, `LLM_API_KEY`, optional `LLM_MODEL` (default
+  `gemini-flash-lite-latest`). Tested 24 Oct: gemini-2.5-flash is closed to new
+  keys (404), full flash models answered 503 "high demand", flash-lite answers
+  in about 2 s. 8 s timeout per attempt, one retry only on 429/5xx/network
+  errors and only if time allows. Never throws: returns null, callers keep templates.
+- `src/engine/ai.ts` (no network code, `complete` is passed in):
+  - `wordRisks()`: one call for all risks, JSON answer. Code keeps a sentence
+    only if it is one sentence, 20 to 220 chars, ends with a full stop, has no
+    ! or ?, no emoji, every number in it appears in the risk's title, template
+    or evidence, and every "Member X" in it appears in the evidence. Else the
+    template stays. Accepted ones get `summarySource: "ai"`.
+  - `aiTaskLinks()`: tasks (not todo) with no link and PRs with no task go to
+    the model. Code keeps a link only if both ids exist, confidence is above
+    0.6, and neither side is already used. Linked tasks get `linkSource: "ai"`
+    and the confidence. Rules always run first.
+  - `analyzeWithAi(snapshot, complete, { match, words })`.
+- Routes: `GET /api/analyze/[teamId]` words today's view; replay (`?asOf=`)
+  and `?ai=0` skip AI so the replay slider stays fast. `POST /api/analyze/github`
+  does matching and wording. `/api/teams` uses no AI.
+- `npx tsx src/engine/check-ai.ts`: 14 checks with a fake model (invented
+  number rejected, two sentences rejected, unknown person rejected, broken JSON
+  and no answer keep templates, bad links dropped, 0.6 not used). All pass.
+- `npx tsx src/engine/try-ai.ts nexus`: live test with the key in .env.local.
+  Live result: 12 of 12 accepted in 3.8 s; through the API route 11 of 12 in
+  2.5 s (code rejected one and kept its template). Replay and `?ai=0`: no AI, 0.04 to 0.09 s.
+- The prompt asks for plainer words for non-programmer mentors, with one
+  example. An AI sentence that is 90% the same words as the template keeps the
+  "template" tag, so the AI tag only marks real rewrites.
+- Lint, build, engine checks pass. Without a key everything uses templates.
+
 ### B5: GitHub ingest (2026-10-24, Aarya's laptop, branch `aarya-branch`)
 
 `POST /api/analyze/github` body `{ repo, deadline, projectStart? , tasksCsv? }`
@@ -190,8 +223,7 @@ Nothing.
 
 ## Next
 
-B6: LLM wrapper, AI wording with template fallback, AI task match fallback.
-Needs `LLM_API_KEY` and `LLM_PROVIDER` in `.env.local` and in Vercel.
+B7: PRD splitter (`POST /api/plan`) and plan-versus-reality check.
 
 ## Needs from others
 
@@ -203,6 +235,10 @@ Needs `LLM_API_KEY` and `LLM_PROVIDER` in `.env.local` and in Vercel.
   can use `risk.scene` instead of `src/mocks/scenes.ts` when the API is wired.
 - Shruti (Vercel owner): add `GITHUB_TOKEN` in Vercel project settings
   (Production and Preview). Aarya has the token.
+- Shruti (Vercel owner): add `LLM_PROVIDER=gemini` and `LLM_API_KEY` in Vercel
+  too. Without them the app still works and shows template sentences.
+- Laptop A: risks with `summarySource: "ai"` should show the small "written by
+  AI" tag (DESIGN.md), and tasks with `linkSource: "ai"` their confidence.
 - Laptop A, /connect: call `POST /api/analyze/github` with `{ repo, deadline }`.
   Errors come back as `{ error }` (plus `resetAt` on 429), ready to show as is.
   A paste takes 2 to 10 s, so show a loading state.

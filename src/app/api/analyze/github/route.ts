@@ -2,7 +2,8 @@
 // -> { snapshot, analysis }. Pulls the repo live from GitHub with the server's
 // token, analyses it, and keeps nothing.
 
-import { analyze, buildSnapshot } from "@/engine";
+import { analyzeWithAi } from "@/engine/ai";
+import { complete } from "@/lib/llm";
 import { GitHubError } from "@/lib/github/client";
 import { fetchSnapshot, parseRepo } from "@/lib/github/ingest";
 
@@ -46,8 +47,9 @@ export async function POST(request: Request) {
       projectStart: typeof body.projectStart === "string" ? body.projectStart : undefined,
     });
     // tasksCsv is accepted but not used yet: the CSV import (csv.ts) is wired in B8.
-    const snapshot = buildSnapshot(raw, "github");
-    return Response.json({ snapshot, analysis: analyze(snapshot) });
+    // AI links tasks no rule could link, then words the summaries; both fall back to code.
+    const result = await analyzeWithAi({ ...raw, source: "github" }, complete, { match: true, words: true });
+    return Response.json(result);
   } catch (err) {
     if (err instanceof GitHubError) {
       return Response.json({ error: err.message, ...(err.resetAt ? { resetAt: err.resetAt } : {}) }, { status: err.status });
