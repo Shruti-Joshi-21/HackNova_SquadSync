@@ -7,7 +7,7 @@ import type { TeamListItem } from "@/lib/types";
 import { getTeams } from "@/lib/data";
 
 // Wordmark, team switcher and the Mentor / Team toggle. The toggle follows the
-// URL: "/" is the mentor view, "/team/[id]" is the team view.
+// URL: "/mentor" is the mentor view, "/team/[id]" is the team view. "/" is the landing page.
 export default function TopBar() {
   const pathname = usePathname();
   const router = useRouter();
@@ -52,7 +52,7 @@ export default function TopBar() {
 
         <nav className="ml-auto flex h-8 rounded-md border border-border" aria-label="View">
           <Link
-            href="/"
+            href="/mentor"
             aria-current={view === "mentor" ? "page" : undefined}
             className={`flex items-center rounded-l-md px-3 ${view === "mentor" ? "bg-surface-2 text-text" : "text-muted hover:text-text"}`}
           >

@@ -141,7 +141,7 @@ export default function ConnectForm() {
       {failure && (
         <div role="alert" className="rounded-md border border-border p-3">
           <p>{failure}</p>
-          <Link href="/" className="mt-1 inline-block text-link hover:underline">
+          <Link href="/mentor" className="mt-1 inline-block text-link hover:underline">
             Open the sample teams
           </Link>
         </div>
