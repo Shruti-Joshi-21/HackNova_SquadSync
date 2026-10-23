@@ -1,0 +1,406 @@
+{
+  "teamId": "zenith",
+  "team": {
+    "id": "zenith",
+    "name": "Team Zenith",
+    "projectStart": "2026-09-07T00:00:00Z",
+    "deadline": "2026-11-01T18:30:00Z",
+    "people": [
+      {
+        "id": "p1",
+        "displayName": "Member A",
+        "githubLogin": "puffin-maps",
+        "taskAssignee": "Puffin",
+        "role": "code",
+        "colorIndex": 0
+      },
+      {
+        "id": "p2",
+        "displayName": "Member B",
+        "githubLogin": "gecko-api",
+        "taskAssignee": "Gecko",
+        "role": "code",
+        "colorIndex": 1
+      },
+      {
+        "id": "p3",
+        "displayName": "Member C",
+        "githubLogin": "bison-app",
+        "taskAssignee": "Bison",
+        "role": "code",
+        "colorIndex": 2
+      }
+    ]
+  },
+  "asOf": "2026-10-23T12:00:00Z",
+  "verdict": "at_risk",
+  "verdictReason": "11 of the 11 PRs merged in the last 14 days had no review.",
+  "schedule": {
+    "daysTotal": 56,
+    "daysUsed": 46,
+    "daysLeft": 9,
+    "tasksTotal": 21,
+    "tasksDone": 14,
+    "projectedFinish": "2026-10-27T14:00:00Z",
+    "daysLate": 0
+  },
+  "shares": [
+    {
+      "personId": "p1",
+      "tasks": 0.35714285714285715,
+      "code": 0.3119663911099065,
+      "reviews": 0,
+      "docsDesign": 0,
+      "composite": 0.3366080998551523,
+      "teamUsualRange": [
+        0.13333333333333333,
+        0.5333333333333333
+      ],
+      "role": "code",
+      "flagged": false
+    },
+    {
+      "personId": "p2",
+      "tasks": 0.35714285714285715,
+      "code": 0.3447621628947012,
+      "reviews": 1,
+      "docsDesign": 0,
+      "composite": 0.35151526884824075,
+      "teamUsualRange": [
+        0.13333333333333333,
+        0.5333333333333333
+      ],
+      "role": "code",
+      "flagged": false
+    },
+    {
+      "personId": "p3",
+      "tasks": 0.2857142857142857,
+      "code": 0.34327144599539233,
+      "reviews": 0,
+      "docsDesign": 0,
+      "composite": 0.31187663129660687,
+      "teamUsualRange": [
+        0.13333333333333333,
+        0.5333333333333333
+      ],
+      "role": "code",
+      "flagged": false
+    }
+  ],
+  "reviews": {
+    "matrix": {
+      "p1": {
+        "p1": 0,
+        "p2": 0,
+        "p3": 0
+      },
+      "p2": {
+        "p1": 1,
+        "p2": 0,
+        "p3": 0
+      },
+      "p3": {
+        "p1": 0,
+        "p2": 0,
+        "p3": 0
+      }
+    },
+    "mergedWithoutReview": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "medianHoursToFirstReview": 3.1
+  },
+  "timeline": [
+    {
+      "weekIndex": 0,
+      "label": "W1",
+      "mergedLines": 0,
+      "mergedPRs": 0,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 1,
+      "label": "W2",
+      "mergedLines": 0,
+      "mergedPRs": 0,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 2,
+      "label": "W3",
+      "mergedLines": 149,
+      "mergedPRs": 1,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 3,
+      "label": "W4",
+      "mergedLines": 0,
+      "mergedPRs": 0,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 4,
+      "label": "W5",
+      "mergedLines": 149,
+      "mergedPRs": 1,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 5,
+      "label": "W6",
+      "mergedLines": 0,
+      "mergedPRs": 0,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 6,
+      "label": "W7",
+      "mergedLines": 7263,
+      "mergedPRs": 10,
+      "status": "danger"
+    },
+    {
+      "weekIndex": 7,
+      "label": "W8",
+      "mergedLines": 0,
+      "mergedPRs": 0,
+      "status": "future"
+    }
+  ],
+  "lateMergeShare": 0.9605872239121809,
+  "risks": [
+    {
+      "id": "review_gap-unreviewed",
+      "kind": "review_gap",
+      "severity": "high",
+      "title": "11 PRs merged without review",
+      "summary": "11 of the 11 PRs merged in the last 14 days had no review.",
+      "rule": "Medium when more than 20% of recently merged PRs have no review, high above 40%. Recent means the last 14 days, or all PRs when fewer than 5 merged in that time.",
+      "evidence": [
+        {
+          "label": "Merged without review",
+          "value": "11 of 11 (100%)"
+        },
+        {
+          "label": "PR #2",
+          "value": "by Member B, 149 lines, merged 9 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "2"
+          }
+        },
+        {
+          "label": "PR #3",
+          "value": "by Member C, 664 lines, merged 21 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "3"
+          }
+        },
+        {
+          "label": "PR #4",
+          "value": "by Member C, 521 lines, merged 22 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "4"
+          }
+        },
+        {
+          "label": "PR #5",
+          "value": "by Member B, 806 lines, merged 21 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "5"
+          }
+        },
+        {
+          "label": "PR #6",
+          "value": "by Member C, 548 lines, merged 20 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "6"
+          }
+        },
+        {
+          "label": "PR #7",
+          "value": "by Member A, 864 lines, merged 20 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "7"
+          }
+        },
+        {
+          "label": "PR #8",
+          "value": "by Member A, 641 lines, merged 22 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "8"
+          }
+        },
+        {
+          "label": "PR #9",
+          "value": "by Member C, 824 lines, merged 23 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "9"
+          }
+        },
+        {
+          "label": "PR #10",
+          "value": "by Member A, 712 lines, merged 21 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "10"
+          }
+        },
+        {
+          "label": "PR #11",
+          "value": "by Member B, 888 lines, merged 22 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "11"
+          }
+        },
+        {
+          "label": "PR #12",
+          "value": "by Member B, 795 lines, merged 23 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "12"
+          }
+        }
+      ],
+      "people": [
+        "p2",
+        "p3",
+        "p1"
+      ],
+      "action": "Protect main so every PR needs one approval before merging.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-10-10T12:00:00Z"
+    },
+    {
+      "id": "late_integration-share",
+      "kind": "late_integration",
+      "severity": "high",
+      "title": "96% of code merged in last 3 days",
+      "summary": "96% of all merged lines landed in the last 3 days, across 10 PRs.",
+      "rule": "Medium when more than 40% of merged lines land in the last 3 days, high above 55%. Late merges leave no time to find integration problems.",
+      "evidence": [
+        {
+          "label": "Lines merged in the last 3 days",
+          "value": "7,263 of 7,561"
+        },
+        {
+          "label": "PR #11",
+          "value": "888 lines, merged 22 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "11"
+          }
+        },
+        {
+          "label": "PR #7",
+          "value": "864 lines, merged 20 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "7"
+          }
+        },
+        {
+          "label": "PR #9",
+          "value": "824 lines, merged 23 Oct",
+          "ref": {
+            "type": "pr",
+            "id": "9"
+          }
+        }
+      ],
+      "people": [
+        "p2",
+        "p1",
+        "p3"
+      ],
+      "action": "Merge small pieces every day instead of saving them for the end.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-10-21T12:00:00Z"
+    },
+    {
+      "id": "review_gap-p1",
+      "kind": "review_gap",
+      "severity": "medium",
+      "title": "Member A has not reviewed any PR",
+      "summary": "Member A gave no reviews while 8 PRs by teammates were merged.",
+      "rule": "Flagged when a code-role member gives zero reviews after teammates merged at least 3 PRs. Reviews spread knowledge of the code and catch problems early.",
+      "evidence": [
+        {
+          "label": "Reviews given",
+          "value": "0",
+          "ref": {
+            "type": "person",
+            "id": "p1"
+          }
+        },
+        {
+          "label": "PRs by teammates merged",
+          "value": "8"
+        },
+        {
+          "label": "Reviews given by the team",
+          "value": "1"
+        }
+      ],
+      "people": [
+        "p1"
+      ],
+      "action": "Ask Member A to review PR #13 next.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-10-21T12:00:00Z"
+    },
+    {
+      "id": "review_gap-p3",
+      "kind": "review_gap",
+      "severity": "medium",
+      "title": "Member C has not reviewed any PR",
+      "summary": "Member C gave no reviews while 8 PRs by teammates were merged.",
+      "rule": "Flagged when a code-role member gives zero reviews after teammates merged at least 3 PRs. Reviews spread knowledge of the code and catch problems early.",
+      "evidence": [
+        {
+          "label": "Reviews given",
+          "value": "0",
+          "ref": {
+            "type": "person",
+            "id": "p3"
+          }
+        },
+        {
+          "label": "PRs by teammates merged",
+          "value": "8"
+        },
+        {
+          "label": "Reviews given by the team",
+          "value": "1"
+        }
+      ],
+      "people": [
+        "p3"
+      ],
+      "action": "Ask Member C to review the next PR.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-10-21T12:00:00Z"
+    }
+  ],
+  "notFlagged": []
+}

@@ -1,0 +1,326 @@
+{
+  "teamId": "orbit",
+  "team": {
+    "id": "orbit",
+    "name": "Team Orbit",
+    "projectStart": "2026-09-07T00:00:00Z",
+    "deadline": "2026-11-01T18:30:00Z",
+    "people": [
+      {
+        "id": "p1",
+        "displayName": "Member A",
+        "githubLogin": "falcon-x",
+        "taskAssignee": "Falcon",
+        "role": "code",
+        "colorIndex": 0
+      },
+      {
+        "id": "p2",
+        "displayName": "Member B",
+        "githubLogin": "otter-ui",
+        "taskAssignee": "Otter",
+        "role": "code",
+        "colorIndex": 1
+      },
+      {
+        "id": "p3",
+        "displayName": "Member C",
+        "githubLogin": "crane-py",
+        "taskAssignee": "Crane",
+        "role": "code",
+        "colorIndex": 2
+      },
+      {
+        "id": "p4",
+        "displayName": "Member D",
+        "githubLogin": "badger-b",
+        "taskAssignee": "Badger",
+        "role": "code",
+        "colorIndex": 3
+      }
+    ]
+  },
+  "asOf": "2026-10-23T12:00:00Z",
+  "verdict": "at_risk",
+  "verdictReason": "Member A finished 65% of tasks and wrote 84% of merged code, against an even share of 25%.",
+  "schedule": {
+    "daysTotal": 56,
+    "daysUsed": 46,
+    "daysLeft": 9,
+    "tasksTotal": 29,
+    "tasksDone": 23,
+    "projectedFinish": "2026-11-03T00:00:00Z",
+    "daysLate": 2
+  },
+  "shares": [
+    {
+      "personId": "p1",
+      "tasks": 0.6521739130434783,
+      "code": 0.8393524283935243,
+      "reviews": 0.4117647058823529,
+      "docsDesign": 0,
+      "composite": 0.6223761091483888,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "code",
+      "flagged": true
+    },
+    {
+      "personId": "p2",
+      "tasks": 0.13043478260869565,
+      "code": 0.07073474470734745,
+      "reviews": 0.47058823529411764,
+      "docsDesign": 0,
+      "composite": 0.23293010770315392,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "code",
+      "flagged": false
+    },
+    {
+      "personId": "p3",
+      "tasks": 0.13043478260869565,
+      "code": 0.0759651307596513,
+      "reviews": 0.11764705882352941,
+      "docsDesign": 0,
+      "composite": 0.10990098249362393,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "code",
+      "flagged": false
+    },
+    {
+      "personId": "p4",
+      "tasks": 0.08695652173913043,
+      "code": 0.013947696139476962,
+      "reviews": 0,
+      "docsDesign": 0,
+      "composite": 0.03479280065483338,
+      "teamUsualRange": [
+        0.1,
+        0.4
+      ],
+      "role": "code",
+      "flagged": true
+    }
+  ],
+  "reviews": {
+    "matrix": {
+      "p1": {
+        "p1": 0,
+        "p2": 3,
+        "p3": 3,
+        "p4": 1
+      },
+      "p2": {
+        "p1": 8,
+        "p2": 0,
+        "p3": 0,
+        "p4": 0
+      },
+      "p3": {
+        "p1": 2,
+        "p2": 0,
+        "p3": 0,
+        "p4": 0
+      },
+      "p4": {
+        "p1": 0,
+        "p2": 0,
+        "p3": 0,
+        "p4": 0
+      }
+    },
+    "mergedWithoutReview": [
+      2,
+      12,
+      18
+    ],
+    "medianHoursToFirstReview": 4.7
+  },
+  "timeline": [
+    {
+      "weekIndex": 0,
+      "label": "W1",
+      "mergedLines": 552,
+      "mergedPRs": 2,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 1,
+      "label": "W2",
+      "mergedLines": 489,
+      "mergedPRs": 3,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 2,
+      "label": "W3",
+      "mergedLines": 797,
+      "mergedPRs": 3,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 3,
+      "label": "W4",
+      "mergedLines": 673,
+      "mergedPRs": 3,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 4,
+      "label": "W5",
+      "mergedLines": 481,
+      "mergedPRs": 3,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 5,
+      "label": "W6",
+      "mergedLines": 759,
+      "mergedPRs": 4,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 6,
+      "label": "W7",
+      "mergedLines": 264,
+      "mergedPRs": 2,
+      "status": "ok"
+    },
+    {
+      "weekIndex": 7,
+      "label": "W8",
+      "mergedLines": 0,
+      "mergedPRs": 0,
+      "status": "future"
+    }
+  ],
+  "lateMergeShare": 0.06575342465753424,
+  "risks": [
+    {
+      "id": "workload_imbalance-p1",
+      "kind": "workload_imbalance",
+      "severity": "high",
+      "title": "Member A carries 62% of the work",
+      "summary": "Member A finished 65% of tasks and wrote 84% of merged code, against an even share of 25%.",
+      "rule": "Flagged when one person's combined share, or their share of finished tasks, is above 1.6 times the even share (40% in a team of 4); high above 2 times. Combined share is 30% finished tasks, 25% merged code by size, 20% reviews given, 15% docs and design, 10% quick replies. Commit count is not used.",
+      "evidence": [
+        {
+          "label": "Finished tasks",
+          "value": "15 of 23 (65%)",
+          "ref": {
+            "type": "person",
+            "id": "p1"
+          }
+        },
+        {
+          "label": "Merged code by size",
+          "value": "84%"
+        },
+        {
+          "label": "Reviews given",
+          "value": "7 (41%)"
+        },
+        {
+          "label": "Combined share",
+          "value": "62%, usual band 10% to 40%"
+        },
+        {
+          "label": "Open tasks assigned",
+          "value": "3"
+        }
+      ],
+      "people": [
+        "p1"
+      ],
+      "action": "Move \"Tournament mode\" from Member A to Member D.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-09-17T12:00:00Z"
+    },
+    {
+      "id": "review_gap-p4",
+      "kind": "review_gap",
+      "severity": "medium",
+      "title": "Member D has not reviewed any PR",
+      "summary": "Member D gave no reviews while 19 PRs by teammates were merged.",
+      "rule": "Flagged when a code-role member gives zero reviews after teammates merged at least 3 PRs. Reviews spread knowledge of the code and catch problems early.",
+      "evidence": [
+        {
+          "label": "Reviews given",
+          "value": "0",
+          "ref": {
+            "type": "person",
+            "id": "p4"
+          }
+        },
+        {
+          "label": "PRs by teammates merged",
+          "value": "19"
+        },
+        {
+          "label": "Reviews given by the team",
+          "value": "17"
+        }
+      ],
+      "people": [
+        "p4"
+      ],
+      "action": "Ask Member D to review PR #20 next.",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-09-15T12:00:00Z"
+    },
+    {
+      "id": "workload_imbalance-p4",
+      "kind": "workload_imbalance",
+      "severity": "medium",
+      "title": "Member D has 3% of the work",
+      "summary": "Member D finished 2 tasks and wrote 1% of merged code, against an even share of 25%.",
+      "rule": "Flagged when a code-role member's combined share is below 0.4 times the even share (10% in a team of 4) and they have no docs or design work. Combined share is 30% finished tasks, 25% merged code by size, 20% reviews given, 15% docs and design, 10% quick replies.",
+      "evidence": [
+        {
+          "label": "Finished tasks",
+          "value": "2 (9%)",
+          "ref": {
+            "type": "person",
+            "id": "p4"
+          }
+        },
+        {
+          "label": "Merged code by size",
+          "value": "1%"
+        },
+        {
+          "label": "Reviews given",
+          "value": "0"
+        },
+        {
+          "label": "Combined share",
+          "value": "3%, usual band 10% to 40%"
+        }
+      ],
+      "people": [
+        "p4"
+      ],
+      "action": "Check in with Member D and pair them on \"Tournament mode\".",
+      "summarySource": "template",
+      "firstDetectableAt": "2026-09-17T12:00:00Z"
+    }
+  ],
+  "notFlagged": [
+    {
+      "personId": "p2",
+      "reason": "Less code, but gives 47% of the team's reviews."
+    },
+    {
+      "personId": "p3",
+      "reason": "Below the even share, but inside the team's usual range (10% to 40%)."
+    }
+  ]
+}
