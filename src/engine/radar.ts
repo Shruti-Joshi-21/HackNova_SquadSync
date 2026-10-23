@@ -4,7 +4,7 @@
 
 import type { Branch, FileChange, RepoSnapshot, Task } from "../lib/types";
 import { CONFIG, isLockfile } from "./config";
-import { mentions } from "./link";
+import { branchMentions } from "./link";
 import type { Context, Draft } from "./risks";
 import * as scene from "./scenes";
 import { DAY, day, iso, ms, nameOf, num, plural } from "./util";
@@ -250,7 +250,7 @@ function directPushes(s: RepoSnapshot): Draft[] {
 function tasksOf(s: RepoSnapshot, b: Branch): Task[] {
   const prs = s.pullRequests.filter((p) => p.branch === b.name).map((p) => p.number);
   return s.tasks.filter((t) => t.status !== "done" && t.status !== "todo" &&
-    (mentions(b.name, t.id) || t.linkedPRs.some((n) => prs.includes(n))));
+    (branchMentions(b.name, t.id) || t.linkedPRs.some((n) => prs.includes(n))));
 }
 
 function staleWork(s: RepoSnapshot): Draft[] {
@@ -283,7 +283,7 @@ function staleWork(s: RepoSnapshot): Draft[] {
     const role = s.team.people.find((p) => p.id === t.assignee)?.role;
     if (role === "design" || role === "docs") continue; // their work may never touch Git
     const days = Math.floor((asOf - ms(t.startedAt!)) / DAY);
-    const hasBranch = s.branches.some((b) => mentions(b.name, t.id));
+    const hasBranch = s.branches.some((b) => branchMentions(b.name, t.id));
     const hasPR = t.linkedPRs.some((n) => s.pullRequests.some((p) => p.number === n && p.state !== "closed"));
     if (days < R.unpushedDays || hasBranch || hasPR) continue;
     out.push({

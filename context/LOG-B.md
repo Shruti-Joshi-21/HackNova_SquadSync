@@ -4,6 +4,50 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### B5: GitHub ingest (2026-10-24, Aarya's laptop, branch `aarya-branch`)
+
+`POST /api/analyze/github` body `{ repo, deadline, projectStart? , tasksCsv? }`
+returns `{ snapshot, analysis }`. `repo` takes `owner/name` or any github.com URL.
+Files: `src/lib/github/client.ts` (fetch, errors, rate limits, pool),
+`patch.ts` (diff hunks to changed line ranges), `ingest.ts` (repo to
+RepoSnapshot), `try.ts` (terminal test: `npx tsx src/lib/github/try.ts owner/name 2026-11-01 [start] [--json]`).
+
+Tested with the real token: our own repo (3 people, 23 requests, 2.4 s, at_risk:
+all PRs merged without review), sindresorhus/ky, a missing repo (404 message),
+next.js and pallets/click (422 too many contributors, stopped after the first
+round of requests). Route tested with `next start`: 200 and every 400 case.
+Lint, build and engine checks pass.
+
+B5 decisions:
+- What we read, all capped: default-branch commits since project start (3
+  pages), the 30 most recently updated PRs with files, reviews and (if open)
+  mergeable, up to 20 branches compared with main (ahead, behind, commits,
+  files with patches), issues (2 pages). About 20 to 130 requests per paste.
+- Project start: `projectStart` if given, else the later of repo creation and
+  56 days ago. asOf is now.
+- People: every non-bot login with activity. More than 12 gives 422.
+  Display names "Member A.." by first activity. Role "mixed" for everyone.
+  Commits whose email is not linked to a GitHub user use the git author name.
+- Direct pushes: commits on main's first-parent line, one parent, not committed
+  by GitHub's merge button ("web-flow"), not a PR's merge commit. Files and
+  stats fetched only for the 10 most recent in the last 14 days. Commits made in
+  GitHub's web editor straight to main are missed (they look like web-flow).
+- Line ranges: added lines, plus the new-file line where a deletion happened.
+  Context lines in the patch are ignored. PRs over 100 files are cut at 100.
+- mergeable: GitHub false or "dirty" -> conflicting, true -> clean, else unknown.
+- Issues are tasks (id = issue number). closed -> done (not_planned skipped),
+  open with an open linked PR or a "review" label -> in_review, label with
+  progress/doing/wip -> in_progress, else todo. startedAt = issue creation.
+  Linked to PRs by "#12" in the PR title or body.
+- Engine changes: `branchMentions()` in link.ts also matches GitHub-style
+  branch names for issue numbers ("12-fix-login", "feature/12-x", "issue-12").
+  The unreviewed-PR rule now needs at least 3 merged PRs (one PR gave "100%").
+- Nothing is cached or stored. maxDuration 60 s on the route.
+- tasksCsv is accepted and ignored until B8 wires Samiksha's csv.ts.
+- Response shape matches `ConnectResult` in Laptop A's data.ts: success is
+  `{ snapshot, analysis }`, failure is `{ error }` with one plain sentence
+  (plus `resetAt` on 429). GitHub's own error text goes to the server log only.
+
 ### B4: API routes (2026-10-24, Aarya's laptop, branch `aarya-branch`)
 
 - `GET /api/teams` -> TeamListItem[] for nexus, atlas, orbit, zenith. Sorted
@@ -146,8 +190,8 @@ Nothing.
 
 ## Next
 
-B5: GitHub ingest (`POST /api/analyze/github`). Needs `GITHUB_TOKEN` in
-`.env.local` on this laptop and in Vercel.
+B6: LLM wrapper, AI wording with template fallback, AI task match fallback.
+Needs `LLM_API_KEY` and `LLM_PROVIDER` in `.env.local` and in Vercel.
 
 ## Needs from others
 
@@ -157,6 +201,11 @@ B5: GitHub ingest (`POST /api/analyze/github`). Needs `GITHUB_TOKEN` in
   Laptop B ran `npm install` locally and reverted the lockfile, so it is not in this commit.
 - Laptop A: real scenes now come from `analyze()`. /dev/scenes and the team page
   can use `risk.scene` instead of `src/mocks/scenes.ts` when the API is wired.
+- Shruti (Vercel owner): add `GITHUB_TOKEN` in Vercel project settings
+  (Production and Preview). Aarya has the token.
+- Laptop A, /connect: call `POST /api/analyze/github` with `{ repo, deadline }`.
+  Errors come back as `{ error }` (plus `resetAt` on 429), ready to show as is.
+  A paste takes 2 to 10 s, so show a loading state.
 
 ## Decisions
 

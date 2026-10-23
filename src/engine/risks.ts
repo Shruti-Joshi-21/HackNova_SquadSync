@@ -199,7 +199,7 @@ function reviews(c: Context): Draft[] {
 
   // PRs merged with no review.
   const u = unreviewedShare(s);
-  if (u.share > CONFIG.review.unreviewedMedium) {
+  if (u.list.length >= CONFIG.review.minMergedForShare && u.share > CONFIG.review.unreviewedMedium) {
     const scope = u.recent ? `PRs merged in the last ${CONFIG.review.recentDays} days` : "merged PRs";
     out.push({
       id: "review_gap-unreviewed",
@@ -218,7 +218,10 @@ function reviews(c: Context): Draft[] {
       ],
       people: [...new Set(u.missing.map((p) => p.author))],
       action: "Protect main so every PR needs one approval before merging.",
-      still: (x) => unreviewedShare(x.s).share > CONFIG.review.unreviewedMedium,
+      still: (x) => {
+        const v = unreviewedShare(x.s);
+        return v.list.length >= CONFIG.review.minMergedForShare && v.share > CONFIG.review.unreviewedMedium;
+      },
     });
   }
 
