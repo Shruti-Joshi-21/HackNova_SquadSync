@@ -4,6 +4,39 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### B7: PRD splitter and plan versus reality (2026-10-24, Aarya's laptop, branch `aarya-branch`)
+
+- `POST /api/plan` body `{ prd, teamSize }` -> `ProjectPlan` (what Laptop A's
+  `makePlan()` already calls). 400 with one sentence for a short PRD (under 20
+  chars), over 20,000 chars, team size outside 2 to 8, or bad JSON.
+- `POST /api/plan/check` body `{ plan, teamId }` or `{ plan, snapshot }`, optional
+  `owners` (Person.id per slot; default slot i = team.people[i]) -> `Risk[]`.
+- `src/engine/plan.ts`:
+  - `planFrom(prd, teamSize, complete)`: Gemini proposes (20 s limit), code
+    parses, validates, repairs once, validates again; else `templatePlan()`.
+  - `validatePlan()`: the five rules of the /plan page (one owner per module,
+    no folder twice, shared files single owner, merge order complete and
+    dependencies first, everyone owns a module) plus: no folder inside another
+    module's folder, no unknown dependency, no duplicate ids.
+  - `repairPlan()`: wraps owners into range, drops unknown dependencies and
+    overlapping folders, de-duplicates shared files, rebuilds the merge order
+    (dependencies first), gives an idle person the busiest owner's last module.
+    A dependency loop cannot be repaired, so it falls back to the template.
+  - `templatePlan()`: deterministic, picks modules from words in the PRD (accounts,
+    search, payments, notifications, maps, admin, media) plus API, screens, docs.
+  - `checkPlan()`: open branches and PRs merged in the last 14 days against the
+    ownership map. One risk per (person, module) or (person, shared file):
+    "Member C edited Member A's folder", "Member C changed package-lock.json,
+    owned by Member A". Medium if still open, low if merged. Kind is
+    `task_code_mismatch` (the contract has no plan kind; closest fit).
+    Evidence, action and a scene (`outsidePlan` in scenes.ts) on each.
+- `npx tsx src/engine/check-plan.ts [--live]`: 22 checks. Every plan the API can
+  return also passes Laptop A's `checkPlanShape()`. Live: Gemini split a
+  marketplace PRD into 5 modules in 2.5 s, valid as is. Nexus plan check finds
+  C in A's folder (routes.js), C on A's package-lock.json, B deleting
+  apiClient.js in C's folder.
+- Routes tested with `next start`. Build passes; lint passes on all Laptop B paths.
+
 ### B6: LLM wording and AI task matching (2026-10-24, Aarya's laptop, branch `aarya-branch`)
 
 - `src/lib/llm.ts`: `complete(prompt, opts)` for Gemini (REST, `x-goog-api-key`).
@@ -223,9 +256,16 @@ Nothing.
 
 ## Next
 
-B7: PRD splitter (`POST /api/plan`) and plan-versus-reality check.
+B8: wire Samiksha's `csv.ts` into `POST /api/analyze/github` (tasksCsv), then scenes 9 to 12 if time.
 
 ## Needs from others
+
+- Samiksha (C): `npm run lint` fails on main because of `src/app/embed/page.tsx`
+  line 105, "Avoid calling setState() directly within an effect"
+  (react-hooks/set-state-in-effect). Build and Vercel are not affected.
+- Laptop A: `/plan` can show "Plan versus reality" by calling
+  `POST /api/plan/check` with `{ plan, teamId }` (or `{ plan, snapshot }` for a
+  pasted repo). It returns Risk[] with scenes, like the team page risks.
 
 - Laptop A (Shruti): `package-lock.json` on main is out of sync with
   package.json (`npm ci` fails: @emnapi packages missing). Please run
