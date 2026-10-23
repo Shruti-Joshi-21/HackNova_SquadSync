@@ -4,6 +4,23 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Fixes after B7, B8 and C merged (Sat 24 Oct, about 05:40):
+  - package-lock.json synced with `npm install` (Aarya found `npm ci` failing on
+    missing @emnapi packages). `npm ci --dry-run` now passes.
+  - /connect shows the CSV `warnings` from POST /api/analyze/github (B8). With
+    warnings the form stays put and lists them with "Open the team page";
+    without warnings it opens the team page as before. `ConnectResult` success
+    now has `warnings: string[]`.
+  - /plan: a 400 from POST /api/plan (for example a PRD over 20,000 characters)
+    now shows the route's sentence under the PRD box. The sample plan is only
+    used when the route cannot be reached or fails, with the note "The
+    splitter did not answer, so this is a sample plan." (the old note said the
+    API was not live).
+  - Checked in the browser: a too-long PRD shows B7's message; a normal PRD
+    gets the route's plan with no false note. The CSV warnings list was not
+    checked by eye (needs the GitHub token locally); check it on the deploy.
+  - Not done (optional): "Plan versus reality" on /plan via POST /api/plan/check.
+
 - Fix after B5 merged (Sat 24 Oct, about 01:45): `connectRepo()` now shows the
   route's own `{ error }` for every status, including 404 "Repository not
   found". The "not connected" message is only for a 404 or 405 with no JSON,
@@ -126,10 +143,7 @@ in about 1 s), scenes in the drawer, Not flagged and replay all work. Open items
 - C (DEMO.md): the first warning on Nexus is 18 Sept, about 5 weeks before
   "today", not "three weeks ago". On that day replay shows On track with
   "member C gave no reviews", a good moment to say aloud.
-- B: B5 (aarya-branch) and B7 must be merged before demo steps 6 and 7
-  (/connect with a real repo, and an AI plan instead of the sample).
-- C: /embed is still the placeholder (C6), and extension/sidepanel.js must
-  point at https://hack-nova-squad-sync.vercel.app.
+- Done since: B5, B7, B8 merged; C6 embed and the extension URL merged.
 
 - From B: the "When code landed" panel should list open PRs by age, but
   `Analysis` has no open PR list. For now it shows open-PR risks

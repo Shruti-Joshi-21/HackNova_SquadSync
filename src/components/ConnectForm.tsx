@@ -26,6 +26,7 @@ export default function ConnectForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [busy, setBusy] = useState(false);
   const [failure, setFailure] = useState<string | null>(null);
+  const [done, setDone] = useState<{ href: string; warnings: string[] } | null>(null);
   const router = useRouter();
 
   async function onSubmit(e: React.FormEvent) {
@@ -33,6 +34,7 @@ export default function ConnectForm() {
     const found = validate(repo, deadline);
     setErrors(found);
     setFailure(null);
+    setDone(null);
     if (found.repo || found.deadline) return;
 
     setBusy(true);
@@ -44,7 +46,10 @@ export default function ConnectForm() {
     setBusy(false);
     if (!result.ok) return setFailure(result.error);
     // connectRepo saved the result in this browser; the team page reads it from there.
-    router.push(`/team/${encodeURIComponent(result.analysis.teamId)}`);
+    const href = `/team/${encodeURIComponent(result.analysis.teamId)}`;
+    // With CSV warnings, stay here so they can be read before opening the team.
+    if (result.warnings.length > 0) return setDone({ href, warnings: result.warnings });
+    router.push(href);
   }
 
   return (
@@ -118,6 +123,20 @@ export default function ConnectForm() {
       >
         {busy ? "Analysing" : "Analyse"}
       </button>
+
+      {done && (
+        <div role="status" className="rounded-md border border-border p-3">
+          <p className="font-semibold">Analysed, with notes about the task file</p>
+          <ul className="mt-1 list-disc space-y-1 pl-5 text-muted">
+            {done.warnings.map((w, i) => (
+              <li key={i}>{w}</li>
+            ))}
+          </ul>
+          <Link href={done.href} className="mt-2 inline-block text-link hover:underline">
+            Open the team page
+          </Link>
+        </div>
+      )}
 
       {failure && (
         <div role="alert" className="rounded-md border border-border p-3">

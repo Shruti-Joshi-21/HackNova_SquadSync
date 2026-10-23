@@ -53,7 +53,14 @@ export default function PlanSplitter() {
     }
     setError(null);
     setBusy(true);
-    const r = await makePlan(prd, teamSize);
+    let r: Awaited<ReturnType<typeof makePlan>>;
+    try {
+      r = await makePlan(prd, teamSize);
+    } catch (err) {
+      setBusy(false);
+      setError((err as Error).message); // the route's own sentence, for example a PRD that is too long
+      return;
+    }
     setBusy(false);
     setResult(r);
     try {
