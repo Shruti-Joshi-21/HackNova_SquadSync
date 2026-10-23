@@ -123,6 +123,13 @@ Only this owner edits this file. Newest entry on top.
   shows a one-line message on non-repo pages), options.html/js (app URL and
   default deadline saved to chrome.storage.local), README.md with Edge/Chrome
   load-unpacked instructions. Tested: loads unpacked in Edge with no errors.
+  - C1: docs/METRICS.md. One block per indicator (what it measures, why it
+  matters, how it is computed, default threshold, why a normal difference is
+  not flagged): contribution share, review gap, late integration, open PR
+  age and size, branch drift, deadline projection, conflict radar (possible,
+  likely, certain), same-file and same-line overlap, direct push to main,
+  unpushed-work proxy. Plus "why not commit count" and "what we cannot see".
+  1,075 words, thresholds taken from ARCHITECTURE.md Default thresholds.
 
 ## In progress
 
