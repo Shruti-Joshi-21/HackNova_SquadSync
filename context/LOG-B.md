@@ -4,6 +4,44 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### B3: conflict radar and scenes (2026-10-24, Aarya's laptop, branch `aarya-branch`)
+
+New: `src/engine/radar.ts`, `src/engine/scenes.ts`. analyze() now merges rule
+risks and radar risks, keeps one per id, adds scenes to the late-merge and
+no-review risks, and sorts by severity then firstDetectableAt.
+`npx tsx src/engine/check.ts`, `npm run lint` and `npm run build` all pass.
+
+Radar rules (thresholds in `config.ts` under `radar`):
+- same_line_overlap (likely, high): two open branches change ranges of one
+  file that overlap or sit within 3 lines.
+- same_file_overlap (possible, low): same file, ranges apart.
+- pr_conflicting (certain, high): GitHub mergeable is "conflicting".
+- modify_delete_conflict (likely, high), add_add_conflict (likely, high).
+- lockfile_overlap (possible, low): action says regenerate, do not hand-merge.
+- branch_drift: medium above 10 behind, high above 25.
+- direct_push_to_main (medium): in the last 14 days while another branch was open.
+- stale_branch: branch with an open task, no push for 5 days (low) or 8 (medium).
+- unpushed_work (low, proxy): task in progress 5+ days with no branch or PR.
+  Rule text says we cannot see laptops. Skipped for design and docs roles.
+- firstDetectableAt: for overlaps, when the second branch first touched the file
+  (from commit file lists); drift, when the 11th main commit landed; others,
+  from the dates directly.
+
+Scenes follow `src/mocks/scenes.ts` (branch lanes first, main last, step 1 up,
+slots 0 to 10). Built from real data: branch names, owners (lane colour), line
+ranges, file names, PR numbers, days. Scenes exist for every radar kind and
+for `late_integration-share` and `review_gap-unreviewed`. Workload, deadline
+and old-PR risks have no scene. Lane labels drop "feature/" when over 22 chars.
+
+Risk ids are short and URL-safe: `same_line_overlap-routes-js-p1-p3`,
+`branch_drift-nex-132-settings`, `pr_conflicting-13`, `direct_push_to_main-57a05f4`.
+
+Nexus now: at_risk, 12 risks. High: apiClient.js modify/delete (B and C),
+routes.js lines 60-75 (A and C), 58% late merges. Then the B2 mediums, direct
+push, 14 behind, 3 unreviewed. Low: package-lock.json, email-receipts stale.
+Atlas: on_track, 0 risks. Zenith adds PR #13 conflicting (certain), two
+branches 11 behind, and "Push alerts" unpushed.
+
 ### B2: engine core (2026-10-23, Aarya's laptop, branch `aarya-branch`)
 
 `npx tsx src/engine/cli.ts nexus [asOf]` prints the Analysis as JSON.
@@ -89,14 +127,16 @@ Nothing.
 
 ## Next
 
-B3: conflict radar and scenes (see PROMPTS.md). Hook radar risks into
-`drafts()` in risks.ts or into analyze() in index.ts; sortRisks and verdict
-already handle any kind.
+B4: API routes `/api/teams` and `/api/analyze/[teamId]?asOf=`.
 
 ## Needs from others
 
-- Laptop A: when the scaffold lands, `@types/node` should be in devDependencies
-  (Next.js adds it by default) so `data/gen` type-checks under the project tsconfig.
+- Laptop A (Shruti): `package-lock.json` on main is out of sync with
+  package.json (`npm ci` fails: @emnapi packages missing). Please run
+  `npm install` on Laptop A and commit the lockfile. Vercel may hit the same error.
+  Laptop B ran `npm install` locally and reverted the lockfile, so it is not in this commit.
+- Laptop A: real scenes now come from `analyze()`. /dev/scenes and the team page
+  can use `risk.scene` instead of `src/mocks/scenes.ts` when the API is wired.
 
 ## Decisions
 
