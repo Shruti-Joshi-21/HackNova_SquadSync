@@ -437,6 +437,8 @@ export function verdict(list: Risk[]): { verdict: Verdict; verdictReason: string
 }
 
 export function notFlagged(c: Context, list: Risk[]): NotFlagged[] {
+  // Shares compare people with each other; with one person there is nothing to compare.
+  if (c.s.team.people.length < 2) return [];
   const flagged = new Set(list.filter((r) => r.kind === "workload_imbalance" || r.kind === "review_gap").flatMap((r) => r.people));
   const even = 1 / c.s.team.people.length;
   const [low, high] = shareBand(c.s.team.people.length);
