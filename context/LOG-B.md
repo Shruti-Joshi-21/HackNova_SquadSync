@@ -4,6 +4,13 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### Fix: "member C" in the verdict sentence (2026-10-24, reported by Laptop A)
+
+- With one medium risk the verdict reads "One thing to watch: <summary>" and
+  `lowerFirst()` lowercased "Member C". Now it lowercases only an ordinary first
+  word ("At", "A", "Three") and leaves "Member X", "PR #31", "GitHub" and
+  numbers alone. Checked on the Nexus replay for 18 Sep. All checks, lint, build pass.
+
 ### Landing page at "/" (2026-10-24, on Aarya's laptop, agreed with Shruti)
 
 Pages are Laptop A's area; built here at the team's request, Shruti agreed.
