@@ -82,10 +82,12 @@ export async function connectRepo(input: ConnectInput): Promise<ConnectResult> {
   } catch {
     return { ok: false, error: "Could not reach the server. Check the connection and try again." };
   }
-  if (res.status === 404 || res.status === 405) {
-    return { ok: false, error: "Live repos are not connected yet. The sample teams work now." };
-  }
   const body = await res.json().catch(() => null);
+  // The route answers with { error } (a 404 means the repo was not found).
+  // A 404 or 405 without JSON means the route itself is missing on this deploy.
+  if ((res.status === 404 || res.status === 405) && !body?.error) {
+    return { ok: false, error: "Live repos are not connected on this deploy. The sample teams still work." };
+  }
   if (!res.ok || !body?.analysis) {
     return { ok: false, error: body?.error ?? "Could not analyse this repo." };
   }

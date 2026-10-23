@@ -4,6 +4,20 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Fix after B5 merged (Sat 24 Oct, about 01:45): `connectRepo()` now shows the
+  route's own `{ error }` for every status, including 404 "Repository not
+  found". The "not connected" message is only for a 404 or 405 with no JSON,
+  which means the route is missing. The replay strip is hidden for pasted
+  repos (ids starting "gh-"), because only the sample teams support ?asOf=.
+  Checked: a missing repo shows B5's message, and pasting our own repo opens
+  /team/gh-shruti-joshi-21-hacknova-squadsync with 10 risks, which survives a reload.
+- A9 part 1 (Sat 24 Oct, about 01:30): checked /, /team/nexus, /plan and
+  /connect at 390px. No page scrolls sideways. Mentor list: below md it is
+  now stacked rows (name, verdict, risk count, reason, largest risk); the
+  table stays at md and up. Evidence drawer: focus goes back to the risk row
+  that opened it, and the close handler is stable so the focus effect runs
+  once. The /plan ownership table still scrolls inside its own box on phones,
+  on purpose (5 columns).
 - A6 (Sat 24 Oct, about 01:20): replay strip under the verdict
   (`src/components/team/ReplayStrip.tsx`). One segment per week from today's
   timeline, coloured by status (future weeks dashed). There is a tick and the
@@ -102,6 +116,20 @@ rehearsal.
   from a branch node to a main node reads as a merge.
 
 ## Needs from others
+
+Demo run on the live site (Sat 24 Oct, 01:40). Mentor list, Nexus page (loads
+in about 1 s), scenes in the drawer, Not flagged and replay all work. Open items:
+- B: on 18 Sept the Nexus sentence starts "One thing to watch: member C ..."
+  with a lowercase "member". It should be "Member C".
+- B: no team is "Slipping", but PROJECT.md's demo story step 1 expects one.
+  Either tune a team or change the script line (C, DEMO.md).
+- C (DEMO.md): the first warning on Nexus is 18 Sept, about 5 weeks before
+  "today", not "three weeks ago". On that day replay shows On track with
+  "member C gave no reviews", a good moment to say aloud.
+- B: B5 (aarya-branch) and B7 must be merged before demo steps 6 and 7
+  (/connect with a real repo, and an AI plan instead of the sample).
+- C: /embed is still the placeholder (C6), and extension/sidepanel.js must
+  point at https://hack-nova-squad-sync.vercel.app.
 
 - From B: the "When code landed" panel should list open PRs by age, but
   `Analysis` has no open PR list. For now it shows open-PR risks
