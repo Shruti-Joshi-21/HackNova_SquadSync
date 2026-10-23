@@ -1,5 +1,6 @@
-import type { Analysis, ISODate, RepoSnapshot, TeamListItem } from "@/lib/types";
+import type { Analysis, ISODate, ProjectPlan, RepoSnapshot, TeamListItem } from "@/lib/types";
 import { mockAnalyses, mockTeams } from "@/mocks/analyses";
+import { mockPlan } from "@/mocks/plan";
 
 // The single place pages get data from. Mock data until the API (B4) is live;
 // A5 flips this flag and fills in the fetch calls.
@@ -33,6 +34,24 @@ export interface ConnectInput {
 export type ConnectResult =
   | { ok: true; snapshot: RepoSnapshot; analysis: Analysis }
   | { ok: false; error: string };
+
+/**
+ * Split a PRD into a plan. Calls POST /api/plan (B7); while that route does not
+ * exist yet, returns the sample plan and says so in `note`.
+ */
+export async function makePlan(prd: string, teamSize: number): Promise<{ plan: ProjectPlan; note?: string }> {
+  try {
+    const res = await fetch("/api/plan", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prd, teamSize }),
+    });
+    if (res.ok) return { plan: (await res.json()) as ProjectPlan };
+  } catch {
+    // fall through to the sample plan
+  }
+  return { plan: mockPlan(teamSize), note: "The splitter API is not live yet, so this is a sample plan." };
+}
 
 /** Analyse a live GitHub repo. Calls POST /api/analyze/github once B5 exists (A5). */
 export async function connectRepo(input: ConnectInput): Promise<ConnectResult> {
