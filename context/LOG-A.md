@@ -4,6 +4,16 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- A4 (Sat 24 Oct, about 00:15): mentor list `/` is one table (team, verdict,
+  reason, risk count, largest risk), sorted at risk, then slipping, then on
+  track, then by risk count; each row links to `/team/[id]`. The top bar now
+  takes `teams` from the (shell) layout: the team switcher is a native select
+  that navigates, and Mentor / Team are links that follow the URL. `/connect`
+  (`src/components/ConnectForm.tsx`): repo (owner/name or any github.com URL),
+  deadline (date), optional CSV (file name shown), inline validation, primary
+  "Analyse". It calls `connectRepo()` in `src/lib/data.ts`, which returns an
+  error for now. data.ts also exports `parseRepo()` and the `ConnectInput` /
+  `ConnectResult` types. C6 (embed) can use both.
 - A3 (Fri 23 Oct, about 23:55): team page `/team/[id]`. Data comes from
   `getAnalysis(id)` / `getTeams()` in `src/lib/data.ts` (`USE_MOCKS = true`).
   Mocks: `src/mocks/analyses/*.json` are REAL output of B2's engine
@@ -46,7 +56,7 @@ Nothing yet.
 
 ## Next
 
-A4: mentor list `/` (uses `getTeams()`) and `/connect`.
+A5: swap mocks for the API once B4 (`/api/teams`, `/api/analyze/[teamId]`) is merged.
 
 ## Notes for B (scenes)
 

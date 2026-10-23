@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { TriangleDownIcon } from "@primer/octicons-react";
+import { usePathname, useRouter } from "next/navigation";
+import type { TeamListItem } from "@/lib/types";
 
-type View = "mentor" | "team";
-
-export default function TopBar() {
-  const [view, setView] = useState<View>("mentor");
+// Wordmark, team switcher and the Mentor / Team toggle. The toggle follows the
+// URL: "/" is the mentor view, "/team/[id]" is the team view.
+export default function TopBar({ teams }: { teams: TeamListItem[] }) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const currentTeam = pathname.match(/^\/team\/([^/]+)/)?.[1] ?? "";
+  const view = currentTeam ? "team" : "mentor";
+  const teamHref = `/team/${currentTeam || teams[0]?.id || ""}`;
 
   return (
     <header className="h-12 border-b border-border bg-bg">
@@ -16,30 +20,39 @@ export default function TopBar() {
           SquadSync
         </Link>
 
-        {/* Team switcher: placeholder until teams come from data */}
-        <button
-          type="button"
-          className="flex h-8 items-center gap-1 whitespace-nowrap rounded-md border border-border px-3 text-muted hover:bg-surface-2"
+        <label className="sr-only" htmlFor="team-switcher">
+          Team
+        </label>
+        <select
+          id="team-switcher"
+          value={currentTeam}
+          onChange={(e) => e.target.value && router.push(`/team/${e.target.value}`)}
+          className="h-8 rounded-md border border-border bg-bg px-2 text-muted hover:bg-surface-2"
         >
-          Select team
-          <TriangleDownIcon size={16} />
-        </button>
-
-        <div className="ml-auto flex h-8 rounded-md border border-border" role="group" aria-label="View">
-          {(["mentor", "team"] as const).map((v) => (
-            <button
-              key={v}
-              type="button"
-              aria-pressed={view === v}
-              onClick={() => setView(v)}
-              className={`px-3 first:rounded-l-md last:rounded-r-md ${
-                view === v ? "bg-surface-2 text-text" : "text-muted hover:text-text"
-              }`}
-            >
-              {v === "mentor" ? "Mentor" : "Team"}
-            </button>
+          <option value="">Select team</option>
+          {teams.map((t) => (
+            <option key={t.id} value={t.id}>
+              {t.name}
+            </option>
           ))}
-        </div>
+        </select>
+
+        <nav className="ml-auto flex h-8 rounded-md border border-border" aria-label="View">
+          <Link
+            href="/"
+            aria-current={view === "mentor" ? "page" : undefined}
+            className={`flex items-center rounded-l-md px-3 ${view === "mentor" ? "bg-surface-2 text-text" : "text-muted hover:text-text"}`}
+          >
+            Mentor
+          </Link>
+          <Link
+            href={teamHref}
+            aria-current={view === "team" ? "page" : undefined}
+            className={`flex items-center rounded-r-md px-3 ${view === "team" ? "bg-surface-2 text-text" : "text-muted hover:text-text"}`}
+          >
+            Team
+          </Link>
+        </nav>
       </div>
     </header>
   );
