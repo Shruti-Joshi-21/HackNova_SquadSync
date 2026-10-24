@@ -4,6 +4,31 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### /plan redesigned as one visual screen (2026-10-24, Laptop A's area)
+
+- /plan moved to a new `(wide)` route group (`src/app/(wide)/layout.tsx`, same
+  TopBar and Back button, up to 1800px wide). TopBar takes `wide`. URL unchanged.
+- `src/components/plan/PlanBoard.tsx` replaces the old table and lists: a "Who
+  owns what" team map (one row per person in their graph colour, a bar for
+  their share of tasks with an even-share mark, module tiles with folders),
+  the merge-order GitGraph, shared files and "agree these first" as chips, and
+  a detail panel for the clicked module (owner, folders, needs first, others
+  waiting, tasks, agreements). The 5 code checks are a dot strip in the header.
+- PlanSplitter: form on the left, textarea fills the column.
+- Empty state: no boxes, only a merge icon and one line, "Paste a PRD first,
+  choose the team size, then press Split the work." The four boxes appear after
+  Split the work and go away again on Clear all. "Try an
+  example" (next to the PRD label) fills the box with the demo PRD
+  (`example.ts`). Clear all and "refresh starts empty" still work.
+- Panels grow with their content: no scrollbar inside any panel. The page is
+  at least one screen tall and scrolls once, as a whole, only when a plan is
+  bigger (1900x910: 2 and 4 people fit, 6 people scroll 238px; at about 110%
+  zoom, 4 people scroll 77px).
+- `globals.css` (Laptop A's file): `html { color-scheme: dark; scrollbar-color }`
+  so scrollbars and form controls are dark on every page.
+- Checked at 1900x910 (no page scroll, real AI plan fits), 1366x680 (92px page
+  scroll, panels scroll inside), 375x812 (stacked, no sideways scroll). Lint, build pass.
+
 ### Landing: "15 risk rules" overview, dev badge off (2026-10-24)
 
 - The first stat on the landing page is now a button (same look, hover
