@@ -171,7 +171,9 @@ export function schedule(s: RepoSnapshot): Schedule {
   );
   const perDay = recent / CONFIG.deadline.paceDays;
   const left = tasksTotal - tasksDone;
-  const finish = left === 0 ? asOf : perDay > 0 ? asOf + (left / perDay) * DAY : null;
+  // A pace needs a full pace window of history; a younger project gets no projection.
+  const enoughHistory = asOf - start >= CONFIG.deadline.paceDays * DAY;
+  const finish = left === 0 ? asOf : perDay > 0 && enoughHistory ? asOf + (left / perDay) * DAY : null;
   return {
     daysTotal: Math.ceil((deadline - start) / DAY),
     daysUsed: Math.max(0, Math.floor((asOf - start) / DAY)),

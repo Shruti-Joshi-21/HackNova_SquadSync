@@ -4,6 +4,73 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Visual evidence drawer (Sat 24 Oct, about 09:55 IST):
+  - `team/RiskDetail.tsx`: one risk body shared by the drawer and /embed:
+    sentence (+ AI tag), a picture, a "Do this" box with the numbered steps,
+    then a native details "Show the rule and the numbers" with the plain
+    meaning, the rule, the evidence table with its source, and how serious
+    and how sure. The long text sections are no longer open by default.
+  - Box rows (`team/boxSpec.ts` config by RiskKind, `team/BoxRows.tsx`):
+    one 26px square per unit against a fair share. workload_imbalance:
+    finished tasks per person (total from the "Finished tasks" evidence),
+    extra squares amber. review_gap for one person: reviews given per person
+    from the review matrix, the person's empty slots dashed red and pulsing
+    twice. late_integration-share: merged PRs per week, the last week's extra
+    squares amber. Neutral letter avatars, no per-person colours. Legend
+    under the rows. Pop-in 70ms apart, reduced motion respected
+    (`src/styles/boxrows.css`).
+  - All other kinds keep their branch picture (engine scene or
+    fallbackScene). "Do this" keeps the full action sentence instead of
+    cutting it to 8 words, since a cut sentence loses its meaning.
+  - Checked: all 12 Nexus risks open with a picture, "Do this" and details.
+
+- Every risk has a picture (Sat 24 Oct, about 09:35 IST):
+  `team/fallbackScene.ts` `sceneFor(risk, a)` returns the engine's scene, or
+  for kinds the engine draws none for, builds one from the risk's own numbers:
+  deadline_slip (done to today, dashed work past the deadline, red finish
+  date), workload_imbalance (one lane per person, dots follow the combined
+  share, flagged person amber), review_gap for one person (teammates' work
+  merging into main, "no review by C"), late_integration open PR (the PR lane
+  growing, dashed to "not merged"). Used in the drawer and /embed. Checked:
+  all 12 Nexus risks open with a picture.
+
+- Overview picture, correct dates, less text (Sat 24 Oct, about 09:15 IST):
+  - Hero now shows an overview scene (`team/overview.ts`), built only from the
+    risks' own scenes: one lane per branch any risk involves (max 5, worst
+    first), each ending in its worst problem (red high, amber medium, short
+    label), all running into main at "N days left" (red at risk, amber
+    slipping, green on track); a direct push shows as "no PR" on main. Each
+    risk still has its own picture in the drawer. Same overview in /embed.
+  - "What this does not mean" removed from the drawer and /embed.
+  - Wrong dates on new repos, fixed at the source (B paths, edited at
+    Shruti's request):
+    - `src/lib/github/ingest.ts`: projectStart is now the first real activity
+      (earliest of repo creation, oldest commit, oldest PR in the window), not
+      56 days before the latest commit. Our repo now starts 23 Oct, not 56
+      days back. If the commit list hit its cap, the window start stays.
+    - `src/engine/indicators.ts`: no projected finish until the project has 7
+      days of history.
+    - `src/engine/risks.ts`: no deadline_slip risk before 7 days of history.
+    - Hero text says so plainly: "Too early to project a finish date",
+      or "No tasks found" when the repo has no tasks.
+  - Checks: engine and plan checks pass, tsc passes, lint passes. `npm run
+    build` could not run here because a `next dev` on port 3000 locks .next.
+
+- Proactive steps and hero picture (Sat 24 Oct, about 06:45 IST):
+  - `team/Steps.tsx`: vertical numbered steps joined by a line.
+  - "What to do" (drawer and side panel) is now steps: step 1 is the risk's
+    own action from the engine, then two follow-ups per kind (`NEXT_STEPS`
+    in explain.ts), ending with how to check it worked.
+  - "Do these this week" (`team/ThisWeek.tsx`), first in the data area of the
+    team page and in the side panel: the three most serious non-low risks'
+    actions, each with "Prevents ..." (`PREVENTS` in explain.ts). Clashes
+    that are possible or likely are tagged "Before it happens". No new
+    predictions: every step comes from a risk the engine found.
+  - Hero: the verdict block now shows the branch picture of the biggest risk
+    that has one, with its severity and title; the schedule moves under the
+    verdict. Without a scene, the old layout stays. Same picture in the side
+    panel under the verdict.
+
 - Side panel links (Sat 24 Oct, about 06:20 IST): every link in /embed is
   now a plain `<a target="_blank">`, so it opens a new browser tab instead of
   loading the app inside the panel. New link "Split a PRD into a plan" to

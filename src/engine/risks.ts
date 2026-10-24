@@ -344,10 +344,11 @@ function deadline(c: Context): Draft[] {
   const sc = c.schedule;
   const left = sc.tasksTotal - sc.tasksDone;
   if (left === 0) return [];
+  // "The last 7 days" means nothing for a project younger than 7 days.
+  if (sc.daysUsed < CONFIG.deadline.paceDays) return [];
   const recent = doneTasks(c.s).filter((t) => t.doneAt && ms(t.doneAt) > ms(c.s.asOf) - CONFIG.deadline.paceDays * DAY).length;
 
   if (sc.projectedFinish === null) {
-    if (sc.daysUsed < CONFIG.deadline.paceDays) return [];
     return [{
       id: "deadline_slip",
       kind: "deadline_slip",
