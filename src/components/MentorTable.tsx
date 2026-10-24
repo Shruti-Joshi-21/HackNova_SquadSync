@@ -98,7 +98,7 @@ export default function MentorTable() {
       <div className="mt-6 hidden md:block">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="border-b border-border text-left text-[11px] uppercase text-subtle">
+            <tr className="border-b border-border text-left text-xs uppercase text-subtle">
               <th className="py-2 pr-4 font-normal">Team</th>
               <th className="py-2 pr-4 font-normal">Verdict</th>
               <th className="py-2 pr-4 font-normal">Reason</th>

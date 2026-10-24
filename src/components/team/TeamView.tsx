@@ -107,20 +107,20 @@ export default function TeamView({ id }: { id: string }) {
   // Replay needs ?asOf= on GET /api/analyze/[id], which only the sample teams have.
   // Pasted repos get ids starting "gh-" from B5's ingest.
   const canReplay = !id.startsWith("gh-");
-  const replayReady = marker !== null && replay?.day === marker && replay.a;
   const replayPending = marker !== null && replay?.day !== marker;
-  const a = replayReady ? replay.a! : latest;
+  // While the next day loads, keep showing the last day that loaded (dimmed),
+  // so the page never jumps back to today and then forward again.
+  const a = marker !== null && replay?.a ? replay.a : latest;
   const weeks = a.timeline.length;
   const week = Math.min(weeks, Math.floor(a.schedule.daysUsed / 7) + 1);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       <header className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <h1 className="text-xl font-semibold">{a.team.name}</h1>
+        <h1 className="text-2xl font-semibold">{a.team.name}</h1>
         <span className="text-muted">
-          Week {week} of {weeks}
+          Week {week} of {weeks} · {a.schedule.daysLeft} days left
         </span>
-        <span className="text-muted">{a.schedule.daysLeft} days left</span>
 
         <div className="ml-auto flex items-center gap-3 text-xs text-muted">
           <span aria-live="polite">
@@ -143,11 +143,14 @@ export default function TeamView({ id }: { id: string }) {
 
       <TeamBody
         a={a}
+        dim={replayPending}
         replay={
           canReplay && (
           <div>
             <ReplayStrip latest={latest} value={marker} onChange={setMarker} />
-            {replayPending && <p className="text-xs text-muted">Loading that day.</p>}
+            <p className="h-5 text-xs text-muted" aria-live="polite">
+              {replayPending ? "Loading that day" : ""}
+            </p>
             {marker !== null && replay?.day === marker && replay.error && (
               <p className="text-xs text-danger">{replay.error}</p>
             )}

@@ -7,9 +7,13 @@ import GitGraph from "@/components/GitGraph";
 import { CONFIDENCE_WORD, SEVERITY, Tag } from "@/components/ui";
 import { CONFIDENCE_MEANS, EXPLAIN, SEVERITY_MEANS } from "./explain";
 
+const FIRST = 5; // the rest sit behind "Show all", so the page is not a wall of text
+
 // Risks list. Clicking a row opens the evidence drawer from the right.
 export default function Risks({ a }: { a: Analysis }) {
   const [openId, setOpenId] = useState<string | null>(null);
+  const [all, setAll] = useState(false);
+  const shown = all ? a.risks : a.risks.slice(0, FIRST);
   const close = useCallback(() => setOpenId(null), []); // stable, so the drawer's focus effect runs once
   const open = a.risks.find((r) => r.id === openId) ?? null;
   const names = new Map(a.team.people.map((p) => [p.id, p.displayName]));
@@ -17,17 +21,20 @@ export default function Risks({ a }: { a: Analysis }) {
 
   return (
     <section>
-      <h2 className="font-semibold">Risks</h2>
+      <h2 className="text-lg font-semibold">
+        Risks <span className="font-normal text-muted">{a.risks.length}</span>
+      </h2>
+      <p className="mt-1 text-muted">Most serious first. Open one to see the proof.</p>
       {a.risks.length === 0 ? (
-        <p className="mt-2 text-muted">No risks found. The team&apos;s numbers are inside the usual ranges.</p>
+        <p className="mt-3 text-muted">No risks found. The team&apos;s numbers are inside the usual ranges.</p>
       ) : (
-        <ul className="mt-2 divide-y divide-border border-y border-border">
-          {a.risks.map((r) => (
+        <ul className="mt-3 divide-y divide-border border-y border-border">
+          {shown.map((r) => (
             <li key={r.id}>
               <button
                 type="button"
                 onClick={() => setOpenId(r.id)}
-                className="flex w-full flex-wrap items-start gap-x-3 gap-y-1 px-2 py-3 text-left transition-colors duration-150 hover:bg-surface-2"
+                className="flex w-full flex-wrap items-start gap-x-4 gap-y-1 px-2 py-4 text-left transition-colors duration-150 hover:bg-surface-2"
               >
                 <span className="flex w-36 shrink-0 gap-1">
                   <Tag tone={SEVERITY[r.severity].tone}>{SEVERITY[r.severity].word}</Tag>
@@ -41,6 +48,15 @@ export default function Risks({ a }: { a: Analysis }) {
             </li>
           ))}
         </ul>
+      )}
+      {a.risks.length > FIRST && (
+        <button
+          type="button"
+          onClick={() => setAll((x) => !x)}
+          className="mt-3 h-9 rounded-md border border-border px-3 hover:bg-surface-2"
+        >
+          {all ? "Show fewer" : `Show all ${a.risks.length} risks`}
+        </button>
       )}
 
       {open && <EvidenceDrawer risk={open} names={names} colors={colors} onClose={close} />}

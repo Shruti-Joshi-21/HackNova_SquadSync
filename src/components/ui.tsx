@@ -4,16 +4,19 @@ import type { Confidence, Severity, Verdict } from "@/lib/types";
 
 export type Tone = "success" | "danger" | "warning" | "neutral";
 
+// Status shows in the text colour only: a plain border, no tinted background.
 const TONE_CLASS: Record<Tone, string> = {
-  success: "bg-success-bg text-success",
-  danger: "bg-danger-bg text-danger",
-  warning: "bg-warning-bg text-warning",
-  neutral: "border border-border text-muted",
+  success: "text-success",
+  danger: "text-danger",
+  warning: "text-warning",
+  neutral: "text-muted",
 };
 
 export function Tag({ tone, children }: { tone: Tone; children: React.ReactNode }) {
   return (
-    <span className={`inline-flex h-5 items-center rounded px-1.5 text-xs whitespace-nowrap ${TONE_CLASS[tone]}`}>
+    <span
+      className={`inline-flex h-5 items-center rounded border border-border px-1.5 text-xs whitespace-nowrap ${TONE_CLASS[tone]}`}
+    >
       {children}
     </span>
   );
@@ -40,8 +43,8 @@ export const VERDICT: Record<Verdict, { word: string; text: string }> = {
 export function Panel({ title, children, className = "" }: { title: string; children: React.ReactNode; className?: string }) {
   return (
     <section className={`rounded-md border border-border bg-surface ${className}`}>
-      <h2 className="border-b border-border px-4 py-2 font-semibold">{title}</h2>
-      <div className="p-4">{children}</div>
+      <h2 className="border-b border-border px-5 py-3 font-semibold">{title}</h2>
+      <div className="p-5">{children}</div>
     </section>
   );
 }

@@ -4,6 +4,40 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Quieter tags and smoother replay (Sat 24 Oct, about 06:45):
+  - `Tag` in ui.tsx: status shows as coloured text with a plain grey border,
+    no tinted background (was a tinted fill). Applies to severity, verdict
+    reasons, "No reviews", "Outside usual range" and the plan page.
+  - Replay: while the next day loads, the page keeps the last loaded day,
+    faded to 60%, instead of jumping back to today and forward again. The
+    slider itself never fades. "Loading that day" has a fixed-height line so
+    nothing shifts. Checked: moving back 5 weeks goes At risk, then On track,
+    with no flash of today in between.
+- For C (embed): /embed has its own tag styles (`bg-danger-bg` and so on in
+  src/app/embed/page.tsx), so the side panel still shows filled tags. To
+  match the app, use coloured text with `border border-border` and no
+  background. The 15px text and 13px small text from globals.css do reach the
+  side panel.
+
+- Layout and type pass, asked for by Shruti (Sat 24 Oct, about 06:30):
+  - Wider pages: content and top bar go up to 1440px with 40px gutters on
+    large screens (was 1200px, 24px).
+  - Larger type: body 15px (was 14px); small text 13px (Tailwind text-xs
+    redefined in globals.css); the 11px labels now use text-xs.
+  - Team page: verdict and schedule sit in one bordered block (7/5 columns),
+    the panels are 1 column on phones, 2 on tablets and small laptops (the
+    timeline spans the full width) and 3 from 1280px. More spacing
+    throughout. Shorter captions on all three panels. Risks show the first 5
+    with "Show all 12 risks". The "first warning" label sits under the week
+    labels so they no longer overlap.
+  - /connect is one centred card ("Check a repo"), full-width inputs and
+    button, shorter help text. There is an empty background layer
+    (`data-bg="connect"`) ready for the landing page's animation.
+  - Checked at 1024px and 390px: no sideways scroll, card centred.
+- DESIGN CHANGE (not a contract change): DESIGN.md says 1200px max width and
+  14px base. This pass uses 1440px and 15px at Shruti's request. DESIGN.md
+  should be updated to match.
+
 - Task board sample and plain-English evidence (Sat 24 Oct, about 06:10):
   - `public/sample-tasks.csv`: 19 tasks from our real board for
     Shruti-Joshi-21/HackNova_SquadSync, with real names. /connect links to it

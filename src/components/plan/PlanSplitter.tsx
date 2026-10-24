@@ -152,7 +152,7 @@ function PlanView({ plan, note }: { plan: ProjectPlan; note?: string }) {
         <div className="mt-2 overflow-x-auto">
           <table className="w-full min-w-[640px] border-collapse text-left">
             <thead>
-              <tr className="border-b border-border text-[11px] uppercase text-subtle">
+              <tr className="border-b border-border text-xs uppercase text-subtle">
                 <th className="py-2 pr-4 font-normal">Module</th>
                 <th className="py-2 pr-4 font-normal">Owner</th>
                 <th className="py-2 pr-4 font-normal">Folders</th>
