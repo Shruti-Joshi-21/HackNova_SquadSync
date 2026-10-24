@@ -4,6 +4,13 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Side panel links (Sat 24 Oct, about 06:20 IST): every link in /embed is
+  now a plain `<a target="_blank">`, so it opens a new browser tab instead of
+  loading the app inside the panel. New link "Split a PRD into a plan" to
+  /plan. "Open the full dashboard" goes to `/connect?repo=owner/name`, and
+  ConnectForm fills the repo from `?repo=` (the connect page wraps the form in
+  Suspense for useSearchParams). Checked: the repo is pre-filled.
+
 - Side panel matches the web app (Sat 24 Oct, about 06:55). Edited
   `src/app/embed/page.tsx` (Samiksha's path) at Shruti's request, so both
   views stay the same. It now uses `Tag`, `SEVERITY`, `CONFIDENCE_WORD` and

@@ -2,7 +2,6 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
 import { ChevronDownIcon, ChevronUpIcon } from "@primer/octicons-react";
 import GitGraph from "@/components/GitGraph";
 import { CONFIDENCE_WORD, SEVERITY, Tag, VERDICT } from "@/components/ui";
@@ -137,9 +136,7 @@ function EmbedContent() {
     return (
       <div className="space-y-2">
         <p className="text-muted">{fetchState.message}</p>
-        <Link href="/mentor" target="_blank" className="text-link hover:underline">
-          Open the sample teams
-        </Link>
+        <NewTab href="/mentor">Open the sample teams</NewTab>
       </div>
     );
   }
@@ -171,10 +168,21 @@ function EmbedContent() {
         )}
       </div>
 
-      <Link href="/connect" target="_blank" className="text-link hover:underline">
-        Open the full dashboard
-      </Link>
+      <div className="flex flex-col gap-2 border-t border-border pt-4">
+        <NewTab href={`/connect?repo=${encodeURIComponent(parsedRepo)}`}>Open the full dashboard</NewTab>
+        <NewTab href="/plan">Split a PRD into a plan</NewTab>
+      </div>
     </div>
+  );
+}
+
+// The side panel is an iframe beside GitHub. A plain link would load the app
+// inside the panel, so every link out opens a new browser tab instead.
+function NewTab({ href, children }: { href: string; children: string }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-link hover:underline">
+      {children}
+    </a>
   );
 }
 
