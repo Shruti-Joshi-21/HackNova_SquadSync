@@ -5,20 +5,18 @@ import { useSearchParams } from "next/navigation";
 import { ChevronDownIcon, ChevronUpIcon } from "@primer/octicons-react";
 import GitGraph from "@/components/GitGraph";
 import { CONFIDENCE_WORD, SEVERITY, Tag, VERDICT } from "@/components/ui";
-import { EXPLAIN, NEXT_STEPS } from "@/components/team/explain";
+import RiskDetail from "@/components/team/RiskDetail";
 import Steps from "@/components/team/Steps";
 import { thisWeekSteps } from "@/components/team/ThisWeek";
 import { overviewScene } from "@/components/team/overview";
-import { sceneFor } from "@/components/team/fallbackScene";
 import { connectRepo, parseRepo } from "@/lib/data";
 import type { Analysis, Risk } from "@/lib/types";
 
 // Tags, verdict words and the plain-English notes come from the same files as
 // the web app's team page, so the side panel always matches it.
 
-function RiskRow({ risk, colorByPerson }: { risk: Risk; colorByPerson: Record<string, number> }) {
+function RiskRow({ risk, a }: { risk: Risk; a: Analysis }) {
   const [open, setOpen] = useState(false);
-  const why = EXPLAIN[risk.kind];
   return (
     <div className="border-b border-border py-3">
       <button
@@ -40,43 +38,8 @@ function RiskRow({ risk, colorByPerson }: { risk: Risk; colorByPerson: Record<st
       </button>
 
       {open && (
-        <div className="mt-3 space-y-4 pl-1">
-          <div>
-            <p>{risk.summary}</p>
-            {risk.summarySource === "ai" && (
-              <p className="mt-1">
-                <Tag tone="neutral">written by AI from these numbers</Tag>
-              </p>
-            )}
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold">In plain words</p>
-            <p className="mt-0.5">{why.meaning}</p>
-          </div>
-
-          {risk.scene && (
-            <div className="overflow-x-auto">
-              <GitGraph scene={risk.scene} colorByPerson={colorByPerson} />
-            </div>
-          )}
-
-          <div>
-            <p className="text-xs font-semibold">The evidence</p>
-            <dl className="mt-1 divide-y divide-border border-y border-border text-xs">
-              {risk.evidence.map((e, i) => (
-                <div key={i} className="flex justify-between gap-3 py-1.5">
-                  <dt className="text-muted">{e.label}</dt>
-                  <dd className="text-right font-mono">{e.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold">What to do</p>
-            <Steps steps={[risk.action, ...NEXT_STEPS[risk.kind]].map((text) => ({ text }))} />
-          </div>
+        <div className="mt-3 pl-1">
+          <RiskDetail risk={risk} a={a} />
         </div>
       )}
     </div>
@@ -184,7 +147,7 @@ function EmbedContent() {
         ) : (
           <div>
             {topRisks.map((risk) => (
-              <RiskRow key={risk.id} risk={{ ...risk, scene: sceneFor(risk, analysis) }} colorByPerson={colorByPerson} />
+              <RiskRow key={risk.id} risk={risk} a={analysis} />
             ))}
           </div>
         )}

@@ -4,6 +4,26 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Visual evidence drawer (Sat 24 Oct, about 09:55 IST):
+  - `team/RiskDetail.tsx`: one risk body shared by the drawer and /embed:
+    sentence (+ AI tag), a picture, a "Do this" box with the numbered steps,
+    then a native details "Show the rule and the numbers" with the plain
+    meaning, the rule, the evidence table with its source, and how serious
+    and how sure. The long text sections are no longer open by default.
+  - Box rows (`team/boxSpec.ts` config by RiskKind, `team/BoxRows.tsx`):
+    one 26px square per unit against a fair share. workload_imbalance:
+    finished tasks per person (total from the "Finished tasks" evidence),
+    extra squares amber. review_gap for one person: reviews given per person
+    from the review matrix, the person's empty slots dashed red and pulsing
+    twice. late_integration-share: merged PRs per week, the last week's extra
+    squares amber. Neutral letter avatars, no per-person colours. Legend
+    under the rows. Pop-in 70ms apart, reduced motion respected
+    (`src/styles/boxrows.css`).
+  - All other kinds keep their branch picture (engine scene or
+    fallbackScene). "Do this" keeps the full action sentence instead of
+    cutting it to 8 words, since a cut sentence loses its meaning.
+  - Checked: all 12 Nexus risks open with a picture, "Do this" and details.
+
 - Every risk has a picture (Sat 24 Oct, about 09:35 IST):
   `team/fallbackScene.ts` `sceneFor(risk, a)` returns the engine's scene, or
   for kinds the engine draws none for, builds one from the risk's own numbers:
