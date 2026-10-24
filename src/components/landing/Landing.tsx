@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import Link from "next/link";
+import { useTrail } from "@/components/BackButton";
 import "./landing.css";
 
 // Class names: plain CSS with an ssl- prefix. (next.config sends every .css file
@@ -66,6 +67,7 @@ const delay = (d: string) => ({ "--d": d }) as CSSProperties;
 export default function Landing() {
   const root = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  useTrail("/"); // so Back on the next page returns here
 
   // Each animated element settles into .isIn when its own animation ends.
   // If animations never start (blocked or unsupported), show everything at once.
