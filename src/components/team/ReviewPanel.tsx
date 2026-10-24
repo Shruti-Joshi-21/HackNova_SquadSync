@@ -13,22 +13,23 @@ export default function ReviewPanel({ a }: { a: Analysis }) {
 
   return (
     <Panel title="Who checked whose work">
-      <table className="w-full text-xs">
+      <p className="mb-5 text-xs text-muted">Each row read the code of each column. Darker means more reviews.</p>
+      <table className="w-full">
         <thead>
           <tr>
-            <th className="pb-2 text-left font-normal text-subtle">Reviewer / author</th>
+            <th className="pb-2 text-left text-xs font-normal text-subtle">Reviewer</th>
             {people.map((c) => (
               <th key={c.id} className="pb-2 text-center font-normal text-muted">
                 {c.displayName.replace("Member ", "")}
               </th>
             ))}
-            <th className="pb-2 text-right font-normal text-subtle">Total</th>
+            <th className="pb-2 text-right text-xs font-normal text-subtle">Total</th>
           </tr>
         </thead>
         <tbody>
           {people.map((r) => (
             <tr key={r.id} className="border-t border-border">
-              <td className="py-1.5 pr-2 whitespace-nowrap">{r.displayName}</td>
+              <td className="py-2 pr-2 whitespace-nowrap">{r.displayName}</td>
               {people.map((c) => {
                 const n = m[r.id]?.[c.id] ?? 0;
                 const self = r.id === c.id;
@@ -55,7 +56,7 @@ export default function ReviewPanel({ a }: { a: Analysis }) {
         </tbody>
       </table>
 
-      <dl className="mt-4 space-y-1 text-xs">
+      <dl className="mt-5 space-y-1.5 text-xs">
         <div className="flex justify-between">
           <dt className="text-muted">Merged without review</dt>
           <dd className="font-mono">

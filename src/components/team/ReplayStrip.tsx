@@ -67,7 +67,7 @@ export default function ReplayStrip({ latest, value, onChange }: Props) {
         )}
       </div>
 
-      <div className="relative mt-3 pb-6">
+      <div className="relative mt-3 pb-11">
         <div
           ref={trackRef}
           className="relative h-6 cursor-pointer touch-none select-none"
@@ -120,7 +120,7 @@ export default function ReplayStrip({ latest, value, onChange }: Props) {
         </div>
 
         {/* Labels under the strip */}
-        <div className="absolute inset-x-0 bottom-0 h-5 text-[11px]">
+        <div className="absolute inset-x-0 bottom-0 h-10 text-xs">
           {weeks.map((w, i) =>
             weekStart(i) < end ? (
               <span
@@ -134,7 +134,7 @@ export default function ReplayStrip({ latest, value, onChange }: Props) {
           )}
           {firstWarning !== null && (
             <span
-              className="absolute -translate-x-1/2 bg-bg px-1 whitespace-nowrap text-text"
+              className="absolute top-5 -translate-x-1/2 whitespace-nowrap text-text"
               style={{ left: at(firstWarning) }}
             >
               first warning, {shortDate(new Date(firstWarning).toISOString())}

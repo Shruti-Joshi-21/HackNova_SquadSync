@@ -4,6 +4,66 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Side panel matches the web app (Sat 24 Oct, about 06:55). Edited
+  `src/app/embed/page.tsx` (Samiksha's path) at Shruti's request, so both
+  views stay the same. It now uses `Tag`, `SEVERITY`, `CONFIDENCE_WORD` and
+  `VERDICT` from ui.tsx and `EXPLAIN` from team/explain.ts instead of its own
+  copies. An open risk shows the summary, "In plain words", the scene, the
+  evidence table, "What this does not mean" and "What to do". Body text is
+  the app's 15px. Links open in a new tab, since the panel is an iframe on
+  github.com. Checked at 400px on our repo: no sideways scroll.
+- For C: please pull before touching src/app/embed/page.tsx again.
+
+- Quieter tags and smoother replay (Sat 24 Oct, about 06:45):
+  - `Tag` in ui.tsx: status shows as coloured text with a plain grey border,
+    no tinted background (was a tinted fill). Applies to severity, verdict
+    reasons, "No reviews", "Outside usual range" and the plan page.
+  - Replay: while the next day loads, the page keeps the last loaded day,
+    faded to 60%, instead of jumping back to today and forward again. The
+    slider itself never fades. "Loading that day" has a fixed-height line so
+    nothing shifts. Checked: moving back 5 weeks goes At risk, then On track,
+    with no flash of today in between.
+- For C (embed): /embed has its own tag styles (`bg-danger-bg` and so on in
+  src/app/embed/page.tsx), so the side panel still shows filled tags. To
+  match the app, use coloured text with `border border-border` and no
+  background. The 15px text and 13px small text from globals.css do reach the
+  side panel.
+
+- Layout and type pass, asked for by Shruti (Sat 24 Oct, about 06:30):
+  - Wider pages: content and top bar go up to 1440px with 40px gutters on
+    large screens (was 1200px, 24px).
+  - Larger type: body 15px (was 14px); small text 13px (Tailwind text-xs
+    redefined in globals.css); the 11px labels now use text-xs.
+  - Team page: verdict and schedule sit in one bordered block (7/5 columns),
+    the panels are 1 column on phones, 2 on tablets and small laptops (the
+    timeline spans the full width) and 3 from 1280px. More spacing
+    throughout. Shorter captions on all three panels. Risks show the first 5
+    with "Show all 12 risks". The "first warning" label sits under the week
+    labels so they no longer overlap.
+  - /connect is one centred card ("Check a repo"), full-width inputs and
+    button, shorter help text. There is an empty background layer
+    (`data-bg="connect"`) ready for the landing page's animation.
+  - Checked at 1024px and 390px: no sideways scroll, card centred.
+- DESIGN CHANGE (not a contract change): DESIGN.md says 1200px max width and
+  14px base. This pass uses 1440px and 15px at Shruti's request. DESIGN.md
+  should be updated to match.
+
+- Task board sample and plain-English evidence (Sat 24 Oct, about 06:10):
+  - `public/sample-tasks.csv`: 19 tasks from our real board for
+    Shruti-Joshi-21/HackNova_SquadSync, with real names. /connect links to it
+    ("Download a sample CSV") and lists the expected columns. Tested on the
+    live API: 19 tasks read, all three names matched to logins, no warnings.
+  - Evidence drawer now explains each risk for someone who has never used
+    Git (`src/components/team/explain.ts`, one entry per RiskKind): "In plain
+    words", "Why it matters", "The rule we used" (the engine's rule), "The
+    evidence" with "Where this comes from", "How serious and how sure" (what
+    High / Medium / Low and Certain / Likely / Possible mean), "What this does
+    not mean" (normal differences, so a flag is not read as blame), and "What
+    to do". Evidence values link to GitHub when the risk carries a URL.
+  - "Who checked whose work" has a one-line guide to reading the heatmap.
+- For C (DEMO.md): new optional step on /connect: download the sample CSV, upload it
+  with our repo, open the team page.
+
 - Fixes after B7, B8 and C merged (Sat 24 Oct, about 05:40):
   - package-lock.json synced with `npm install` (Aarya found `npm ci` failing on
     missing @emnapi packages). `npm ci --dry-run` now passes.

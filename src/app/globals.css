@@ -36,13 +36,17 @@
   --font-mono: var(--font-geist-mono);
 
   --radius-md: 6px;
+
+  /* Small text a little larger than Tailwind's 12px, so captions stay readable. */
+  --text-xs: 13px;
+  --text-xs--line-height: 1.45;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
 }
 

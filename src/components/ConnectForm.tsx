@@ -16,7 +16,7 @@ function validate(repo: string, deadline: string): Errors {
 }
 
 const inputClass =
-  "mt-1 block h-9 w-full rounded-md border border-border bg-surface-2 px-3 text-text placeholder:text-subtle";
+  "mt-1.5 block h-10 w-full rounded-md border border-border bg-surface-2 px-3 text-text placeholder:text-subtle";
 
 // Login-free setup: repo link, deadline, optional task CSV.
 export default function ConnectForm() {
@@ -53,7 +53,7 @@ export default function ConnectForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="max-w-[480px] space-y-5">
+    <form onSubmit={onSubmit} noValidate className="space-y-6">
       <div>
         <label htmlFor="repo" className="font-semibold">
           GitHub repo
@@ -64,7 +64,7 @@ export default function ConnectForm() {
           value={repo}
           onChange={(e) => setRepo(e.target.value)}
           onBlur={() => repo && setErrors((x) => ({ ...x, repo: validate(repo, deadline).repo }))}
-          placeholder="owner/name or https://github.com/owner/name"
+          placeholder="github.com/owner/name"
           aria-invalid={!!errors.repo}
           aria-describedby={errors.repo ? "repo-error" : undefined}
           className={inputClass}
@@ -102,7 +102,12 @@ export default function ConnectForm() {
         <label htmlFor="csv" className="font-semibold">
           Task board export <span className="font-normal text-muted">(optional)</span>
         </label>
-        <p className="text-xs text-muted">A CSV from Jira, Trello or GitHub Projects. Without it, GitHub issues are used as tasks.</p>
+        <p className="mt-0.5 text-xs text-muted">
+          A CSV from Jira, Trello or GitHub Projects.{" "}
+          <a href="/sample-tasks.csv" download className="text-link hover:underline">
+            Get a sample
+          </a>
+        </p>
         <input
           id="csv"
           type="file"
@@ -111,7 +116,7 @@ export default function ConnectForm() {
             const f = e.target.files?.[0];
             setCsv(f ? { name: f.name, text: await f.text() } : null);
           }}
-          className="mt-2 block text-muted file:mr-3 file:h-8 file:rounded-md file:border file:border-border file:bg-bg file:px-3 file:text-text hover:file:bg-surface-2"
+          className="mt-2 block w-full text-muted file:mr-3 file:h-8 file:rounded-md file:border file:border-border file:bg-bg file:px-3 file:text-text hover:file:bg-surface-2"
         />
         {csv && <p className="mt-1 font-mono text-xs text-muted">{csv.name}</p>}
       </div>
@@ -119,9 +124,9 @@ export default function ConnectForm() {
       <button
         type="submit"
         disabled={busy}
-        className="h-8 rounded-md bg-primary px-4 font-semibold text-fg-on-primary disabled:opacity-60"
+        className="h-10 w-full rounded-md bg-primary px-4 font-semibold text-fg-on-primary disabled:opacity-60"
       >
-        {busy ? "Analysing" : "Analyse"}
+        {busy ? "Reading the repo, about 10 seconds" : "Analyse"}
       </button>
 
       {done && (

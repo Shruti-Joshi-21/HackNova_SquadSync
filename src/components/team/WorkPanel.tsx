@@ -12,22 +12,21 @@ export default function WorkPanel({ a }: { a: Analysis }) {
 
   return (
     <Panel title="Who did the work">
-      <p className="mb-4 text-xs text-muted">
-        Combined share: tasks 30%, code by size 25%, reviews 20%, docs and design 15%, quick replies 10%. Commit
-        count is not used. The band is the team&apos;s usual range, the line is an even share ({pct(even)}).
+      <p className="mb-5 text-xs text-muted">
+        Tasks, code, reviews and docs together, not commit count. The white line is an even share ({pct(even)}).
       </p>
-      <ul className="space-y-4">
+      <ul className="space-y-5">
         {a.shares.map((s) => {
           const p = people.get(s.personId);
           return (
             <li key={s.personId}>
               <div className="flex items-center gap-2">
-                <span>{p?.displayName ?? s.personId}</span>
+                <span className="whitespace-nowrap">{p?.displayName ?? s.personId}</span>
                 <span className="text-xs text-subtle">{s.role}</span>
                 {s.flagged && <Tag tone="warning">Outside usual range</Tag>}
-                <span className="ml-auto font-mono">{pct(s.composite)}</span>
+                <span className="ml-auto font-semibold">{pct(s.composite)}</span>
               </div>
-              <div className="relative mt-1 h-3 rounded-sm bg-surface-2">
+              <div className="relative mt-1.5 h-3 rounded-sm bg-surface-2">
                 <div className="absolute inset-y-0 bg-border" style={{ left: x(lo), width: `calc(${x(hi)} - ${x(lo)})` }} />
                 <div
                   className="absolute inset-y-0.5 left-0 rounded-sm"
@@ -35,8 +34,8 @@ export default function WorkPanel({ a }: { a: Analysis }) {
                 />
                 <div className="absolute -inset-y-0.5 w-px bg-text" style={{ left: x(even) }} />
               </div>
-              <p className="mt-1 font-mono text-xs text-muted">
-                tasks {pct(s.tasks)} &nbsp;code {pct(s.code)} &nbsp;reviews {pct(s.reviews)} &nbsp;docs {pct(s.docsDesign)}
+              <p className="mt-1.5 text-xs text-muted">
+                Tasks {pct(s.tasks)} · Code {pct(s.code)} · Reviews {pct(s.reviews)} · Docs {pct(s.docsDesign)}
               </p>
             </li>
           );

@@ -5,53 +5,30 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ChevronDownIcon, ChevronUpIcon } from "@primer/octicons-react";
 import GitGraph from "@/components/GitGraph";
+import { CONFIDENCE_WORD, SEVERITY, Tag, VERDICT } from "@/components/ui";
+import { EXPLAIN } from "@/components/team/explain";
 import { connectRepo, parseRepo } from "@/lib/data";
-import type { Analysis, Confidence, Risk, Severity, Verdict } from "@/lib/types";
+import type { Analysis, Risk } from "@/lib/types";
 
-const VERDICT_LABEL: Record<Verdict, string> = {
-  on_track: "On track",
-  slipping: "Slipping",
-  at_risk: "At risk",
-};
-
-const VERDICT_CLASS: Record<Verdict, string> = {
-  on_track: "text-success",
-  slipping: "text-warning",
-  at_risk: "text-danger",
-};
-
-const SEVERITY_LABEL: Record<Severity, string> = {
-  high: "High",
-  medium: "Medium",
-  low: "Low",
-};
-
-const SEVERITY_CLASS: Record<Severity, string> = {
-  high: "bg-danger-bg text-danger",
-  medium: "bg-warning-bg text-warning",
-  low: "bg-surface-2 text-muted",
-};
-
-const CONFIDENCE_LABEL: Record<Confidence, string> = {
-  possible: "Possible",
-  likely: "Likely",
-  certain: "Certain",
-};
-
-function Tag({ className, children }: { className: string; children: string }) {
-  return <span className={`inline-block rounded px-1.5 py-0.5 text-xs ${className}`}>{children}</span>;
-}
+// Tags, verdict words and the plain-English notes come from the same files as
+// the web app's team page, so the side panel always matches it.
 
 function RiskRow({ risk, colorByPerson }: { risk: Risk; colorByPerson: Record<string, number> }) {
   const [open, setOpen] = useState(false);
+  const why = EXPLAIN[risk.kind];
   return (
-    <div className="border-b border-border py-2">
-      <button type="button" onClick={() => setOpen((v) => !v)} className="flex w-full items-start gap-2 text-left">
+    <div className="border-b border-border py-3">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex w-full items-start gap-2 text-left"
+      >
         <span className="mt-0.5 flex shrink-0 gap-1">
-          <Tag className={SEVERITY_CLASS[risk.severity]}>{SEVERITY_LABEL[risk.severity]}</Tag>
-          {risk.confidence && <Tag className="bg-surface-2 text-muted">{CONFIDENCE_LABEL[risk.confidence]}</Tag>}
+          <Tag tone={SEVERITY[risk.severity].tone}>{SEVERITY[risk.severity].word}</Tag>
+          {risk.confidence && <Tag tone="neutral">{CONFIDENCE_WORD[risk.confidence]}</Tag>}
         </span>
-        <span className="flex-1 text-sm text-text">{risk.title}</span>
+        <span className="flex-1 font-semibold text-text">{risk.title}</span>
         {open ? (
           <ChevronUpIcon size={14} className="mt-0.5 shrink-0 text-subtle" />
         ) : (
@@ -60,8 +37,20 @@ function RiskRow({ risk, colorByPerson }: { risk: Risk; colorByPerson: Record<st
       </button>
 
       {open && (
-        <div className="mt-2 space-y-3 pl-1">
-          <p className="text-xs text-muted">{risk.rule}</p>
+        <div className="mt-3 space-y-4 pl-1">
+          <div>
+            <p>{risk.summary}</p>
+            {risk.summarySource === "ai" && (
+              <p className="mt-1">
+                <Tag tone="neutral">written by AI from these numbers</Tag>
+              </p>
+            )}
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold">In plain words</p>
+            <p className="mt-0.5">{why.meaning}</p>
+          </div>
 
           {risk.scene && (
             <div className="overflow-x-auto">
@@ -69,19 +58,27 @@ function RiskRow({ risk, colorByPerson }: { risk: Risk; colorByPerson: Record<st
             </div>
           )}
 
-          <ul className="space-y-1">
-            {risk.evidence.map((e, i) => (
-              <li key={i} className="text-xs text-muted">
-                <span className="text-text">{e.label}</span>: {e.value}
-              </li>
-            ))}
-          </ul>
+          <div>
+            <p className="text-xs font-semibold">The evidence</p>
+            <dl className="mt-1 divide-y divide-border border-y border-border text-xs">
+              {risk.evidence.map((e, i) => (
+                <div key={i} className="flex justify-between gap-3 py-1.5">
+                  <dt className="text-muted">{e.label}</dt>
+                  <dd className="text-right font-mono">{e.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
 
-          <p className="text-xs text-text">{risk.action}</p>
+          <div>
+            <p className="text-xs font-semibold">What this does not mean</p>
+            <p className="mt-0.5 text-muted">{why.notProof}</p>
+          </div>
 
-          {risk.summarySource === "ai" && (
-            <p className="text-xs text-subtle">written by AI from these numbers</p>
-          )}
+          <div>
+            <p className="text-xs font-semibold">What to do</p>
+            <p className="mt-0.5">{risk.action}</p>
+          </div>
         </div>
       )}
     </div>
@@ -125,23 +122,23 @@ function EmbedContent() {
   }, [parsedRepo]);
 
   if (!repo) {
-    return <p className="text-sm text-muted">Open a GitHub repository page to see its analysis.</p>;
+    return <p className="text-muted">Open a GitHub repository page to see its analysis.</p>;
   }
 
   if (!parsedRepo) {
-    return <p className="text-sm text-muted">That does not look like a GitHub repository.</p>;
+    return <p className="text-muted">That does not look like a GitHub repository.</p>;
   }
 
   if (fetchState.status === "loading") {
-    return <p className="text-sm text-muted">Reading the repository.</p>;
+    return <p className="text-muted">Reading the repo, about 10 seconds.</p>;
   }
 
   if (fetchState.status === "error") {
     return (
       <div className="space-y-2">
-        <p className="text-sm text-muted">{fetchState.message}</p>
-        <Link href="/connect" className="text-sm text-link">
-          Try a sample team
+        <p className="text-muted">{fetchState.message}</p>
+        <Link href="/mentor" target="_blank" className="text-link hover:underline">
+          Open the sample teams
         </Link>
       </div>
     );
@@ -152,18 +149,19 @@ function EmbedContent() {
   const topRisks = analysis.risks.slice(0, 3);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <div>
-        <p className={`text-2xl font-semibold ${VERDICT_CLASS[analysis.verdict]}`}>
-          {VERDICT_LABEL[analysis.verdict]}
-        </p>
-        <p className="mt-1 text-sm text-muted">{analysis.verdictReason}</p>
+        <p className={`text-2xl font-semibold ${VERDICT[analysis.verdict].text}`}>{VERDICT[analysis.verdict].word}</p>
+        <p className="mt-1">{analysis.verdictReason}</p>
       </div>
 
       <div>
-        <p className="mb-1 text-xs text-subtle">Top risks</p>
+        <p className="font-semibold">
+          Top risks <span className="font-normal text-muted">{analysis.risks.length} in all</span>
+        </p>
+        <p className="text-xs text-muted">Most serious first. Open one to see the proof.</p>
         {topRisks.length === 0 ? (
-          <p className="text-sm text-muted">No risks flagged.</p>
+          <p className="mt-2 text-muted">No risks found. The team&apos;s numbers are inside the usual ranges.</p>
         ) : (
           <div>
             {topRisks.map((risk) => (
@@ -173,8 +171,8 @@ function EmbedContent() {
         )}
       </div>
 
-      <Link href="/connect" className="text-sm text-link">
-        Open full view
+      <Link href="/connect" target="_blank" className="text-link hover:underline">
+        Open the full dashboard
       </Link>
     </div>
   );
@@ -183,8 +181,8 @@ function EmbedContent() {
 export default function EmbedPage() {
   return (
     <div className="min-h-screen w-full bg-bg px-4 py-4" style={{ maxWidth: 420 }}>
-      <p className="mb-3 text-sm font-semibold text-text">SquadSync</p>
-      <Suspense fallback={<p className="text-sm text-muted">Loading.</p>}>
+      <p className="mb-4 font-semibold text-text">SquadSync</p>
+      <Suspense fallback={<p className="text-muted">Loading.</p>}>
         <EmbedContent />
       </Suspense>
     </div>

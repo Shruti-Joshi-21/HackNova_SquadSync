@@ -5,10 +5,15 @@ import { XIcon } from "@primer/octicons-react";
 import type { Analysis, Risk } from "@/lib/types";
 import GitGraph from "@/components/GitGraph";
 import { CONFIDENCE_WORD, SEVERITY, Tag } from "@/components/ui";
+import { CONFIDENCE_MEANS, EXPLAIN, SEVERITY_MEANS } from "./explain";
+
+const FIRST = 5; // the rest sit behind "Show all", so the page is not a wall of text
 
 // Risks list. Clicking a row opens the evidence drawer from the right.
 export default function Risks({ a }: { a: Analysis }) {
   const [openId, setOpenId] = useState<string | null>(null);
+  const [all, setAll] = useState(false);
+  const shown = all ? a.risks : a.risks.slice(0, FIRST);
   const close = useCallback(() => setOpenId(null), []); // stable, so the drawer's focus effect runs once
   const open = a.risks.find((r) => r.id === openId) ?? null;
   const names = new Map(a.team.people.map((p) => [p.id, p.displayName]));
@@ -16,17 +21,20 @@ export default function Risks({ a }: { a: Analysis }) {
 
   return (
     <section>
-      <h2 className="font-semibold">Risks</h2>
+      <h2 className="text-lg font-semibold">
+        Risks <span className="font-normal text-muted">{a.risks.length}</span>
+      </h2>
+      <p className="mt-1 text-muted">Most serious first. Open one to see the proof.</p>
       {a.risks.length === 0 ? (
-        <p className="mt-2 text-muted">No risks found. The team&apos;s numbers are inside the usual ranges.</p>
+        <p className="mt-3 text-muted">No risks found. The team&apos;s numbers are inside the usual ranges.</p>
       ) : (
-        <ul className="mt-2 divide-y divide-border border-y border-border">
-          {a.risks.map((r) => (
+        <ul className="mt-3 divide-y divide-border border-y border-border">
+          {shown.map((r) => (
             <li key={r.id}>
               <button
                 type="button"
                 onClick={() => setOpenId(r.id)}
-                className="flex w-full flex-wrap items-start gap-x-3 gap-y-1 px-2 py-3 text-left transition-colors duration-150 hover:bg-surface-2"
+                className="flex w-full flex-wrap items-start gap-x-4 gap-y-1 px-2 py-4 text-left transition-colors duration-150 hover:bg-surface-2"
               >
                 <span className="flex w-36 shrink-0 gap-1">
                   <Tag tone={SEVERITY[r.severity].tone}>{SEVERITY[r.severity].word}</Tag>
@@ -40,6 +48,15 @@ export default function Risks({ a }: { a: Analysis }) {
             </li>
           ))}
         </ul>
+      )}
+      {a.risks.length > FIRST && (
+        <button
+          type="button"
+          onClick={() => setAll((x) => !x)}
+          className="mt-3 h-9 rounded-md border border-border px-3 hover:bg-surface-2"
+        >
+          {all ? "Show fewer" : `Show all ${a.risks.length} risks`}
+        </button>
       )}
 
       {open && <EvidenceDrawer risk={open} names={names} colors={colors} onClose={close} />}
@@ -59,6 +76,7 @@ function EvidenceDrawer({
   onClose: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const why = EXPLAIN[risk.kind];
 
   // Focus the drawer on open; on close, give focus back to the row that opened it.
   useEffect(() => {
@@ -108,7 +126,13 @@ function EvidenceDrawer({
           </p>
         )}
 
-        <h3 className="mt-6 font-semibold">Why we flagged this</h3>
+        <h3 className="mt-6 font-semibold">In plain words</h3>
+        <p className="mt-1">{why.meaning}</p>
+
+        <h3 className="mt-6 font-semibold">Why it matters</h3>
+        <p className="mt-1">{why.why}</p>
+
+        <h3 className="mt-6 font-semibold">The rule we used</h3>
         <p className="mt-1 text-muted">{risk.rule}</p>
 
         {risk.scene && (
@@ -117,12 +141,21 @@ function EvidenceDrawer({
           </div>
         )}
 
-        <h3 className="mt-6 font-semibold">Evidence</h3>
-        <dl className="mt-1 divide-y divide-border border-y border-border">
+        <h3 className="mt-6 font-semibold">The evidence</h3>
+        <p className="mt-1 text-xs text-muted">Where this comes from: {why.source}</p>
+        <dl className="mt-2 divide-y divide-border border-y border-border">
           {risk.evidence.map((e, i) => (
             <div key={i} className="flex justify-between gap-4 py-1.5">
               <dt className="text-muted">{e.label}</dt>
-              <dd className="text-right font-mono">{e.value}</dd>
+              <dd className="text-right font-mono">
+                {e.ref?.url ? (
+                  <a href={e.ref.url} target="_blank" rel="noreferrer" className="text-link hover:underline">
+                    {e.value}
+                  </a>
+                ) : (
+                  e.value
+                )}
+              </dd>
             </div>
           ))}
           {risk.people.length > 0 && (
@@ -132,6 +165,17 @@ function EvidenceDrawer({
             </div>
           )}
         </dl>
+
+        <h3 className="mt-6 font-semibold">How serious and how sure</h3>
+        <ul className="mt-1 space-y-1">
+          <li>
+            {SEVERITY[risk.severity].word}: {SEVERITY_MEANS[risk.severity]}
+          </li>
+          {risk.confidence && <li>{CONFIDENCE_MEANS[risk.confidence]}</li>}
+        </ul>
+
+        <h3 className="mt-6 font-semibold">What this does not mean</h3>
+        <p className="mt-1 text-muted">{why.notProof}</p>
 
         <h3 className="mt-6 font-semibold">What to do</h3>
         <p className="mt-1">{risk.action}</p>

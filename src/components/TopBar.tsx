@@ -28,7 +28,7 @@ export default function TopBar() {
 
   return (
     <header className="h-12 border-b border-border bg-bg">
-      <div className="mx-auto flex h-full max-w-[1200px] items-center gap-4 px-6">
+      <div className="mx-auto flex h-full max-w-[1440px] items-center gap-4 px-6 lg:px-10">
         <Link href="/" className="font-semibold text-text">
           SquadSync
         </Link>
