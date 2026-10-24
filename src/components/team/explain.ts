@@ -119,3 +119,87 @@ export const CONFIDENCE_MEANS: Record<Confidence, string> = {
   likely: "Likely: the two changes overlap in a way that usually clashes, but GitHub has not reported it yet.",
   possible: "Possible: the same file was changed in two places. It may still join cleanly.",
 };
+
+// What fixing the risk prevents, for "Do these this week". One short phrase.
+export const PREVENTS: Record<RiskKind, string> = {
+  workload_imbalance: "one person becoming the only one who can finish the project",
+  review_gap: "mistakes reaching the main version with nobody having read them",
+  late_integration: "parts that do not fit together on the last day",
+  deadline_slip: "finding out on the last night that the work will not be done",
+  same_file_overlap: "a clash when both changes are joined",
+  same_line_overlap: "the second merge being stopped by a conflict",
+  pr_conflicting: "a blocked pull request that gets harder to fix each day",
+  modify_delete_conflict: "the merge stopping because one side deleted the file",
+  add_add_conflict: "two versions of the same new file fighting at merge time",
+  branch_drift: "a huge catch-up merge that breaks things",
+  direct_push_to_main: "unreviewed changes surprising everyone with open work",
+  stale_branch: "a stuck task, or work lost on one laptop",
+  lockfile_overlap: "an app that stops installing after the merge",
+  unpushed_work: "work lost on one laptop",
+  task_code_mismatch: "two people doing the same part, or a part with no owner",
+};
+
+// Steps after the risk's own action, so "What to do" reads as a short sequence.
+// The first step is always the engine's action for this exact risk.
+export const NEXT_STEPS: Record<RiskKind, string[]> = {
+  workload_imbalance: [
+    "Move one open task from the busiest person to someone with less on their plate.",
+    "Check this page again in a few days: the shares should move closer to the even line.",
+  ],
+  review_gap: [
+    "Agree a simple rule: every pull request gets one reviewer before it is merged.",
+    "Check again after the next merges: the review count should go up.",
+  ],
+  late_integration: [
+    "Split large changes into smaller pull requests and merge them as they are ready.",
+    "Check the weekly bars: they should stay inside the grey band.",
+  ],
+  deadline_slip: [
+    "Pick the tasks that can be dropped or made smaller, and agree on them today.",
+    "Check the projected finish next week: it should move before the deadline.",
+  ],
+  same_file_overlap: [
+    "Decide who merges first, and the second person pulls main before merging.",
+    "Check again after the first merge: the warning should go away.",
+  ],
+  same_line_overlap: [
+    "After the second merge, run the app and check both changes still work.",
+    "Check again after the first merge: the warning should go away.",
+  ],
+  pr_conflicting: [
+    "Pull main into the branch and fix the clash by hand, with the other author nearby.",
+    "Check the pull request on GitHub: it should say it can be merged.",
+  ],
+  modify_delete_conflict: [
+    "Whoever merges second pulls main first and moves their edits to where the code now lives.",
+    "Check again after both merge: the warning should go away.",
+  ],
+  add_add_conflict: [
+    "Keep one version of the file and delete the other before merging.",
+    "Check again after both merge: the warning should go away.",
+  ],
+  branch_drift: [
+    "Pull main into the branch now, and then every day until it is merged.",
+    "Check again tomorrow: the number of commits behind should drop.",
+  ],
+  direct_push_to_main: [
+    "Turn on branch protection for main on GitHub so changes go through pull requests.",
+    "Ask the people with open branches to pull main.",
+  ],
+  stale_branch: [
+    "Push whatever is done, even if unfinished, so others can see it.",
+    "If the person is stuck, pair them with a teammate for an hour.",
+  ],
+  lockfile_overlap: [
+    "One person owns the lockfile; others re-run the install after pulling main.",
+    "Check that the app still installs after the merge.",
+  ],
+  unpushed_work: [
+    "Push the work to a branch today, even if it is not finished.",
+    "Check again tomorrow: the warning should go away.",
+  ],
+  task_code_mismatch: [
+    "Update the plan or the task board so it says who really owns each part.",
+    "Check the plan page again: everyone should own a module.",
+  ],
+};

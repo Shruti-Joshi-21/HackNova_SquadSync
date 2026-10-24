@@ -5,7 +5,8 @@ import { XIcon } from "@primer/octicons-react";
 import type { Analysis, Risk } from "@/lib/types";
 import GitGraph from "@/components/GitGraph";
 import { CONFIDENCE_WORD, SEVERITY, Tag } from "@/components/ui";
-import { CONFIDENCE_MEANS, EXPLAIN, SEVERITY_MEANS } from "./explain";
+import { CONFIDENCE_MEANS, EXPLAIN, NEXT_STEPS, SEVERITY_MEANS } from "./explain";
+import Steps from "./Steps";
 
 const FIRST = 5; // the rest sit behind "Show all", so the page is not a wall of text
 
@@ -178,7 +179,7 @@ function EvidenceDrawer({
         <p className="mt-1 text-muted">{why.notProof}</p>
 
         <h3 className="mt-6 font-semibold">What to do</h3>
-        <p className="mt-1">{risk.action}</p>
+        <Steps steps={[risk.action, ...NEXT_STEPS[risk.kind]].map((text) => ({ text }))} />
       </div>
     </>
   );

@@ -4,6 +4,7 @@ import WorkPanel from "./WorkPanel";
 import ReviewPanel from "./ReviewPanel";
 import TimelinePanel from "./TimelinePanel";
 import Risks from "./Risks";
+import ThisWeek from "./ThisWeek";
 
 // Everything on the team page below the header, drawn from one Analysis.
 // `replay` is the replay strip, placed under the verdict as in DESIGN.md.
@@ -21,6 +22,8 @@ export default function TeamBody({ a, replay, dim = false }: { a: Analysis; repl
       {replay}
 
       <div className={`space-y-10 ${fade}`}>
+        <ThisWeek risks={a.risks} />
+
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           <WorkPanel a={a} />
           <ReviewPanel a={a} />

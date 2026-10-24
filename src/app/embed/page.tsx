@@ -5,7 +5,9 @@ import { useSearchParams } from "next/navigation";
 import { ChevronDownIcon, ChevronUpIcon } from "@primer/octicons-react";
 import GitGraph from "@/components/GitGraph";
 import { CONFIDENCE_WORD, SEVERITY, Tag, VERDICT } from "@/components/ui";
-import { EXPLAIN } from "@/components/team/explain";
+import { EXPLAIN, NEXT_STEPS } from "@/components/team/explain";
+import Steps from "@/components/team/Steps";
+import { thisWeekSteps } from "@/components/team/ThisWeek";
 import { connectRepo, parseRepo } from "@/lib/data";
 import type { Analysis, Risk } from "@/lib/types";
 
@@ -76,7 +78,7 @@ function RiskRow({ risk, colorByPerson }: { risk: Risk; colorByPerson: Record<st
 
           <div>
             <p className="text-xs font-semibold">What to do</p>
-            <p className="mt-0.5">{risk.action}</p>
+            <Steps steps={[risk.action, ...NEXT_STEPS[risk.kind]].map((text) => ({ text }))} />
           </div>
         </div>
       )}
@@ -144,6 +146,8 @@ function EmbedContent() {
   const { analysis } = fetchState;
   const colorByPerson = Object.fromEntries(analysis.team.people.map((p) => [p.id, p.colorIndex]));
   const topRisks = analysis.risks.slice(0, 3);
+  const heroRisk = analysis.risks.find((r) => r.scene);
+  const thisWeek = thisWeekSteps(analysis.risks);
 
   return (
     <div className="space-y-6">
@@ -151,6 +155,25 @@ function EmbedContent() {
         <p className={`text-2xl font-semibold ${VERDICT[analysis.verdict].text}`}>{VERDICT[analysis.verdict].word}</p>
         <p className="mt-1">{analysis.verdictReason}</p>
       </div>
+
+      {heroRisk?.scene && (
+        <div>
+          <p className="flex flex-wrap items-center gap-2">
+            <Tag tone={SEVERITY[heroRisk.severity].tone}>{SEVERITY[heroRisk.severity].word}</Tag>
+            <span className="font-semibold">{heroRisk.title}</span>
+          </p>
+          <div className="mt-2 overflow-x-auto">
+            <GitGraph scene={heroRisk.scene} colorByPerson={colorByPerson} />
+          </div>
+        </div>
+      )}
+
+      {thisWeek.length > 0 && (
+        <div>
+          <p className="font-semibold">Do these this week</p>
+          <Steps steps={thisWeek} />
+        </div>
+      )}
 
       <div>
         <p className="font-semibold">

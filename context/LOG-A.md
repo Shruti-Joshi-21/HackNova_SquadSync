@@ -4,6 +4,21 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Proactive steps and hero picture (Sat 24 Oct, about 06:45 IST):
+  - `team/Steps.tsx`: vertical numbered steps joined by a line.
+  - "What to do" (drawer and side panel) is now steps: step 1 is the risk's
+    own action from the engine, then two follow-ups per kind (`NEXT_STEPS`
+    in explain.ts), ending with how to check it worked.
+  - "Do these this week" (`team/ThisWeek.tsx`), first in the data area of the
+    team page and in the side panel: the three most serious non-low risks'
+    actions, each with "Prevents ..." (`PREVENTS` in explain.ts). Clashes
+    that are possible or likely are tagged "Before it happens". No new
+    predictions: every step comes from a risk the engine found.
+  - Hero: the verdict block now shows the branch picture of the biggest risk
+    that has one, with its severity and title; the schedule moves under the
+    verdict. Without a scene, the old layout stays. Same picture in the side
+    panel under the verdict.
+
 - Side panel links (Sat 24 Oct, about 06:20 IST): every link in /embed is
   now a plain `<a target="_blank">`, so it opens a new browser tab instead of
   loading the app inside the panel. New link "Split a PRD into a plan" to
