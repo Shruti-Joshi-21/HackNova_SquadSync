@@ -4,6 +4,24 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### Back buttons and Clear all on /plan (2026-10-24, on Aarya's laptop, Laptop A's area)
+
+- New `src/components/BackButton.tsx`, shown once at the top of every page in
+  the (shell) layout (/mentor, /team/[id], /connect, /plan, /dev/scenes). Not on
+  /embed or the landing page. It keeps a trail of pages visited in this tab
+  (sessionStorage `squadsync.trail`) and says where it goes ("Back to All teams").
+  Opened directly, it goes to the parent: /team/* -> /mentor, others -> /.
+  It never leaves the site. The landing page records "/" in the trail.
+- `/plan` (PlanSplitter.tsx): new "Clear all" button (empties the PRD, team size
+  back to 4, removes the plan and errors; greyed out when there is nothing to
+  clear). The plan is no longer saved to localStorage, so a refresh starts
+  empty; the old `squadsync.plan` entry is removed on load. An answer that
+  arrives after Clear all is ignored.
+- Checked in the browser: landing -> All teams -> Team Nexus, then Back twice
+  returns to the landing page; direct opens fall back correctly; split, refresh
+  (empty), split, Clear all (empty), Clear all during a split (late answer ignored).
+  Lint and build pass.
+
 ### Fix: "member C" in the verdict sentence (2026-10-24, reported by Laptop A)
 
 - With one medium risk the verdict reads "One thing to watch: <summary>" and
