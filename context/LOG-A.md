@@ -4,6 +4,28 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Overview picture, correct dates, less text (Sat 24 Oct, about 09:15 IST):
+  - Hero now shows an overview scene (`team/overview.ts`), built only from the
+    risks' own scenes: one lane per branch any risk involves (max 5, worst
+    first), each ending in its worst problem (red high, amber medium, short
+    label), all running into main at "N days left" (red at risk, amber
+    slipping, green on track); a direct push shows as "no PR" on main. Each
+    risk still has its own picture in the drawer. Same overview in /embed.
+  - "What this does not mean" removed from the drawer and /embed.
+  - Wrong dates on new repos, fixed at the source (B paths, edited at
+    Shruti's request):
+    - `src/lib/github/ingest.ts`: projectStart is now the first real activity
+      (earliest of repo creation, oldest commit, oldest PR in the window), not
+      56 days before the latest commit. Our repo now starts 23 Oct, not 56
+      days back. If the commit list hit its cap, the window start stays.
+    - `src/engine/indicators.ts`: no projected finish until the project has 7
+      days of history.
+    - `src/engine/risks.ts`: no deadline_slip risk before 7 days of history.
+    - Hero text says so plainly: "Too early to project a finish date",
+      or "No tasks found" when the repo has no tasks.
+  - Checks: engine and plan checks pass, tsc passes, lint passes. `npm run
+    build` could not run here because a `next dev` on port 3000 locks .next.
+
 - Proactive steps and hero picture (Sat 24 Oct, about 06:45 IST):
   - `team/Steps.tsx`: vertical numbered steps joined by a line.
   - "What to do" (drawer and side panel) is now steps: step 1 is the risk's

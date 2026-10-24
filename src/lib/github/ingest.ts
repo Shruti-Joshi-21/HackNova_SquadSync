@@ -344,12 +344,27 @@ export async function fetchSnapshot(input: IngestInput, gh: Client = createClien
   }
   tasks.sort((a, b) => Number(a.id) - Number(b.id));
 
+  // The project starts at its first real activity, not at the start of the
+  // 8-week reading window: a repo made yesterday must not show "56 days used".
+  // First activity is the earlier of the repo's creation and its oldest commit
+  // or PR in the window (a fork's commits are older than the fork itself).
+  // If the commit list hit its cap, older commits exist, so keep the window start.
+  let projectStart = since;
+  if (!input.projectStart && mainCommits.length < LIMITS.commitPages * 100) {
+    const first = Math.min(
+      Date.parse(repo.created_at),
+      ...mainCommits.map((c) => Date.parse(c.commit.committer.date)),
+      ...recentPulls.map((p) => Date.parse(p.created_at)),
+    );
+    if (first > start.getTime()) projectStart = iso(new Date(first));
+  }
+
   const deadline = new Date(input.deadline);
   return {
     team: {
       id: `gh-${parsed.owner}-${parsed.name}`.toLowerCase().replace(/[^a-z0-9-]+/g, "-"),
       name: repo.full_name,
-      projectStart: since,
+      projectStart,
       deadline: iso(deadline),
       people,
     },

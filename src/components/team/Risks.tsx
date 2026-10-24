@@ -175,9 +175,6 @@ function EvidenceDrawer({
           {risk.confidence && <li>{CONFIDENCE_MEANS[risk.confidence]}</li>}
         </ul>
 
-        <h3 className="mt-6 font-semibold">What this does not mean</h3>
-        <p className="mt-1 text-muted">{why.notProof}</p>
-
         <h3 className="mt-6 font-semibold">What to do</h3>
         <Steps steps={[risk.action, ...NEXT_STEPS[risk.kind]].map((text) => ({ text }))} />
       </div>

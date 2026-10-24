@@ -8,6 +8,7 @@ import { CONFIDENCE_WORD, SEVERITY, Tag, VERDICT } from "@/components/ui";
 import { EXPLAIN, NEXT_STEPS } from "@/components/team/explain";
 import Steps from "@/components/team/Steps";
 import { thisWeekSteps } from "@/components/team/ThisWeek";
+import { overviewScene } from "@/components/team/overview";
 import { connectRepo, parseRepo } from "@/lib/data";
 import type { Analysis, Risk } from "@/lib/types";
 
@@ -69,11 +70,6 @@ function RiskRow({ risk, colorByPerson }: { risk: Risk; colorByPerson: Record<st
                 </div>
               ))}
             </dl>
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold">What this does not mean</p>
-            <p className="mt-0.5 text-muted">{why.notProof}</p>
           </div>
 
           <div>
@@ -146,7 +142,7 @@ function EmbedContent() {
   const { analysis } = fetchState;
   const colorByPerson = Object.fromEntries(analysis.team.people.map((p) => [p.id, p.colorIndex]));
   const topRisks = analysis.risks.slice(0, 3);
-  const heroRisk = analysis.risks.find((r) => r.scene);
+  const overview = overviewScene(analysis);
   const thisWeek = thisWeekSteps(analysis.risks);
 
   return (
@@ -156,14 +152,16 @@ function EmbedContent() {
         <p className="mt-1">{analysis.verdictReason}</p>
       </div>
 
-      {heroRisk?.scene && (
+      {overview && (
         <div>
-          <p className="flex flex-wrap items-center gap-2">
-            <Tag tone={SEVERITY[heroRisk.severity].tone}>{SEVERITY[heroRisk.severity].word}</Tag>
-            <span className="font-semibold">{heroRisk.title}</span>
+          <p className="font-semibold">
+            Overview{" "}
+            <span className="font-normal text-muted">
+              {analysis.risks.length} risks across {overview.branches} branches
+            </span>
           </p>
           <div className="mt-2 overflow-x-auto">
-            <GitGraph scene={heroRisk.scene} colorByPerson={colorByPerson} />
+            <GitGraph scene={overview.scene} colorByPerson={colorByPerson} />
           </div>
         </div>
       )}
