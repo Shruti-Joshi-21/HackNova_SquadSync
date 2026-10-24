@@ -1,49 +1,44 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ProjectPlan } from "@/lib/types";
 import { makePlan } from "@/lib/data";
 import GitGraph from "@/components/GitGraph";
 import { Tag } from "@/components/ui";
 import { checkPlanShape, mergeOrderScene, slotName } from "./checks";
 
-const STORAGE_KEY = "squadsync.plan";
+// Older versions kept the last plan here; it is removed so a refresh starts empty.
+const OLD_STORAGE_KEY = "squadsync.plan";
 
-interface Saved {
-  prd: string;
-  teamSize: number;
-  plan: ProjectPlan;
-  note?: string;
-}
+const DEFAULT_TEAM_SIZE = 4;
 
-function readSaved(): Saved | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as Saved) : null;
-  } catch {
-    return null;
-  }
-}
-
-// PRD in, ownership plan out. The latest plan is kept in localStorage.
+// PRD in, ownership plan out. Nothing is kept: a refresh or Clear all starts over.
 export default function PlanSplitter() {
   const [prd, setPrd] = useState("");
-  const [teamSize, setTeamSize] = useState(4);
+  const [teamSize, setTeamSize] = useState(DEFAULT_TEAM_SIZE);
   const [result, setResult] = useState<{ plan: ProjectPlan; note?: string } | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Restore the last plan after the first render (localStorage is browser-only).
+  // Each split gets a number; an answer that arrives after Clear all is ignored.
+  const request = useRef(0);
+
   useEffect(() => {
-    const t = setTimeout(() => {
-      const s = readSaved();
-      if (!s) return;
-      setPrd(s.prd);
-      setTeamSize(s.teamSize);
-      setResult({ plan: s.plan, note: s.note });
-    }, 0);
-    return () => clearTimeout(t);
+    try {
+      localStorage.removeItem(OLD_STORAGE_KEY);
+    } catch {
+      // storage blocked: nothing to remove
+    }
   }, []);
+
+  function clearAll() {
+    request.current++;
+    setPrd("");
+    setTeamSize(DEFAULT_TEAM_SIZE);
+    setResult(null);
+    setError(null);
+    setBusy(false);
+  }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -53,22 +48,22 @@ export default function PlanSplitter() {
     }
     setError(null);
     setBusy(true);
+    const mine = ++request.current;
     let r: Awaited<ReturnType<typeof makePlan>>;
     try {
       r = await makePlan(prd, teamSize);
     } catch (err) {
+      if (mine !== request.current) return;
       setBusy(false);
       setError((err as Error).message); // the route's own sentence, for example a PRD that is too long
       return;
     }
+    if (mine !== request.current) return;
     setBusy(false);
     setResult(r);
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ prd, teamSize, ...r }));
-    } catch {
-      // storage full or blocked: the plan still shows
-    }
   }
+
+  const somethingToClear = prd !== "" || teamSize !== DEFAULT_TEAM_SIZE || result !== null || error !== null || busy;
 
   return (
     <div className="grid gap-8 lg:grid-cols-[340px_1fr]">
@@ -110,13 +105,23 @@ export default function PlanSplitter() {
             ))}
           </select>
         </div>
-        <button
-          type="submit"
-          disabled={busy}
-          className="h-8 rounded-md bg-primary px-4 font-semibold text-fg-on-primary disabled:opacity-60"
-        >
-          {busy ? "Splitting" : "Split the work"}
-        </button>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="submit"
+            disabled={busy}
+            className="h-8 rounded-md bg-primary px-4 font-semibold text-fg-on-primary disabled:opacity-60"
+          >
+            {busy ? "Splitting" : "Split the work"}
+          </button>
+          <button
+            type="button"
+            onClick={clearAll}
+            disabled={!somethingToClear}
+            className="h-8 rounded-md border border-border px-4 text-text hover:bg-surface-2 disabled:opacity-60"
+          >
+            Clear all
+          </button>
+        </div>
         <p className="text-xs text-muted">
           A good split gives each person their own folders and one owner per shared file. It reduces merge conflicts; it
           cannot promise none.

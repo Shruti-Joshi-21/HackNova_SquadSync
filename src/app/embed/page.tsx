@@ -137,7 +137,7 @@ function EmbedContent() {
     return (
       <div className="space-y-2">
         <p className="text-muted">{fetchState.message}</p>
-        <Link href="/" target="_blank" className="text-link hover:underline">
+        <Link href="/mentor" target="_blank" className="text-link hover:underline">
           Open the sample teams
         </Link>
       </div>

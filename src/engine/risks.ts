@@ -459,7 +459,9 @@ export function notFlagged(c: Context, list: Risk[]): NotFlagged[] {
   return out;
 }
 
+/** "At the pace…" -> "at the pace…"; names stay: "Member C", "PR #31", "GitHub". */
 function lowerFirst(s: string): string {
+  if (/^Member [A-Z]\b/.test(s) || !/^[A-Z][a-z]*\b/.test(s) || /^[A-Z][a-z]*[A-Z]/.test(s)) return s;
   return s.charAt(0).toLowerCase() + s.slice(1);
 }
 

@@ -97,7 +97,7 @@ export default function TeamView({ id }: { id: string }) {
     return (
       <div className="py-12">
         <p>No data for this team yet.</p>
-        <Link href="/" className="mt-2 inline-block text-link hover:underline">
+        <Link href="/mentor" className="mt-2 inline-block text-link hover:underline">
           Back to all teams
         </Link>
       </div>

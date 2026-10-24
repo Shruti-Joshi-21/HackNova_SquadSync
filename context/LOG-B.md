@@ -4,6 +4,60 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### Back buttons and Clear all on /plan (2026-10-24, on Aarya's laptop, Laptop A's area)
+
+- New `src/components/BackButton.tsx`, shown once at the top of every page in
+  the (shell) layout (/mentor, /team/[id], /connect, /plan, /dev/scenes). Not on
+  /embed or the landing page. It keeps a trail of pages visited in this tab
+  (sessionStorage `squadsync.trail`) and says where it goes ("Back to All teams").
+  Opened directly, it goes to the parent: /team/* -> /mentor, others -> /.
+  It never leaves the site. The landing page records "/" in the trail.
+- `/plan` (PlanSplitter.tsx): new "Clear all" button (empties the PRD, team size
+  back to 4, removes the plan and errors; greyed out when there is nothing to
+  clear). The plan is no longer saved to localStorage, so a refresh starts
+  empty; the old `squadsync.plan` entry is removed on load. An answer that
+  arrives after Clear all is ignored.
+- Checked in the browser: landing -> All teams -> Team Nexus, then Back twice
+  returns to the landing page; direct opens fall back correctly; split, refresh
+  (empty), split, Clear all (empty), Clear all during a split (late answer ignored).
+  Lint and build pass.
+
+### Fix: "member C" in the verdict sentence (2026-10-24, reported by Laptop A)
+
+- With one medium risk the verdict reads "One thing to watch: <summary>" and
+  `lowerFirst()` lowercased "Member C". Now it lowercases only an ordinary first
+  word ("At", "A", "Three") and leaves "Member X", "PR #31", "GitHub" and
+  numbers alone. Checked on the Nexus replay for 18 Sep. All checks, lint, build pass.
+
+### Landing page at "/" (2026-10-24, on Aarya's laptop, agreed with Shruti)
+
+Pages are Laptop A's area; built here at the team's request, Shruti agreed.
+- New `src/app/page.tsx` + `src/components/landing/Landing.tsx` + `landing.css`:
+  one-screen landing page from a given design (video background, liquid-metal
+  nav pills, glass buttons, staggered entrance motion, phone menu with blur).
+  All text and links are SquadSync's: nav Mentor view /mentor, Team view
+  /team/nexus, Split a PRD /plan, Paste a repo /connect; buttons Open dashboard,
+  See a live team, Analyse your repo. Stats are true facts (15 risk rules, 0%
+  weight on commit count, teams up to 12).
+- The mentor list moved from `/` to `/mentor` (`(shell)/page.tsx` ->
+  `(shell)/mentor/page.tsx`). Links updated: TopBar Mentor tab, ConnectForm
+  "Open the sample teams", TeamView "Back to all teams". The TopBar wordmark
+  still links to `/` (now the landing page). docs/DEMO.md step 1 and README pages table updated.
+- Deliberately outside DESIGN.md (gradients, glows, Inter and Instrument Serif,
+  colours in the CSS file), for this one page only. Every class is prefixed
+  `ssl-` and reset rules use `:where()`, so nothing reaches other pages; no html
+  or body rules, no site favicon change. Fonts via next/font on this page only.
+- Why plain CSS, not a CSS module: next.config.ts sends every `*.css` through
+  `@tailwindcss/turbopack` as global CSS, so `.module.css` class names come back
+  undefined. Also: the build drops a standard `backdrop-filter` written before
+  its `-webkit-` version, so the `-webkit-` line must come first.
+- Checked in the browser: 1440x900 one frame, no scroll, all 16 animated parts
+  settle; 375x812 fits one screen, menu opens full width with blur, Escape
+  closes it, labels and aria-expanded update. All 8 links go to the right
+  pages; clicking into /mentor leaves the app's font, top bar and scrolling as before.
+- The hero video is the URL from the given design (cloudfront). If it fails to
+  load, the page stays black with all text readable.
+
 ### Fix: pasted forks showed "no activity" (2026-10-24)
 
 - Found with the extension on samikshajadhav16/SheSolves3.0_Sahayog: a fork's
