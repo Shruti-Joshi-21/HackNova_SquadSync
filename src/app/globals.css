@@ -42,6 +42,12 @@
   --text-xs--line-height: 1.45;
 }
 
+/* The site is dark only: tell the browser, so scrollbars and form controls are dark too. */
+html {
+  color-scheme: dark;
+  scrollbar-color: var(--border-strong) var(--bg);
+}
+
 body {
   background: var(--bg);
   color: var(--text);

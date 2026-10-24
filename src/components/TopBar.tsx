@@ -8,7 +8,7 @@ import { getTeams } from "@/lib/data";
 
 // Wordmark, team switcher and the Mentor / Team toggle. The toggle follows the
 // URL: "/mentor" is the mentor view, "/team/[id]" is the team view. "/" is the landing page.
-export default function TopBar() {
+export default function TopBar({ wide = false }: { wide?: boolean }) {
   const pathname = usePathname();
   const router = useRouter();
   const [teams, setTeams] = useState<TeamListItem[]>([]);
@@ -28,7 +28,7 @@ export default function TopBar() {
 
   return (
     <header className="h-12 border-b border-border bg-bg">
-      <div className="mx-auto flex h-full max-w-[1440px] items-center gap-4 px-6 lg:px-10">
+      <div className={`mx-auto flex h-full items-center gap-4 px-6 lg:px-10 ${wide ? "max-w-[1800px]" : "max-w-[1440px]"}`}>
         <Link href="/" className="font-semibold text-text">
           SquadSync
         </Link>
