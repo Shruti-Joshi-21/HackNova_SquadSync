@@ -78,7 +78,7 @@ export default function MentorTable() {
       <ul className="mt-6 divide-y divide-border border-y border-border md:hidden">
         {rows.map(({ team, top }) => (
           <li key={team.id}>
-            <Link href={`/team/${team.id}`} className="block py-3 hover:bg-surface-2">
+            <Link href={`/team/${team.id}?view=mentor`} className="block py-3 hover:bg-surface-2">
               <span className="flex items-baseline gap-3">
                 <span className="font-semibold">{team.name}</span>
                 {team.id.startsWith("gh-") && <Tag tone="neutral">Pasted repo</Tag>}
@@ -115,7 +115,7 @@ export default function MentorTable() {
                 <tr key={team.id} className="relative border-b border-border align-top hover:bg-surface-2">
                   <td className="py-3 pr-4 whitespace-nowrap">
                     {/* The link covers the whole row. */}
-                    <Link href={`/team/${team.id}`} className="font-semibold after:absolute after:inset-0">
+                    <Link href={`/team/${team.id}?view=mentor`} className="font-semibold after:absolute after:inset-0">
                       {team.name}
                     </Link>
                     {team.id.startsWith("gh-") && (

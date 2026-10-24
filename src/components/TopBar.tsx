@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { TeamListItem } from "@/lib/types";
 import { getTeams } from "@/lib/data";
 
 // Wordmark, team switcher and the Mentor / Team toggle. The toggle follows the
-// URL: "/mentor" is the mentor view, "/team/[id]" is the team view. "/" is the landing page.
+// URL: "/mentor" and "/team/[id]?view=mentor" are the mentor view, "/team/[id]" is
+// the team view. "/" is the landing page. Layouts wrap this in Suspense (search params).
 export default function TopBar({ wide = false }: { wide?: boolean }) {
   const pathname = usePathname();
+  const params = useSearchParams();
   const router = useRouter();
   const [teams, setTeams] = useState<TeamListItem[]>([]);
 
@@ -23,8 +25,11 @@ export default function TopBar({ wide = false }: { wide?: boolean }) {
     };
   }, []);
   const currentTeam = pathname.match(/^\/team\/([^/]+)/)?.[1] ?? "";
-  const view = currentTeam ? "team" : "mentor";
+  const view = !currentTeam || params.get("view") === "mentor" ? "mentor" : "team";
   const teamHref = `/team/${currentTeam || teams[0]?.id || ""}`;
+  // On a team page, Mentor shows the same team with the mentor parts; elsewhere it opens the list.
+  const mentorHref = currentTeam ? `/team/${currentTeam}?view=mentor` : "/mentor";
+  const suffix = view === "mentor" ? "?view=mentor" : "";
 
   return (
     <header className="h-12 border-b border-border bg-bg">
@@ -39,7 +44,7 @@ export default function TopBar({ wide = false }: { wide?: boolean }) {
         <select
           id="team-switcher"
           value={currentTeam}
-          onChange={(e) => e.target.value && router.push(`/team/${e.target.value}`)}
+          onChange={(e) => e.target.value && router.push(`/team/${e.target.value}${suffix}`)}
           className="h-8 rounded-md border border-border bg-bg px-2 text-muted hover:bg-surface-2"
         >
           <option value="">Select team</option>
@@ -52,7 +57,7 @@ export default function TopBar({ wide = false }: { wide?: boolean }) {
 
         <nav className="ml-auto flex h-8 rounded-md border border-border" aria-label="View">
           <Link
-            href="/mentor"
+            href={mentorHref}
             aria-current={view === "mentor" ? "page" : undefined}
             className={`flex items-center rounded-l-md px-3 ${view === "mentor" ? "bg-surface-2 text-text" : "text-muted hover:text-text"}`}
           >

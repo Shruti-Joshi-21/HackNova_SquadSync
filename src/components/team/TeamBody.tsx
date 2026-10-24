@@ -9,7 +9,18 @@ import ThisWeek, { AskTeam } from "./ThisWeek";
 // Everything on the team page below the header, drawn from one Analysis.
 // `replay` is the replay strip, placed under the verdict as in DESIGN.md.
 // `dim` fades the data (not the slider) while another day is loading.
-export default function TeamBody({ a, replay, dim = false }: { a: Analysis; replay?: React.ReactNode; dim?: boolean }) {
+// `mentor` adds "What to ask this team"; students see only their own steps.
+export default function TeamBody({
+  a,
+  replay,
+  dim = false,
+  mentor = false,
+}: {
+  a: Analysis;
+  replay?: React.ReactNode;
+  dim?: boolean;
+  mentor?: boolean;
+}) {
   const names = new Map(a.team.people.map((p) => [p.id, p.displayName]));
   const fade = `transition-opacity duration-200 ${dim ? "opacity-60" : "opacity-100"}`;
 
@@ -22,10 +33,14 @@ export default function TeamBody({ a, replay, dim = false }: { a: Analysis; repl
       {replay}
 
       <div className={`space-y-10 ${fade}`}>
-        <div className="grid gap-10 lg:grid-cols-2">
+        {mentor ? (
+          <div className="grid gap-10 lg:grid-cols-2">
+            <ThisWeek risks={a.risks} />
+            <AskTeam risks={a.risks} names={names} />
+          </div>
+        ) : (
           <ThisWeek risks={a.risks} />
-          <AskTeam risks={a.risks} names={names} />
-        </div>
+        )}
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           <WorkPanel a={a} />

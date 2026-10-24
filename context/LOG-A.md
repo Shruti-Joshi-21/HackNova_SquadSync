@@ -4,6 +4,15 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Mentor and team views differ (Sat 24 Oct, about 10:50 IST): the team page
+  takes `?view=mentor`. Mentor list rows link there, and the top bar's Mentor
+  toggle on a team page opens the same team in mentor view (Mentor in the
+  toggle). Only the mentor view shows "What to ask this team"; the team view
+  shows "Do these this week" alone. The team switcher keeps the current
+  view. TopBar reads search params, so both layouts wrap it in Suspense.
+  Checked: list -> mentor view with questions; Team toggle -> no questions;
+  Mentor toggle -> questions again. Build and lint pass.
+
 - Gaps and the clash view (Sat 24 Oct, about 10:30 IST):
   - Extension: it analyses with a stand-in deadline (no deadline field), so
     /embed now leaves out the deadline_slip risk and the overview's "days
