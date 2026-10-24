@@ -27,7 +27,8 @@ const SHORT: Record<RiskKind, string> = {
 const STATE: Record<Severity, NodeState> = { high: "conflict", medium: "warning", low: "commit" };
 const RANK: Record<Severity, number> = { high: 0, medium: 1, low: 2 };
 
-export function overviewScene(a: Analysis): { scene: GraphScene; branches: number } | null {
+// deadlineKnown false (the extension has no deadline field): the end node says "main", not days left.
+export function overviewScene(a: Analysis, deadlineKnown = true): { scene: GraphScene; branches: number } | null {
   // Worst risk per branch. Risks are sorted most serious first, so the first one wins.
   const byBranch = new Map<string, { lane: GraphLane; risk: Risk }>();
   for (const r of a.risks) {
@@ -52,7 +53,7 @@ export function overviewScene(a: Analysis): { scene: GraphScene; branches: numbe
   }
 
   const end: NodeState = a.verdict === "at_risk" ? "conflict" : a.verdict === "slipping" ? "warning" : "merge";
-  nodes.push({ id: "end", lane: "main", slot: 6, state: end, label: `${a.schedule.daysLeft} days left`, step: 4 });
+  nodes.push({ id: "end", lane: "main", slot: 6, state: end, label: deadlineKnown ? `${a.schedule.daysLeft} days left` : "main", step: 4 });
   edges.push({ from: pushed ? "mp" : "m0", to: "end", state: "normal", step: 4 });
 
   rows.forEach(({ lane, risk }, i) => {

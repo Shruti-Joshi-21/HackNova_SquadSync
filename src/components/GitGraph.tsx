@@ -44,9 +44,11 @@ type Props = {
   scene: GraphScene;
   /** Person.id to colorIndex (0..4). Branch lanes take their owner's graph colour. */
   colorByPerson?: Record<string, number>;
+  /** Makes conflict nodes clickable, for example to show the clashing lines. */
+  onConflictClick?: () => void;
 };
 
-export default function GitGraph({ scene, colorByPerson }: Props) {
+export default function GitGraph({ scene, colorByPerson, onConflictClick }: Props) {
   const descId = useId();
   const wrapRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(640);
@@ -256,8 +258,31 @@ export default function GitGraph({ scene, colorByPerson }: Props) {
               const shown = n.step <= current;
               const color = laneColor(laneById.get(n.lane));
               const keepLabel = showAllLabels || n.state === "conflict" || n.state === "warning";
+              const clickable = !!onConflictClick && n.state === "conflict" && shown;
               return (
-                <g key={n.id} transform={`translate(${x} ${y})`} className="gg-fade" opacity={shown ? 1 : 0}>
+                <g
+                  key={n.id}
+                  transform={`translate(${x} ${y})`}
+                  className="gg-fade"
+                  opacity={shown ? 1 : 0}
+                  {...(clickable && {
+                    role: "button",
+                    tabIndex: 0,
+                    "aria-label": "Show the clashing lines",
+                    style: { cursor: "pointer" },
+                    onClick: onConflictClick,
+                    onKeyDown: (e: React.KeyboardEvent) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        onConflictClick!();
+                      }
+                    },
+                  })}
+                >
+                  {/* A soft ring tells the reader this node can be clicked. */}
+                  {clickable && (
+                    <circle r={R + 6} fill="none" stroke="var(--danger)" strokeOpacity={0.5} className="gg-hint" />
+                  )}
                   <g className={shown && n.state === "conflict" ? "gg-pop" : undefined}>
                     <NodeMark state={n.state} color={color} animate={shown} />
                   </g>

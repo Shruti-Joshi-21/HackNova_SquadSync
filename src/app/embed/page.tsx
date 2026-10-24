@@ -105,9 +105,12 @@ function EmbedContent() {
 
   const { analysis } = fetchState;
   const colorByPerson = Object.fromEntries(analysis.team.people.map((p) => [p.id, p.colorIndex]));
-  const topRisks = analysis.risks.slice(0, 3);
-  const overview = overviewScene(analysis);
-  const thisWeek = thisWeekSteps(analysis.risks);
+  // The side panel has no deadline field, so it analyses with a stand-in deadline.
+  // Leave out everything that depends on it: the deadline risk and "days left".
+  const risks = analysis.risks.filter((r) => r.kind !== "deadline_slip");
+  const topRisks = risks.slice(0, 3);
+  const overview = overviewScene({ ...analysis, risks }, false);
+  const thisWeek = thisWeekSteps(risks);
 
   return (
     <div className="space-y-6">
@@ -121,7 +124,7 @@ function EmbedContent() {
           <p className="font-semibold">
             Overview{" "}
             <span className="font-normal text-muted">
-              {analysis.risks.length} risks across {overview.branches} branches
+              {risks.length} risks across {overview.branches} branches
             </span>
           </p>
           <div className="mt-2 overflow-x-auto">
@@ -139,9 +142,11 @@ function EmbedContent() {
 
       <div>
         <p className="font-semibold">
-          Top risks <span className="font-normal text-muted">{analysis.risks.length} in all</span>
+          Top risks <span className="font-normal text-muted">{risks.length} in all</span>
         </p>
-        <p className="text-xs text-muted">Most serious first. Open one to see the proof.</p>
+        <p className="text-xs text-muted">
+          Most serious first. Open one to see the proof. Deadline checks need a deadline: set it in the full dashboard.
+        </p>
         {topRisks.length === 0 ? (
           <p className="mt-2 text-muted">No risks found. The team&apos;s numbers are inside the usual ranges.</p>
         ) : (

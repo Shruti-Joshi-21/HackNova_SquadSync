@@ -34,3 +34,16 @@
     animation: none;
   }
 }
+
+/* "Show the clashing lines": the card fades in, the bars grow from the left,
+   then the overlap appears. */
+.lc-in { animation: bx-pop 220ms ease-out both; }
+.lc-bar { transform-origin: left; animation: lc-grow 500ms cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+.lc-overlap { animation: lc-show 400ms ease-out 650ms both; }
+
+@keyframes lc-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes lc-show { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-in, .lc-bar, .lc-overlap { animation: none; }
+}

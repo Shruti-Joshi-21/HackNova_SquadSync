@@ -1,6 +1,6 @@
 import type { Risk } from "@/lib/types";
 import { Tag } from "@/components/ui";
-import { PREVENTS } from "./explain";
+import { ASK, PREVENTS } from "./explain";
 import Steps, { type Step } from "./Steps";
 
 const MAX = 3;
@@ -32,6 +32,30 @@ export default function ThisWeek({ risks }: { risks: Risk[] }) {
       <div className="mt-3 max-w-[80ch]">
         <Steps steps={steps} />
       </div>
+    </section>
+  );
+}
+
+// For mentors: one question per top risk, to open the next meeting with.
+export function AskTeam({ risks, names }: { risks: Risk[]; names: Map<string, string> }) {
+  const seen = new Set<string>();
+  const questions = risks
+    .filter((r) => r.severity !== "low")
+    .map((r) => ASK[r.kind](r.people.map((id) => names.get(id) ?? id)))
+    .filter((q) => !seen.has(q) && seen.add(q))
+    .slice(0, MAX);
+  if (questions.length === 0) return null;
+  return (
+    <section>
+      <h2 className="text-lg font-semibold">What to ask this team</h2>
+      <p className="mt-1 text-muted">For mentors: questions to open the next meeting with.</p>
+      <ul className="mt-3 max-w-[80ch] divide-y divide-border border-y border-border">
+        {questions.map((q, i) => (
+          <li key={i} className="py-3">
+            {q}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

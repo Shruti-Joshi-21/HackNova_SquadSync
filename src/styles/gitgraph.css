@@ -50,3 +50,19 @@
     animation: none !important;
   }
 }
+
+/* Clickable conflict node: a soft ring that breathes, so the reader knows to click it. */
+.gg-hint {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: gg-hint 1.6s ease-in-out infinite;
+}
+
+@keyframes gg-hint {
+  0%, 100% { opacity: 0.35; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gg-hint { animation: none; }
+}

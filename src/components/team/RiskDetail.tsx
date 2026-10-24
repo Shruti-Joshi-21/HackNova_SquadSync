@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { ArrowRightIcon } from "@primer/octicons-react";
 import type { Analysis, Risk } from "@/lib/types";
 import GitGraph from "@/components/GitGraph";
@@ -7,6 +10,7 @@ import { boxRowsFor } from "./boxSpec";
 import { CONFIDENCE_MEANS, EXPLAIN, NEXT_STEPS, SEVERITY_MEANS } from "./explain";
 import { sceneFor } from "./fallbackScene";
 import Steps from "./Steps";
+import LineClash, { clashOf } from "./LineClash";
 
 // The body of one risk, shared by the team page drawer and the extension side
 // panel: the sentence, a picture (box rows for counts, a branch scene for the
@@ -17,6 +21,8 @@ export default function RiskDetail({ risk, a }: { risk: Risk; a: Analysis }) {
   const scene = boxes ? undefined : sceneFor(risk, a);
   const colors = Object.fromEntries(a.team.people.map((p) => [p.id, p.colorIndex]));
   const names = new Map(a.team.people.map((p) => [p.id, p.displayName]));
+  const clash = scene ? clashOf(risk) : null;
+  const [showClash, setShowClash] = useState(false);
 
   return (
     <div className="space-y-6">
@@ -29,7 +35,27 @@ export default function RiskDetail({ risk, a }: { risk: Risk; a: Analysis }) {
         )}
       </div>
 
-      {boxes ? <BoxRows key={risk.id} spec={boxes} /> : scene && <GitGraph scene={scene} colorByPerson={colors} />}
+      {boxes ? (
+        <BoxRows key={risk.id} spec={boxes} />
+      ) : (
+        scene && (
+          <div className="space-y-3">
+            <GitGraph
+              scene={scene}
+              colorByPerson={colors}
+              onConflictClick={clash ? () => setShowClash((v) => !v) : undefined}
+            />
+            {clash &&
+              (showClash ? (
+                <LineClash changes={clash} />
+              ) : (
+                <button type="button" onClick={() => setShowClash(true)} className="text-left text-link hover:underline">
+                  Click the red node to see the exact lines that clash
+                </button>
+              ))}
+          </div>
+        )
+      )}
 
       <section className="rounded-md border border-border bg-surface-2 p-4">
         <p className="flex items-center gap-2 text-xs text-muted">

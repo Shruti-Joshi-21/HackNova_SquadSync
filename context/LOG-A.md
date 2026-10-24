@@ -4,6 +4,27 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Gaps and the clash view (Sat 24 Oct, about 10:30 IST):
+  - Extension: it analyses with a stand-in deadline (no deadline field), so
+    /embed now leaves out the deadline_slip risk and the overview's "days
+    left" (end node says "main"), and says deadline checks need the full
+    dashboard. `overviewScene(a, deadlineKnown)`.
+  - Mentor list: repos pasted in this browser are listed with the sample
+    teams, tagged "Pasted repo", using their saved result (no GitHub calls).
+    `getTeams()` merges them; `savedAnalysis()` in data.ts. The team
+    switcher gets them too.
+  - Team page: "What to ask this team" beside "Do these this week": one
+    mentor question per top risk, with the people's names (`ASK` in
+    explain.ts, `AskTeam` in ThisWeek.tsx).
+  - Clash view: in a risk's graph the red conflict node is clickable (breathing
+    ring, keyboard too; `onConflictClick` on GitGraph), and a link under the
+    graph does the same. It opens `team/LineClash.tsx`: the file, each
+    person's changed line range on one ruler, the shared lines in red, one
+    plain sentence. Built only from the evidence ("modified X, L60-82",
+    "removed X, whole file").
+  - Checked: build passes; routes.js shows lines 60 to 75 in red; a pasted
+    repo appears on /mentor; mentor questions show on Nexus.
+
 - Visual evidence drawer (Sat 24 Oct, about 09:55 IST):
   - `team/RiskDetail.tsx`: one risk body shared by the drawer and /embed:
     sentence (+ AI tag), a picture, a "Do this" box with the numbered steps,
