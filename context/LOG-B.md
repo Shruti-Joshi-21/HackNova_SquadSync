@@ -4,6 +4,21 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+### Landing: "15 risk rules" overview, dev badge off (2026-10-24)
+
+- The first stat on the landing page is now a button (same look, hover
+  underline). It opens a dialog listing the 15 rules (the 15 RiskKind values) in
+  three groups: Work and reviews (4), Conflict radar (8), Stalled work and the
+  plan (3), one plain line each, plus "See them on a live team" (/team/nexus).
+  Closes with Escape, the close button or a click outside; focus goes to the
+  close button and back to the stat. One column and scrolls inside on phones.
+  Styles in landing.css under `ssl-rules*`.
+- Removed the other two landing stats ("0% weight on commit count", "Built for
+  student teams of up to 12") and their icons; "15 risk rules" is centred alone.
+- `next.config.ts` (Laptop A's file): `devIndicators: false` hides the "N"
+  badge during `npm run dev`. It never showed in production.
+- Checked in the browser at 1440x900 and 375x812. Lint and build pass.
+
 ### Back buttons and Clear all on /plan (2026-10-24, on Aarya's laptop, Laptop A's area)
 
 - New `src/components/BackButton.tsx`, shown once at the top of every page in

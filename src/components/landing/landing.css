@@ -30,8 +30,6 @@
   --copy-max: 860px;
   --lede-max: 470px;
   --icon: 20px;
-  --icon-wide-w: 38px;
-  --icon-wide-h: 21px;
 
   /* Desktop: one frame, no scroll, without touching html or body. */
   position: fixed;
@@ -411,7 +409,7 @@
 .ssl-stats {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
   padding: 0 var(--stats-x) var(--stats-y);
   padding-bottom: max(var(--stats-y), env(safe-area-inset-bottom));
@@ -434,11 +432,6 @@
   color: #e8e8e8;
 }
 
-.ssl-statIconWide {
-  width: var(--icon-wide-w);
-  height: var(--icon-wide-h);
-  flex: none;
-}
 
 /* ---------- entrance motion ---------- */
 
@@ -560,8 +553,6 @@
     --copy-max: 980px;
     --lede-max: 540px;
     --icon: 22px;
-    --icon-wide-w: 45px;
-    --icon-wide-h: 24px;
   }
   .ssl-navLink { padding: 0 20px; }
   .ssl-badge { margin-bottom: 26px; }
@@ -588,8 +579,6 @@
     --stats-y: 52px;
     --copy-max: 1120px;
     --lede-max: 620px;
-    --icon-wide-w: 48px;
-    --icon-wide-h: 26px;
   }
   .ssl-nav { gap: 10px; }
   .ssl-navLink { padding: 0 22px; }
@@ -800,6 +789,179 @@
   }
 
   .ssl-heroActions .ssl-btn {
+    width: 100%;
+  }
+}
+
+/* ---------- "15 risk rules" overview ---------- */
+
+.ssl-statButton {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.ssl-statButton span {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.28);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.25s ease, color 0.25s ease;
+}
+
+.ssl-statButton:hover span {
+  color: #ffffff;
+  text-decoration-color: rgba(255, 255, 255, 0.85);
+}
+
+.ssl-statButton:focus-visible,
+.ssl-rulesClose:focus-visible {
+  outline: 2px solid rgba(186, 208, 255, 0.8);
+  outline-offset: 4px;
+}
+
+.ssl-rulesOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  animation: ssl-in-photo 0.25s ease both;
+}
+
+.ssl-rulesPanel {
+  width: 100%;
+  max-width: 880px;
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  padding: 26px 28px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(198, 198, 198, 0.35);
+  background: linear-gradient(160deg, rgba(40, 40, 40, 0.92), rgba(8, 8, 8, 0.96) 55%, rgba(24, 28, 36, 0.94));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 24px 60px rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  text-align: left;
+  animation: ssl-in-btn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ssl-rulesHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ssl-rulesTitle {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.ssl-rulesLede {
+  margin-top: 6px;
+  color: #9a9a9a;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ssl-rulesClose {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.ssl-rulesClose:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ssl-rulesGroups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 32px;
+  margin-top: 22px;
+}
+
+.ssl-rulesGroup:nth-child(2) {
+  grid-row: span 2;
+  grid-column: 2;
+}
+
+.ssl-rulesGroupTitle {
+  margin-bottom: 10px;
+  color: var(--warning);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ssl-rulesList {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.ssl-rulesList li {
+  display: grid;
+  gap: 2px;
+}
+
+.ssl-rulesName {
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.ssl-rulesText {
+  color: #9a9a9a;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.ssl-rulesFoot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 22px;
+}
+
+@media (max-width: 900px) {
+  .ssl-rulesOverlay {
+    place-items: start center;
+    padding: 16px;
+  }
+
+  .ssl-rulesPanel {
+    max-height: calc(100dvh - 32px);
+    padding: 20px 18px;
+  }
+
+  .ssl-rulesGroups {
+    grid-template-columns: 1fr;
+  }
+
+  .ssl-rulesGroup:nth-child(2) {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .ssl-rulesFoot .ssl-btn {
     width: 100%;
   }
 }
