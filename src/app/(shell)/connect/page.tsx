@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ConnectForm from "@/components/ConnectForm";
 
 // One centred card, like a sign-in page. The empty layer behind it is where the
@@ -9,7 +10,10 @@ export default function ConnectPage() {
       <div className="w-full max-w-[460px] rounded-md border border-border bg-surface p-8">
         <h1 className="text-center text-2xl font-semibold">Check a repo</h1>
         <p className="mt-2 mb-8 text-center text-muted">Paste a GitHub link. No sign-in needed.</p>
-        <ConnectForm />
+        {/* Suspense: the form reads ?repo= from the URL. */}
+        <Suspense>
+          <ConnectForm />
+        </Suspense>
       </div>
     </div>
   );

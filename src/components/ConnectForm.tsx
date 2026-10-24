@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { connectRepo, parseRepo } from "@/lib/data";
 
 type Errors = { repo?: string; deadline?: string };
@@ -20,7 +20,9 @@ const inputClass =
 
 // Login-free setup: repo link, deadline, optional task CSV.
 export default function ConnectForm() {
-  const [repo, setRepo] = useState("");
+  // ?repo=owner/name comes from the extension's "Open the full dashboard" link.
+  const params = useSearchParams();
+  const [repo, setRepo] = useState(params.get("repo") ?? "");
   const [deadline, setDeadline] = useState("");
   const [csv, setCsv] = useState<{ name: string; text: string } | null>(null);
   const [errors, setErrors] = useState<Errors>({});
