@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import Link from "next/link";
 import { useTrail } from "@/components/BackButton";
 import "./landing.css";
@@ -38,7 +38,6 @@ const s = {
   stats: "ssl-stats",
   stat: "ssl-stat",
   statIcon: "ssl-statIcon",
-  statIconWide: "ssl-statIconWide",
   appear: "ssl-appear",
   scale: "ssl-scale",
   soft: "ssl-soft",
@@ -48,6 +47,20 @@ const s = {
   side: "ssl-side",
   statIn: "ssl-statIn",
   isIn: "ssl-isIn",
+  statButton: "ssl-statButton",
+  rulesOverlay: "ssl-rulesOverlay",
+  rulesPanel: "ssl-rulesPanel",
+  rulesHead: "ssl-rulesHead",
+  rulesTitle: "ssl-rulesTitle",
+  rulesLede: "ssl-rulesLede",
+  rulesClose: "ssl-rulesClose",
+  rulesGroups: "ssl-rulesGroups",
+  rulesGroup: "ssl-rulesGroup",
+  rulesGroupTitle: "ssl-rulesGroupTitle",
+  rulesList: "ssl-rulesList",
+  rulesName: "ssl-rulesName",
+  rulesText: "ssl-rulesText",
+  rulesFoot: "ssl-rulesFoot",
 };
 
 // The landing page at "/": one screen, entrance motion, links into the app.
@@ -62,11 +75,51 @@ const NAV = [
   { label: "Paste a repo", href: "/connect", motion: s.soft, d: "0.52s" },
 ];
 
+// The 15 rules the engine runs (RiskKind in src/lib/types.ts), in plain words.
+const RULES: { group: string; items: [string, string][] }[] = [
+  {
+    group: "Work and reviews",
+    items: [
+      ["Uneven workload", "One person does far more, or far less, than the team's even share. Commit count is never used."],
+      ["Review gap", "Code merged with no review, or a member who never reviews anyone's work."],
+      ["Late integration", "Most code lands in the last 3 days, or a pull request stays open over a week."],
+      ["Deadline slip", "At the pace of the last 7 days, the open tasks finish after the deadline."],
+    ],
+  },
+  {
+    group: "Conflict radar",
+    items: [
+      ["Same lines edited", "Two open branches change the same lines of one file. Likely conflict."],
+      ["Same file edited", "Two open branches change one file on different lines. Possible conflict."],
+      ["Pull request conflicting", "GitHub already reports that the pull request cannot merge. Certain."],
+      ["Edit versus delete", "One branch edits a file that another branch deletes or renames."],
+      ["Same new file", "Two branches each add a new file at the same path."],
+      ["Lockfile clash", "Two branches change package-lock.json, which should be regenerated, not merged by hand."],
+      ["Branch drift", "A branch has fallen more than 10 commits behind main."],
+      ["Direct push to main", "A commit landed on main without a pull request while other work was open."],
+    ],
+  },
+  {
+    group: "Stalled work and the plan",
+    items: [
+      ["Stale branch", "A task is still open, but its branch has had no push for 5 days."],
+      ["Unpushed work", "A task in progress for 5 days with nothing on GitHub. A proxy: we cannot see laptops."],
+      ["Off the plan", "Someone edited a folder or shared file that the PRD plan gives to someone else."],
+    ],
+  },
+];
+
 const delay = (d: string) => ({ "--d": d }) as CSSProperties;
 
 export default function Landing() {
   const root = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [rulesOpen, setRulesOpen] = useState(false);
+  const rulesButton = useRef<HTMLButtonElement>(null);
+  const closeRules = useCallback(() => {
+    setRulesOpen(false);
+    rulesButton.current?.focus();
+  }, []);
   useTrail("/"); // so Back on the next page returns here
 
   // Each animated element settles into .isIn when its own animation ends.
@@ -98,6 +151,17 @@ export default function Landing() {
       cancelAnimationFrame(raf2);
     };
   }, []);
+
+  // The page behind the rules overview does not scroll while it is open.
+  useEffect(() => {
+    if (!rulesOpen) return;
+    const scroller = root.current;
+    const before = scroller?.style.overflowY ?? "";
+    if (scroller) scroller.style.overflowY = "hidden";
+    return () => {
+      if (scroller) scroller.style.overflowY = before;
+    };
+  }, [rulesOpen]);
 
   // Menu: Escape and a wide screen close it; the page behind does not scroll while open.
   useEffect(() => {
@@ -203,22 +267,92 @@ export default function Landing() {
         </main>
 
         <footer className={s.stats}>
-          <Stat d="1.12s" icon={<RulesIcon />}>
+          <Stat d="1.12s" icon={<RulesIcon />} onClick={() => setRulesOpen(true)} buttonRef={rulesButton}>
             15 risk rules, each backed by evidence
           </Stat>
-          <Stat d="1.28s" icon={<CommitIcon />}>
-            0% weight on commit count
-          </Stat>
-          <Stat d="1.44s" icon={<TeamIcon />}>
-            Built for student teams of up to 12
-          </Stat>
         </footer>
+      </div>
+
+      {rulesOpen && (
+        <RulesPanel onClose={closeRules} />
+      )}
+    </div>
+  );
+}
+
+/** Overview of the 15 rules. Escape, the close button or a click outside closes it. */
+function RulesPanel({ onClose }: { onClose: () => void }) {
+  const close = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    close.current?.focus();
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  return (
+    <div className={s.rulesOverlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className={s.rulesPanel} role="dialog" aria-modal="true" aria-labelledby="rules-title">
+        <div className={s.rulesHead}>
+          <div>
+            <h2 id="rules-title" className={s.rulesTitle}>
+              15 risk rules
+            </h2>
+            <p className={s.rulesLede}>Every risk shows its rule, the evidence from your data, a picture and one next step.</p>
+          </div>
+          <button ref={close} type="button" className={s.rulesClose} onClick={onClose} aria-label="Close">
+            <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+        <div className={s.rulesGroups}>
+          {RULES.map((g) => (
+            <section key={g.group} className={s.rulesGroup}>
+              <h3 className={s.rulesGroupTitle}>{g.group}</h3>
+              <ul className={s.rulesList}>
+                {g.items.map(([name, text]) => (
+                  <li key={name}>
+                    <span className={s.rulesName}>{name}</span>
+                    <span className={s.rulesText}>{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+        <div className={s.rulesFoot}>
+          <Link href="/team/nexus" className={`${s.btn} ${s.btnSolid}`}>
+            See them on a live team
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
 
-function Stat({ d, icon, children }: { d: string; icon: ReactNode; children: ReactNode }) {
+function Stat({ d, icon, children, onClick, buttonRef }: {
+  d: string;
+  icon: ReactNode;
+  children: ReactNode;
+  onClick?: () => void;
+  buttonRef?: React.Ref<HTMLButtonElement>;
+}) {
+  if (onClick) {
+    return (
+      <button
+        ref={buttonRef}
+        type="button"
+        onClick={onClick}
+        aria-haspopup="dialog"
+        className={`${s.stat} ${s.statButton} ${s.appear} ${s.statIn}`}
+        style={delay(d)}
+      >
+        {icon}
+        <span>{children}</span>
+      </button>
+    );
+  }
   return (
     <div className={`${s.stat} ${s.appear} ${s.statIn}`} style={delay(d)}>
       {icon}
@@ -269,33 +403,4 @@ function RulesIcon() {
   );
 }
 
-function CommitIcon() {
-  return (
-    <svg className={s.statIcon} viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="2.4" y="2.4" width="19.2" height="19.2" rx="6.2" fill="#ffffff" />
-      <path d="M12 7.1v7.4" stroke="#111111" strokeWidth="1.85" strokeLinecap="round" fill="none" />
-      <path d="M8.15 12.35L12 16.2l3.85-3.85" stroke="#111111" strokeWidth="1.85" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    </svg>
-  );
-}
 
-function TeamIcon() {
-  return (
-    <svg className={s.statIconWide} viewBox="0 0 40 22" aria-hidden="true">
-      <circle cx="10.2" cy="11" r="9.2" fill="#2b2b2b" />
-      <path d="M5.9 8.6l1.2-3.4 2.2 2.4z M14.5 8.6l-1.2-3.4-2.2 2.4z" fill="#f4f4f4" />
-      <ellipse cx="10.2" cy="12.1" rx="4.15" ry="3.7" fill="#f4f4f4" />
-      <circle cx="8.6" cy="11.6" r="0.7" fill="#1a1a1a" />
-      <circle cx="11.8" cy="11.6" r="0.7" fill="#1a1a1a" />
-      <circle cx="20.2" cy="11" r="9.2" fill="#ffffff" />
-      <circle cx="17.4" cy="9.6" r="1.7" fill="#111111" />
-      <circle cx="23" cy="9.6" r="1.7" fill="#111111" />
-      <ellipse cx="20.2" cy="12.4" rx="1" ry="0.7" fill="#111111" />
-      <path d="M17.6 14.4q2.6 2.2 5.2 0" stroke="#111111" strokeWidth="1.2" strokeLinecap="round" fill="none" />
-      <circle cx="30.2" cy="11" r="9.2" fill="#f26b1d" />
-      <text x="30.2" y="15.1" fontSize="12.5" fontWeight="700" textAnchor="middle" fill="#ffffff" fontFamily="Inter, system-ui, sans-serif">
-        s
-      </text>
-    </svg>
-  );
-}
