@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import BackButton from "@/components/BackButton";
 import TopBar from "@/components/TopBar";
 
@@ -5,7 +6,10 @@ import TopBar from "@/components/TopBar";
 export default function ShellLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <TopBar />
+      {/* The top bar reads ?view=, so it needs a Suspense boundary on static pages. */}
+      <Suspense fallback={<div className="h-12 border-b border-border bg-bg" />}>
+        <TopBar />
+      </Suspense>
       <main className="mx-auto max-w-[1440px] px-6 py-8 lg:px-10">
         <BackButton />
         {children}

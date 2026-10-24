@@ -21,7 +21,7 @@ type State =
 const memory = new Map<string, { a: Analysis; at: Date }>();
 
 // Loads the team from the API, with Refresh and an optional 60-second auto-refresh.
-export default function TeamView({ id }: { id: string }) {
+export default function TeamView({ id, mentor = false }: { id: string; mentor?: boolean }) {
   const [state, setState] = useState<State>(() => {
     const m = memory.get(id);
     return m ? { status: "ready", ...m } : { status: "loading" };
@@ -144,6 +144,7 @@ export default function TeamView({ id }: { id: string }) {
       <TeamBody
         a={a}
         dim={replayPending}
+        mentor={mentor}
         replay={
           canReplay && (
           <div>
