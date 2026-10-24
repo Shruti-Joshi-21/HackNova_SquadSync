@@ -203,3 +203,24 @@ export const NEXT_STEPS: Record<RiskKind, string[]> = {
     "Check the plan page again: everyone should own a module.",
   ],
 };
+
+// For mentors: one question to ask the team about each kind of risk.
+// `who` is the people in the risk, for example ["Member B", "Member C"].
+const pair = (who: string[]) => (who.length >= 2 ? `${who[0]} and ${who[1]}` : who[0] ?? "the team");
+export const ASK: Record<RiskKind, (who: string[]) => string> = {
+  workload_imbalance: (w) => `Which of ${w[0] ?? "the busiest person"}'s open tasks could someone else take this week?`,
+  review_gap: (w) => (w.length === 1 ? `What stops ${w[0]} from reviewing a teammate's pull request?` : "Who reviews a pull request before it is merged, and is that written down?"),
+  late_integration: () => "What is ready now that could be merged today instead of at the end?",
+  deadline_slip: () => "Which tasks would you drop or shrink if the deadline cannot move?",
+  same_file_overlap: (w) => `Have ${pair(w)} talked about who merges first?`,
+  same_line_overlap: (w) => `${pair(w)} changed the same lines. Who merges first, and who adjusts?`,
+  pr_conflicting: () => "Who is fixing the conflict on this pull request, and by when?",
+  modify_delete_conflict: (w) => `Should the file stay or go? Have ${pair(w)} agreed?`,
+  add_add_conflict: (w) => `${pair(w)} created the same file. Whose version do you keep?`,
+  branch_drift: (w) => `When did ${w[0] ?? "this branch"} last pull main, and when will it merge?`,
+  direct_push_to_main: () => "When is it fine to push straight to main, and did everyone agree?",
+  stale_branch: (w) => `Is ${w[0] ?? "the owner"} stuck on this task, and who could pair with them?`,
+  lockfile_overlap: () => "Who owns package-lock.json, so it is changed in one place?",
+  unpushed_work: (w) => `Is ${w[0] ?? "the owner"}'s work pushed anywhere others can see it?`,
+  task_code_mismatch: () => "Does the plan still match who is building what?",
+};

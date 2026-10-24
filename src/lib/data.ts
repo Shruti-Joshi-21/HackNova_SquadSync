@@ -21,9 +21,32 @@ async function getJson<T>(url: string, init?: RequestInit): Promise<T> {
   return body as T;
 }
 
+/** The sample teams from the API, plus the repos pasted on /connect in this browser. */
 export async function getTeams(): Promise<TeamListItem[]> {
   if (USE_MOCKS) return mockTeams;
-  return getJson<TeamListItem[]>("/api/teams");
+  const teams = await getJson<TeamListItem[]>("/api/teams");
+  const known = new Set(teams.map((t) => t.id));
+  return [...teams, ...savedTeams().filter((t) => !known.has(t.id))];
+}
+
+/** Pasted repos with their last result, from this browser only (the server keeps nothing). */
+function savedTeams(): TeamListItem[] {
+  if (typeof window === "undefined") return [];
+  return Object.values(readRepos())
+    .map((r) => r.analysis)
+    .filter((a): a is Analysis => !!a)
+    .map((a) => ({
+      id: a.teamId,
+      name: a.team.name,
+      verdict: a.verdict,
+      verdictReason: a.verdictReason,
+      riskCount: a.risks.length,
+    }));
+}
+
+/** The last result saved for a pasted repo, without asking GitHub again. */
+export function savedAnalysis(teamId: string): Analysis | null {
+  return readSavedRepo(teamId)?.analysis ?? null;
 }
 
 /**

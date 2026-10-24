@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Risk, TeamListItem, Verdict } from "@/lib/types";
-import { getAnalysis, getTeams } from "@/lib/data";
+import { getAnalysis, getTeams, savedAnalysis } from "@/lib/data";
 import { SEVERITY, Tag, VERDICT } from "@/components/ui";
 import { Block, ErrorState } from "@/components/states";
 
@@ -27,7 +27,8 @@ export default function MentorTable() {
         // The largest risk needs each team's analysis; fill it in as they arrive.
         const tops = await Promise.all(
           teams.map((t) =>
-            getAnalysis(t.id)
+            // A pasted repo uses its saved result, so the list does not call GitHub once per repo.
+            (savedAnalysis(t.id) ? Promise.resolve(savedAnalysis(t.id)) : getAnalysis(t.id))
               .then((a) => a?.risks[0] ?? null)
               .catch(() => null),
           ),
@@ -80,6 +81,7 @@ export default function MentorTable() {
             <Link href={`/team/${team.id}`} className="block py-3 hover:bg-surface-2">
               <span className="flex items-baseline gap-3">
                 <span className="font-semibold">{team.name}</span>
+                {team.id.startsWith("gh-") && <Tag tone="neutral">Pasted repo</Tag>}
                 <span className={`font-semibold ${VERDICT[team.verdict].text}`}>{VERDICT[team.verdict].word}</span>
                 <span className="ml-auto font-mono text-xs text-muted">{team.riskCount} risks</span>
               </span>
@@ -116,6 +118,11 @@ export default function MentorTable() {
                     <Link href={`/team/${team.id}`} className="font-semibold after:absolute after:inset-0">
                       {team.name}
                     </Link>
+                    {team.id.startsWith("gh-") && (
+                      <span className="ml-2">
+                        <Tag tone="neutral">Pasted repo</Tag>
+                      </span>
+                    )}
                   </td>
                   <td className={`py-3 pr-4 font-semibold whitespace-nowrap ${v.text}`}>{v.word}</td>
                   <td className="py-3 pr-4 text-muted">{team.verdictReason}</td>
