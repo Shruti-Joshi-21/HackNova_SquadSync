@@ -9,6 +9,7 @@ import { EXPLAIN, NEXT_STEPS } from "@/components/team/explain";
 import Steps from "@/components/team/Steps";
 import { thisWeekSteps } from "@/components/team/ThisWeek";
 import { overviewScene } from "@/components/team/overview";
+import { sceneFor } from "@/components/team/fallbackScene";
 import { connectRepo, parseRepo } from "@/lib/data";
 import type { Analysis, Risk } from "@/lib/types";
 
@@ -183,7 +184,7 @@ function EmbedContent() {
         ) : (
           <div>
             {topRisks.map((risk) => (
-              <RiskRow key={risk.id} risk={risk} colorByPerson={colorByPerson} />
+              <RiskRow key={risk.id} risk={{ ...risk, scene: sceneFor(risk, analysis) }} colorByPerson={colorByPerson} />
             ))}
           </div>
         )}

@@ -4,6 +4,16 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Every risk has a picture (Sat 24 Oct, about 09:35 IST):
+  `team/fallbackScene.ts` `sceneFor(risk, a)` returns the engine's scene, or
+  for kinds the engine draws none for, builds one from the risk's own numbers:
+  deadline_slip (done to today, dashed work past the deadline, red finish
+  date), workload_imbalance (one lane per person, dots follow the combined
+  share, flagged person amber), review_gap for one person (teammates' work
+  merging into main, "no review by C"), late_integration open PR (the PR lane
+  growing, dashed to "not merged"). Used in the drawer and /embed. Checked:
+  all 12 Nexus risks open with a picture.
+
 - Overview picture, correct dates, less text (Sat 24 Oct, about 09:15 IST):
   - Hero now shows an overview scene (`team/overview.ts`), built only from the
     risks' own scenes: one lane per branch any risk involves (max 5, worst

@@ -7,6 +7,7 @@ import GitGraph from "@/components/GitGraph";
 import { CONFIDENCE_WORD, SEVERITY, Tag } from "@/components/ui";
 import { CONFIDENCE_MEANS, EXPLAIN, NEXT_STEPS, SEVERITY_MEANS } from "./explain";
 import Steps from "./Steps";
+import { sceneFor } from "./fallbackScene";
 
 const FIRST = 5; // the rest sit behind "Show all", so the page is not a wall of text
 
@@ -60,7 +61,9 @@ export default function Risks({ a }: { a: Analysis }) {
         </button>
       )}
 
-      {open && <EvidenceDrawer risk={open} names={names} colors={colors} onClose={close} />}
+      {open && (
+        <EvidenceDrawer risk={{ ...open, scene: sceneFor(open, a) }} names={names} colors={colors} onClose={close} />
+      )}
     </section>
   );
 }
