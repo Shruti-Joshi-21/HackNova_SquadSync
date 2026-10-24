@@ -4,6 +4,16 @@ Only this owner edits this file. Newest entry on top.
 
 ## Done
 
+- Side panel matches the web app (Sat 24 Oct, about 06:55). Edited
+  `src/app/embed/page.tsx` (Samiksha's path) at Shruti's request, so both
+  views stay the same. It now uses `Tag`, `SEVERITY`, `CONFIDENCE_WORD` and
+  `VERDICT` from ui.tsx and `EXPLAIN` from team/explain.ts instead of its own
+  copies. An open risk shows the summary, "In plain words", the scene, the
+  evidence table, "What this does not mean" and "What to do". Body text is
+  the app's 15px. Links open in a new tab, since the panel is an iframe on
+  github.com. Checked at 400px on our repo: no sideways scroll.
+- For C: please pull before touching src/app/embed/page.tsx again.
+
 - Quieter tags and smoother replay (Sat 24 Oct, about 06:45):
   - `Tag` in ui.tsx: status shows as coloured text with a plain grey border,
     no tinted background (was a tinted fill). Applies to severity, verdict
